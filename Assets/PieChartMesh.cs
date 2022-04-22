@@ -30,6 +30,8 @@ public class PieChartMesh : MonoBehaviour
 
     List<int> edgeTriangles; //Haven't considered the long edge in here.....
 
+    public float pieDepth = 0.25f;
+
    void Start()
     {
         Mesh mesh = new Mesh();
@@ -39,6 +41,8 @@ public class PieChartMesh : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
 
         topFacePoints = new List<Vector3>();
+
+        bottomFacePoints = new List<Vector3>();
 
         topFaceTriangles = new List<int>();
 
@@ -52,6 +56,8 @@ public class PieChartMesh : MonoBehaviour
 
         topFacePoints.Add(origin); 
 
+        bottomFacePoints.Add(new Vector3(0, 0, pieDepth));
+
         //create the points....
 
         for(int i = 0; i < numberOfDegrees; i++)
@@ -62,10 +68,16 @@ public class PieChartMesh : MonoBehaviour
             var z = 0;
             Vector3 point = new Vector3(x, y, z);
 
+            var x2 = this.pieRadius * Mathf.Cos(i * Mathf.Deg2Rad);
+            var y2 = this.pieRadius * Mathf.Sin(i * Mathf.Deg2Rad);
+            var z2 = pieDepth;
+            Vector3 point2 = new Vector3(x2, y2, z2);
+
             Debug.Log($"Adding a point to the vertex list: ({x}, {y}, {z}), currently  on iteration {i}");
 
 
             topFacePoints.Add(point);   
+            bottomFacePoints.Add(point2);
 
         }
 
@@ -79,9 +91,18 @@ public class PieChartMesh : MonoBehaviour
             topFaceTriangles.Add(i+2);
             topFaceTriangles.Add(i+1);            
             topFaceTriangles.Add(0);
+            topFaceTriangles.Add(i+2+topFacePoints.Count);
+            topFaceTriangles.Add(i+1+topFacePoints.Count);
+            topFaceTriangles.Add(topFacePoints.Count);
+
+
         }
 
-        mesh.vertices = topFacePoints.ToArray();
+        List<Vector3> vertexList = new List<Vector3>();
+        vertexList.AddRange(topFacePoints);
+        vertexList.AddRange(bottomFacePoints);
+        //mesh.vertices = topFacePoints.ToArray();
+        mesh.vertices = vertexList.ToArray();
         mesh.triangles = topFaceTriangles.ToArray();
         mesh.Optimize();
         mesh.RecalculateNormals();
@@ -90,7 +111,7 @@ public class PieChartMesh : MonoBehaviour
         {
             Debug.Log(point);
         }
-        //StartCoroutine("DrawPoints", topFacePoints);
+        StartCoroutine("DrawPoints", vertexList);
         //StartCoroutine("DrawTriangles", topFaceTriangles);
         
     }
