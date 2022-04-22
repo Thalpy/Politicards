@@ -5,13 +5,30 @@ using UnityEngine;
 public class Event
 {
     //Name that appears at the top
-    string Name;
+    public string Name;
     //Text that appears in the description box
-    string Description;
+    public string Description;
+    //the name of the image to use
+    public string ImageName;
     //The image used for the center of the panel
-    Sprite Image;
+    private Sprite Image;
     //the length of days the event has
-    int DayLength;
+    public int DayLength;
+    //The name of the resultnames
+    public List<string> ResultNames;
     //the results possible
-    List<Result> Results;
+    private List<Result> Results;
+
+    //Conversion from string to result
+    public Result GetResult(string name)
+    {
+        foreach (Result result in Results)
+        {
+            if (result.Name == name)
+            {
+                return result;
+            }
+        }
+        return null;
+    }
 }
