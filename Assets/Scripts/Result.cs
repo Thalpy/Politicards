@@ -4,8 +4,12 @@ using UnityEngine;
 
 public interface Result
 {
+
+
     //name 
-    string Name { get; }
+    public string Name(string data); //name setter
+
+    public void Name(); // name getter
     //Function that is called on the event box ending
     public void DoResult();
 }
@@ -13,7 +17,7 @@ public interface Result
 //example child of results
 public class DrawCard : Result
 {
-    string Name = "Draw Card";
+    public string Name { get; set; } = "Draw card";
     //Text that appears in the description box
     public void DoResult()
     {
