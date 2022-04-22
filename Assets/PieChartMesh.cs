@@ -83,7 +83,7 @@ public class PieChartMesh : MonoBehaviour
 
         Debug.Log($"There are {topFacePoints.Count} points in the top face");
 
-        //create top face triangles.....
+        //create facial triangles....
 
         for(int i = 0; i < (topFacePoints.Count -2); i++)
         {
@@ -94,7 +94,18 @@ public class PieChartMesh : MonoBehaviour
             topFaceTriangles.Add(i+2+topFacePoints.Count);
             topFaceTriangles.Add(i+1+topFacePoints.Count);
             topFaceTriangles.Add(topFacePoints.Count);
+        }
 
+        //create curved edge triangles
+
+        for(int i = 0; i < (topFacePoints.Count -2); i++)
+        {
+            topFaceTriangles.Add(i);
+            topFaceTriangles.Add(i+1);
+            topFaceTriangles.Add(i + topFacePoints.Count + 1);
+            topFaceTriangles.Add(i + topFacePoints.Count + 1);
+            topFaceTriangles.Add(i+1);
+            topFaceTriangles.Add(i + topFacePoints.Count + 2);
 
         }
 
