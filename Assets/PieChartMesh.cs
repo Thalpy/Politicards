@@ -109,6 +109,22 @@ public class PieChartMesh : MonoBehaviour
 
         }
 
+        //Add the long straight edges
+
+        topFaceTriangles.Add(0);
+        topFaceTriangles.Add(topFacePoints.Count);
+        topFaceTriangles.Add(topFacePoints.Count+1);
+        topFaceTriangles.Add(0);
+        topFaceTriangles.Add(topFacePoints.Count+1);
+        topFaceTriangles.Add(1);
+        topFaceTriangles.Add(0);
+        topFaceTriangles.Add(topFacePoints.Count);
+        topFaceTriangles.Add((2*topFacePoints.Count)-1);
+        topFaceTriangles.Add(topFacePoints.Count-1);
+        topFaceTriangles.Add(0);
+        topFaceTriangles.Add((2*topFacePoints.Count)-1);
+
+
         List<Vector3> vertexList = new List<Vector3>();
         vertexList.AddRange(topFacePoints);
         vertexList.AddRange(bottomFacePoints);
