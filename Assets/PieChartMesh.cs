@@ -22,7 +22,7 @@ public class PieChartMesh : MonoBehaviour
 
     List<Vector3> bottomFacePoints;
 
-    List<int> topFaceTriangles;
+    List<int> Triangles;
 
     List<int> bottomFaceTriangles;
 
@@ -31,6 +31,8 @@ public class PieChartMesh : MonoBehaviour
     List<int> edgeTriangles; //Haven't considered the long edge in here.....
 
     public float pieDepth = 0.25f;
+
+    public int startAngle;
 
    void Start()
     {
@@ -44,7 +46,7 @@ public class PieChartMesh : MonoBehaviour
 
         bottomFacePoints = new List<Vector3>();
 
-        topFaceTriangles = new List<int>();
+        Triangles = new List<int>();
 
         //Generate the circles
 
@@ -60,7 +62,7 @@ public class PieChartMesh : MonoBehaviour
 
         //create the points....
 
-        for(int i = 0; i < numberOfDegrees; i++)
+        for(int i = 0 + startAngle; i < (numberOfDegrees + startAngle); i++)
         {
             
             var x = this.pieRadius * Mathf.Cos(i * Mathf.Deg2Rad);
@@ -75,7 +77,6 @@ public class PieChartMesh : MonoBehaviour
 
             Debug.Log($"Adding a point to the vertex list: ({x}, {y}, {z}), currently  on iteration {i}");
 
-
             topFacePoints.Add(point);   
             bottomFacePoints.Add(point2);
 
@@ -88,13 +89,13 @@ public class PieChartMesh : MonoBehaviour
         for(int i = 0; i < (topFacePoints.Count -2); i++)
         {
             Debug.Log($"Creating new triangle with vertices: {0}, {i+1}, {i+2}");
-            topFaceTriangles.Add(i+2);
-            topFaceTriangles.Add(i+1);            
-            topFaceTriangles.Add(0);
+            Triangles.Add(i+2);
+            Triangles.Add(i+1);            
+            Triangles.Add(0);
 
-            topFaceTriangles.Add(i+2+topFacePoints.Count);
-            topFaceTriangles.Add(topFacePoints.Count);
-            topFaceTriangles.Add(i+1+topFacePoints.Count);
+            Triangles.Add(i+2+topFacePoints.Count);
+            Triangles.Add(topFacePoints.Count);
+            Triangles.Add(i+1+topFacePoints.Count);
             
         }
 
@@ -102,38 +103,38 @@ public class PieChartMesh : MonoBehaviour
 
         for(int i = 0; i < (topFacePoints.Count -2); i++)
         {
-            topFaceTriangles.Add(i);
-            topFaceTriangles.Add(i+1);
-            topFaceTriangles.Add(i + topFacePoints.Count + 1);
-            topFaceTriangles.Add(i + topFacePoints.Count + 1);
-            topFaceTriangles.Add(i+1);
-            topFaceTriangles.Add(i + topFacePoints.Count + 2);
+            Triangles.Add(i);
+            Triangles.Add(i+1);
+            Triangles.Add(i + topFacePoints.Count + 1);
+            Triangles.Add(i + topFacePoints.Count + 1);
+            Triangles.Add(i+1);
+            Triangles.Add(i + topFacePoints.Count + 2);
 
         }
 
         //Add the long straight edges
 
-        topFaceTriangles.Add(topFacePoints.Count+1);
-        topFaceTriangles.Add(1);
-        topFaceTriangles.Add(0);
+        Triangles.Add(topFacePoints.Count+1);
+        Triangles.Add(1);
+        Triangles.Add(0);
         
-        topFaceTriangles.Add(topFacePoints.Count);
-        topFaceTriangles.Add(topFacePoints.Count+1);
-        topFaceTriangles.Add(0);
-        
-        
+        Triangles.Add(topFacePoints.Count);
+        Triangles.Add(topFacePoints.Count+1);
+        Triangles.Add(0);
         
         
         
-
-        topFaceTriangles.Add((2*topFacePoints.Count)-1);
-        topFaceTriangles.Add(0);
-        topFaceTriangles.Add(topFacePoints.Count);
+        
         
 
-        topFaceTriangles.Add((2*topFacePoints.Count)-1);
-        topFaceTriangles.Add(topFacePoints.Count-1);
-        topFaceTriangles.Add(0);
+        Triangles.Add((2*topFacePoints.Count)-1);
+        Triangles.Add(0);
+        Triangles.Add(topFacePoints.Count);
+        
+
+        Triangles.Add((2*topFacePoints.Count)-1);
+        Triangles.Add(topFacePoints.Count-1);
+        Triangles.Add(0);
         
 
 
@@ -142,15 +143,15 @@ public class PieChartMesh : MonoBehaviour
         vertexList.AddRange(bottomFacePoints);
         //mesh.vertices = topFacePoints.ToArray();
         mesh.vertices = vertexList.ToArray();
-        mesh.triangles = topFaceTriangles.ToArray();
+        mesh.triangles = Triangles.ToArray();
         mesh.Optimize();
         mesh.RecalculateNormals();
         mf.mesh = mesh;
-        foreach(int point in topFaceTriangles)
+        foreach(int point in Triangles)
         {
             Debug.Log(point);
         }
-        StartCoroutine("DrawPoints", vertexList);
+        //StartCoroutine("DrawPoints", vertexList);
         //StartCoroutine("DrawTriangles", topFaceTriangles);
         
     }
