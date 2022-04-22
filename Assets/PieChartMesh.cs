@@ -34,9 +34,15 @@ public class PieChartMesh : MonoBehaviour
 
     public int startAngle;
 
+    Transform myTransform;
+
+
    void Start()
     {
         Mesh mesh = new Mesh();
+
+        myTransform = GetComponent<Transform>();
+
 
         mf = GetComponent<MeshFilter>();
         
@@ -62,7 +68,7 @@ public class PieChartMesh : MonoBehaviour
 
         //create the points....
 
-        for(int i = 0 + startAngle; i < (numberOfDegrees + startAngle); i++)
+        for(int i = 0 + this.startAngle; i < (numberOfDegrees + this.startAngle); i++)
         {
             
             var x = this.pieRadius * Mathf.Cos(i * Mathf.Deg2Rad);
