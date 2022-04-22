@@ -36,8 +36,9 @@ public class PieChartMesh : MonoBehaviour
 
     Transform myTransform;
 
+    public double Proportion { get => proportion; set => proportion = value; }
 
-   void Start()
+    void Start()
     {
         Mesh mesh = new Mesh();
 

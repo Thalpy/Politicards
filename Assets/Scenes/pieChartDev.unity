@@ -270,6 +270,8 @@ MonoBehaviour:
     type: 3}
   PieSector4: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
     type: 3}
+  PieSector5: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+    type: 3}
 --- !u!1 &1724803917
 GameObject:
   m_ObjectHideFlags: 0
