@@ -2,34 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface Result
+public abstract class Result
 {
-
-
     //name 
-    public string Name(string data); //name setter
+    public string Name = "ERROR"; //name setter
 
-    public void Name(); // name getter
     //Function that is called on the event box ending
-    public void DoResult();
+    public virtual void DoResult(){
+        Debug.LogWarning("Attempted to call a result that doesn't exist!!");
+    }
 }
 
 //example child of results
 public class DrawCard : Result
 {
-    public string Name { get; set; } = "Draw card";
+    public new string Name = "Draw card";
     //Text that appears in the description box
-    public void DoResult()
+    public override void DoResult()
     {
-        Debug.Log("Drawing card");
+        Debug.Log("Draw a card");
     }
 }
 
 public class DiscardCard : Result
 {
-    string Name = "Discard Card";
+    public new string Name = "Discard Card";
     //Text that appears in the description box
-    public void DoResult()
+    public override void DoResult()
     {
         Debug.Log("Discarding card");
     }
