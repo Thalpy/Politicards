@@ -2,7 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrisusBox : MonoBehaviour
+/// <summary>
+/// This class is used to display a crisis on the screen.
+/// </summary>
+public class CrisisBox : MonoBehaviour
 {
     //name text
     public TextMesh NameText;
@@ -11,11 +14,14 @@ public class CrisusBox : MonoBehaviour
     //image
     public SpriteRenderer Image;
     //results
-    public List<Result> Results;
+    public List<Effect> Effects;
 
 
     //Feeling variable might comment later
-    void ChangeEvent(Crisus SussyCrisis)
+    /// <summary>
+    /// This function changes the display values to the passed in crisis.
+    /// </summary>
+    void ChangeEvent(Crisis SussyCrisis)
     {
         //set the name
         NameText.text = SussyCrisis.Name;
@@ -24,6 +30,6 @@ public class CrisusBox : MonoBehaviour
         //set the image
         Image.sprite = SussyCrisis.GetImage();
         //set the results
-        Results = SussyCrisis.GetResults();
+        Effects = SussyCrisis.GetEffects();
     }
 }

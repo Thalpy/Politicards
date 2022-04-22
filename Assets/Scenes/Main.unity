@@ -351,6 +351,7 @@ GameObject:
   - component: {fileID: 561427131}
   - component: {fileID: 561427130}
   - component: {fileID: 561427129}
+  - component: {fileID: 561427132}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -381,6 +382,12 @@ MonoBehaviour:
     ImageName: No.png
     DayLength: 3
     ResultNames: []
+  - Name: Landy
+    Description: Landy has a nice day
+    ImageName: Lnady.png
+    DayLength: 5
+    ResultNames:
+    - Draw card
 --- !u!114 &561427130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,6 +415,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &561427132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561427128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b22072c47679df42ad03620c238fd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Decks:
+  - faction: The big gambeetus
+    cards:
+    - Name: Holy Gambeetus
+      Description: Rids all cards of the diabetus affliction
+      ImageName: gamebeetus.png
+      ManaCost: 5
+      Faction: The big gambeetus
 --- !u!1 &853579440
 GameObject:
   m_ObjectHideFlags: 0

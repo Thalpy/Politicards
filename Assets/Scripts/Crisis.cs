@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class is used to store a crisis with a list of effects.
+/// It is ONLY a data object, so don't add functionality here.
+/// </summary>
 [System.Serializable] //makes it so that the crisis can be edited in the inspector
-public class Crisus
+public class Crisis
 {
     //Name that appears at the top
     public string Name;
@@ -11,38 +15,27 @@ public class Crisus
     public string Description;
     //the name of the image to use
     public string ImageName;
-    //the length of days the Crisus has
+    //the length of days the Crisis has
     public int DayLength;
     //The name of the resultnames
     [SerializeField]
-    public List<string> ResultNames;
+    public List<string> EffectNames;
 
     //Conversion from string to result
-    public Result GetResult(string name)
-    {
-        //TODO get results from gamemaster
-        // foreach (Result result in GameMaster.Results)
-        // {
-        //     if (result.Name == name)
-        //     {
-        //         return result;
-        //     }
-        // }
-        return null;
-    }
+
     public Sprite GetImage()
     {
         //convert imagename in to a sprite
         return Resources.Load<Sprite>("Images/" + ImageName);
     }
 
-    public List<Result> GetResults()
+    public List<Effect> GetEffects()
     {
-        //convert ResultNames into Results
-        List<Result> results = new List<Result>();
-        foreach (string resultName in ResultNames)
+        //convert EffectNames into Effects
+        List<Effect> results = new List<Effect>();
+        foreach (string effectName in EffectNames)
         {
-            results.Add(GetResult(resultName));
+            results.Add(GameMaster.GetEffect(effectName));
         }
         return results;
     }
