@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable] //makes it so that the crisis can be edited in the inspector
 public class Crisus
 {
     //Name that appears at the top
@@ -10,26 +11,23 @@ public class Crisus
     public string Description;
     //the name of the image to use
     public string ImageName;
-    //The image used for the center of the panel
-    private Sprite Image;
     //the length of days the Crisus has
     public int DayLength;
     //The name of the resultnames
+    [SerializeField]
     public List<string> ResultNames;
-    //the results possible
-    private List<Result> Results;
 
     //Conversion from string to result
     public Result GetResult(string name)
     {
         //TODO get results from gamemaster
-        foreach (Result result in Results)
-        {
-            if (result.Name == name)
-            {
-                return result;
-            }
-        }
+        // foreach (Result result in GameMaster.Results)
+        // {
+        //     if (result.Name == name)
+        //     {
+        //         return result;
+        //     }
+        // }
         return null;
     }
     public Sprite GetImage()
