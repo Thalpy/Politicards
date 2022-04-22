@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5456464055255582040}
   - component: {fileID: 5456464055255582047}
   m_Layer: 0
-  m_Name: PieSector
+  m_Name: PeoplePieSector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 1e59315689b624f049b66a26f29cfbad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

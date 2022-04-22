@@ -12,7 +12,7 @@ public class PieChartMesh : MonoBehaviour
 
     float pieRadius = 1.0f; // radius of our pie chart
 
-    double proportion = 0.25; // proportion of available political power assigned to the entity so represented
+    public double proportion = 0.25; // proportion of available political power assigned to the entity so represented
 
     public MeshFilter mf;
 
