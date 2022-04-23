@@ -5,10 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class Faction
 {
-    /// <summary>
-    /// name of the faction
-    /// </summary>
-    [SerializeField] private string factionName; //make this field adjustable in the inspector
+    //player happiness enum
+    public enum PlayerHappinessEnum
+    {
+        happy,
+        neutral,
+        unhappy
+    }
+
+    //ai happiness enum
+    public enum AIHappinessEnum
+    {
+        happy,
+        neutral,
+        unhappy
+    }
 
     /// <summary> 
     ///  Gets or sets the faction name
@@ -16,10 +27,31 @@ public class Faction
     /// <value>
     ///  The faction name as a string
     /// </value>
+    [SerializeField] private string factionName; //make this field adjustable in the inspector
     public string FactionName
     {
         get { return factionName; }
-        set { factionName = value; }
+        set { factionName = value;
+            //update the faction name in the game master
+            //Happiness level has changed- call function to process effect here
+        }
+    }
+
+    // enum fields with getters and setters
+    [SerializeField] private PlayerHappinessEnum playerHappiness;
+    public PlayerHappinessEnum PlayerHappiness
+    {
+        get { return playerHappiness; }
+        set { playerHappiness = value;
+            //happiness level has changed- call function to process effect here
+         }
+    }
+
+    [SerializeField] private AIHappinessEnum aiHappiness;
+    public AIHappinessEnum AIHappiness
+    {
+        get { return aiHappiness; }
+        set { aiHappiness = value; }
     }
 
     /// <summary>
@@ -62,6 +94,10 @@ public class Faction
         set { factionAiHappiness = value; }
     }
 
+
+
+
+
     /// <summary>
     ///  changes the faction happiness by a given amount
     /// </summary>
@@ -93,6 +129,36 @@ public class Faction
                 factionHappiness = 0;
             }
         }
+
+        //if the faction happiness is greater than 50, set the faction happiness to happy, if it is between 25 and 50, set it to neutral, and if it is less than 25, set it to unhappy
+        if (factionHappiness > 50)
+        {
+            //if the faction happiness is already happy, do nothing
+            if (playerHappiness == PlayerHappinessEnum.happy)
+            {
+                return;
+            }
+            PlayerHappiness = PlayerHappinessEnum.happy;
+        }
+        else if (factionHappiness > 25)
+        {
+            //if the faction happiness is already neutral, do nothing
+            if (playerHappiness == PlayerHappinessEnum.neutral)
+            {
+                return;
+            }
+            PlayerHappiness = PlayerHappinessEnum.neutral;
+        }
+        else
+        {
+            //if the faction happiness is already unhappy, do nothing
+            if (playerHappiness == PlayerHappinessEnum.unhappy)
+            {
+                return;
+            }
+            PlayerHappiness = PlayerHappinessEnum.unhappy;
+        }
+
     }
 
     /// <summary>
@@ -126,6 +192,37 @@ public class Faction
                 factionAiHappiness = 0;
             }
         }
+
+        //if the faction happiness with the AI is greater than 50, set the faction happiness with the AI to happy, if it is between 25 and 50, set it to neutral, and if it is less than 25, set it to unhappy
+        if (factionAiHappiness > 50)
+        {
+            //if the faction happiness with the AI is already happy, do nothing
+            if (aiHappiness == AIHappinessEnum.happy)
+            {
+                return;
+            }
+            AIHappiness = AIHappinessEnum.happy;
+        }
+        else if (factionAiHappiness > 25)
+        {
+            //if the faction happiness with the AI is already neutral, do nothing
+            if (aiHappiness == AIHappinessEnum.neutral)
+            {
+                return;
+            }
+            AIHappiness = AIHappinessEnum.neutral;
+        }
+        else
+        {
+            //if the faction happiness with the AI is already unhappy, do nothing
+            if (aiHappiness == AIHappinessEnum.unhappy)
+            {
+                return;
+            }
+            AIHappiness = AIHappinessEnum.unhappy;
+        }
+
+    
     }
 
     /// <summary>

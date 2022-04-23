@@ -93,6 +93,8 @@ public class FactionController : MonoBehaviour
                 return factions[i];
             }
         }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
         return null;
     }
 
@@ -114,6 +116,8 @@ public class FactionController : MonoBehaviour
                 return factions[i].FactionPower;
             }
         }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
         return 0;
     }
 
@@ -156,6 +160,8 @@ public class FactionController : MonoBehaviour
                 return factions[i].FactionHappiness;
             }
         }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
         return 0;
     }
 
@@ -177,6 +183,8 @@ public class FactionController : MonoBehaviour
                 return factions[i].FactionAiHappiness;
             }
         }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
         return 0;
     }
 
