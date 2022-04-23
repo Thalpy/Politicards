@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Faction : MonoBehaviour
+public class Faction
 {
     //private string factionName with getter and setter
-    [SerializeField] private string factionName;
+    [SerializeField] private string factionName; //make this field adjustable in the inspector
     public string FactionName
     {
         get { return factionName; }
@@ -14,12 +14,13 @@ public class Faction : MonoBehaviour
     }
 
     //private int factionPower with getter and setter
-    [SerializeField] private int factionPower;
-    public int FactionPower
+    [SerializeField] private float factionPower;
+    public float FactionPower
     {
         get { return factionPower; }
         set { factionPower = value; }
     }
+    //
 
     //a private float that represents the faction's current happiness with the player
     [SerializeField] private float factionHappiness;
@@ -52,23 +53,29 @@ public class Faction : MonoBehaviour
     //a function to change the faction's power
     public void ChangePower(int amount)
     {
-        factionPower += amount;
-    }
-
-
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //if the amount is negative, decrease the power to a minimum of zero
+        if (amount < 0)
+        {
+            if (factionPower + amount < 0)
+            {
+                factionPower = 0;
+            }
+            else
+            {
+                factionPower += amount;
+            }
+        }
+        //if the amount is positive, increase the power to a maximum of 100
+        else
+        {
+            if (factionPower + amount > 100)
+            {
+                factionPower = 100;
+            }
+            else
+            {
+                factionPower += amount;
+            }
+        }
     }
 }
