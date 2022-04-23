@@ -488,6 +488,8 @@ GameObject:
   - component: {fileID: 561427129}
   - component: {fileID: 561427132}
   - component: {fileID: 561427133}
+  - component: {fileID: 561427135}
+  - component: {fileID: 561427134}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -575,6 +577,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pieChart: {fileID: 40201898}
+--- !u!114 &561427134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561427128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18452f29e11e1740808d581c23637e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Card: {fileID: 0}
+  CardsInHand: []
+  CardsInDeck: []
+  CardsInDiscard: []
+  MaxHandWidth: 0
+  MaxCardSpacing: 0
+  HandWidth: 0
+  Deck: {fileID: 0}
+  Discard: {fileID: 0}
+  DeckOffScreenLocation: {x: 0, y: 0, z: 0}
+  DiscardOffScreenLocation: {x: 0, y: 0, z: 0}
+  MaxHandSize: 0
+  StartingDeckSize: 0
+  PlayersHand: 0
+  Targets: []
+--- !u!114 &561427135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561427128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35074fa1ebf697245bd7337c0251d91a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factions:
+  - factionName: People
+    factionPower: 0
+    factionHappiness: 0
+    factionAiHappiness: 0
+  - factionName: Economic
+    factionPower: 0
+    factionHappiness: 0
+    factionAiHappiness: 0
+  - factionName: Military
+    factionPower: 0
+    factionHappiness: 0
+    factionAiHappiness: 0
+  - factionName: Nobility
+    factionPower: 0
+    factionHappiness: 0
+    factionAiHappiness: 0
+  - factionName: Crime
+    factionPower: 0
+    factionHappiness: 0
+    factionAiHappiness: 0
 --- !u!1 &853579440
 GameObject:
   m_ObjectHideFlags: 0
