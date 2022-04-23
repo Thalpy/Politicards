@@ -122,7 +122,6 @@ public class JL_HandController : MonoBehaviour
 
 
         return (new Vector3(x,y,z));
-
     }
 
     public void DrawCard() //This function is how cards are moved from the deck to the hand, it is in hand controller because it is a triggered by the 
