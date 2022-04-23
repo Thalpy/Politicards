@@ -618,25 +618,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factions:
   - factionName: People
+    playerHappiness: 0
+    aiHappiness: 0
     factionPower: 0
     factionHappiness: 0
     factionAiHappiness: 0
+    factionPlayerMana: 0
+    factionAiMana: 0
   - factionName: Economic
+    playerHappiness: 0
+    aiHappiness: 0
     factionPower: 0
     factionHappiness: 0
     factionAiHappiness: 0
+    factionPlayerMana: 0
+    factionAiMana: 0
   - factionName: Military
+    playerHappiness: 0
+    aiHappiness: 0
     factionPower: 0
     factionHappiness: 0
     factionAiHappiness: 0
+    factionPlayerMana: 0
+    factionAiMana: 0
   - factionName: Nobility
+    playerHappiness: 0
+    aiHappiness: 0
     factionPower: 0
     factionHappiness: 0
     factionAiHappiness: 0
+    factionPlayerMana: 0
+    factionAiMana: 0
   - factionName: Crime
+    playerHappiness: 0
+    aiHappiness: 0
     factionPower: 0
     factionHappiness: 0
     factionAiHappiness: 0
+    factionPlayerMana: 0
+    factionAiMana: 0
 --- !u!1 &853579440
 GameObject:
   m_ObjectHideFlags: 0
