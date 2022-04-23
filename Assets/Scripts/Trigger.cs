@@ -12,6 +12,8 @@ public abstract class Trigger
 
     //Function that is called on the event box ending
     public abstract void CheckTrigger();
+    //Function that is called on setup
+    public abstract void SetupTrigger();
 }
 
 public class TimeOutTrigger : Trigger
@@ -19,6 +21,11 @@ public class TimeOutTrigger : Trigger
     public new string Name = "TimeOut";
     public float TimeOut = 0; //time out setter
     public float TimeOutTimer = 0; //time out timer setter
+
+    public override void SetupTrigger()
+    {
+        throw new System.NotImplementedException();
+    }
 
     public override void CheckTrigger()
     {

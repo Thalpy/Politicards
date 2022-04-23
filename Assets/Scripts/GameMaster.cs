@@ -15,6 +15,7 @@ public class GameMaster : MonoBehaviour
     public static CardMaster cardMaster;
 
     public List<Effect> effects = new List<Effect>();
+    public List<Trigger> triggers = new List<Trigger>();
     public static List<Timer> timers = new List<Timer>();
     public static int turn = 0;
     //internal List<Timer> timers = new List<Timer>();
@@ -36,7 +37,17 @@ public class GameMaster : MonoBehaviour
         effects.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => type.IsSubclassOf(typeof(Effect)))
             .Select(type => (Effect)System.Activator.CreateInstance(type)));
+        //create a list of all classes that inherit from the Trigger class
+        triggers.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
+            .Where(type => type.IsSubclassOf(typeof(Trigger)))
+            .Select(type => (Trigger)System.Activator.CreateInstance(type)));
     }
+
+    internal static Buff AddBuff(string hovertext, string imagefile)
+    {
+        throw new System.NotImplementedException();
+    }
+
     // increases turn by 1
     public static void NextTurn()
     {
