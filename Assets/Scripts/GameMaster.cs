@@ -13,7 +13,6 @@ using UnityEngine;
 [RequireComponent(typeof(CrisisMaster))]
 [RequireComponent(typeof(CardMaster))]
 [RequireComponent(typeof(FactionController))]
-//[RequireComponent(typeof(JL_HandController))]
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
@@ -45,7 +44,9 @@ public class GameMaster : MonoBehaviour
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
 
-        //Feel free to clean this up Landy
+        //LANDY TODO:
+        // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
+
         //get the hand gameobject
         //GameObject _Hand = GameObject.Find("Hand");
         //handController = _Hand.GetComponent<JL_HandController>();
@@ -170,7 +171,7 @@ public class GameMaster : MonoBehaviour
 
     }
 
-    public void CheckTrigger(string trigger){
+    public static void CheckTrigger(string trigger){
         foreach (Crisis crisis in crisisMaster.crisises){
             crisis.CheckTrigger(trigger);
         }

@@ -74,3 +74,22 @@ public class DiscardCard : Effect
 
 // TODO: Add a use effects on death proc ( deathrattle )
 }
+
+//IN PROGRESS
+public class AlterPower : Effect
+{
+    public AlterPower()
+    {
+        name = "Alter Power";
+    }
+
+    public override void DoEffect()
+    {
+        //repeat the draw card effect for the power
+        for (int i = 0; i < power; i++)
+        {
+            //draw a card
+            GameMaster.handController.DrawCard();
+        }
+    }
+}

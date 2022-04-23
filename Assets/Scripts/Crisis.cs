@@ -14,7 +14,9 @@ public class Crisis
     //Text that appears in the description box
     public string Description;
     //the name of the image to use
-    public string ImageName;
+    public Sprite image;
+    //The name of the audioclip to play
+    public AudioClip audio;
     //the length of days the Crisis has
     public int DayLength;
     //The name of the resultnames
@@ -29,9 +31,15 @@ public class Crisis
         Crisis newCrisis = new Crisis();
         newCrisis.Name = Name;
         newCrisis.Description = Description;
-        newCrisis.ImageName = ImageName;
+        newCrisis.image = image;
+        newCrisis.audio = audio;
         newCrisis.DayLength = DayLength;
-        newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
+        if (triggerEffects != null){
+            newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
+        }
+        else{
+            newCrisis.triggerEffectsStr = new List<TriggerEffect>(triggerEffectsStr);
+        }
         return newCrisis;
     }
 
@@ -39,6 +47,7 @@ public class Crisis
     public void StartCrisis()
     {
         SetUpEffects();
+        CheckTrigger("Start");
     }
 
     public void SetUpEffects()
@@ -53,6 +62,11 @@ public class Crisis
             effects.Add(effectObj, triggerObj);
         }
         triggerEffects = effects;
+    }
+
+    public void EndCrisis()
+    {
+        CheckTrigger("End");
     }
     
     //Checks each of the trigger effects to see if the trigger is true and if so calls the effect
@@ -78,11 +92,17 @@ public class Crisis
         }
     }
 
-    public Sprite GetImage()
-    {
-        //convert imagename in to a sprite
-        return Resources.Load<Sprite>("Images/" + ImageName);
-    }
+    // public Sprite GetImage()
+    // {
+    //     //convert image in to a sprite
+    //     return Resources.Load<Sprite>("Sprites/" + image);
+    // }
+
+    // //gets the AudioClip to play
+    // public AudioClip GetAudio()
+    // {
+    //     return Resources.Load<AudioClip>("Audio/" + audio);
+    // }
 
     public List<Effect> GetEffects(string trigger)
     {
