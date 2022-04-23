@@ -520,7 +520,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf4357ad8e505f48b43c4f64c41aec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crisises: []
+  crisises:
+  - Name: 
+    Description: 
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    DayLength: 0
+    triggerEffectsStr: []
   crisisBox: {fileID: 1615674126}
 --- !u!4 &561427131
 Transform:
