@@ -24,6 +24,9 @@ public class GameMaster : MonoBehaviour
 
     public List<Effect> effects = new List<Effect>();
 
+    /// <summary>
+    /// a reference to the pieChart
+    /// </summary>
     public PieChart pieChart;
 
     
@@ -61,6 +64,9 @@ public class GameMaster : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    ///  Sets the power of each faction to a random value between 0 and 100 and updates the pie chart
+    /// </summary>
     public void TestPieChart()
     {   
         //create an array of 5 random floats between 0 and 100
