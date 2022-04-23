@@ -123,6 +123,142 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &40201898 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7475741086908835006, guid: 296b3ac059a27c942bc22f286b457160,
+    type: 3}
+  m_PrefabInstance: {fileID: 141767176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99e4107539c4514d885f0532b7a0807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &141767176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493596, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_Name
+      value: PieChartWidget
+      objectReference: {fileID: 0}
+    - target: {fileID: 7475741087906493599, guid: 296b3ac059a27c942bc22f286b457160,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 432086064}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 296b3ac059a27c942bc22f286b457160, type: 3}
 --- !u!1 &170435919
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,18 +512,17 @@ MonoBehaviour:
     Description: Bong
     ImageName: Yes.png
     DayLength: 3
-    ResultNames: []
+    EffectNames: []
   - Name: Bongery
     Description: Bongbng
     ImageName: No.png
     DayLength: 3
-    ResultNames: []
+    EffectNames: []
   - Name: Landy
     Description: Landy has a nice day
     ImageName: Lnady.png
     DayLength: 5
-    ResultNames:
-    - Draw card
+    EffectNames: []
 --- !u!114 &561427130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a70499064a27d4408031251ad558cd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pieChart: {fileID: 40201898}
 --- !u!4 &561427131
 Transform:
   m_ObjectHideFlags: 0
@@ -435,6 +571,7 @@ MonoBehaviour:
       ImageName: gamebeetus.png
       ManaCost: 5
       Faction: The big gambeetus
+      EffectNames: []
 --- !u!1 &853579440
 GameObject:
   m_ObjectHideFlags: 0
