@@ -11,7 +11,6 @@ public class JL_CardController : MonoBehaviour
     public GameObject Discard;
     
     JL_HandController _HandController;
-    JL_CardEffect _CardEffect;
     
     public Vector3 Position; //public but y?
 
@@ -43,7 +42,6 @@ public class JL_CardController : MonoBehaviour
     void Start() //initalises some component referemces
     {
     _HandController = Hand.GetComponent<JL_HandController>();
-    _CardEffect = gameObject.GetComponent<JL_CardEffect>();
     }
 
     // Update is called once per frame
