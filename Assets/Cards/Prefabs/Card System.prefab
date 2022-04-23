@@ -170,10 +170,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2809540387840957827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9caaac04516b029438ce38528eb5caf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 219bdeb4adb305e43a05ce3312089aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseOverText: 'Honourable Gentle Folk''s Discard '
+  MouseOverText: Honourable Gentlefolks Discard
 --- !u!1 &4984367636821767321
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,10 +629,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8041807131955072703}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9caaac04516b029438ce38528eb5caf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 219bdeb4adb305e43a05ce3312089aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseOverText: Honourable Gentle Folk's  Deck
+  MouseOverText: Honourable Gentlefolk's Deck
 --- !u!1 &8087584368882693173
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,10 +776,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8632930754177172499}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9caaac04516b029438ce38528eb5caf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 219bdeb4adb305e43a05ce3312089aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseOverText: Your Deck
+  MouseOverText: Player's Deck
 --- !u!1 &8632930754316122092
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8632930754603611011}
   m_LocalRotation: {x: -0.016010774, y: 0.008607445, z: 0.007098646, w: 0.99980956}
-  m_LocalPosition: {x: 47.5, y: -22.5, z: 0}
+  m_LocalPosition: {x: 47.5, y: -20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -923,10 +923,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8632930754603611011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9caaac04516b029438ce38528eb5caf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 219bdeb4adb305e43a05ce3312089aa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseOverText: Your Discard
+  MouseOverText: Discard's Deck
 --- !u!1 &8632930754929291365
 GameObject:
   m_ObjectHideFlags: 0

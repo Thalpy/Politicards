@@ -20,6 +20,8 @@ public class Card
     public int ManaCost; 
     //faction
     public string Faction;
+    // Is in starting deck
+    public bool StartingCard;
     //An array of power Value for the factions
     [SerializeField]
     public List<int> PowerValues = new List<int>();
