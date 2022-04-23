@@ -10,6 +10,7 @@ public class CrisisMaster : MonoBehaviour
 {
     [SerializeField]
     List<Crisis> crises = new List<Crisis>();
+    Crisis[] activeCrisses = new Crisis[3];
     //TODO:
     // Track cards applied to events
 

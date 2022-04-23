@@ -23,6 +23,10 @@ public class GameMaster : MonoBehaviour
     public static FactionController factionController;
 
     public List<Effect> effects = new List<Effect>();
+    public static List<Timer> timers = new List<Timer>();
+    public static int turn = 0;
+    //internal List<Timer> timers = new List<Timer>();
+
 
     /// <summary>
     /// a reference to the pieChart
@@ -45,11 +49,29 @@ public class GameMaster : MonoBehaviour
         effects.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => type.IsSubclassOf(typeof(Effect)))
             .Select(type => (Effect)System.Activator.CreateInstance(type)));
-
-
-        
-
     }
+    // increases turn by 1
+    public static void NextTurn()
+    {
+        turn++;
+        foreach(Timer timer in timers)
+        {
+            timer.increase_turn();
+        }
+    }
+
+    //adds a timer to the list of timers
+    public static void AddTimer(Timer timer)
+    {
+        timers.Add(timer);
+    }
+    
+    //removes a timer from the list of timers
+    public static void RemoveTimer(Timer timer)
+    {
+        timers.Remove(timer);
+    }
+
     //TODO
     public static Effect GetEffect(string name)
     {
