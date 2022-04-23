@@ -8,6 +8,7 @@ public class AIController : MonoBehaviour
     /// <summary>
     /// Enum that holds the support objectives that an Ai can work on
     /// The AI will seek to build support with this faction when making card choices
+    /// Possible objectives are: MilitarySupport, EconomicSupport, PeopleSupport, NobilitySupport, CrimeSupport, PlayerSupport and PlayerAttack
     /// </summary>
     public enum AISupportObjectiveEnum
     {
@@ -19,11 +20,12 @@ public class AIController : MonoBehaviour
         PlayerSupport,
         PlayerAttack,
 
-}
+    }
 
     /// <summary>
     /// Enum that holds the possible sentiments that an Ai can have towards the player
     /// The AI may use this to determine how it will react to the player
+    /// Possible sentiments are: Neutral, Friendly, Hostile
     /// </summary>
     public enum AIPlayerSentimentEnum
     {
@@ -32,37 +34,65 @@ public class AIController : MonoBehaviour
         Negative
     }
 
-// a reference to the current AI hand
+    /// <summary>
+    /// A refernece to the Hand of cards that the AI has in hand
+    /// </summary>
     GameObject AIHand;
 
-// a reference to the current player card deck
+    /// <summary>
+    /// A reference to the Hand of cards that the player has
+    /// </summary>
     GameObject playerHand;
 
-    // enum fields with getters and setters
+    /// <summary>
+    /// The current support objective that the AI is trying to achieve
+    /// </summary>
+    /// <value>
+    ///  The current support objective as an AISupportObjectiveEnum
+    /// </value>
     [SerializeField] private AISupportObjectiveEnum aISupportObjective;
     public AISupportObjectiveEnum AISupportObjective
     {
         get { return aISupportObjective; }
-        set { aISupportObjective = value;
+        set
+        {
+            aISupportObjective = value;
             //support objective has changed- call function to process effect here
         }
     }
 
+/// <summary>
+/// The current sentiment towards the player
+/// </summary>
+/// <value>
+///  The current sentiment towards the player as an AIPlayerSentimentEnum
+/// </value>
     [SerializeField] private AIPlayerSentimentEnum aiPlayerSentiment;
     public AIPlayerSentimentEnum AIPlayerSentiment
     {
         get { return aiPlayerSentiment; }
-        set { aiPlayerSentiment = value;
+        set
+        {
+            aiPlayerSentiment = value;
             //sentiment has changed- call function to process effect here
-            }
         }
+    }
 
-    //a private integer representing the current relationship with the player (0-100) with getters and setters
+    /// <summary>
+    /// Integer which represents the relationship between the AI and the player (0-100)
+    /// </summary>
     private int relationship;
+    ///
     public int Relationship
     {
         get { return relationship; }
-        set { // if the relationship is less than 0, set it to 0
+        /// <summary>
+        /// Setter for the relationship between the AI and the player
+        /// given a value representing the relationship, set the value, clamp it between 0 and 100
+        /// </summary>
+        /// <value></value>
+        set
+        { // if the relationship is less than 0, set it to 0
             if (value < 0)
             {
                 relationship = 0;
@@ -82,7 +112,13 @@ public class AIController : MonoBehaviour
         }
     }
 
-    //a function to change the AIPlayerSentiment based on the relationship
+    /// <summary>
+    /// Changes the sentiment of the AI based on the relationship value.
+    /// If the relationship is less than 25, the AI will be hostile towards the player
+    /// if the relationship is between 25 and 50, the AI will be neutral towards the player
+    /// if the relationship is above 50, the AI will be friendly towards the player
+    /// If a change in the relationship does not cause a shift in sentiment, the setter is not called.
+    /// </summary>
     public void ChangeSentiment()
     {
         // if the relationship is less than 25, set the AIPlayerSentiment to negative
@@ -117,7 +153,10 @@ public class AIController : MonoBehaviour
         }
     }
 
-    // a function that takes the current AISupportObjective and returns the name of the support objective
+    /// <summary>
+    /// Comverts the AIPlayerSentimentEnum to a string
+    /// </summary>
+    /// <returns>string: Current Support Objective as a string</returns>
     public string GetSupportObjectiveName()
     {
         switch (AISupportObjective)
@@ -141,7 +180,11 @@ public class AIController : MonoBehaviour
         }
     }
 
-    // a function to decide if a card can be played which takes in a card and returns a boolean
+    /// <summary>
+    /// Decide whether the card passed in as an argument can be played.
+    /// </summary>
+    /// <param name="card">The card to be checked</param>
+    /// <returns>bool: true if the card can be played else false</returns>
     public bool CanPlayCard(Card card)
     {
         // if the mana cost of the card is greater than the faction specific mana pool, return false. Get the faction name from the card faction
@@ -212,11 +255,14 @@ public class AIController : MonoBehaviour
 
         //otherwise, return true
         return true;
-        
+
     }
 
-    //a function which takes in a list of cards and returns a list of cards ordered by the cards progress increase
-    // pass this function a list of cards whose faction match the AI's support objective
+    /// <summary>
+    /// Given a list of cards, return a new list of the same cards in order of descending crisis progress increase
+    /// </summary>
+    /// <param name="cards">List<Card>: the unordered list of cards</param>
+    /// <returns>List<Card>: the resulting ordered list of cards</returns>
     public List<Card> OrderCardsByProgressIncrease(List<Card> cards)
     {
         //create a new list of cards
@@ -249,8 +295,11 @@ public class AIController : MonoBehaviour
         return orderedCards;
     }
 
-    //a function which takes in a list of cards and returns a list of cards ordered by the cards faction power increase
-    // pass this function a list of cards whose faction match the AI's support objective
+    /// <summary>
+    ///  Given a list of cards, return a new list of the same cards in descending order of the cards faction power increase
+    /// </summary>
+    /// <param name="cards">List<card>: the unordered list of cards</param>
+    /// <returns>List<card>: the resulting ordered list of cards</returns>
     public List<Card> OrderCardsByFactionPowerIncrease(List<Card> cards)
     {
         //create a new list of cards
@@ -283,7 +332,10 @@ public class AIController : MonoBehaviour
         return orderedCards;
     }
 
-    //a function which tries to guess the player's support objective based upon the cards in the player's hand
+    /// <summary>
+    /// Attempts to guess the player's support objective based upon the cards in the player's hand
+    /// </summary>
+    /// <returns>string: The faction guess as a string. If no one option seems likley the output is random</returns>
     public string GuessSupportObjective()
     {
         //get a reference to the player's hand
@@ -364,11 +416,13 @@ public class AIController : MonoBehaviour
 
     }
 
-    //a function to choose the card to play based upon the AI's support objective
-    // pass this function a list of cards whose faction match the AI's support objective
-    // if the relationship between the AI and player is Neutral, the AI will play the card with the highest progress increase
-    // if the relationship between the AI and player is Hostile, the AI will play the card with the highest faction power increase or an attack card
-    // if the relationship between the AI and player is Friendly, the AI will play the card with the highest progress increasse for the guessed support objective
+    /// <summary>
+    /// Chooses a card to play from the player's hand.
+    /// If the ai sentiment towards the player neutral, the ai will play the card with the highest progress increase
+    /// 
+    /// </summary>
+    /// <param name="cards"></param>
+    /// <returns></returns>
     public Card ChooseCardToPlay(List<Card> cards)
     {
         //create a new variable to hold the card to play
@@ -382,7 +436,7 @@ public class AIController : MonoBehaviour
 
             //return the first card in the list
             cardToPlay = cards[0];
-            
+
         }
         //if the aiPlayerSentiment is hostile, play a random attack card if available, otherwise get the list of cards which match the ai support objective, order them by faction power increase and return the first card in the list
         else if (aiPlayerSentiment == AIPlayerSentimentEnum.Negative)
@@ -431,7 +485,7 @@ public class AIController : MonoBehaviour
                 //return the first card in the list
                 cardToPlay = supportCards[0];
             }
-            
+
 
 
         }
@@ -462,6 +516,6 @@ public class AIController : MonoBehaviour
         //return the card to play
         return cardToPlay;
 
-}
+    }
 }
 
