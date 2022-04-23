@@ -8,11 +8,19 @@ using UnityEngine;
 /// This lets us call functions from the GM without having to pass the GM as a parameter.
 /// Basically usable code everywhere, just call GameMaster to get it.
 /// </summary>
+
+//require a crisis master, a card master, a faction controller and a hand controller to be present
+[RequireComponent(typeof(CrisisMaster))]
+[RequireComponent(typeof(CardMaster))]
+[RequireComponent(typeof(FactionController))]
+[RequireComponent(typeof(JL_HandController))]
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
     public static JL_HandController handController;
     public static CardMaster cardMaster;
+
+    public static FactionController factionController;
 
     public List<Effect> effects = new List<Effect>();
     public static List<Timer> timers = new List<Timer>();
@@ -20,6 +28,9 @@ public class GameMaster : MonoBehaviour
     //internal List<Timer> timers = new List<Timer>();
 
 
+    /// <summary>
+    /// a reference to the pieChart
+    /// </summary>
     public PieChart pieChart;
 
     
@@ -28,10 +39,12 @@ public class GameMaster : MonoBehaviour
     {
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
+        factionController = GetComponent<FactionController>();
+
         //Feel free to clean this up Landy
         //get the hand gameobject
-        GameObject _Hand = GameObject.Find("Hand");
-        handController = _Hand.GetComponent<JL_HandController>();
+        //GameObject _Hand = GameObject.Find("Hand");
+        //handController = _Hand.GetComponent<JL_HandController>();
         //create a list of all classes that inherit from the Effect class
         effects.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => type.IsSubclassOf(typeof(Effect)))
@@ -73,17 +86,30 @@ public class GameMaster : MonoBehaviour
         return null;
     }
 
+    /// <summary>
+    ///  Sets the power of each faction to a random value between 0 and 100 and updates the pie chart
+    /// </summary>
     public void TestPieChart()
     {   
         //create an array of 5 random floats between 0 and 100
-        float[] randomFloats = new float[5];
-        for (int i = 0; i < randomFloats.Length; i++)
-        {
-            randomFloats[i] = Random.Range(0f, 100f);
-        }
+        
 
-        //call the pieChart.SetValues function with the array as a parameter
-        pieChart.SetValues(randomFloats);
+        //get an array of the faction names from the faction controller
+        string[] factionNames = factionController.GetFactionNames();    
+        //for each faction name, call the set power by name function on the faction controller, passing in the faction name and a random float between 0 and 100
+        foreach (string factionName in factionNames)
+        {
+            factionController.ChangeFactionPower(factionName, Random.Range(-100, 100));
+
+        } 
+
+        //get the faction power array from the faction controller
+        float[] factionPower = factionController.GetFactionPower();
+        //update the pie chart with the faction power array
+        pieChart.SetValues(factionPower);
+
+
+        
 
     }
 }
