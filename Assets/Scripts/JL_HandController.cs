@@ -116,7 +116,7 @@ public class JL_HandController : MonoBehaviour
     
 
     
-    public Vector3 GetCardHandPosition(GameObject Card) // This function returns the hand position for the card.
+    public Vector3 GetCardHandPosition(GameObject Card, out int DrawOrder) // This function returns the hand position for the card.
     {
         
         int CardIndex = 0;
@@ -144,7 +144,8 @@ public class JL_HandController : MonoBehaviour
         
         
         float y = gameObject.transform.position.y;
-        float z = gameObject.transform.position.z+CardIndex*0.01f;
+        float z = gameObject.transform.position.z;
+        DrawOrder = CardIndex;
 
 
 
@@ -174,8 +175,9 @@ public class JL_HandController : MonoBehaviour
             CardsInHand.Add(CardsInDeck[0]);
 
             CardsInDeck[0].transform.position = Deck.transform.position;
-           
-            CardsInDeck[0].GetComponent<JL_CardController>().Position = GetCardHandPosition(CardsInDeck[0]);
+            int DrawOrder;
+            CardsInDeck[0].GetComponent<JL_CardController>().Position = GetCardHandPosition(CardsInDeck[0], out DrawOrder);
+            CardsInDeck[0].GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
 
             if (PlayersHand)
             {

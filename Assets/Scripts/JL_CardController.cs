@@ -73,6 +73,7 @@ public class JL_CardController : MonoBehaviour
         float y = Input.mousePosition.y;
         float z = transform.position.z - Camera.main.transform.position.z;
         Position = Camera.main.ScreenToWorldPoint(new Vector3 (x,y,z));
+        GetComponent<SpriteRenderer>().sortingOrder = 100;
 
         if (Input.GetKeyDown("space")) // on space zooms the card
         {
@@ -125,7 +126,10 @@ public class JL_CardController : MonoBehaviour
         }
         else
         {
-            Position = _HandController.GetCardHandPosition(gameObject); // if no target then goesback to hand on mouse up
+            int DrawOrder;
+            Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder); // if no target then goesback to hand on mouse up
+            GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+
         }
         
     }
@@ -141,7 +145,9 @@ public class JL_CardController : MonoBehaviour
         {
             if (_Hit.transform == transform && !Discarded)
             {
-                Position = _HandController.GetCardHandPosition(gameObject) + AdversaryZoomedOffset;
+                int DrawOrder;
+                Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder) + AdversaryZoomedOffset;
+                GetComponent<SpriteRenderer>().sortingOrder = 100;
                 AdversaryZoomed = true; // and zooms
             }
             else //if not mouse over then unzooms
@@ -183,8 +189,9 @@ public class JL_CardController : MonoBehaviour
 
     if(!Grabbed && !Discarded && !AdversaryZoomed && (InHand||InAdversariesHand)) //if nothing else the position in the hand is updated (in case cards have been drawn/played)
     {
-        Position = _HandController.GetCardHandPosition(gameObject);
-
+        int DrawOrder;
+        Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder);
+        GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
     }
             
 
