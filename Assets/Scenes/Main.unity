@@ -943,7 +943,10 @@ MonoBehaviour:
     Description: Bong
     ImageName: Yes.png
     DayLength: 3
-    EffectNames: []
+    EffectNames:
+    - Draw card
+    - Draw card
+    - Discard
   - Name: Bongery
     Description: Bongbng
     ImageName: No.png
@@ -1002,7 +1005,8 @@ MonoBehaviour:
       ImageName: gamebeetus.png
       ManaCost: 5
       Faction: The big gambeetus
-      EffectNames: []
+      EffectNames:
+      - Draw card
 --- !u!1 &853579440
 GameObject:
   m_ObjectHideFlags: 0
