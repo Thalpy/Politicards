@@ -17,6 +17,8 @@ public class Crisis
     public string ImageName;
     //the length of days the Crisis has
     public int DayLength;
+    //How long the event has been processing, -1 is inactive
+    public int CurrentDay = -1;
     //The name of the resultnames
     [SerializeField]
     public List<string> EffectNames;
