@@ -42,3 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Event Window
+    uniqueID: 660287397
+    locked: 0
+  - name: Cards
+    uniqueID: 2836771741
+    locked: 0
