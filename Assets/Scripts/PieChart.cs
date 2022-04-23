@@ -69,17 +69,4 @@ public class PieChart : MonoBehaviour
         return valuesToSet[index] / totalValue;
         
     }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        SetValues(values);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
