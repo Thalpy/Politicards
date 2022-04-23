@@ -247,6 +247,38 @@ public class FactionController : MonoBehaviour
         return factionNames;
     }
 
+    // a function to award faction specific mana to players based upon faction happiness and power
+    public void AwardMana()
+    {
+        for (int i = 0; i < factions.Count; i++)
+        {
+            factions[i].AwardMana();
+        }
+    }
+
+    //a function to get the faction specific mana, if "player" is passed in then it will return the faction specific mana for the player otherwise it will return the faction specific mana for the AI
+    public float GetMana(string factionName, string player)
+    {
+        for (int i = 0; i < factions.Count; i++)
+        {
+            if (factions[i].FactionName == factionName)
+            {
+                if (player == "player")
+                {
+                    return factions[i].FactionPlayerMana;
+                }
+                else
+                {
+                    return factions[i].FactionAiMana;
+                }
+            }
+        }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
+        return 0;
+    }
+
+
 
 
 }

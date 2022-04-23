@@ -117,6 +117,10 @@ public class AIController : MonoBehaviour
         }
     }
 
+    // a function to decide if a card can be played which takes in a card and returns a boolean
+    
+
+
     
     
 
