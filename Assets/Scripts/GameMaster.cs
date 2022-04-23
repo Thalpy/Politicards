@@ -120,6 +120,7 @@ public class GameMaster : MonoBehaviour
     //TODO
     public static Effect GetEffect(string name)
     {
+        
         foreach(Effect effect in effects)
         {
             if(effect.name == name)

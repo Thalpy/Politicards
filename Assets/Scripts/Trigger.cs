@@ -70,7 +70,7 @@ public class TimeOutTrigger : Trigger
 {
     public TimeOutTrigger()
     {
-        name = "TimeOut Trigger";
+        name = "TimeOutTrigger";
     }
     public Timer timer;
 
@@ -102,7 +102,7 @@ public class TimeOutTrigger : Trigger
 public class UnhappyTrigger : Trigger{
     public UnhappyTrigger()
     {
-        name = "Unhappy Trigger";
+        name = "UnhappyTrigger";
     }
 
     public override void SetupTrigger(Effect _effect, int _power)

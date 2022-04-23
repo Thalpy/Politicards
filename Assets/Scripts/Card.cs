@@ -15,7 +15,9 @@ public class Card
     //description text
     public string Description;
     //image
-    public string ImageName;
+    public Sprite image;
+    //audio sound effect
+    public AudioClip audio;
     //mana cost
     public int ManaCost; 
     //faction
@@ -44,7 +46,9 @@ public class Card
         SetUpEffects();
     }
 
-    public void UseCard(){
+    public void UseCard(Crisis crisis, int index, bool player = true){
+
+        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
         CheckTrigger("Use");
     }
 
@@ -54,7 +58,7 @@ public class Card
         Card newCard = new Card();
         newCard.Name = Name;
         newCard.Description = Description;
-        newCard.ImageName = ImageName;
+        newCard.image = image;
         newCard.ManaCost = ManaCost;
         newCard.Faction = Faction;
         newCard.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
@@ -117,7 +121,7 @@ public class Card
     public Sprite GetImage()
     {
         //convert imagename in to a sprite
-        return Resources.Load<Sprite>("Images/" + ImageName);
+        return Resources.Load<Sprite>("Images/" + image);
     }
 
 
