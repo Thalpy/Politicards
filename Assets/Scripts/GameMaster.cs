@@ -13,7 +13,10 @@ public class GameMaster : MonoBehaviour
     public static CrisisMaster crisisMaster;
     public static JL_HandController handController;
     public static CardMaster cardMaster;
+
     public List<Effect> effects = new List<Effect>();
+
+    public PieChart pieChart;
 
     
     // Start is called before the first frame update
@@ -46,5 +49,19 @@ public class GameMaster : MonoBehaviour
         //     }
         // }
         return null;
+    }
+
+    public void TestPieChart()
+    {   
+        //create an array of 5 random floats between 0 and 100
+        float[] randomFloats = new float[5];
+        for (int i = 0; i < randomFloats.Length; i++)
+        {
+            randomFloats[i] = Random.Range(0f, 100f);
+        }
+
+        //call the pieChart.SetValues function with the array as a parameter
+        pieChart.SetValues(randomFloats);
+
     }
 }
