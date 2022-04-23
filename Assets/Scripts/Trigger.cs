@@ -14,15 +14,15 @@ public abstract class Trigger
     //The variable power of the trigger (type dependant)
     public int power;
 
-    public virtual void setPower(int _power)
+    public virtual void setVars(params int[] args)
     {
-        power = _power;
+        power = args[0];
     }
 
     public virtual void SetupTrigger(Effect _effect, int _power)
     {
         effect = _effect;
-        setPower(_power);
+        setVars(_power);
     }
 
     public virtual bool CheckTrigger(string _triggerName = null){
@@ -45,6 +45,24 @@ public class Instant : Trigger
     //Function that is called on setup
     public override void SetupTrigger(Effect _effect, int _power){
         _effect.DoEffect();
+    }    
+}
+
+/// <summary>
+/// Triggers when it's used.
+/// </summary>
+public class OnUse : Trigger
+{
+    public OnUse()
+    {
+        name = "OnUse";
+    }
+    //Function that is called on setup
+    public override bool CheckTrigger(string _triggerName = null){
+        if(_triggerName == name){
+            return true;
+        }
+        return false;
     }    
 }
 

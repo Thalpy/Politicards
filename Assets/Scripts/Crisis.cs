@@ -24,6 +24,7 @@ public class Crisis
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
     internal Dictionary<Effect, Trigger> triggerEffects;
+    internal int[] factionProgress;
 
     //copy the crisis to a new crisis
     public Crisis Copy()
@@ -48,6 +49,7 @@ public class Crisis
     {
         SetUpEffects();
         CheckTrigger("Start");
+        factionProgress = new int[GameMaster.factionController.GetNumberOfFactions()];
     }
 
     public void SetUpEffects()
@@ -56,9 +58,9 @@ public class Crisis
         foreach (TriggerEffect trigEff in triggerEffectsStr)
         {
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
-            effectObj.setPower(trigEff.effectPower);
+            effectObj.setVars(trigEff.effectPower);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
-            triggerObj.setPower(trigEff.triggerPower);
+            triggerObj.setVars (trigEff.triggerPower);
             effects.Add(effectObj, triggerObj);
         }
         triggerEffects = effects;
