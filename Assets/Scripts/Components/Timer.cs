@@ -6,6 +6,7 @@ using UnityEngine;
 /// <summary>
 /// This is a timer component that can be used to track time.
 /// </summary>
+[System.Serializable]
 public class Timer
 {
     //The length of the timer
@@ -21,7 +22,7 @@ public class Timer
     /// length: the length of the timer in seconds
     /// func: the function to call when the timer ends
     /// </summary>
-    public Timer(int length, Action startFunc, Action endFunc, string hovertext = null, string imagefile = null)
+    public Timer(int length, Action endFunc, Action startFunc = null, string hovertext = null, string imagefile = null)
     {
         this.length = length;
         timeLeft = length;
@@ -30,7 +31,9 @@ public class Timer
         if(hovertext != null && imagefile != null){
             buff = GameMaster.AddBuff(hovertext, imagefile);
         }
-        startFunc();
+        if(startFunc != null){
+            startFunc();
+        }
     }
 
     /// <summary>
@@ -43,6 +46,11 @@ public class Timer
         {
             EndTimer();
         }
+    }
+
+    public int checkTimer()
+    {
+        return timeLeft;
     }
 
     /// <summary>

@@ -30,6 +30,6 @@ public class CrisisBox : MonoBehaviour
         //set the image
         Image.sprite = SussyCrisis.GetImage();
         //set the results
-        Effects = SussyCrisis.GetEffects();
+        Effects = SussyCrisis.GetEffects("End");
     }
 }

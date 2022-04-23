@@ -21,7 +21,44 @@ public class Card
     //faction
     public string Faction;
     //effects that happen when the card is played
-    public List<string> EffectNames;
+    [SerializeField]
+    public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
+    //The actual effect and trigger objects
+    internal Dictionary<Effect, Trigger> triggerEffects;
+
+    /// <summary>
+    /// Should be called whenever a card is put into play
+    /// </summary>
+    public void DrawCard(){
+        SetUpEffects();
+    }
+
+    //copy the card to a new card
+    public Card Copy()
+    {
+        Card newCard = new Card();
+        newCard.Name = Name;
+        newCard.Description = Description;
+        newCard.ImageName = ImageName;
+        newCard.ManaCost = ManaCost;
+        newCard.Faction = Faction;
+        newCard.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
+        return newCard;
+    }
+
+        public void SetUpEffects()
+    {
+        Dictionary<Effect, Trigger> effects = new Dictionary<Effect, Trigger>();
+        foreach (TriggerEffect trigEff in triggerEffectsStr)
+        {
+            Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
+            effectObj.setPower(trigEff.effectPower);
+            Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
+            triggerObj.setPower(trigEff.triggerPower);
+            effects.Add(effectObj, triggerObj);
+        }
+        triggerEffects = effects;
+    }
 
     //converts imagename to sprite
     public Sprite GetImage()
@@ -30,18 +67,22 @@ public class Card
         return Resources.Load<Sprite>("Images/" + ImageName);
     }
 
+
     /// <summary>
-    /// converts EffectNames into Effects
-    /// You will need to call DoEffect() on the result to actually get it to do anything though!
+    /// Gets a list of events that should happen when the input trigger is true
     /// </summary>
-    public List<Effect> GetEffects()
+    public List<Effect> GetEffects(string trigger)
     {
-        List<Effect> effects = new List<Effect>();
-        foreach (string effectName in EffectNames)
+        //convert EffectNames into Effects
+        List<Effect> results = new List<Effect>();
+        foreach (TriggerEffect trigEff in triggerEffectsStr)
         {
-            effects.Add(GameMaster.GetEffect(effectName));
+            if (trigEff.triggerName == trigger)
+            {
+                results.Add(GameMaster.GetEffect(trigEff.effectName));
+            }
         }
-        return effects;
+        return results;
     }
 }
 

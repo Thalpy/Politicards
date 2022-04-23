@@ -9,8 +9,8 @@ using UnityEngine;
 public class CrisisMaster : MonoBehaviour
 {
     [SerializeField]
-    List<Crisis> crises = new List<Crisis>();
-    Crisis[] activeCrisses = new Crisis[3];
+    public List<Crisis> crisises = new List<Crisis>();
+    ActiveCrisis[] activeCrisses = new ActiveCrisis[3];
     //TODO:
     // Track cards applied to events
 
@@ -24,5 +24,19 @@ public class CrisisMaster : MonoBehaviour
     void Update()
     {
         
+    }
+}
+
+public class ActiveCrisis
+{
+    public Crisis crisis;
+    public Timer timer;
+    public Card[] playerCards = new Card[3];
+    public Card[] AICards = new Card[3];
+
+    public ActiveCrisis(Crisis _crisis)
+    {
+        crisis = _crisis.Copy();
+        timer = new Timer(crisis.DayLength, crisis.StartCrisis);
     }
 }

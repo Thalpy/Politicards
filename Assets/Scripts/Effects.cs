@@ -5,14 +5,29 @@ using UnityEngine;
 /// <summary>
 /// This class is used to store the functionality of an effect.
 /// </summary>
+[System.Serializable]
 public abstract class Effect
 {
     //name 
-    public string Name = "ERROR"; //name setter
+    public string name = "ERROR"; //name setter
+    //Strength of the effect
+    public int power = 1;
+
+    public virtual void setPower(int _power)
+    {
+        power = _power;
+    }
 
     //Function that is called on the event box ending
     public virtual void DoEffect(){
         Debug.LogWarning("Attempted to call a result that doesn't exist!!");
+    }
+
+    //copies the object
+    public virtual Effect Copy()
+    {
+        //creates a new object of the same type
+        return System.Activator.CreateInstance(this.GetType()) as Effect;
     }
 }
 
@@ -21,11 +36,19 @@ public abstract class Effect
 /// </summary>
 public class DrawCard : Effect
 {
-    public new string Name = "Draw card";
+    public DrawCard()
+    {
+        name = "Draw";
+    }
     //Text that appears in the description box
     public override void DoEffect()
     {
-        GameMaster.handController.DrawCard();
+        //repeat the draw card effect for the power
+        for (int i = 0; i < power; i++)
+        {
+            //draw a card
+            GameMaster.handController.DrawCard();
+        }
     }
 }
 
@@ -34,12 +57,19 @@ public class DrawCard : Effect
 /// </summary>
 public class DiscardCard : Effect
 {
-    public new string Name = "Discard";
+    public DiscardCard()
+    {
+        name = "Discard";
+    }
     //Text that appears in the description box
     public override void DoEffect()
     {
-        Debug.Log("Discarding card");
-        Debug.LogWarning("LANDY SEMPAI PLEASE FULFILL ME!!!!");
+        //repeat the draw card effect for the power
+        for (int i = 0; i < power; i++)
+        {
+            Debug.Log("Discarding card");
+            Debug.LogWarning("LANDY SEMPAI PLEASE FULFILL ME!!!!");
+        }
     }
 
 // TODO: Add a use effects on death proc ( deathrattle )

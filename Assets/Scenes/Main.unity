@@ -514,20 +514,26 @@ MonoBehaviour:
     Description: Bong
     ImageName: Yes.png
     DayLength: 3
-    CurrentDay: -1
-    EffectNames: []
+    triggerEffectsStr:
+    - effectName: 
+      effectPower: 0
+      triggerName: 
+      triggerPower: 0
   - Name: Bongery
     Description: Bongbng
     ImageName: No.png
     DayLength: 3
-    CurrentDay: -1
-    EffectNames: []
+    triggerEffectsStr: []
   - Name: Landy
     Description: Landy has a nice day
     ImageName: Lnady.png
     DayLength: 5
-    CurrentDay: -1
-    EffectNames: []
+    triggerEffectsStr: []
+  - Name: Landy
+    Description: Landy has a nice day
+    ImageName: Lnady.png
+    DayLength: 5
+    triggerEffectsStr: []
 --- !u!4 &561427131
 Transform:
   m_ObjectHideFlags: 0
@@ -563,7 +569,7 @@ MonoBehaviour:
       ImageName: gamebeetus.png
       ManaCost: 5
       Faction: The big gambeetus
-      EffectNames: []
+      triggerEffectsStr: []
 --- !u!114 &561427133
 MonoBehaviour:
   m_ObjectHideFlags: 0
