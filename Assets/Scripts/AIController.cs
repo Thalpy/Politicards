@@ -262,6 +262,88 @@ public class AIController : MonoBehaviour
         return orderedCards;
     }
 
+    //a function which tries to guess the player's support objective based upon the cards in the player's hand
+    public string GuessSupportObjective()
+    {
+        //get a reference to the player's hand
+        List<Card> hand = GameMaster.GetPlayerHand(playerName);
+
+        // create an integer for each card faction type
+        int military = 0;
+        int economic = 0;
+        int people = 0;
+        int nobility = 0;
+
+        //loop through the cards in the player's hand
+        for (int i = 0; i < hand.Count; i++)
+        {
+            //if the card is a military card, add one to the military count
+            if (hand[i].Faction == "Military")
+            {
+                military++;
+            }
+
+            //if the card is an economic card, add one to the economic count
+            if (hand[i].Faction == "Economic")
+            {
+                economic++;
+            }
+
+            //if the card is a people card, add one to the people count
+            if (hand[i].Faction == "People")
+            {
+                people++;
+            }
+
+            //if the card is a nobility card, add one to the nobility count
+            if (hand[i].Faction == "Nobility")
+            {
+                nobility++;
+            }
+        }
+
+        // the guessed support objective is the faction with the most cards in the player's hand. return the faction name
+        if (military > economic && military > people && military > nobility)
+        {
+            return "Military";
+        }
+        else if (economic > military && economic > people && economic > nobility)
+        {
+            return "Economic";
+        }
+        else if (people > military && people > economic && people > nobility)
+        {
+            return "People";
+        }
+        else if (nobility > military && nobility > economic && nobility > people)
+        {
+            return "Nobility";
+        }
+        else
+        {
+            //randomly return one of the factions
+            int random = Random.Range(0, 4);
+            if (random == 0)
+            {
+                return "Military";
+            }
+            else if (random == 1)
+            {
+                return "Economic";
+            }
+            else if (random == 2)
+            {
+                return "People";
+            }
+            else
+            {
+                return "Nobility";
+            }
+        }
+
+
+    }
+
 
 
 

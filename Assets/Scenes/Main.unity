@@ -520,14 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf4357ad8e505f48b43c4f64c41aec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crisises:
-  - Name: Kirby's Fooking Pissed
-    Description: 'My Leige, Kirby has arrived and he''s pissed. He''s gonna give
-      you the big suck if you don''t deal with him with your apt decorum. '
-    image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
-    audio: {fileID: 8300000, guid: 7e1b5995acbb8bb43944cf1e8b2b3a97, type: 3}
-    DayLength: 3
-    triggerEffectsStr: []
+  crisises: []
   crisisBox: {fileID: 1615674126}
 --- !u!4 &561427131
 Transform:
@@ -563,6 +556,12 @@ MonoBehaviour:
       Description: Rids all cards of the diabetus affliction
       ImageName: gamebeetus.png
       ManaCost: 5
+      FactionPowerIncrease: 0
+      MilitarySupportIncrease: 0
+      EconomicSupportIncrease: 0
+      NobilitySupportIncrease: 0
+      PeopleSupportIncrease: 0
+      ProgressIncrease: 0
       Faction: The big gambeetus
       triggerEffectsStr: []
 --- !u!114 &561427133
@@ -605,6 +604,8 @@ MonoBehaviour:
   StartingDeckSize: 0
   PlayersHand: 0
   Targets: []
+  MouseOverText: {fileID: 0}
+  MouseOverTextDefaultPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &561427135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,6 +1095,8 @@ MonoBehaviour:
   StartingDeckSize: 20
   PlayersHand: 0
   Targets: []
+  MouseOverText: {fileID: 0}
+  MouseOverTextDefaultPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2100121470
 GameObject:
   m_ObjectHideFlags: 0
