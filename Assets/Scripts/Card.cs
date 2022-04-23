@@ -20,6 +20,8 @@ public class Card
     public int ManaCost;
     //faction
     public string Faction;
+    // Is in starting deck
+    public bool StartingCard;
     //effects that happen when the card is played
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
