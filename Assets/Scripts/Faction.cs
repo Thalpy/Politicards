@@ -147,6 +147,7 @@ public class Faction
             }
         }
 
+        bool happinessChanged = false;
         //if the faction happiness is greater than 50, set the faction happiness to happy, if it is between 25 and 50, set it to neutral, and if it is less than 25, set it to unhappy
         if (factionHappiness > 50)
         {
@@ -156,6 +157,7 @@ public class Faction
                 return;
             }
             PlayerHappiness = PlayerHappinessEnum.happy;
+            happinessChanged = true;
         }
         else if (factionHappiness > 25)
         {
@@ -165,6 +167,7 @@ public class Faction
                 return;
             }
             PlayerHappiness = PlayerHappinessEnum.neutral;
+            happinessChanged = true;
         }
         else
         {
@@ -174,8 +177,8 @@ public class Faction
                 return;
             }
             PlayerHappiness = PlayerHappinessEnum.unhappy;
+            happinessChanged = true;
         }
-
     }
 
     /// <summary>

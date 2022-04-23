@@ -13,7 +13,6 @@ using UnityEngine;
 [RequireComponent(typeof(CrisisMaster))]
 [RequireComponent(typeof(CardMaster))]
 [RequireComponent(typeof(FactionController))]
-[RequireComponent(typeof(JL_HandController))]
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
@@ -22,7 +21,12 @@ public class GameMaster : MonoBehaviour
 
     public static FactionController factionController;
 
-    public List<Effect> effects = new List<Effect>();
+    //Change these to internal after debugging
+    [SerializeField]
+    public static List<Effect> effects = new List<Effect>();
+    [SerializeField]
+    public static List<Trigger> triggers = new List<Trigger>();
+    [SerializeField]
     public static List<Timer> timers = new List<Timer>();
     public static int turn = 0;
     //internal List<Timer> timers = new List<Timer>();
@@ -32,7 +36,6 @@ public class GameMaster : MonoBehaviour
     /// a reference to the pieChart
     /// </summary>
     public PieChart pieChart;
-
     
     // Start is called before the first frame update
     void Awake()
@@ -41,7 +44,9 @@ public class GameMaster : MonoBehaviour
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
 
-        //Feel free to clean this up Landy
+        //LANDY TODO:
+        // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
+
         //get the hand gameobject
         //GameObject _Hand = GameObject.Find("Hand");
         //handController = _Hand.GetComponent<JL_HandController>();
@@ -49,7 +54,47 @@ public class GameMaster : MonoBehaviour
         effects.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
             .Where(type => type.IsSubclassOf(typeof(Effect)))
             .Select(type => (Effect)System.Activator.CreateInstance(type)));
+        //create a list of all classes that inherit from the Trigger class
+        triggers.AddRange(System.Reflection.Assembly.GetExecutingAssembly().GetTypes()
+            .Where(type => type.IsSubclassOf(typeof(Trigger)))
+            .Select(type => (Trigger)System.Activator.CreateInstance(type)));
+        foreach(Effect e in effects)
+        {
+            Debug.Log(e.name);
+        }
+        foreach(Trigger t in triggers)
+        {
+            Debug.Log(t.name);
+        }
     }
+
+    //returns a copy of effects
+    public List<Effect> GetEffects()
+    {
+        List<Effect> _effects = new List<Effect>();
+        foreach(Effect e in effects)
+        {
+            _effects.Add(e.Copy());
+        }
+        return _effects;
+    }
+
+    //returns a copy of triggers
+    public List<Trigger> GetTriggers()
+    {
+        List<Trigger> _triggers = new List<Trigger>();
+        foreach(Trigger t in triggers)
+        {
+            _triggers.Add(t.Copy());
+        }
+        return _triggers;
+    }
+
+    internal static Buff AddBuff(string hovertext, string imagefile)
+    {
+        throw new System.NotImplementedException();
+    }
+
     // increases turn by 1
     public static void NextTurn()
     {
@@ -75,14 +120,27 @@ public class GameMaster : MonoBehaviour
     //TODO
     public static Effect GetEffect(string name)
     {
-        //TODO get results from gamemaster
-        // foreach (Effect result in GameMaster.Effects)
-        // {
-        //     if (result.Name == name)
-        //     {
-        //         return result;
-        //     }
-        // }
+        foreach(Effect effect in effects)
+        {
+            if(effect.name == name)
+            {
+                return effect;
+            }
+        }
+        Debug.LogError("Effect " + name + " not found!!");
+        return null;
+    }
+
+    public static Trigger GetTrigger(string name)
+    {
+        foreach(Trigger trigger in triggers)
+        {
+            if(trigger.name == name)
+            {
+                return trigger;
+            }
+        }
+        Debug.LogError("Trigger " + name + " not found!!");
         return null;
     }
 
@@ -111,5 +169,11 @@ public class GameMaster : MonoBehaviour
 
         
 
+    }
+
+    public static void CheckTrigger(string trigger){
+        foreach (Crisis crisis in crisisMaster.crisises){
+            crisis.CheckTrigger(trigger);
+        }
     }
 }
