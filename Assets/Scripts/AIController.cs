@@ -117,14 +117,35 @@ public class AIController : MonoBehaviour
         }
     }
 
+    // a function that takes the current AISupportObjective and returns the name of the support objective
+    public string GetSupportObjectiveName()
+    {
+        switch (AISupportObjective)
+        {
+            case AISupportObjectiveEnum.MilitarySupport:
+                return "Military";
+            case AISupportObjectiveEnum.EconomicSupport:
+                return "Economic";
+            case AISupportObjectiveEnum.PeopleSupport:
+                return "People";
+            case AISupportObjectiveEnum.NobilitySupport:
+                return "Nobility";
+            case AISupportObjectiveEnum.CrimeSupport:
+                return "Crime";
+            case AISupportObjectiveEnum.PlayerSupport:
+                return "Support";
+            case AISupportObjectiveEnum.PlayerAttack:
+                return "Attack";
+            default:
+                return "";
+        }
+    }
+
     // a function to decide if a card can be played which takes in a card and returns a boolean
     public bool CanPlayCard(Card card)
     {
         // if the mana cost of the card is greater than the faction specific mana pool, return false. Get the faction name from the card faction
         if (card.ManaCost > GameMaster.GetFactionMana(card.Faction, "AI"))
-        {
-            return false;
-        }
         {
             return false;
         }
@@ -266,7 +287,7 @@ public class AIController : MonoBehaviour
     public string GuessSupportObjective()
     {
         //get a reference to the player's hand
-        List<Card> hand = GameMaster.GetPlayerHand(playerName);
+        List<Card> hand = GameMaster.GetHand("Player");
 
         // create an integer for each card faction type
         int military = 0;
@@ -341,26 +362,106 @@ public class AIController : MonoBehaviour
             }
         }
 
-
     }
 
-
-
-
-
-    
-    
-
-
-    // Start is called before the first frame update
-    void Start()
+    //a function to choose the card to play based upon the AI's support objective
+    // pass this function a list of cards whose faction match the AI's support objective
+    // if the relationship between the AI and player is Neutral, the AI will play the card with the highest progress increase
+    // if the relationship between the AI and player is Hostile, the AI will play the card with the highest faction power increase or an attack card
+    // if the relationship between the AI and player is Friendly, the AI will play the card with the highest progress increasse for the guessed support objective
+    public Card ChooseCardToPlay(List<Card> cards)
     {
-        
-    }
+        //create a new variable to hold the card to play
+        Card cardToPlay = null;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        //if the aiPlayerSentiment is neutral, order the cards by progress increase and return the first card in the list
+        if (aiPlayerSentiment == AIPlayerSentimentEnum.Neutral)
+        {
+            //order the cards by progress increase
+            cards = OrderCardsByProgressIncrease(cards);
+
+            //return the first card in the list
+            cardToPlay = cards[0];
+            
+        }
+        //if the aiPlayerSentiment is hostile, play a random attack card if available, otherwise get the list of cards which match the ai support objective, order them by faction power increase and return the first card in the list
+        else if (aiPlayerSentiment == AIPlayerSentimentEnum.Negative)
+        {
+            //create a new list of cards
+            List<Card> attackCards = new List<Card>();
+
+            //loop through the cards in the list of cards
+            for (int i = 0; i < cards.Count; i++)
+            {
+                //if the card is an attack card, add it to the attack cards list
+                if (cards[i].Faction == "Attack")
+                {
+                    attackCards.Add(cards[i]);
+                }
+            }
+
+            //if there are attack cards in the attack cards list, randomly choose one of the attack cards and return it
+            if (attackCards.Count > 0)
+            {
+                //randomly choose one of the attack cards
+                int random = Random.Range(0, attackCards.Count);
+
+                //return the attack card
+                cardToPlay = attackCards[random];
+            }
+            //otherwise, get the list of cards which match the ai support objective, order them by faction power increase and return the first card in the list
+            else
+            {
+                //get the list of cards which match the ai support objective
+                List<Card> supportCards = new List<Card>();
+
+                //loop through the cards in the list of cards
+                for (int i = 0; i < cards.Count; i++)
+                {
+                    //if the card matches the ai support objective, add it to the support cards list
+                    if (cards[i].Faction == GetSupportObjectiveName())
+                    {
+                        supportCards.Add(cards[i]);
+                    }
+                }
+
+                //order the support cards by faction power increase
+                supportCards = OrderCardsByFactionPowerIncrease(supportCards);
+
+                //return the first card in the list
+                cardToPlay = supportCards[0];
+            }
+            
+
+
+        }
+        //if the aiPlayerSentiment is friendly, get the list of cards which match the guessed player objective
+        //rank these cards by progress increase and return the first card in the list
+        else if (aiPlayerSentiment == AIPlayerSentimentEnum.Positive)
+        {
+            //get the list of cards which match the guessed player objective
+            List<Card> supportCards = new List<Card>();
+
+            //loop through the cards in the list of cards
+            for (int i = 0; i < cards.Count; i++)
+            {
+                //if the card matches the guessed player objective, add it to the support cards list
+                if (cards[i].Faction == GuessSupportObjective())
+                {
+                    supportCards.Add(cards[i]);
+                }
+            }
+
+            //order the support cards by progress increase
+            supportCards = OrderCardsByProgressIncrease(supportCards);
+
+            //return the first card in the list
+            cardToPlay = supportCards[0];
+        }
+
+        //return the card to play
+        return cardToPlay;
+
 }
+}
+

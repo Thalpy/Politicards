@@ -182,4 +182,12 @@ public class GameMaster : MonoBehaviour
         return factionController.GetMana(factionName, player);
         
     }
+
+    //a function that accepts a player name and returns the list of cards in that player's hand
+    public static List<Card> GetHand(string player)
+    {
+        //write a not implemented exception to the Debug console
+        throw new System.NotImplementedException();
+
+    }
 }
