@@ -98,6 +98,11 @@ public class FactionController : MonoBehaviour
         return null;
     }
 
+    public Faction SelectFaction(int factionIndex)
+    {
+        return factions[factionIndex];
+    }
+
     /// <summary>
     ///  Given a faction name, returns the faction power
     /// </summary>
@@ -247,6 +252,15 @@ public class FactionController : MonoBehaviour
         return factionNames;
     }
 
-
+    /// <summary>
+    ///  Get a list of all the faction names with the AI
+    /// </summary>
+    /// <returns>
+    ///  An int array of all the faction names with the AI
+    /// </returns>
+    public int GetNumberOfFactions()
+    {
+        return factions.Count;
+    }
 
 }

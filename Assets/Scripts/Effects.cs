@@ -13,9 +13,9 @@ public abstract class Effect
     //Strength of the effect
     public int power = 1;
 
-    public virtual void setPower(int _power)
+    public virtual void setVars(params int[] args)
     {
-        power = _power;
+        power = args[0];
     }
 
     //Function that is called on the event box ending
@@ -76,20 +76,65 @@ public class DiscardCard : Effect
 }
 
 //IN PROGRESS
-public class AlterPower : Effect
+public class Power : Effect
 {
-    public AlterPower()
+    public Power()
     {
-        name = "Alter Power";
+        name = "Power";
+    }
+
+    public Faction faction;
+
+    public override void setVars(params int[] args)
+    {
+        base.setVars(args[0]);
+        GameMaster.factionController.SelectFaction(args[1]);
     }
 
     public override void DoEffect()
     {
-        //repeat the draw card effect for the power
-        for (int i = 0; i < power; i++)
-        {
-            //draw a card
-            GameMaster.handController.DrawCard();
-        }
+        GameMaster.factionController.ChangeFactionPower(faction.FactionName, power);
+    }
+}
+
+public class Happiness : Effect
+{
+    public Happiness()
+    {
+        name = "Happiness";
+    }
+
+    public Faction faction;
+
+    public override void setVars(params int[] args)
+    {
+        base.setVars(args[0]);
+        GameMaster.factionController.SelectFaction(args[1]);
+    }
+
+    public override void DoEffect()
+    {
+        GameMaster.factionController.ChangeFactionHappiness(faction.FactionName, power);
+    }
+}
+
+public class Progress : Effect
+{
+    public Progress()
+    {
+        name = "Progress";
+    }
+
+    public Faction faction;
+
+    public override void setVars(params int[] args)
+    {
+        base.setVars(args[0]);
+        GameMaster.factionController.SelectFaction(args[1]);
+    }
+
+    public override void DoEffect()
+    {
+        Debug.LogWarning("Progress effect not implemented");
     }
 }
