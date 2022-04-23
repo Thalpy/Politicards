@@ -29,9 +29,6 @@ public class JL_HandController : MonoBehaviour
 
     [SerializeField] public List<GameObject> Targets;
 
-    [SerializeField] GameObject MouseOverText;
-    [SerializeField] Vector3 MouseOverTextDefaultPosition;
-
     
     void Start()
     {
@@ -51,15 +48,10 @@ public class JL_HandController : MonoBehaviour
 
     void Update() // These Update functions are just for Debugging and can be removed from the final build, clicking on the deck draws cards and clicking ont he discard discards them.
     {
-        
-        Ray _Ray;
-        RaycastHit _Hit;
-        _Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        
         if (Input.GetMouseButtonDown(0))
         {
-            
-            
+            Ray _Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit _Hit;
 
             if (Physics.Raycast(_Ray, out _Hit, 200))
             {
@@ -77,6 +69,8 @@ public class JL_HandController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            Ray _Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit _Hit;
 
             if (Physics.Raycast(_Ray, out _Hit, 200))
             {
@@ -89,28 +83,7 @@ public class JL_HandController : MonoBehaviour
                 }
 
             }
-        }
-
-
-
-        if (Physics.Raycast(_Ray, out _Hit, 200) && PlayersHand)
-        {
-            JL_MouseOverText _JL_MouseOverText = _Hit.transform.gameObject.GetComponent<JL_MouseOverText>();
-            if (_JL_MouseOverText != null)      
-            {
-
-            float x = Input.mousePosition.x;
-            float y = Input.mousePosition.y;
-            float z = 50;
-            MouseOverText.transform.position = Camera.main.ScreenToWorldPoint(new Vector3 (x,y,z));
-            MouseOverText.GetComponent<TMPro.TextMeshPro>().text = _Hit.transform.gameObject.GetComponent<JL_MouseOverText>().GetMouseOverText();
-            }
-
-        }
-        else if(PlayersHand)
-        {
-        MouseOverText.transform.position = MouseOverTextDefaultPosition;
-        }
+        }      
     }
 
     
@@ -129,7 +102,7 @@ public class JL_HandController : MonoBehaviour
             }
         }
         
-        
+
         HandWidth = Mathf.Min(MaxHandWidth,MaxCardSpacing*CardsInHand.Count);
 
         float x;
@@ -165,8 +138,7 @@ public class JL_HandController : MonoBehaviour
                 CardsInDeck[i].transform.SetParent(Deck.transform);
             }
 
-            CardsInDiscard.Clear();
-            ShuffleDeck();
+            CardsInDiscard = new List<GameObject>();
         }
 
         if (CardsInDeck.Count != 0)
@@ -195,29 +167,6 @@ public class JL_HandController : MonoBehaviour
         }
 
 
-    }
-
-    public void ShuffleDeck() // randomly moves cards into a new list and then randomly back again.
-    {
-        float x = CardsInDeck.Count;
-        
-        List<GameObject> TempDeck = new List<GameObject>();
-        
-        for (int i = 0; i < x; i++)
-        {
-            int j = Random.Range(0,CardsInDeck.Count);
-            
-            TempDeck.Add(CardsInDeck[j]);
-            CardsInDeck.Remove(CardsInDeck[j]);
-        }
-
-        for (int i = 0; i < x; i++)
-        {
-            int j = Random.Range(0,TempDeck.Count);
-            
-            CardsInDeck.Add(TempDeck[j]);
-            TempDeck.Remove(TempDeck[j]);
-        }
     }
 
 

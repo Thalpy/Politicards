@@ -13,7 +13,7 @@ using UnityEngine;
 [RequireComponent(typeof(CrisisMaster))]
 [RequireComponent(typeof(CardMaster))]
 [RequireComponent(typeof(FactionController))]
-//[RequireComponent(typeof(JL_HandController))]
+[RequireComponent(typeof(JL_HandController))]
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
