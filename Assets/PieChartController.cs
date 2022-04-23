@@ -97,42 +97,58 @@ public class PieChartController : MonoBehaviour
 
     }
 
-
-
-/*
-
-        
-        PieSector1.GetComponent<PieChartMesh>().startAngle = 0;
-        PieSector1.GetComponent<PieChartMesh>().Proportion = 0.2;
-        //set the material of PieSector1 to the People material
-        Instantiate(PieSector1, GetComponent<Transform>().position + new Vector3(0, 0, -0.25f), Quaternion.identity);
-        PieSector1.GetComponent<MeshRenderer>().material = Resources.Load("Materials/People", typeof(Material)) as Material;
-        PieSector2.GetComponent<PieChartMesh>().startAngle = 72;
-        PieSector2.GetComponent<PieChartMesh>().Proportion = 0.2;
-        // set the material of PieSector2 to the Economy material
-        PieSector2.GetComponent<MeshRenderer>().material = Resources.Load("Materials/Economic", typeof(Material)) as Material;
-        Instantiate(PieSector2, GetComponent<Transform>().position + new Vector3(0, 0, -0.25f), Quaternion.identity);
-        PieSector3.GetComponent<PieChartMesh>().startAngle = 144;
-        PieSector3.GetComponent<PieChartMesh>().Proportion = 0.2;
-        // set the material of PieSector3 to the Military material
-        PieSector3.GetComponent<MeshRenderer>().material = Resources.Load("Materials/Military", typeof(Material)) as Material;
-        Instantiate(PieSector3, GetComponent<Transform>().position + new Vector3(0, 0, -0.25f), Quaternion.identity);
-        PieSector4.GetComponent<PieChartMesh>().startAngle = 218;
-        PieSector4.GetComponent<PieChartMesh>().Proportion = 0.2;
-        //set the material of PieSector4 to the Nobility material
-        PieSector4.GetComponent<MeshRenderer>().material = Resources.Load("Materials/Nobility", typeof(Material)) as Material;
-        Instantiate(PieSector4, GetComponent<Transform>().position + new Vector3(0, 0, -0.25f), Quaternion.identity);
-        PieSector5.GetComponent<PieChartMesh>().startAngle = 290;
-        PieSector5.GetComponent<PieChartMesh>().Proportion = 0.2;
-        //set the material of PieSector5 to the Crime material
-        PieSector5.GetComponent<MeshRenderer>().material = Resources.Load("Materials/Crime", typeof(Material)) as Material;
-        Instantiate(PieSector5, GetComponent<Transform>().position + new Vector3(0, 0, -0.25f), Quaternion.identity);
-
-*/
-
-    // Update is called once per frame
-    void Update()
+    void updatePieChart()
     {
-        
+        EconomyPieSector.GetComponent<PieChartMesh>().Proportion = Economic.powerProportion;
+        PeoplePieSector.GetComponent<PieChartMesh>().Proportion = People.powerProportion;
+        NobilityPieSector.GetComponent<PieChartMesh>().Proportion = Nobility.powerProportion;
+        MilitaryPieSector.GetComponent<PieChartMesh>().Proportion = Military.powerProportion;
+        CrimePieSector.GetComponent<PieChartMesh>().Proportion = crime.powerProportion;
+
+        //dispose of all of the PieChartSectors
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("PieChartSector"))
+        {
+            Debug.Log("Disposing of " + go.name);
+            Destroy(go);
+        }
+
+        //set the start angle of each PieChartSector
+        EconomyPieSector.GetComponent<PieChartMesh>().startAngle = 0;
+        PeoplePieSector.GetComponent<PieChartMesh>().startAngle = (int) (Economic.powerProportion * 360);
+        NobilityPieSector.GetComponent<PieChartMesh>().startAngle = (int) (Economic.powerProportion * 360 + People.powerProportion * 360);
+        MilitaryPieSector.GetComponent<PieChartMesh>().startAngle = (int) (Economic.powerProportion * 360 + People.powerProportion * 360 + Nobility.powerProportion * 360);
+        CrimePieSector.GetComponent<PieChartMesh>().startAngle = (int) (Economic.powerProportion * 360 + People.powerProportion * 360 + Nobility.powerProportion * 360 + Military.powerProportion * 360);
+
+        //re-instantiate the PieChartSectors
+        Instantiate(EconomyPieSector, GetComponent<Transform>().position + new Vector3(0, 0, -0.3f), Quaternion.identity);
+        Instantiate(PeoplePieSector, GetComponent<Transform>().position + new Vector3(0, 0, -0.3f), Quaternion.identity);
+        Instantiate(NobilityPieSector, GetComponent<Transform>().position + new Vector3(0, 0, -0.3f), Quaternion.identity);
+        Instantiate(MilitaryPieSector, GetComponent<Transform>().position + new Vector3(0, 0, -0.3f), Quaternion.identity);
+        Instantiate(CrimePieSector, GetComponent<Transform>().position + new Vector3(0, 0, -0.3f), Quaternion.identity);
+         
+        }
+    public void updatePartyPower(string partyName, float power)
+    {
+        //find the party with the name partyName
+        PoliticalParty party = PartyList.Find(x => x.partyName == partyName);
+        //set the power proportion of the party to power
+        party.powerProportion = power;
+        //update the pie chart
+        updatePieChart();
+
+
     }
+
+    //public function to update a random party's power proportion by a random amount
+    public void updateRandomPartyPower()
+    {
+        //get a random party
+        PoliticalParty party = PartyList[Random.Range(0, PartyList.Count)];
+        //get a random amount to add to the party's power proportion
+        float amount = Random.Range(-0.1f, 0.1f);
+        //add the amount to the party's power proportion
+        updatePartyPower(party.partyName, party.powerProportion + amount);
+    }
+
+
 }

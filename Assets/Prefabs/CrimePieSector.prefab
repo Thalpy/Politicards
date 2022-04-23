@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5456464055255582047}
   m_Layer: 0
   m_Name: CrimePieSector
-  m_TagString: Untagged
+  m_TagString: PieChartSector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,9 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d96eb1b4b1837842b3c3c5bf48272b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  proportion: 0.20000000298023224
   mf: {fileID: 5456464055255582041}
   mr: {fileID: 5456464055255582040}
   PointMarker: {fileID: 7218920130783939234, guid: 303bbdcd4bfeb7e46a2f144fe5de8efc,
     type: 3}
   pieDepth: 0.25
-  startAngle: 290
+  startAngle: 288

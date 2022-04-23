@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,15 +262,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bfd7a04e919f6748af84678d716a4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PieSector1: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+  EconomyPieSector: {fileID: 5456464055255582046, guid: 2de99d8e91d5143f79ce48da3e239349,
     type: 3}
-  PieSector2: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+  PeoplePieSector: {fileID: 5456464055255582046, guid: b712ca37b81c14053995c13e68336730,
     type: 3}
-  PieSector3: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+  NobilityPieSector: {fileID: 5456464055255582046, guid: 09ef359d5d7224b87b4ed911ec9f5189,
     type: 3}
-  PieSector4: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+  MilitaryPieSector: {fileID: 5456464055255582046, guid: aaef83f00b7114218ab0e17f45a5e2ea,
     type: 3}
-  PieSector5: {fileID: 5456464055255582046, guid: 567c58e62136c6847a33494c73e10bf8,
+  CrimePieSector: {fileID: 5456464055255582046, guid: d402df3d76b2b41aea379af07bf90dee,
     type: 3}
 --- !u!1 &1724803917
 GameObject:
