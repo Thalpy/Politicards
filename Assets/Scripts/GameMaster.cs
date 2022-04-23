@@ -176,4 +176,10 @@ public class GameMaster : MonoBehaviour
             crisis.CheckTrigger(trigger);
         }
     }
+
+    public static float GetFactionMana(string factionName, string player)
+    {
+        return factionController.GetMana(factionName, player);
+        
+    }
 }

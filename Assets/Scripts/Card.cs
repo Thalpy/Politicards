@@ -18,6 +18,18 @@ public class Card
     public string ImageName;
     //mana cost
     public int ManaCost;
+
+    public float FactionPowerIncrease;
+
+    public float MilitarySupportIncrease;
+
+    public float EconomicSupportIncrease;
+
+    public float NobilitySupportIncrease;
+
+    public float PeopleSupportIncrease;
+
+    public float ProgressIncrease;
     //faction
     public string Faction;
     //effects that happen when the card is played

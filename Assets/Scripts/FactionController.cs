@@ -278,6 +278,20 @@ public class FactionController : MonoBehaviour
         return 0;
     }
 
+    //a function to get the faction specific mana for the ai
+    public float GetAiMana(string factionName)
+    {
+        for (int i = 0; i < factions.Count; i++)
+        {
+            if (factions[i].FactionName == factionName)
+            {
+                return factions[i].FactionAiMana;
+            }
+        }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
+        return 0;
+    }
 
 
 

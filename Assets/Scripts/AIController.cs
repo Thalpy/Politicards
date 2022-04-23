@@ -121,7 +121,10 @@ public class AIController : MonoBehaviour
     public bool CanPlayCard(Card card)
     {
         // if the mana cost of the card is greater than the faction specific mana pool, return false. Get the faction name from the card faction
-        if (card.ManaCost > GameMaster.GetFactionMana(card.Faction))
+        if (card.ManaCost > GameMaster.GetFactionMana(card.Faction, "AI"))
+        {
+            return false;
+        }
         {
             return false;
         }
@@ -185,6 +188,9 @@ public class AIController : MonoBehaviour
         {
             return false;
         }
+
+        //otherwise, return true
+        return true;
         
     }
 
