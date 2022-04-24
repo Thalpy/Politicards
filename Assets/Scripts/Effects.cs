@@ -53,6 +53,23 @@ public abstract class Effect
         //creates a new object of the same type
         return System.Activator.CreateInstance(this.GetType()) as Effect;
     }
+
+    /// <summary>
+    /// Mostly an easy of use function to call the effect without copy pasting this code
+    /// </summary>
+    public virtual void AdjustProgress(Faction faction)
+    {
+        //if the source is a card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //find the card in the active crisises
+            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            //alter the crisis progress
+            crisis.AdjustProgress(power, faction);
+        }
+    }
 }
 
 /// <summary>
@@ -191,16 +208,7 @@ public class Progress : Effect
 
     public override void DoEffect()
     {
-        //if the source is a card
-        if (source is Card)
-        {
-            //get the card
-            Card card = source as Card;
-            //find the card in the active crisises
-            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
-            //alter the crisis progress
-            crisis.AdjustProgress(power, faction);
-        }
+
     }
 }
 
@@ -306,10 +314,32 @@ public class MostPowerful : Effect
                 highestPower = _faction.FactionPower;
             }
         }
-        if(factionPower > highestPower)
+        if(factionPower <= highestPower)
         {
             GameMaster.factionController.ChangeFactionPower(faction.FactionName, power);
         }
+    }
+}
+
+public class BoostWeakest : Effect
+{
+    public BoostWeakest()
+    {
+        name = "BoostWeakest";
+    }
+    Faction faction;
+
+    public override void DoEffect()
+    {
+        float lowestPower = 100;
+        foreach (Faction _faction in GameMaster.factionController.GetFactions())
+        {
+            if (_faction.FactionPower < lowestPower)
+            {
+                faction = _faction;
+            }
+        }
+        AdjustProgress(faction);
     }
 }
 
