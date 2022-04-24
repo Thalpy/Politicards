@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
+//TO DO:
+//  - Rewrite the code to rotate by 90 degrees - it looks like the detection is not working correctly
+
+
 /// <summary>
 /// The Pie Chart Controller
 /// use this script to control the pie chart
@@ -17,18 +21,25 @@ public struct PieChartData
     public int index;
     public string name;
 
+    public Image image;
+
+    public float power;
+
     public float lowerBoundingAngle;
 
     public float upperBoundingAngle;
 
     //constructor
-    public PieChartData(int index, string name, float lowerBoundingAngle, float upperBoundingAngle)
+    public PieChartData(int index, string name, Image image, float power, float lowerBoundingAngle, float upperBoundingAngle)
     {
         this.index = index;
         this.name = name;
+        this.image = image;
+        this.power = power;
         this.lowerBoundingAngle = lowerBoundingAngle;
         this.upperBoundingAngle = upperBoundingAngle;
     }
+
 
 }
 
@@ -50,6 +61,8 @@ public class PieChart : MonoBehaviour
 
     [SerializeField] Color colourUnderMouse;
 
+    [SerializeField] float totalPower;
+
 
     /// <summary>
     /// The list of party pie sectors.
@@ -63,13 +76,7 @@ public class PieChart : MonoBehaviour
     /// </summary>
     public float[] values;
 
-    [SerializeField] public PieChartData[] pieChartData = new PieChartData[5] {
-        new PieChartData(0, "People", 0, 0),
-        new PieChartData(1, "Economic", 0, 0),
-        new PieChartData(2, "Military", 0, 0),
-        new PieChartData(3, "Nobility", 0, 0),
-        new PieChartData(4, "Crime", 0, 0)
-    };
+    [SerializeField] public PieChartData[] pieChartData;
 
 
 
@@ -82,14 +89,53 @@ public class PieChart : MonoBehaviour
     /// </param>
     public void SetValues(float[] values)
     {
-        float totalValue = 0;
+        //for each value in values, set the power of the pieChartData element with the same index
         for (int i = 0; i < values.Length; i++)
         {
-            totalValue += GetPercentage(values, i);
-            imagesPieChart[i].fillAmount = totalValue;
-
+            //look for the element with the same index as the current value
+            for (int j = 0; j < pieChartData.Length; j++)
+            {
+                //if the element has the same index as the current value
+                if (pieChartData[j].index == i)
+                {
+                    //set the power of the element to the current value
+                    pieChartData[j].power = values[i];
+                }
+            }
         }
 
+        // get the total power of all the pie chart elements then set this.totalPower to this value
+        totalPower = 0;
+        for (int i = 0; i < pieChartData.Length; i++)
+        {
+            totalPower += pieChartData[i].power;
+        }
+
+
+        // declare a variable to store the total fill amount
+        float totalFillAmount = 0;
+
+        // for each element in the pie chart, calculate the fill amount as power / total power,  add it to the total fill amount and set the fill amount of the element
+        for (int i = 0; i < pieChartData.Length; i++)
+        {
+            totalFillAmount = totalFillAmount + (pieChartData[i].power / totalPower);
+            imagesPieChart[i].fillAmount = totalFillAmount;
+        }      
+       
+
+        // for each element of the pieChartData array, set the lower bounding angle to the sum of the previous elements' upper bounding angles unless it is the first element in which case it is 0. set the upper bounding angle equal to the fill amount of the current element.
+        for (int i = 0; i < pieChartData.Length; i++)
+        {
+            if (i == 0)
+            {
+                pieChartData[i].lowerBoundingAngle = 0;
+            }
+            else
+            {
+                pieChartData[i].lowerBoundingAngle = pieChartData[i - 1].upperBoundingAngle;
+            }
+            pieChartData[i].upperBoundingAngle = pieChartData[i].image.fillAmount;
+        }
     }
 
     /// <summary>
@@ -111,12 +157,12 @@ public class PieChart : MonoBehaviour
         {
             totalValue += valuesToSet[i];
         }
-        float percentage =  valuesToSet[index] / totalValue;
+        float percentage = valuesToSet[index] / totalValue;
 
         //get the piechart data for the party at the given index
         PieChartData pieChartData = this.pieChartData[index];
 
-        pieChartData.upperBoundingAngle = percentage;           
+        pieChartData.upperBoundingAngle = percentage;
 
 
         return percentage;
@@ -125,7 +171,7 @@ public class PieChart : MonoBehaviour
 
 
 
-    //start 
+    //start
     void Start()
     {
         //FactionController factionController = GameMaster.GetComponent<FactionController>();
@@ -177,9 +223,22 @@ public class PieChart : MonoBehaviour
         return pieChartData[0].name;
     }
 
+    // a function called testPieChart which calls the set values function passing in an array of 5 random floats between 0 and 100
+    public void TestPieChart()
+    {
+        //create an array of 5 random floats between 0 and 100
+        float[] values = new float[5];
+        for (int i = 0; i < values.Length; i++)
+        {
+            values[i] = Random.Range(0, 100);
+        }
+        //set the values
+        SetValues(values);
+    }
 
 
-    
+
+
 
 
 }
