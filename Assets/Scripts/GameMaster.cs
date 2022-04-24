@@ -138,6 +138,10 @@ public class GameMaster : MonoBehaviour
         return null;
     }
 
+    public static Effect GetRandomEffect(){
+        return effects[Random.Range(0, effects.Count)];
+    }
+
     public static Trigger GetTrigger(string name)
     {
         if(name == "")

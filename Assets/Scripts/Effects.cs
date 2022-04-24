@@ -266,3 +266,63 @@ public class Double : Effect
         }
     }
 }
+
+public class MostPowerful : Effect
+{
+    public MostPowerful()
+    {
+        name = "MostPowerful";
+    }
+    Faction faction;
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        power = int.Parse(args[0]);
+        //if args[1] is can be an int
+        if (int.TryParse(args[1], out int factionID))
+        {
+            faction = GameMaster.factionController.SelectFaction(factionID);
+        }
+        else
+        {
+            //if it's not an int, it's a string
+            faction = GameMaster.factionController.SelectFaction(args[1]);
+        }
+    }
+
+    public override void DoEffect()
+    {
+        float highestPower = 0;
+        float factionPower = 0;
+        foreach(Faction _faction in GameMaster.factionController.GetFactions())
+        {
+            if (faction == _faction)
+            {
+                factionPower = _faction.FactionPower;
+                continue;
+            }
+            if (_faction.FactionPower > highestPower)
+            {
+                highestPower = _faction.FactionPower;
+            }
+        }
+        if(factionPower > highestPower)
+        {
+            GameMaster.factionController.ChangeFactionPower(faction.FactionName, power);
+        }
+    }
+}
+
+public class Chaos :Effect
+{
+    public Chaos()
+    {
+        name = "Chaos";
+    }
+
+    public override void DoEffect()
+    {
+        //pick a random effect from the effect's list in GameMaster
+        Effect effect = GameMaster.GetRandomEffect();
+    }
+}
