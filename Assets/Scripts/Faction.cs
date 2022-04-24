@@ -94,6 +94,9 @@ public class Faction
         set { factionAiHappiness = value; }
     }
 
+    //The icon of the faction
+    [SerializeField] private Sprite factionIcon;
+
 
 
 

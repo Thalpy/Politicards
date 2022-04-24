@@ -77,7 +77,7 @@ public class Crisis
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
             effectObj.setVars(this, trigEff.effectVars);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
-            triggerObj.setVars(trigEff.triggerVars);
+            triggerObj.setVars(effectObj, trigEff.triggerVars);
             effects.Add(effectObj, triggerObj);
         }
         triggerEffects = effects;
