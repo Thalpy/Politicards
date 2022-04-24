@@ -119,17 +119,38 @@ public class JL_CardController : MonoBehaviour
     {
         Grabbed = false;
         bool AtTarget = false;
-        float TargetDistance = 1000000000; //so large maybe too large?
+        float TargetDistance = 1000000000; //so large maybe too large? //What is this????
         GameObject Target;
 
-        for (int i = 0; i < _HandController.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
+        for (int i = 0; i < GameMaster.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
         {
-            float NewTargetDistance = Vector3.Distance(gameObject.transform.position,_HandController.Targets[i].transform.position);
-            if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
+            float NewTargetDistance = Vector2.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
+            Target = GameMaster.Targets[i];
+            Targetable targetObj = Target.GetComponent<Targetable>();
+            if (Target.GetComponent<Targetable>() != null)
             {
-                Target = _HandController.Targets[i];
-                TargetDistance = NewTargetDistance;
+                Debug.LogWarning("Targetable component not found on target");
+                Debug.Break();
             }
+            //Is this ok landy?
+            if (NewTargetDistance < targetObj.allowedDistance)
+            {
+                TargetDistance = NewTargetDistance;
+                AtTarget = true;
+                Target.GetComponent<Targetable>().DropCard(_Card);
+            }
+            
+
+            // if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
+            // {
+                
+            //     TargetDistance = NewTargetDistance;
+            //     //check to see if the target has targetable components
+            //     if (Target.GetComponent<Targetable>() != null)
+            //     {
+                    
+            //     }
+            // }
         }
 
         if (AtTarget)

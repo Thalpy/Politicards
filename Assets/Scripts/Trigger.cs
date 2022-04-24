@@ -17,14 +17,20 @@ public abstract class Trigger
     public virtual void setVars(Effect _effect, List<string> args)
     {
         effect = _effect;
-        power = int.Parse(args[0]);
+        if(args.Count > 0)
+        {
+            power = int.Parse(args[0]);
+        }
         SetupTrigger();
     }
 
     public virtual void setVars(Effect _effect, params int[] args)
     {
         effect = _effect;
-        power = args[0];
+        if(args.Length > 0)
+        {
+            power = args[0];
+        }
         SetupTrigger();
     }
 

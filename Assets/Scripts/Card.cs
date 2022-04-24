@@ -44,6 +44,7 @@ public class Card
     /// </summary>
     public void DrawCard(){
         SetUpEffects();
+        CheckTrigger("Draw");
     }
 
     public void UseCard(Crisis crisis, int index, bool player = true){
@@ -101,7 +102,7 @@ public class Card
                 continue;
             }
             Effect happinessEffect = GameMaster.GetEffect("Happiness").Copy();
-            happinessEffect.setVars(HappinessValues[i], i);
+            happinessEffect.setVars(this, HappinessValues[i], i);
 
             effects.Add(happinessEffect, onUse);
         }
@@ -114,7 +115,7 @@ public class Card
                 continue;
             }
             Effect progressEffect = GameMaster.GetEffect("Progress").Copy();
-            progressEffect.setVars(ProgressValues[i], i);
+            progressEffect.setVars(this, ProgressValues[i], i);
             effects.Add(progressEffect, onUse);
         }
 
