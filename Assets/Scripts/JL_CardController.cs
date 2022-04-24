@@ -127,7 +127,7 @@ public class JL_CardController : MonoBehaviour
             float NewTargetDistance = Vector2.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
             Target = GameMaster.Targets[i];
             Targetable targetObj = Target.GetComponent<Targetable>();
-            if (Target.GetComponent<Targetable>() != null)
+            if (Target.GetComponent<Targetable>() == null)
             {
                 Debug.LogWarning("Targetable component not found on target");
                 Debug.Break();
