@@ -418,11 +418,9 @@ public class AIController : MonoBehaviour
 
     /// <summary>
     /// Chooses a card to play from the player's hand.
-    /// If the ai sentiment towards the player neutral, the ai will play the card with the highest progress increase
-    /// 
     /// </summary>
-    /// <param name="cards"></param>
-    /// <returns></returns>
+    /// <param name="cards">List<card> The cards in the hand</param>
+    /// <returns>Card: the card to play</returns>
     public Card ChooseCardToPlay(List<Card> cards)
     {
         //create a new variable to hold the card to play
