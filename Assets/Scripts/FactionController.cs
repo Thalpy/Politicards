@@ -98,6 +98,11 @@ public class FactionController : MonoBehaviour
         return null;
     }
 
+    public Faction SelectFaction(int factionIndex)
+    {
+        return factions[factionIndex];
+    }
+
     /// <summary>
     ///  Given a faction name, returns the faction power
     /// </summary>

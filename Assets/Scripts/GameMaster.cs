@@ -166,9 +166,6 @@ public class GameMaster : MonoBehaviour
         //update the pie chart with the faction power array
         pieChart.SetValues(factionPower);
 
-
-        
-
     }
 
     public static void CheckTrigger(string trigger){

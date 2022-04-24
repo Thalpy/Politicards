@@ -36,12 +36,14 @@ public class JL_HandController : MonoBehaviour
     void Start()
     {
 
-    for (int i = 0; i < StartingDeckSize; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
+    for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
     {
+        
         CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
         JL_CardController CC =  CardsInDeck[i].GetComponent<JL_CardController>();
         CardsInDeck[i].name = "Card " + i;
         CC.Deck = Deck;
+        CC._Card = GameMaster.cardMaster.Decks[0].cards[i];
         CC.Discard = Discard;
         CC.Hand = gameObject;
         CC.Position = DeckOffScreenLocation;
@@ -116,18 +118,19 @@ public class JL_HandController : MonoBehaviour
     
 
     
-    public Vector3 GetCardHandPosition(GameObject Card) // This function returns the hand position for the card.
+    public Vector3 GetCardHandPosition(GameObject Card, out int DrawOrder) // This function returns the hand position for the card.
     {
         
         int CardIndex = 0;
 
         for (int i = 0; i < CardsInHand.Count; i++)
         {
-            if(CardsInHand[i].name == Card.name)
+            if(CardsInHand[i] == Card)
             {
                 CardIndex = i;
             }
         }
+        Debug.Log(CardIndex);
         
         
         HandWidth = Mathf.Min(MaxHandWidth,MaxCardSpacing*CardsInHand.Count);
@@ -144,10 +147,11 @@ public class JL_HandController : MonoBehaviour
         
         
         float y = gameObject.transform.position.y;
-        float z = gameObject.transform.position.z+CardIndex*0.01f;
+        float z = gameObject.transform.position.z;
+        DrawOrder = CardIndex;
 
 
-
+        Debug.Log(new Vector3(x,y,z));
         return (new Vector3(x,y,z));
     }
 
@@ -174,8 +178,9 @@ public class JL_HandController : MonoBehaviour
             CardsInHand.Add(CardsInDeck[0]);
 
             CardsInDeck[0].transform.position = Deck.transform.position;
-           
-            CardsInDeck[0].GetComponent<JL_CardController>().Position = GetCardHandPosition(CardsInDeck[0]);
+            int DrawOrder;
+            CardsInDeck[0].GetComponent<JL_CardController>().Position = GetCardHandPosition(CardsInDeck[0], out DrawOrder);
+            CardsInDeck[0].GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
 
             if (PlayersHand)
             {
