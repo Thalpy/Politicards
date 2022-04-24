@@ -14,6 +14,11 @@ public abstract class Trigger
     //The variable power of the trigger (type dependant)
     public int power;
 
+    public virtual void setVars(List<string> args)
+    {
+        power = int.Parse(args[0]);
+    }
+
     public virtual void setVars(params int[] args)
     {
         power = args[0];
@@ -41,6 +46,9 @@ public class Instant : Trigger
     public Instant()
     {
         name = "Instant";
+    }
+    public override void setVars(List<string> args){
+        return;
     }
     //Function that is called on setup
     public override void SetupTrigger(Effect _effect, int _power){
@@ -70,7 +78,7 @@ public class TimeOutTrigger : Trigger
 {
     public TimeOutTrigger()
     {
-        name = "TimeOutTrigger";
+        name = "TimeOut";
     }
     public Timer timer;
 

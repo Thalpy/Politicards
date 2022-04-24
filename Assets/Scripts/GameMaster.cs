@@ -120,7 +120,6 @@ public class GameMaster : MonoBehaviour
     //TODO
     public static Effect GetEffect(string name)
     {
-        
         foreach(Effect effect in effects)
         {
             if(effect.name == name)
@@ -134,6 +133,10 @@ public class GameMaster : MonoBehaviour
 
     public static Trigger GetTrigger(string name)
     {
+        if(name == "")
+        {
+            name = "Instant";
+        }
         foreach(Trigger trigger in triggers)
         {
             if(trigger.name == name)

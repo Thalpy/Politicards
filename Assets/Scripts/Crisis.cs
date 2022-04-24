@@ -70,10 +70,14 @@ public class Crisis
         Dictionary<Effect, Trigger> effects = new Dictionary<Effect, Trigger>();
         foreach (TriggerEffect trigEff in triggerEffectsStr)
         {
+            if(trigEff.effectName == ""){
+                Debug.Log("TriggerEffect has no effect name in crisis " + Name + "Replacing with nothing.");
+                continue;
+            }
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
-            effectObj.setVars(trigEff.effectPower);
+            effectObj.setVars(this, trigEff.effectVars);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
-            triggerObj.setVars (trigEff.triggerPower);
+            triggerObj.setVars(trigEff.triggerVars);
             effects.Add(effectObj, triggerObj);
         }
         triggerEffects = effects;
