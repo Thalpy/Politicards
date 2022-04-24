@@ -95,7 +95,7 @@ public class Faction
     }
 
     //The icon of the faction
-    [SerializeField] private Sprite factionIcon;
+    [SerializeField] private Sprite factionIcon;    
 
 
 

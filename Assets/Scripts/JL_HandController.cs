@@ -27,7 +27,7 @@ public class JL_HandController : MonoBehaviour
 
     [SerializeField] bool PlayersHand;
 
-    [SerializeField] public List<GameObject> Targets;
+
 
     [SerializeField] GameObject MouseOverText;
     [SerializeField] Vector3 MouseOverTextDefaultPosition;
@@ -130,7 +130,7 @@ public class JL_HandController : MonoBehaviour
                 CardIndex = i;
             }
         }
-        Debug.Log(CardIndex);
+        //Debug.Log(CardIndex);
         
         
         HandWidth = Mathf.Min(MaxHandWidth,MaxCardSpacing*CardsInHand.Count);
@@ -151,7 +151,7 @@ public class JL_HandController : MonoBehaviour
         DrawOrder = CardIndex*10;
 
 
-        Debug.Log(new Vector3(x,y,z));
+        //Debug.Log(new Vector3(x,y,z));
         return (new Vector3(x,y,z));
     }
 
