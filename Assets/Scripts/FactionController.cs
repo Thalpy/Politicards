@@ -298,6 +298,15 @@ public class FactionController : MonoBehaviour
         return 0;
     }
 
-
+    /// <summary>
+    ///  Get a list of all the faction names with the AI
+    /// </summary>
+    /// <returns>
+    ///  An int array of all the faction names with the AI
+    /// </returns>
+    public int GetNumberOfFactions()
+    {
+        return factions.Count;
+    }
 
 }
