@@ -263,4 +263,9 @@ public class FactionController : MonoBehaviour
         return factions.Count;
     }
 
+    public List<Faction> GetFactions()
+    {
+        return factions;
+    }
+
 }

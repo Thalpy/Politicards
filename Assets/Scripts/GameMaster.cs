@@ -133,6 +133,10 @@ public class GameMaster : MonoBehaviour
 
     public static Trigger GetTrigger(string name)
     {
+        if(name == "")
+        {
+            name = "Instant";
+        }
         foreach(Trigger trigger in triggers)
         {
             if(trigger.name == name)
