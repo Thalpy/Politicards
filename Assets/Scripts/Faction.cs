@@ -37,6 +37,24 @@ public class Faction
         }
     }
 
+    /// <summary> 
+    ///  Gets or sets the faction color
+    /// </summary>
+    /// <value>
+    ///  The faction color as a color
+    /// </value>
+    [SerializeField] private Color factionColor; //make this field adjustable in the inspector
+    public Color FactionColor
+    {
+        get { return factionColor; }
+        set { factionColor = value;
+            //update the faction color in the game master
+
+        }
+    }
+
+
+
     // enum fields with getters and setters
     [SerializeField] private PlayerHappinessEnum playerHappiness;
     public PlayerHappinessEnum PlayerHappiness

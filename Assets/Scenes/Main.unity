@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1088,8 +1088,8 @@ MonoBehaviour:
         Merchant progress on the played event.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0000000000000000000000000000000000000000
-      Faction: Basic
+      ManaCost: 0
+      Faction: People
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0100000000000000000000000000000000000000
@@ -1100,8 +1100,8 @@ MonoBehaviour:
         1 Merchant progress on the played event.
       image: {fileID: 21300000, guid: 69faefc83d1573747b436f67b29c3b6f, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
-      Faction: Basic
+      ManaCost: 0
+      Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
@@ -1112,8 +1112,8 @@ MonoBehaviour:
         1 Military  progress on the played event.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
-      Faction: Basic
+      ManaCost: 0
+      Faction: Military
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000010000000000000000000000
@@ -1124,8 +1124,8 @@ MonoBehaviour:
         Nobles  progress on the played event.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
-      Faction: Basic
+      ManaCost: 0
+      Faction: Nobility
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000100000000000000
@@ -1135,8 +1135,8 @@ MonoBehaviour:
       Description: Reduce the crime faction power by 3.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
-      Faction: Basic
+      ManaCost: 0
+      Faction: Crime
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
@@ -1155,10 +1155,10 @@ MonoBehaviour:
         with the nobles this effect is doubled.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 1
       Faction: People
       StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0100000000000000000000000100000000000000
       triggerEffectsStr:
@@ -1172,10 +1172,10 @@ MonoBehaviour:
         frindly with the merchants this effect is doubled.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 1
       Faction: People
       StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0100000001000000000000000000000000000000
       triggerEffectsStr:
@@ -1189,10 +1189,10 @@ MonoBehaviour:
         your realtions with the people faction by 1.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 0
       Faction: People
       StartingCard: 1
-      PowerValues: ffffffff00000000000000000000000000000000
+      PowerValues: 0100000000000000000000000000000000000000
       HappinessValues: 0100000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr: []
@@ -1200,10 +1200,10 @@ MonoBehaviour:
       Description: Plays a random card's effect.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 3
       Faction: People
       StartingCard: 1
-      PowerValues: 0300000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
@@ -1218,9 +1218,9 @@ MonoBehaviour:
         6 people progress.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 0
       Faction: People
-      StartingCard: 1
+      StartingCard: 0
       PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
@@ -1267,25 +1267,27 @@ MonoBehaviour:
         power by 1 while the crisis  is still ongoing.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 2
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000002000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: 'Investment '
-        effectVars: []
-        triggerName: OnUse
+      - effectName: Power
+        effectVars:
+        - 1
+        - 1
+        triggerName: Investment
         triggerVars: []
     - Name: 'Purchasing Power '
       Description: Gives 2 mechant faction progress also draws a card.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 2
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000002000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000002000000000000000000000000000000
       triggerEffectsStr:
@@ -1300,10 +1302,10 @@ MonoBehaviour:
         progress. Also increase your realtionship with the military faction..
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 3
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000003000000fdffffff0000000000000000
+      PowerValues: 0000000000000000fdffffff0000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
       ProgressValues: 0000000002000000000000000000000000000000
       triggerEffectsStr: []
@@ -1312,63 +1314,197 @@ MonoBehaviour:
         the merchant faction.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 3
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000003000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 00000000ffffffff000000000000000000000000
       ProgressValues: 0000000003000000000000000000000000000000
       triggerEffectsStr: []
   - faction: Military
     cards:
     - Name: Draft
-      Description: Gives 2 Military Faction Power
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      Description: Increase the military faction power by two and reduces the people
+        faction power by 2. While respectively increasing and decreasing your realtions
+        with those factions.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000010000000000000000000000
+      PowerValues: feffffff00000000020000000000000000000000
+      HappinessValues: ffffffff00000000010000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 2
-        - 2
-        triggerName: OnUse
-        triggerVars: []
-      - effectName: Power
-        effectVars:
-        - -2
-        - 0
-        triggerName: OnUse
-        triggerVars: []
+      triggerEffectsStr: []
     - Name: Protect Trade
-      Description: Gives 1 Military faction progress per turn.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      Description: Gives 2 Merchant Progress and increases your realtionship with
+        the Merchant faction and the Merchant Factions power by 1.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 
+      ManaCost: 1
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000001000000000000000000000000000000
+      HappinessValues: 0000000000000000010000000000000000000000
+      ProgressValues: 0000000002000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Patrol
+      Description: Gives 1 Military faction progress per turn for the duration of
+        the crisis..
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 2
       Faction: Military
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000010000000000000000000000
+      HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: Power
+      - effectName: Progress
         effectVars:
-        - 2
-        - 2
-        triggerName: OnUse
+        - 1
+        - 3
+        triggerName: Investment
         triggerVars: []
-      - effectName: Power
+    - Name: Send in the Army
+      Description: Gives 3 military progress, gives 3 extra progress if the military
+        faction is the most powerful faction.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 2
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0000000000000000000000000000000000000000
+      triggerEffectsStr:
+      - effectName: Progress
+        effectVars: []
+        triggerName: MostPowerful
+        triggerVars: []
+  - faction: Nobles
+    cards:
+    - Name: Trade Restrictions
+      Description: Increses Noble Faction power by 2 while reducing Merchant Faction
+        power and your relationship with the Merchant faction by 1. Also gives 1
+        Noble progress.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 00000000feffffff000000000200000000000000
+      HappinessValues: 00000000ffffffff000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr: []
+    - Name: 'Purchase Regiments '
+      Description: Increses Noble Faction power by 2 while reducing Military Faction
+        power and your relationship with the Merchant faction by 1. Also gives 1
+        Noble progress.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000feffffff0200000000000000
+      HappinessValues: 0000000000000000ffffffff0100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr: []
+    - Name: Raise Taxes
+      Description: Increses Noble Faction power by 2 while reducing People Faction
+        power and your relationship with the Merchant faction by 1. Also gives 1
+        Noble progress.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: feffffff00000000000000000200000000000000
+      HappinessValues: ffffffff00000000000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr: []
+    - Name: Exploit the Weak
+      Description: +6 progress of the Faction with the lowest faction power.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 4
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0000000000000000000000000000000000000000
+      triggerEffectsStr:
+      - effectName: BoostWeakest
         effectVars:
-        - -2
-        - 0
-        triggerName: OnUse
+        - 6
+        triggerName: On Use
         triggerVars: []
-  dummyCard: {fileID: 1513921497982636168, guid: bbf390970b9e7cb48b8a20b2693e9e87,
-    type: 3}
+    - Name: Noble Pagentry
+      Description: Increases your relationship with all factions by 1 (except the
+        Crime faction) and gives 1 Noble progress.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 2
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0100000001000000010000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr:
+      - effectName: ExploitTheWeak
+        effectVars: []
+        triggerName: On Use
+        triggerVars: []
+  - faction: Crime
+    cards:
+    - Name: Bribe The Military
+      Description: Reduces the Military faction's power by 2 and giving 4 Military
+        faction progress. Also gives 6 power to the crime faction.
+      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Crime
+      StartingCard: 1
+      PowerValues: 0000000000000000feffffff0000000006000000
+      HappinessValues: 0000000000000000ffffffff0000000000000000
+      ProgressValues: 0000000000000000040000000000000000000000
+      triggerEffectsStr: []
+    - Name: Steal From The Merchants
+      Description: Reduces the Merchant faction's power by 2 and giving 4 Merchant
+        faction progress. Also gives 6 power to the crime faction.
+      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Crime
+      StartingCard: 1
+      PowerValues: 00000000feffffff000000000000000006000000
+      HappinessValues: 00000000ffffffff000000000000000000000000
+      ProgressValues: 0000000004000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Scheme Against The Nobility
+      Description: Reduces the Noble faction's power by 2 and giving 4 Noble faction
+        progress. Also gives 6 power to the crime faction.
+      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Crime
+      StartingCard: 1
+      PowerValues: 000000000000000000000000feffffff06000000
+      HappinessValues: 000000000000000000000000ffffffff00000000
+      ProgressValues: 0000000000000000000000000400000000000000
+      triggerEffectsStr: []
+    - Name: Extort the People
+      Description: Reduces the People faction's power by 2 and giving 4 Noble faction
+        progress. Also gives 6 power to the crime faction.
+      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Crime
+      StartingCard: 1
+      PowerValues: feffffff00000000000000000000000006000000
+      HappinessValues: ffffffff00000000000000000000000000000000
+      ProgressValues: 0400000000000000000000000000000000000000
+      triggerEffectsStr: []
 --- !u!114 &561427133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factions:
   - factionName: People
+    factionColor: {r: 0.4523407, g: 0.48966703, b: 0.8962264, a: 1}
     playerHappiness: 0
     aiHappiness: 0
     factionPower: 0
@@ -1403,6 +1540,7 @@ MonoBehaviour:
     factionAiHappiness: 0
     factionIcon: {fileID: 0}
   - factionName: Economic
+    factionColor: {r: 0.990566, g: 0.87235224, b: 0.23829652, a: 1}
     playerHappiness: 0
     aiHappiness: 0
     factionPower: 0
@@ -1410,6 +1548,7 @@ MonoBehaviour:
     factionAiHappiness: 0
     factionIcon: {fileID: 0}
   - factionName: Military
+    factionColor: {r: 0.754717, g: 0.28835887, b: 0.28835887, a: 1}
     playerHappiness: 0
     aiHappiness: 0
     factionPower: 0
@@ -1417,6 +1556,7 @@ MonoBehaviour:
     factionAiHappiness: 0
     factionIcon: {fileID: 0}
   - factionName: Nobility
+    factionColor: {r: 0.6175616, g: 0.38047346, b: 0.8490566, a: 1}
     playerHappiness: 0
     aiHappiness: 0
     factionPower: 0
@@ -1424,6 +1564,7 @@ MonoBehaviour:
     factionAiHappiness: 0
     factionIcon: {fileID: 0}
   - factionName: Crime
+    factionColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     playerHappiness: 0
     aiHappiness: 0
     factionPower: 0
@@ -1658,14 +1799,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167632155}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -6.23, y: -10.59, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.23, y: -10.59, z: -0.56}
   m_LocalScale: {x: 30, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1194716309}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1167632157
 MonoBehaviour:
   m_ObjectHideFlags: 0

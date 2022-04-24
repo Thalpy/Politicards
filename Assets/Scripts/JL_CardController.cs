@@ -45,6 +45,8 @@ public class JL_CardController : MonoBehaviour
 
     [SerializeField] GameObject CardPicture;
 
+    [SerializeField] GameObject CardBackground;
+
    
     
     void Start() //initalises some component referemces
@@ -54,6 +56,7 @@ public class JL_CardController : MonoBehaviour
     CardTitle.GetComponent<TMPro.TextMeshPro>().text = _Card.Name;
     CardDescription.GetComponent<TMPro.TextMeshPro>().text = _Card.Description;
     CardPicture.GetComponent<SpriteRenderer>().sprite = _Card.image;
+    CardBackground.GetComponent<SpriteRenderer>().color = GameMaster.factionController.GetFactionColor(_Card.Faction);
     }
 
     // Update is called once per frame
@@ -279,6 +282,7 @@ public class JL_CardController : MonoBehaviour
     {
     GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
     CardPicture.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
+    CardBackground.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
     CardTitle.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
     CardDescription.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
     
