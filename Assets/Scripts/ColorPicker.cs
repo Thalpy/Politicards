@@ -10,6 +10,16 @@ public class ColorPicker : MonoBehaviour
     [SerializeField] private GameMaster GameMaster;
     [SerializeField] RectTransform rectTransform;
 
+    [SerializeField] BoxCollider boxCollider;
+
+    [SerializeField] Vector3 boxColliderLocationfromTransformPoint;
+
+    [SerializeField] Vector3 boxColliderLocationfromTransformTransformPoint;
+
+    [SerializeField] Vector3 boxColliderLocationfromTransformPointInverse;
+
+    [SerializeField] Vector3 boxColliderLocationfromTransformLocalPosition;
+
     [SerializeField] Camera camera;
 
     [SerializeField] Color colorUnderMouse;
@@ -39,13 +49,10 @@ public class ColorPicker : MonoBehaviour
     {
         mousePosition = GetMousePosition();
         isMouseOverPieChart = IsMouseOverPieChart();
-        if (isMouseOverPieChart)
-        {
-            Texture2D tex = CaptureScreen();
-            colorUnderMouse =  tex.GetPixel((int)mousePosition.x/Screen.width, (int)mousePosition.y/Screen.height);
-            //garbage collect tex
-            Destroy(tex);
-        }
+        boxColliderLocationfromTransformPoint = boxCollider.transform.position;
+        boxColliderLocationfromTransformTransformPoint = transform.TransformPoint(boxCollider.transform.position);
+        boxColliderLocationfromTransformPointInverse = transform.InverseTransformPoint(boxCollider.transform.position);
+        boxColliderLocationfromTransformLocalPosition = boxCollider.transform.localPosition;
         
     
                     
@@ -84,13 +91,9 @@ public class ColorPicker : MonoBehaviour
     }
 
     // capture the current screen to a texture
-    public Texture2D CaptureScreen()
-    {
-        Texture2D tex = new Texture2D(Screen.width, Screen.height);
-        tex.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
-        tex.Apply();
-        return tex;
-    }
+
+
+    
 
 
 
