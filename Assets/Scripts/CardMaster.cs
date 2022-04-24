@@ -9,7 +9,7 @@ using UnityEngine;
 public class CardMaster : MonoBehaviour
 {
     [SerializeField]
-    List<FactionDeck> Decks = new List<FactionDeck>();
+    public List<FactionDeck> Decks = new List<FactionDeck>();
 
     /// <summary>
     /// Converts a string to an card object
