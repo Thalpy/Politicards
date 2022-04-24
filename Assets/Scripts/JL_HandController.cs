@@ -71,7 +71,7 @@ public class JL_HandController : MonoBehaviour
             {
                 if (_Hit.transform == Deck.transform)
                 {
-                    Debug.Log("poop");
+                    //Debug.Log("poop");
                     DrawCard();
             
                 }

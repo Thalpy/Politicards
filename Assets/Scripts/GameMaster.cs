@@ -104,7 +104,7 @@ public class GameMaster : MonoBehaviour
         {
             timer.increase_turn();
         }
-        crisisMaster.NextTurn();
+        crisisMaster.NewTurn();
     }
 
     //adds a timer to the list of timers
