@@ -40,7 +40,7 @@ public class CardMaster : MonoBehaviour
         newCard.transform.parent = transform;
         //gets the psudoCard script
         newCard.GetComponent<PsuedoCard>().SetUp(card, transform.position);
-        newCard.transform.localScale = newCard.transform.localScale * 0.75f;
+        newCard.transform.localScale = newCard.transform.localScale * 0.6f;
         return newCard;
     }
 }

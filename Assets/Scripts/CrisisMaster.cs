@@ -153,7 +153,6 @@ public class ActiveCrisis
             if (playerCards[index] != null)
             {
                 Debug.LogWarning("CrisisMaster: Player card already set");
-                Debug.Break();
                 return;
             }
             playerCards[index] = card;
