@@ -10,11 +10,11 @@ using TMPro;
 public class CrisisBox : MonoBehaviour
 {
     //name text
-    public TextMeshProUGUI nameText;
+    public TextMeshPro nameText;
     //description text
-    public TextMeshProUGUI descriptionText;
+    public TextMeshPro descriptionText;
     //image
-    public Image image;
+    public SpriteRenderer image;
     //audio effect player
     public AudioSource audioSource;
 
