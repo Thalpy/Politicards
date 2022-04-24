@@ -205,6 +205,14 @@ public class JL_CardController : MonoBehaviour
                     transform.localScale = new Vector3 (ZoomScale*2,ZoomScale*2,ZoomScale*2);
                 }
             }
+            else if (transform.localScale.x > 1)
+            {
+                transform.localScale -= new Vector3 (1,1,1)*Time.deltaTime*ZoomSpeed*2;
+                if (transform.localScale.x < 1)
+                {
+                    transform.localScale = new Vector3 (1,1,1);
+                }
+            }
         }
             else if (transform.localScale.x > 1)
             {
