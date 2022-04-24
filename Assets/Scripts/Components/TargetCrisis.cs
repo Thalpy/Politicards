@@ -21,7 +21,7 @@ public class TargetCrisis : Targetable
         {
             GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
-            GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform.position);
+            GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
             return true;
         }
         return false;        

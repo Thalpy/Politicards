@@ -33,13 +33,14 @@ public class CardMaster : MonoBehaviour
     /// <summary>
     /// Makes a pseduo card from a card
     /// </summary>
-    public GameObject makePsuedoCard(Card card, Vector3 position)
+    public GameObject makePsuedoCard(Card card, Transform transform)
     {
         //creates a new dummyCard
-        GameObject newCard = Instantiate(dummyCard, position, Quaternion.identity);
+        GameObject newCard = Instantiate(dummyCard, transform.position, Quaternion.identity);
+        newCard.transform.parent = transform;
         //gets the psudoCard script
-        newCard.GetComponent<PsuedoCard>().SetUp(card, position);
-        transform.localScale = transform.localScale /0.8f;
+        newCard.GetComponent<PsuedoCard>().SetUp(card, transform.position);
+        newCard.transform.localScale = transform.localScale /0.75f;
         return newCard;
     }
 }
