@@ -129,7 +129,7 @@ public class UnhappyTrigger : Trigger{
 public class Investment : Trigger{
     public Investment()
     {
-        name = "NewTurn";
+        name = "Investment";
     }
 
     public override bool CheckTrigger(string _triggerName = null){
