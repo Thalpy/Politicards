@@ -565,6 +565,7 @@ MonoBehaviour:
   CardTitle: {fileID: 2113283062063779349}
   CardDescription: {fileID: 2255679189087158136}
   CardPicture: {fileID: 4009819775477292239}
+  CardBackground: {fileID: 9120658458294240421}
 --- !u!65 &-6361052746629559467
 BoxCollider:
   m_ObjectHideFlags: 0
