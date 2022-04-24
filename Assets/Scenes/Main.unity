@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -733,6 +733,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2023339119299126876, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8745d570edcebc747866a3f9b3c6497f,
+        type: 3}
+    - target: {fileID: 2023339119299126876, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -748,6 +754,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6877971269160114087, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8745d570edcebc747866a3f9b3c6497f,
+        type: 3}
+    - target: {fileID: 6877971269160114087, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -763,6 +775,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8632930754177172498, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8745d570edcebc747866a3f9b3c6497f,
+        type: 3}
+    - target: {fileID: 8632930754177172498, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -776,6 +794,12 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1458195555
       objectReference: {fileID: 0}
+    - target: {fileID: 8632930754603611009, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8745d570edcebc747866a3f9b3c6497f,
+        type: 3}
     - target: {fileID: 8632930754603611009, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: m_SortingLayer
@@ -1045,7 +1069,8 @@ MonoBehaviour:
   - faction: Basic Cards
     cards:
     - Name: Support The People
-      Description: 
+      Description: Increase Relationship with the People Faction by 1 and gain 1
+        Merchant progress on the played event.
       image: {fileID: 0}
       audio: {fileID: 0}
       ManaCost: 0
@@ -1056,7 +1081,8 @@ MonoBehaviour:
       ProgressValues: 0100000000000000000000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Merchants
-      Description: 
+      Description: Increase Relationship with the Merchant Faction by 1 and gain
+        1 Merchant progress on the played event.
       image: {fileID: 0}
       audio: {fileID: 0}
       ManaCost: 0
@@ -1067,7 +1093,8 @@ MonoBehaviour:
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Military
-      Description: 
+      Description: Increase Relationship with the Military Faction by 1 and gain
+        1 Military  progress on the played event.
       image: {fileID: 0}
       audio: {fileID: 0}
       ManaCost: 0
@@ -1078,7 +1105,8 @@ MonoBehaviour:
       ProgressValues: 0000000000000000010000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Nobles
-      Description: 
+      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
+        Nobles  progress on the played event.
       image: {fileID: 0}
       audio: {fileID: 0}
       ManaCost: 0
@@ -1089,7 +1117,7 @@ MonoBehaviour:
       ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
     - Name: Stamp Out Crime
-      Description: 
+      Description: Reduce the crime faction power by 3.
       image: {fileID: 0}
       audio: {fileID: 0}
       ManaCost: 0

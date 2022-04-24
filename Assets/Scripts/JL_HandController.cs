@@ -148,7 +148,7 @@ public class JL_HandController : MonoBehaviour
         
         float y = gameObject.transform.position.y;
         float z = gameObject.transform.position.z;
-        DrawOrder = CardIndex;
+        DrawOrder = CardIndex*10;
 
 
         Debug.Log(new Vector3(x,y,z));
