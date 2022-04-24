@@ -21,6 +21,7 @@ public class GameMaster : MonoBehaviour
 
     public static FactionController factionController;
 
+    
     //Change these to internal after debugging
     [SerializeField]
     public static List<Effect> effects = new List<Effect>();
@@ -30,6 +31,8 @@ public class GameMaster : MonoBehaviour
     public static List<Timer> timers = new List<Timer>();
     public static int turn = 0;
     //internal List<Timer> timers = new List<Timer>();
+
+    [SerializeField] Camera mainCamera;
 
 
     /// <summary>
