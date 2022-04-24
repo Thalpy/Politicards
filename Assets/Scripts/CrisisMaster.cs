@@ -38,6 +38,23 @@ public class CrisisMaster : MonoBehaviour
         return null;
     }
 
+    public Crisis FindCrisisFromCard(Card card){
+        foreach (ActiveCrisis crisis in activeCrisses){
+            foreach(Card p_card in crisis.playerCards){
+                if(p_card == card){
+                    return crisis.crisis;
+                }
+            }
+            foreach(Card ai_card in crisis.AICards){
+                if(ai_card == card){
+                    return crisis.crisis;
+                }
+            }
+        }
+        return null;
+    }
+            
+
     //determines if a new crisis can be added
     public bool CanAddCrisis()
     {
@@ -70,6 +87,18 @@ public class CrisisMaster : MonoBehaviour
             }
         }
     }
+
+    public void ApplyCard(Card card, Crisis crisis, int index, bool player)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                activeCrisses[i].ApplyCard(card, index, player);
+                return;
+            }
+        }
+    }
 }
 
 
@@ -88,5 +117,27 @@ public class ActiveCrisis
         crisisBox.ChangeEvent(crisis);
     }
 
-
+    public void ApplyCard(Card card, int index, bool player)
+    {
+        if (player)
+        {
+            if (playerCards[index] != null)
+            {
+                Debug.LogWarning("CrisisMaster: Player card already set");
+                Debug.Break();
+                return;
+            }
+            playerCards[index] = card;
+        }
+        else
+        {
+            if (AICards[index] != null)
+            {
+                Debug.LogWarning("CrisisMaster: AI card already set");
+                Debug.Break();
+                return;
+            }
+            AICards[index] = card;
+        }
+    }
 }

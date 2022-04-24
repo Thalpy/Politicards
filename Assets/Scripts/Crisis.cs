@@ -24,7 +24,7 @@ public class Crisis
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
     internal Dictionary<Effect, Trigger> triggerEffects;
-    internal int[] factionProgress;
+    internal Dictionary<Faction, int> factionProgress;
 
     //copy the crisis to a new crisis
     public Crisis Copy()
@@ -44,12 +44,25 @@ public class Crisis
         return newCrisis;
     }
 
+    public void AdjustProgress(int power, Faction faction){
+        //get the faction from the factionProgress dictionary and add the power
+        factionProgress[faction] += power;
+    }
+
     //Conversion from string to result
     public void StartCrisis()
     {
         SetUpEffects();
         CheckTrigger("Start");
-        factionProgress = new int[GameMaster.factionController.GetNumberOfFactions()];
+        factionProgress = new Dictionary<Faction, int>();
+        //get the list of factions
+        List<Faction> factions = GameMaster.factionController.GetFactions();
+        //for each faction
+        foreach (Faction faction in factions)
+        {
+            //add the faction to the dictionary
+            factionProgress.Add(faction, 0);
+        }
     }
 
     public void SetUpEffects()
@@ -57,10 +70,14 @@ public class Crisis
         Dictionary<Effect, Trigger> effects = new Dictionary<Effect, Trigger>();
         foreach (TriggerEffect trigEff in triggerEffectsStr)
         {
+            if(trigEff.effectName == ""){
+                Debug.Log("TriggerEffect has no effect name in crisis " + Name + "Replacing with nothing.");
+                continue;
+            }
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
-            effectObj.setVars(trigEff.effectPower);
+            effectObj.setVars(this, trigEff.effectVars);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
-            triggerObj.setVars (trigEff.triggerPower);
+            triggerObj.setVars(trigEff.triggerVars);
             effects.Add(effectObj, triggerObj);
         }
         triggerEffects = effects;

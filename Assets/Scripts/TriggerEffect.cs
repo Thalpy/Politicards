@@ -9,7 +9,8 @@ using UnityEngine;
 [System.Serializable]
 public class TriggerEffect{
     public string effectName;
-    public int effectPower = 1;
+    [SerializeField]
+    public List<string> effectVars = new List<string>();
     public string triggerName;
-    public int triggerPower = 1;
+    public List<string> triggerVars = new List<string>();
 }

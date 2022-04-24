@@ -15,7 +15,9 @@ public class Card
     //description text
     public string Description;
     //image
-    public string ImageName;
+    public Sprite image;
+    //audio sound effect
+    public AudioClip audio;
     //mana cost
     public int ManaCost;
 
@@ -47,7 +49,7 @@ public class Card
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
-    internal Dictionary<Effect, Trigger> triggerEffects;
+    public Dictionary<Effect, Trigger> triggerEffects;
 
     /// <summary>
     /// Should be called whenever a card is put into play
@@ -56,7 +58,9 @@ public class Card
         SetUpEffects();
     }
 
-    public void UseCard(){
+    public void UseCard(Crisis crisis, int index, bool player = true){
+
+        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
         CheckTrigger("Use");
     }
 
@@ -66,7 +70,7 @@ public class Card
         Card newCard = new Card();
         newCard.Name = Name;
         newCard.Description = Description;
-        newCard.ImageName = ImageName;
+        newCard.image = image;
         newCard.ManaCost = ManaCost;
         newCard.Faction = Faction;
         newCard.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
@@ -78,10 +82,14 @@ public class Card
         Dictionary<Effect, Trigger> effects = new Dictionary<Effect, Trigger>();
         foreach (TriggerEffect trigEff in triggerEffectsStr)
         {
+            if(trigEff.effectName == ""){
+                Debug.Log("TriggerEffect has no effect name in crisis " + Name + "Replacing with nothing.");
+                continue;
+            }
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
-            effectObj.setVars(trigEff.effectPower);
+            effectObj.setVars(this, (List<string>)trigEff.effectVars);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
-            triggerObj.setVars(trigEff.triggerPower);
+            triggerObj.setVars(trigEff.triggerVars);
             effects.Add(effectObj, triggerObj);
         }
         Trigger onUse = GameMaster.GetTrigger("OnUse").Copy();
@@ -93,7 +101,7 @@ public class Card
                 continue;
             }
             Effect powerEffect = GameMaster.GetEffect("Power").Copy();
-            powerEffect.setVars(PowerValues[i], i);
+            powerEffect.setVars(this, PowerValues[i], i);
             effects.Add(powerEffect, onUse);
         }
         //Happinessvalues setup
@@ -129,7 +137,7 @@ public class Card
     public Sprite GetImage()
     {
         //convert imagename in to a sprite
-        return Resources.Load<Sprite>("Images/" + ImageName);
+        return Resources.Load<Sprite>("Images/" + image);
     }
 
 
