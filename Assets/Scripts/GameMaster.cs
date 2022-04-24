@@ -33,6 +33,8 @@ public class GameMaster : MonoBehaviour
     [SerializeField] public static List<GameObject> Targets = new List<GameObject>();
 
 
+
+
     /// <summary>
     /// a reference to the pieChart
     /// </summary>
@@ -44,6 +46,8 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
+
+
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
