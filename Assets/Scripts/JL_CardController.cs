@@ -22,6 +22,8 @@ public class JL_CardController : MonoBehaviour
     public bool Zoomed;
     public bool AdversaryZoomed;
 
+    public Card _Card;
+
   
     // All the magic numebers?
     [SerializeField] float MinCardVelocity;
@@ -42,6 +44,7 @@ public class JL_CardController : MonoBehaviour
     void Start() //initalises some component referemces
     {
     _HandController = Hand.GetComponent<JL_HandController>();
+    gameObject.name = _Card.Name;
     }
 
     // Update is called once per frame
@@ -150,11 +153,12 @@ public class JL_CardController : MonoBehaviour
                 GetComponent<SpriteRenderer>().sortingOrder = 100;
                 AdversaryZoomed = true; // and zooms
             }
-            else //if not mouse over then unzooms
-            {
-                AdversaryZoomed = false; 
-            }
             
+            
+        }
+        else //if not mouse over then unzooms
+        {
+            AdversaryZoomed = false; 
         }
 
         if (AdversaryZoomed) //if zoomed it scales up/down over a few frames this happens over the course of a few frames
