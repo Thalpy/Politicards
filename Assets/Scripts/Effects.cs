@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// This class is used to store the functionality of an effect.
@@ -12,10 +13,33 @@ public abstract class Effect
     public string name = "ERROR"; //name setter
     //Strength of the effect
     public int power = 1;
+    public object source;
+    internal List<Action<int>> actions;
 
-    public virtual void setVars(params int[] args)
+    public virtual void setVars(object source, params int[] args)
     {
-        power = args[0];
+        //convert args into a string list
+        List<string> argsList = new List<string>();
+        foreach (int arg in args)
+        {
+            argsList.Add(arg.ToString());
+        }
+        setVars(source, argsList);
+    }
+
+    public virtual void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        power = int.Parse(args[0]);
+    }
+
+    public virtual void setPower(int _power)
+    {
+        power = _power;
+    }
+
+    public virtual void addAction(Action<int> func){
+        actions.Add(func);
     }
 
     //Function that is called on the event box ending
@@ -85,10 +109,20 @@ public class Power : Effect
 
     public Faction faction;
 
-    public override void setVars(params int[] args)
+    public override void setVars(object source, List<string> args)
     {
-        base.setVars(args[0]);
-        GameMaster.factionController.SelectFaction(args[1]);
+        this.source = source;
+        power = int.Parse(args[0]);
+        //if args[1] is can be an int
+        if (int.TryParse(args[1], out int factionID))
+        {
+            faction = GameMaster.factionController.SelectFaction(factionID);
+        }
+        else
+        {
+            //if it's not an int, it's a string
+            faction = GameMaster.factionController.SelectFaction(args[1]);
+        }
     }
 
     public override void DoEffect()
@@ -106,12 +140,21 @@ public class Happiness : Effect
 
     public Faction faction;
 
-    public override void setVars(params int[] args)
+    public override void setVars(object source, List<string> args)
     {
-        base.setVars(args[0]);
-        GameMaster.factionController.SelectFaction(args[1]);
+        this.source = source;
+        power = int.Parse(args[0]);
+        //if args[1] is can be an int
+        if (int.TryParse(args[1], out int factionID))
+        {
+            faction = GameMaster.factionController.SelectFaction(factionID);
+        }
+        else
+        {
+            //if it's not an int, it's a string
+            faction = GameMaster.factionController.SelectFaction(args[1]);
+        }
     }
-
     public override void DoEffect()
     {
         GameMaster.factionController.ChangeFactionHappiness(faction.FactionName, power);
@@ -127,14 +170,99 @@ public class Progress : Effect
 
     public Faction faction;
 
-    public override void setVars(params int[] args)
+    /// <summary>
+    /// Sets the power [0] and faction [1] variables 
+    /// </summary>
+    public override void setVars(object source, List<string> args)
     {
-        base.setVars(args[0]);
-        GameMaster.factionController.SelectFaction(args[1]);
+        this.source = source;
+        power = int.Parse(args[0]);
+        //if args[1] is can be an int
+        if (int.TryParse(args[1], out int factionID))
+        {
+            faction = GameMaster.factionController.SelectFaction(factionID);
+        }
+        else
+        {
+            //if it's not an int, it's a string
+            faction = GameMaster.factionController.SelectFaction(args[1]);
+        }
     }
 
     public override void DoEffect()
     {
-        Debug.LogWarning("Progress effect not implemented");
+        //if the source is a card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //find the card in the active crisises
+            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            //alter the crisis progress
+            crisis.AdjustProgress(power, faction);
+        }
+    }
+}
+
+public class Double : Effect
+{
+    public Double()
+    {
+        name = "Double";
+    }
+
+    internal List<string> blackist = new List<string>();
+
+    public override void setVars(object source, List<string> args){
+        this.source = source;
+        blackist = args;
+    }
+
+    public override void DoEffect()
+    {
+        //if source is a Card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //itterate through the card's triggerEffects
+            Dictionary<Effect, Trigger> additions = new Dictionary<Effect, Trigger>();
+            foreach(KeyValuePair<Effect, Trigger> efftrig in card.triggerEffects)
+            {
+                //if the effect is a double
+                if (efftrig.Key.name == name && blackist.Contains(efftrig.Key.name))
+                {
+                    continue;
+                }
+                additions.Add(efftrig.Key.Copy(), efftrig.Value.Copy());
+            }
+            //add the new effects to the card
+            foreach(var entry in additions)
+            {
+                card.triggerEffects.Add(entry.Key, entry.Value);
+            }
+        }
+        //if source is a Crisis
+        else if (source is Crisis)
+        {
+            //get the crisis
+            Crisis crisis = source as Crisis;
+            //itterate through the crisis's triggerEffects
+            Dictionary<Effect, Trigger> additions = new Dictionary<Effect, Trigger>();
+            foreach (KeyValuePair<Effect, Trigger> efftrig in crisis.triggerEffects)
+            {
+                //if the effect is a double
+                if (efftrig.Key.name == name && blackist.Contains(efftrig.Key.name))
+                {
+                    continue;
+                }
+                additions.Add(efftrig.Key.Copy(), efftrig.Value.Copy());
+            }
+            //add the new effects to the crisis
+            foreach (var entry in additions)
+            {
+                crisis.triggerEffects.Add(entry.Key, entry.Value);
+            }           
+        }
     }
 }

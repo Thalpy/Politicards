@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 7475741086908835005, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741086908835005, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -242,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 7475741087236046569, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741087236046569, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -382,7 +382,7 @@ PrefabInstance:
     - target: {fileID: 7475741088216900346, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088216900346, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -402,7 +402,7 @@ PrefabInstance:
     - target: {fileID: 7475741088311296037, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088311296037, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -422,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 7475741088349403340, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088349403340, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -442,7 +442,7 @@ PrefabInstance:
     - target: {fileID: 7475741088478492943, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 54.100006
+      value: 54.099976
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088478492943, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -829,7 +829,13 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
     audio: {fileID: 8300000, guid: 7e1b5995acbb8bb43944cf1e8b2b3a97, type: 3}
     DayLength: 3
-    triggerEffectsStr: []
+    triggerEffectsStr:
+    - effectName: Power
+      effectVars:
+      - 15
+      - Crime
+      triggerName: Instant
+      triggerVars: []
   crisisBox: {fileID: 1615674126}
 --- !u!4 &561427131
 Transform:
@@ -863,7 +869,8 @@ MonoBehaviour:
     cards:
     - Name: Support The People
       Description: 
-      ImageName: 
+      image: {fileID: 0}
+      audio: {fileID: 0}
       ManaCost: 0
       Faction: Basic
       StartingCard: 1
@@ -873,7 +880,8 @@ MonoBehaviour:
       triggerEffectsStr: []
     - Name: Support The Merchants
       Description: 
-      ImageName: 
+      image: {fileID: 0}
+      audio: {fileID: 0}
       ManaCost: 0
       Faction: Basic
       StartingCard: 1
@@ -883,7 +891,8 @@ MonoBehaviour:
       triggerEffectsStr: []
     - Name: Support The Military
       Description: 
-      ImageName: 
+      image: {fileID: 0}
+      audio: {fileID: 0}
       ManaCost: 0
       Faction: Basic
       StartingCard: 1
@@ -893,7 +902,8 @@ MonoBehaviour:
       triggerEffectsStr: []
     - Name: Support The Nobles
       Description: 
-      ImageName: 
+      image: {fileID: 0}
+      audio: {fileID: 0}
       ManaCost: 0
       Faction: Basic
       StartingCard: 1
@@ -903,7 +913,8 @@ MonoBehaviour:
       triggerEffectsStr: []
     - Name: Stamp Out Crime
       Description: 
-      ImageName: 
+      image: {fileID: 0}
+      audio: {fileID: 0}
       ManaCost: 0
       Faction: Basic
       StartingCard: 1
@@ -911,10 +922,12 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: Reduce Crime Power
-        effectPower: 3
+      - effectName: Power
+        effectVars:
+        - 10
+        - Crime
         triggerName: On Use
-        triggerPower: 0
+        triggerVars: []
 --- !u!114 &561427133
 MonoBehaviour:
   m_ObjectHideFlags: 0
