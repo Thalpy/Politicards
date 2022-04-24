@@ -32,9 +32,13 @@ public class JL_HandController : MonoBehaviour
     [SerializeField] GameObject MouseOverText;
     [SerializeField] Vector3 MouseOverTextDefaultPosition;
 
+
+
     
     void Start()
     {
+
+
 
     for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
     {
@@ -67,21 +71,10 @@ public class JL_HandController : MonoBehaviour
             {
                 if (_Hit.transform == Deck.transform)
                 {
-                while(CardsInHand.Count < MaxHandSize)
-                {
-                    
+                    Debug.Log("poop");
                     DrawCard();
-                }             
+            
                 }
-
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            if (Physics.Raycast(_Ray, out _Hit, 200))
-            {
                 if (_Hit.transform == Discard.transform)
                 {
 
@@ -92,6 +85,8 @@ public class JL_HandController : MonoBehaviour
 
             }
         }
+
+
 
 
 
@@ -160,13 +155,15 @@ public class JL_HandController : MonoBehaviour
         
         if (CardsInDeck.Count == 0)
         {
-            CardsInDeck = CardsInDiscard;
             
-            for (int i = 0; i < CardsInDeck.Count; i++)
+            for (int i = 0; i < CardsInDiscard.Count; i++)
             {
-                CardsInDeck[i].transform.position = DeckOffScreenLocation;
-                CardsInDeck[i].GetComponent<JL_CardController>().Position = DeckOffScreenLocation;
-                CardsInDeck[i].transform.SetParent(Deck.transform);
+                CardsInDiscard[i].transform.position = DeckOffScreenLocation;
+                CardsInDiscard[i].GetComponent<JL_CardController>().Position = DeckOffScreenLocation;
+                CardsInDiscard[i].transform.SetParent(Deck.transform);
+                CardsInDeck.Add(CardsInDiscard[i]);
+                
+                
             }
 
             CardsInDiscard.Clear();
