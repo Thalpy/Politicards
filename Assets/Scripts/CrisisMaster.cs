@@ -99,6 +99,19 @@ public class CrisisMaster : MonoBehaviour
             }
         }
     }
+
+    //Checks if you can add a card to a specific crisis or not
+    public bool CanAddCard(Crisis crisis, int index, bool player = true)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                return activeCrisses[i].CanAddCard(index, player);
+            }
+        }
+        return false;
+    }
 }
 
 
@@ -139,5 +152,25 @@ public class ActiveCrisis
             }
             AICards[index] = card;
         }
+    }
+
+    //Checks if you can add a card to an index or not
+    public bool CanAddCard(int index, bool player)
+    {
+        if (player)
+        {
+            if (playerCards[index] != null)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (AICards[index] != null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -10,6 +10,7 @@ public class CardMaster : MonoBehaviour
 {
     [SerializeField]
     public List<FactionDeck> Decks = new List<FactionDeck>();
+    public GameObject dummyCard;
 
     /// <summary>
     /// Converts a string to an card object
@@ -27,6 +28,19 @@ public class CardMaster : MonoBehaviour
             }
         }
         return null;
+    }
+
+    /// <summary>
+    /// Makes a pseduo card from a card
+    /// </summary>
+    public GameObject makePsuedoCard(Card card, Vector3 position)
+    {
+        //creates a new dummyCard
+        GameObject newCard = Instantiate(dummyCard, position, Quaternion.identity);
+        //gets the psudoCard script
+        newCard.GetComponent<PsuedoCard>().SetUp(card, position);
+        transform.localScale = transform.localScale /0.8f;
+        return newCard;
     }
 }
 

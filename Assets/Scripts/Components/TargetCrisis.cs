@@ -7,8 +7,23 @@ public class TargetCrisis : Targetable
     public int index = 1;
     public bool player = true;
     public CrisisBox crisisBox;
-    public override void DropCard(Card card)
+
+    //awake
+    void Awake()
     {
-        card.UseCard(crisisBox.GetCurrentCrisis(), index, player);
+        GameMaster.AddTarget(gameObject);
+        index = index -1;
+    }
+    public override bool DropCard(Card card)
+    {
+        Crisis crisis = crisisBox.GetCurrentCrisis();
+        if(GameMaster.crisisMaster.CanAddCard(crisis, index))
+        {
+            GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
+            card.UseCard(crisis, index, player);
+            GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform.position);
+            return true;
+        }
+        return false;        
     }
 }

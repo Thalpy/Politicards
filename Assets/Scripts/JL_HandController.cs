@@ -198,8 +198,7 @@ public class JL_HandController : MonoBehaviour
 
         
            
-            CardsInDeck.Remove(transitionCard);
-            
+            CardsInDeck.Remove(transitionCard);            
 
         }
 
