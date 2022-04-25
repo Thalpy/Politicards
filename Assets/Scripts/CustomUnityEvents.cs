@@ -16,3 +16,5 @@ public class FloatEvent : UnityEvent<float>
 }
 
 public class ManaEvent : UnityEvent<float, string>{}
+
+public class StringEvent: UnityEvent<string> {}

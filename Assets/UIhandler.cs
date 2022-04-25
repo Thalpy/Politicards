@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class UIhandler : MonoBehaviour
 {
@@ -11,12 +12,19 @@ public class UIhandler : MonoBehaviour
 
     [SerializeField] PieChart pieChart;
 
+    [SerializeField] public StringEvent PieChartClicked = new StringEvent();
+
+    [SerializeField] public UnityEvent PieChartMouseExit = new UnityEvent();
+
+    [SerializeField] internal GameObject gameMaster;
+
 
     // get reference to the event system
     EventSystem eventSystem;
     void Start()
     {
         eventSystem = EventSystem.current;
+        
 
     }
 
@@ -49,11 +57,7 @@ public class UIhandler : MonoBehaviour
 
         Debug.Log($"The selected faction was {pieChart.GetPieChartData(angle/360)}");
 
-
-
-
-
-
+        PieChartClicked.Invoke(pieChart.GetPieChartData(angle / 360));
 
     }
 
@@ -66,6 +70,15 @@ public class UIhandler : MonoBehaviour
         }
         return angle;
     }
+
+    public void MouseLeftChart()
+    {
+        PieChartMouseExit.Invoke();
+        Debug.Log("Mouse left the pie chart");
+    }
+    
+
+    
 
 
 

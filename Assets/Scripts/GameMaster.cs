@@ -34,6 +34,8 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField] Camera mainCamera;
 
+    [SerializeField] UIhandler uiHandler;
+
 
     /// <summary>
     /// a reference to the pieChart
