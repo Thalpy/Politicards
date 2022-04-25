@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -227,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 7475741086908835005, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7475741087236046569, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -247,7 +247,7 @@ PrefabInstance:
     - target: {fileID: 7475741087236046569, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7475741087906493584, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -387,7 +387,7 @@ PrefabInstance:
     - target: {fileID: 7475741088216900346, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088311296037, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -407,7 +407,7 @@ PrefabInstance:
     - target: {fileID: 7475741088311296037, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088349403340, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -427,7 +427,7 @@ PrefabInstance:
     - target: {fileID: 7475741088349403340, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     - target: {fileID: 7475741088478492943, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
@@ -447,7 +447,7 @@ PrefabInstance:
     - target: {fileID: 7475741088478492943, guid: 296b3ac059a27c942bc22f286b457160,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -53.399994
+      value: -53.400024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 296b3ac059a27c942bc22f286b457160, type: 3}
@@ -1088,7 +1088,7 @@ MonoBehaviour:
         Merchant progress on the played event.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: People
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1100,7 +1100,7 @@ MonoBehaviour:
         1 Merchant progress on the played event.
       image: {fileID: 21300000, guid: 69faefc83d1573747b436f67b29c3b6f, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1112,7 +1112,7 @@ MonoBehaviour:
         1 Military  progress on the played event.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Military
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1124,7 +1124,7 @@ MonoBehaviour:
         Nobles  progress on the played event.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1135,7 +1135,7 @@ MonoBehaviour:
       Description: Reduce the crime faction power by 3.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Crime
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1155,7 +1155,7 @@ MonoBehaviour:
         with the nobles this effect is doubled.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 1
+      ManaCost: 
       Faction: People
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1172,7 +1172,7 @@ MonoBehaviour:
         frindly with the merchants this effect is doubled.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 1
+      ManaCost: 
       Faction: People
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1189,7 +1189,7 @@ MonoBehaviour:
         your realtions with the people faction by 1.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: People
       StartingCard: 1
       PowerValues: 0100000000000000000000000000000000000000
@@ -1200,7 +1200,7 @@ MonoBehaviour:
       Description: Plays a random card's effect.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 3
+      ManaCost: 
       Faction: People
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1218,7 +1218,7 @@ MonoBehaviour:
         6 people progress.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: People
       StartingCard: 0
       PowerValues: 0000000000000000000000000000000000000000
@@ -1267,7 +1267,7 @@ MonoBehaviour:
         power by 1 while the crisis  is still ongoing.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 2
+      ManaCost: 
       Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1284,7 +1284,7 @@ MonoBehaviour:
       Description: Gives 2 mechant faction progress also draws a card.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 2
+      ManaCost: 
       Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1302,7 +1302,7 @@ MonoBehaviour:
         progress. Also increase your realtionship with the military faction..
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 3
+      ManaCost: 
       Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000fdffffff0000000000000000
@@ -1314,7 +1314,7 @@ MonoBehaviour:
         the merchant faction.
       image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
       audio: {fileID: 0}
-      ManaCost: 3
+      ManaCost: 
       Faction: Economic
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1329,7 +1329,7 @@ MonoBehaviour:
         with those factions.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Military
       StartingCard: 1
       PowerValues: feffffff00000000020000000000000000000000
@@ -1341,7 +1341,7 @@ MonoBehaviour:
         the Merchant faction and the Merchant Factions power by 1.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 1
+      ManaCost: 
       Faction: Military
       StartingCard: 1
       PowerValues: 0000000001000000000000000000000000000000
@@ -1353,7 +1353,7 @@ MonoBehaviour:
         the crisis..
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 2
+      ManaCost: 
       Faction: Military
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1371,7 +1371,7 @@ MonoBehaviour:
         faction is the most powerful faction.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
-      ManaCost: 2
+      ManaCost: 
       Faction: Military
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1390,7 +1390,7 @@ MonoBehaviour:
         Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: 00000000feffffff000000000200000000000000
@@ -1403,7 +1403,7 @@ MonoBehaviour:
         Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: 0000000000000000feffffff0200000000000000
@@ -1416,7 +1416,7 @@ MonoBehaviour:
         Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: feffffff00000000000000000200000000000000
@@ -1427,7 +1427,7 @@ MonoBehaviour:
       Description: +6 progress of the Faction with the lowest faction power.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 4
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1444,7 +1444,7 @@ MonoBehaviour:
         Crime faction) and gives 1 Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
-      ManaCost: 2
+      ManaCost: 
       Faction: Nobility
       StartingCard: 1
       PowerValues: 0000000000000000000000000000000000000000
@@ -1462,7 +1462,7 @@ MonoBehaviour:
         faction progress. Also gives 6 power to the crime faction.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Crime
       StartingCard: 1
       PowerValues: 0000000000000000feffffff0000000006000000
@@ -1474,7 +1474,7 @@ MonoBehaviour:
         faction progress. Also gives 6 power to the crime faction.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Crime
       StartingCard: 1
       PowerValues: 00000000feffffff000000000000000006000000
@@ -1486,7 +1486,7 @@ MonoBehaviour:
         progress. Also gives 6 power to the crime faction.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Crime
       StartingCard: 1
       PowerValues: 000000000000000000000000feffffff06000000
@@ -1498,13 +1498,15 @@ MonoBehaviour:
         progress. Also gives 6 power to the crime faction.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
-      ManaCost: 0
+      ManaCost: 
       Faction: Crime
       StartingCard: 1
       PowerValues: feffffff00000000000000000000000006000000
       HappinessValues: ffffffff00000000000000000000000000000000
       ProgressValues: 0400000000000000000000000000000000000000
       triggerEffectsStr: []
+  dummyCard: {fileID: 1513921497982636168, guid: bbf390970b9e7cb48b8a20b2693e9e87,
+    type: 3}
 --- !u!114 &561427133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1774,6 +1776,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1029161410}
   m_CullTransparentMesh: 1
+--- !u!1 &1115997878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1115997879}
+  - component: {fileID: 1115997881}
+  - component: {fileID: 1115997880}
+  m_Layer: 0
+  m_Name: CardSlot Test (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1115997879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115997878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.17, y: -10.59, z: -0.56}
+  m_LocalScale: {x: 30, y: 50, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1194716309}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1115997880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115997878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowedDistance: 5
+  index: 2
+  player: 1
+  crisisBox: {fileID: 2097631631}
+--- !u!212 &1115997881
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115997878}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1167632155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +2007,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1167632156}
+  - {fileID: 1115997879}
+  - {fileID: 1990922792}
   m_Father: {fileID: 2097631633}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1944,7 +2049,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a2f9ed966a858424da60d6f37bf75e6b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2342,6 +2447,107 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &1990922791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990922792}
+  - component: {fileID: 1990922794}
+  - component: {fileID: 1990922793}
+  m_Layer: 0
+  m_Name: CardSlot Test (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1990922792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990922791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.36, y: -10.59, z: -0.56}
+  m_LocalScale: {x: 30, y: 50, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1194716309}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1990922793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990922791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowedDistance: 5
+  index: 3
+  player: 1
+  crisisBox: {fileID: 2097631631}
+--- !u!212 &1990922794
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990922791}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.16, y: 0.16}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!224 &2005927453 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1133972141957254087, guid: a65a470b333c4e14286a5616c7bb3234,

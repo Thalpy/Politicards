@@ -14,9 +14,9 @@ public class Targetable : MonoBehaviour
         GameMaster.AddTarget(gameObject);
     }
 
-    public virtual void DropCard(Card card)
+    public virtual bool DropCard(Card card)
     {
-        return;
+        return false;
     }
 }
 

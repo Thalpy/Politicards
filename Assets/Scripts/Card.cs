@@ -20,18 +20,6 @@ public class Card
     public AudioClip audio;
     //mana cost
     public int ManaCost;
-
-    public float FactionPowerIncrease;
-
-    public float MilitarySupportIncrease;
-
-    public float EconomicSupportIncrease;
-
-    public float NobilitySupportIncrease;
-
-    public float PeopleSupportIncrease;
-
-    public float ProgressIncrease;
     //faction
     public string Faction;
     // Is in starting deck
