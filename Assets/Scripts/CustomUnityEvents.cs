@@ -18,3 +18,7 @@ public class FloatEvent : UnityEvent<float>
 public class ManaEvent : UnityEvent<float, string>{}
 
 public class StringEvent: UnityEvent<string> {}
+
+public class PlayerHappinessEvent: UnityEvent<Faction.PlayerHappinessEnum> {}
+
+public class AIHappinessEvent: UnityEvent<Faction.AIHappinessEnum> {}

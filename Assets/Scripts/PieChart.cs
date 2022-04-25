@@ -182,6 +182,12 @@ public class PieChart : MonoBehaviour
         //set the values each to 20
         SetValues(new float[] { 20, 20, 20, 20, 20 });
 
+        foreach(Faction faction in GameMaster.factionController.GetFactions())
+        {
+            //we subscribe to the faction power change event on all factions to automatically update the pie chart at run time.
+            faction.factionPowerChange.AddListener(OnFactionPowerChange);
+        }
+
 
 
     }
@@ -221,6 +227,13 @@ public class PieChart : MonoBehaviour
             }
         }
         return pieChartData[0].name;
+    }
+
+    public void OnFactionPowerChange()
+    {
+        Debug.Log("Faction Power Change Event Fired");
+        float[] factionPower = GameMaster.factionController.GetFactionPower();
+        SetValues(factionPower);
     }
 
     // a function called testPieChart which calls the set values function passing in an array of 5 random floats between 0 and 100

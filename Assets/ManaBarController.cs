@@ -29,7 +29,7 @@ public class ManaBarController : MonoBehaviour
 
     public void onManaChange(float mana, string factionName)
     {
-        Debug.Log("Mana changed event received on mana bar controller");
+        Debug.Log("Mana changed event received on mana bar controller, faction name was: " + factionName);
        // check that the name passed in matches the name of the faction and if it does update the mana bar
          if (factionName == FactionName)
          {

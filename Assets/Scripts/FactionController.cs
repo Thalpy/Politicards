@@ -312,11 +312,11 @@ public class FactionController : MonoBehaviour
             {
                 if (player == "player")
                 {
-                    return factions[i].FactionPlayerMana;
+                    return factions[i].PlayerMana;
                 }
                 else
                 {
-                    return factions[i].FactionAiMana;
+                    return factions[i].AIMana;
                 }
             }
         }
@@ -332,7 +332,7 @@ public class FactionController : MonoBehaviour
         {
             if (factions[i].FactionName == factionName)
             {
-                return factions[i].FactionAiMana;
+                return factions[i].AIMana;
             }
         }
         Debug.LogWarning("Faction not found");
@@ -363,7 +363,16 @@ public class FactionController : MonoBehaviour
         // a random float between 0 and 1
         float randomMana = UnityEngine.Random.Range(0f, 1f);
         Debug.Log("Sending mana: " + randomMana + " to faction: " + factions[randomFaction].FactionName);
-        factions[randomFaction].FactionPlayerMana = randomMana;
+        factions[randomFaction].PlayerMana = randomMana;
+    }
+
+    public void ChangeRandomPower()
+    {
+        int randomFaction = UnityEngine.Random.Range(0, factions.Count);
+        // a random float between 0 and 1
+        int randomPower = UnityEngine.Random.Range(-100, 100);
+        Debug.Log("Changing power: " + randomPower + " to faction: " + factions[randomFaction].FactionName);
+        factions[randomFaction].ChangePower(randomPower);
     }
 
 }

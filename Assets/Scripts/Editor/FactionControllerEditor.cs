@@ -16,5 +16,10 @@ public class FactionControllerEditor : Editor
         {
             myScript.SendRandomMana();
         }
+
+        if (GUILayout.Button("Send Random Happiness"))
+        {
+            myScript.ChangeRandomPower();
+        }
     }
 }
