@@ -31,6 +31,7 @@ public class PieChartTextBoxController : MonoBehaviour
         gameMaster = uIhandler.gameMaster;
         uIhandler.PieChartClicked.AddListener(onPieChartClicked);
         uIhandler.PieChartMouseExit.AddListener(onPieChartLeft);
+        widget.SetActive(false);
 
     }
 

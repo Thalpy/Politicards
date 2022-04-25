@@ -137,8 +137,8 @@ public class PieChart : MonoBehaviour
         {
             totalFillAmount = totalFillAmount + (pieChartData[i].power / totalPower);
             imagesPieChart[i].fillAmount = totalFillAmount;
-        }      
-       
+        }
+
 
         // for each element of the pieChartData array, set the lower bounding angle to the sum of the previous elements' upper bounding angles unless it is the first element in which case it is 0. set the upper bounding angle equal to the fill amount of the current element.
         for (int i = 0; i < pieChartData.Length; i++)
@@ -199,11 +199,12 @@ public class PieChart : MonoBehaviour
         //set the values each to 20
         SetValues(new float[] { 20, 20, 20, 20, 20 });
 
-        foreach(Faction faction in GameMaster.factionController.GetFactions())
+        foreach (Faction faction in GameMaster.factionController.GetFactions())
         {
             //we subscribe to the faction power change event on all factions to automatically update the pie chart at run time.
             faction.factionPowerChange.AddListener(OnFactionPowerChange);
         }
+        
 
 
 
