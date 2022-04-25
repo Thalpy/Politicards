@@ -10,11 +10,13 @@ public class PieChartTextBoxController : MonoBehaviour
 
     [SerializeField] float factionHappiness;
 
-    [SerializeField] TMPro.TextMeshProUGUI FactionNameBox;
+    [SerializeField] TMPro.TextMeshProUGUI FactionNameText;
 
-    [SerializeField] TMPro.TextMeshProUGUI FactionPowerBox;
+    [SerializeField] TMPro.TextMeshProUGUI FactionPowerText;
 
-    [SerializeField] TMPro.TextMeshProUGUI FactionHappinessBox;
+    [SerializeField] TMPro.TextMeshProUGUI FactionManaText;
+
+    [SerializeField] TMPro.TextMeshProUGUI FactionHappinessText;
 
 
     [SerializeField] GameObject widget;
@@ -26,37 +28,40 @@ public class PieChartTextBoxController : MonoBehaviour
 
     void Start()
     {
-        FactionNameBox = widget.transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<TMPro.TextMeshProUGUI>();
-        FactionPowerBox = widget.transform.GetChild(0).GetChild(0).GetChild(3).GetComponent<TMPro.TextMeshProUGUI>();
-        FactionHappinessBox = widget.transform.GetChild(0).GetChild(0).GetChild(4).GetComponent<TMPro.TextMeshProUGUI>();
         gameMaster = uIhandler.gameMaster;
         uIhandler.PieChartClicked.AddListener(onPieChartClicked);
-        uIhandler.PieChartMouseExit.AddListener(onPieChartLeft); 
-        FactionNameBox.SetText(FactionName);
-        
+        uIhandler.PieChartMouseExit.AddListener(onPieChartLeft);
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// called when the pie chart is clicked
+    /// given the faction name, sets the text boxes to the correct values
+    /// </summary>
     public void onPieChartClicked(string factionName)
     {
         Debug.Log("Pie chart clicked event received on pie chart text box controller");
         widget.SetActive(true);
         Faction faction = GetFaction(factionName);
-        FactionNameBox.text = faction.FactionName;
-        FactionPowerBox.text = faction.FactionPower.ToString();
-        FactionHappinessBox.text = faction.FactionHappiness.ToString();
+        FactionNameText.text = faction.FactionName;
+        FactionPowerText.text = faction.FactionPower.ToString();
+        FactionManaText.text = faction.PlayerMana.ToString();
+        FactionHappinessText.text = faction.FactionHappiness.ToString();
     }
 
+    /// <summary>
+    /// Given the faction name, returns the faction object
+    /// </summary>
     public Faction GetFaction(string factionName)
     {
         return gameMaster.GetComponent<FactionController>().SelectFaction(factionName);
     }
 
+
+    /// <summary>
+    /// called when the pie chart is left
+    /// hides the widget
+    /// </summary>
     public void onPieChartLeft()
     {
         Debug.Log("Pie chart mouse exit event received on pie chart text box controller");

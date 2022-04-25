@@ -4,16 +4,10 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class IntEvent : UnityEvent<int>
-{
-
-}
+public class IntEvent : UnityEvent<int>{}
 
 
-public class FloatEvent : UnityEvent<float>
-{
-
-}
+public class FloatEvent : UnityEvent<float>{}
 
 public class ManaEvent : UnityEvent<float, string>{}
 

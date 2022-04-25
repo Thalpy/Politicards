@@ -9,12 +9,16 @@ using UnityEngine.UI;
 //  - Rewrite the code to rotate by 90 degrees - it looks like the detection is not working correctly
 
 
-/// <summary>
-/// The Pie Chart Controller
-/// use this script to control the pie chart
-/// call the setValues function to update the pie chart.
-/// </summary>
 
+/// <summary>
+/// a struct to hold the data for a pie chart
+/// </summary>
+/// <param name="index">the index of the faction when represented as an array - used for legacy purposes</param>
+/// <param name="name">the name of the faction</param>
+/// <param name="image">the pie layer for this faction</param>
+/// <param name="power">the color of the faction</param>
+/// <param name="lowerBoundingAngle">the lower bound of the pie chart</param>
+/// <param name="upperBoundingAngle">the upper bound of the pie chart</param>
 [System.Serializable]
 public struct PieChartData
 {
@@ -44,7 +48,11 @@ public struct PieChartData
 }
 
 
-
+/// <summary>
+/// The Pie Chart Controller
+/// use this script to control the pie chart
+/// call the setValues function to update the pie chart.
+/// </summary>
 public class PieChart : MonoBehaviour
 {
 
@@ -57,15 +65,21 @@ public class PieChart : MonoBehaviour
     /// </summary>
     [SerializeField] GameMaster GameMaster;
 
+    /// <summary>
+    /// a reference to the mouse position
+    /// </summary>
     [SerializeField] Vector2 mousePosition;
 
-    [SerializeField] Color colourUnderMouse;
-
+    /// <summary>
+    /// the total power of all factions in the array of pieChartData
+    /// needed to calculate the angle of each slice
+    /// </summary>
     [SerializeField] float totalPower;
 
 
     /// <summary>
     /// The list of party pie sectors.
+    /// *DEPRECATED - USE PIE CHART DATA INSTEAD*
     /// [0] = People, [1] = Economic, [2] = Military, [3] = Nobility, [4] = Crime
     /// </summary>
     public Image[] imagesPieChart;
@@ -76,6 +90,9 @@ public class PieChart : MonoBehaviour
     /// </summary>
     public float[] values;
 
+    /// <summary>
+    /// an array of pie chart data
+    /// </summary>
     [SerializeField] public PieChartData[] pieChartData;
 
 

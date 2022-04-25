@@ -21,6 +21,12 @@ public class GameMaster : MonoBehaviour
 
     public static FactionController factionController;
 
+    /// <summary>
+    /// An event that notifies subscribers about about the end of the turn
+    /// </summary
+
+    public static TurnTimeController turnTimeController = new TurnTimeController();
+
     
     //Change these to internal after debugging
     [SerializeField]
@@ -112,6 +118,7 @@ public class GameMaster : MonoBehaviour
         foreach(Timer timer in timers)
         {
             timer.increase_turn();
+            turnTimeController.turnTimeEvent.Invoke(turn);
         }
     }
 
@@ -206,5 +213,12 @@ public class GameMaster : MonoBehaviour
         //write a not implemented exception to the Debug console
         throw new System.NotImplementedException();
 
+    }
+
+
+    // a function called TestTurnSignal that calls the NextTurn function
+    public void TestTurnSignal()
+    {
+        NextTurn();
     }
 }

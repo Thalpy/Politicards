@@ -17,6 +17,11 @@ public class GameMasterEditor : Editor
         {
             myScript.TestPieChart();
         }
+
+        if (GUILayout.Button("Test Turn Signal"))
+        {
+            myScript.TestTurnSignal();
+        }
         
         List<Effect> effects = myScript.GetEffects();
         List<Trigger> triggers = myScript.GetTriggers();
@@ -57,6 +62,8 @@ public class GameMasterEditor : Editor
             EditorGUILayout.LabelField(triggers[i].name);
             EditorGUILayout.LabelField(triggers[i].GetType().ToString());
             EditorGUILayout.EndHorizontal();
-        }       
+        }
+
+
     }
 }
