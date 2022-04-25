@@ -45,12 +45,17 @@ public class Card
     public void DrawCard(){
         SetUpEffects();
         CheckTrigger("Draw");
+        if(audio == null){
+            //load blahmm.ogg from assets/audio
+            audio = GameMaster.cardMaster.backupSound;
+        }
     }
 
     public void UseCard(Crisis crisis, int index, bool player = true){
 
         GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
         CheckTrigger("Use");
+        GameMaster.cardMaster.cardAudio.PlayOneShot(audio);        
     }
 
     //copy the card to a new card

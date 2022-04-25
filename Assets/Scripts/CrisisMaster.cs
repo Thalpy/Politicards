@@ -104,6 +104,47 @@ public class CrisisMaster : MonoBehaviour
         }
     }
 
+    internal void RemoveCrisis(Crisis crisis)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                activeCrisses[i] = null;
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// This ends the crisis and removes it from the active list
+    /// </summary>
+    /// <param name="crisis">The crisis to end</param>
+    public void EndCrisis(Crisis crisis)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                activeCrisses[i].EndCrisis();
+                activeCrisses[i] = null;
+                return;
+            }
+        }
+    }
+
+    public bool isActiveCrisis(Crisis crisis)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void ApplyCard(Card card, Crisis crisis, int index, bool player)
     {
         for (int i = 0; i < activeCrisses.Length; i++)
@@ -187,5 +228,11 @@ public class ActiveCrisis
             }
         }
         return true;
+    }
+
+    public void EndCrisis()
+    {
+        crisis.EndCrisis();
+        crisis = null;
     }
 }
