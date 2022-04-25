@@ -40,7 +40,8 @@ public class UIhandler : MonoBehaviour
     {
         Debug.Log("I am being clicked");
         //get the current mouse position and print to the debug log
-        Vector2 mousePosition = Input.mousePosition;
+        Vector2 mousePosition = new Vector2();
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.GetChild(5).GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out mousePosition);
         Debug.Log("Mouse position is: " + mousePosition);
         Debug.Log($"The pie chart is at {pieChartSprite.transform.position}");
         Vector2 relativeClickPosition = mousePosition - (Vector2)pieChartSprite.transform.position;
