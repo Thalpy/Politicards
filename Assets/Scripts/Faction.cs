@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class Faction
@@ -21,6 +22,10 @@ public class Faction
         neutral,
         unhappy
     }
+
+    [SerializeField] public ManaEvent playerManaChange = new ManaEvent();
+
+    
 
     /// <summary> 
     ///  Gets or sets the faction name
@@ -100,7 +105,10 @@ public class Faction
     public float FactionPlayerMana
     {
         get { return factionPlayerMana; }
-        set { factionPlayerMana = value; }
+        set { factionPlayerMana = value; 
+            //call function to process effect here
+            playerManaChange.Invoke(this.factionPlayerMana, this.factionName);
+        }
     }
 
     // a serialized private float storing the ai mana for this faction

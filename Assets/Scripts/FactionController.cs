@@ -15,18 +15,37 @@ public class FactionController : MonoBehaviour
     /// </summary>
     /// <typeparam name="Faction">Individual faction objects</typeparam>
     /// <returns></returns>
-     [SerializeField] List<Faction> factions = new List<Faction>();
+    [SerializeField] List<Faction> factions = new List<Faction>();
 
     /// <summary>
     /// Reference to the game master
     /// </summary>
-     GameMaster gameMaster;
+    GameMaster gameMaster;
+
+    [SerializeField] public ManaEvent ManaEvent = new ManaEvent();
+
+
+
+    public void onPlayerManaChange(float mana, string factionName)
+    {
+        Debug.Log("Mana change event received");
+       this.ManaEvent.Invoke(mana, factionName);
+       // say firing off the event with the faction name and mana amount
+       Debug.Log("FactionController.onPlayerManaChange: " + factionName + " " + mana);
+    }
+
 
     void Start()
     {
+        
         //get the game master
         gameMaster = GetComponent<GameMaster>();
-        
+        foreach(Faction faction in factions)
+        {
+            //subscribe to the faction's mana change event
+            faction.playerManaChange.AddListener(onPlayerManaChange);
+        }
+
     }
 
     /// <summary>
@@ -194,15 +213,15 @@ public class FactionController : MonoBehaviour
     }
 
 
-   /// <summary>
-   /// Given a faction name and a happiness amount, changes the faction happiness
-   /// </summary>
-   /// <param name="factionName">
-   ///  The name of the faction to change the happiness of
-   /// </param>
-   /// <param name="amount">
-   ///  The amount to change the faction happiness by
-   /// </param>
+    /// <summary>
+    /// Given a faction name and a happiness amount, changes the faction happiness
+    /// </summary>
+    /// <param name="factionName">
+    ///  The name of the faction to change the happiness of
+    /// </param>
+    /// <param name="amount">
+    ///  The amount to change the faction happiness by
+    /// </param>
     public void ChangeFactionHappiness(string factionName, float amount)
     {
         for (int i = 0; i < factions.Count; i++)
@@ -309,9 +328,19 @@ public class FactionController : MonoBehaviour
         return factions.Count;
     }
 
-        public List<Faction> GetFactions()
+    public List<Faction> GetFactions()
     {
         return factions;
+    }
+
+    //test function to send a random mana value between 0 and 1 to a random factions mana bar
+    public void SendRandomMana()
+    {
+        int randomFaction = UnityEngine.Random.Range(0, factions.Count);
+        // a random float between 0 and 1
+        float randomMana = UnityEngine.Random.Range(0f, 1f);
+        Debug.Log("Sending mana: " + randomMana + " to faction: " + factions[randomFaction].FactionName);
+        factions[randomFaction].FactionPlayerMana = randomMana;
     }
 
 }
