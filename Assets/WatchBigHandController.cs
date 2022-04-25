@@ -32,7 +32,7 @@ public class WatchBigHandController : MonoBehaviour
         // animate the big hand by rotating the transform of the current gameobject through 360 degrees
         for(int i = 0; i < 360; i++)
         {
-            transform.Rotate(0, 0, 1);
+            transform.Rotate(0, 0, -1);
             yield return new WaitForSeconds(0.01f);
         }
     }
