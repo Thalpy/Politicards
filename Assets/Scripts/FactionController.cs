@@ -212,6 +212,29 @@ public class FactionController : MonoBehaviour
         return 0;
     }
 
+    /// <summary>
+    ///  Given a faction name, get the faction happiness with the AI
+    /// </summary>
+    /// <param name="factionName">
+    ///  The name of the faction to get the happiness with the AI of
+    /// </param>
+    /// <returns>
+    ///     The faction color or white if the faction name is not found
+    /// </returns>
+    public Color GetFactionColor(string factionName)
+    {
+        for (int i = 0; i < factions.Count; i++)
+        {
+            if (factions[i].FactionName == factionName)
+            {
+                return factions[i].FactionColor;
+            }
+        }
+        Debug.LogWarning("Faction not found");
+        Debug.Break();
+        return Color.white;
+    }
+
 
     /// <summary>
     /// Given a faction name and a happiness amount, changes the faction happiness

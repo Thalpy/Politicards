@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [System.Serializable]
 public class Faction
 {
-    #region attributes and properties
     //player happiness enum
     public enum PlayerHappinessEnum
     {
@@ -23,10 +21,6 @@ public class Faction
         unhappy
     }
 
-    [SerializeField] public ManaEvent playerManaChange = new ManaEvent();
-
-    
-
     /// <summary> 
     ///  Gets or sets the faction name
     /// </summary>
@@ -42,6 +36,24 @@ public class Faction
             //Happiness level has changed- call function to process effect here
         }
     }
+
+    /// <summary> 
+    ///  Gets or sets the faction color
+    /// </summary>
+    /// <value>
+    ///  The faction color as a color
+    /// </value>
+    [SerializeField] private Color factionColor; //make this field adjustable in the inspector
+    public Color FactionColor
+    {
+        get { return factionColor; }
+        set { factionColor = value;
+            //update the faction color in the game master
+
+        }
+    }
+
+
 
     // enum fields with getters and setters
     [SerializeField] private PlayerHappinessEnum playerHappiness;
@@ -100,27 +112,11 @@ public class Faction
         set { factionAiHappiness = value; }
     }
 
-    // a serialized private float storing the player mana for this faction
-    [SerializeField] private float factionPlayerMana;
-    public float FactionPlayerMana
-    {
-        get { return factionPlayerMana; }
-        set { factionPlayerMana = value; 
-            //call function to process effect here
-            playerManaChange.Invoke(this.factionPlayerMana, this.factionName);
-        }
-    }
+    //The icon of the faction
+    [SerializeField] private Sprite factionIcon;    
 
-    // a serialized private float storing the ai mana for this faction
-    [SerializeField] private float factionAiMana;
-    public float FactionAiMana
-    {
-        get { return factionAiMana; }
-        set { factionAiMana = value; }
-    }
-    
 
-    #endregion
+
 
 
     /// <summary>
@@ -285,41 +281,5 @@ public class Faction
                 factionPower += amount;
             }
         }
-    }
-    public void AwardMana(){
-        float happinessFactor = 0;  
-        //based upon the faction happiness towards the player, set the happiness factor to a value between 0 and 1
-        switch (playerHappiness)
-        {
-            case PlayerHappinessEnum.happy:
-                happinessFactor = 1;
-                break;
-            case PlayerHappinessEnum.neutral:
-                happinessFactor = 0.5f;
-                break;
-            case PlayerHappinessEnum.unhappy:
-                happinessFactor = 0;
-                break;
-        }
-        // multiply the happiness factory by the power
-        FactionPlayerMana = happinessFactor * factionPower;
-
-        happinessFactor = 0;
-        //based upon the faction happiness towards the AI, set the happiness factor to a value between 0 and 1
-        switch (aiHappiness)
-        {
-            case AIHappinessEnum.happy:
-                happinessFactor = 1;
-                break;
-            case AIHappinessEnum.neutral:
-                happinessFactor = 0.5f;
-                break;
-            case AIHappinessEnum.unhappy:
-                happinessFactor = 0;
-                break;
-        }
-        // multiply the happiness factory by the power
-        FactionAiMana = happinessFactor * factionPower;
-
     }
 }

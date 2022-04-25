@@ -30,7 +30,10 @@ public class GameMaster : MonoBehaviour
     [SerializeField]
     public static List<Timer> timers = new List<Timer>();
     public static int turn = 0;
-    //internal List<Timer> timers = new List<Timer>();
+    //List of objects that are targetable
+    [SerializeField] public static List<GameObject> Targets = new List<GameObject>();
+
+
 
     [SerializeField] Camera mainCamera;
 
@@ -48,6 +51,8 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
+
+
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
@@ -120,6 +125,12 @@ public class GameMaster : MonoBehaviour
     public static void RemoveTimer(Timer timer)
     {
         timers.Remove(timer);
+    }
+
+    //Adds a targetable gameobject to the list of targetable gameobjects
+    public static void AddTarget(GameObject target)
+    {
+        Targets.Add(target);
     }
 
     //TODO

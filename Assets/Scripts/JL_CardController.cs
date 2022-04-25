@@ -39,12 +39,24 @@ public class JL_CardController : MonoBehaviour
 
     [SerializeField] Vector3 AdversaryZoomedOffset;
 
+    [SerializeField] GameObject CardTitle;
+
+    [SerializeField] GameObject CardDescription;
+
+    [SerializeField] GameObject CardPicture;
+
+    [SerializeField] GameObject CardBackground;
+
    
     
     void Start() //initalises some component referemces
     {
     _HandController = Hand.GetComponent<JL_HandController>();
     gameObject.name = _Card.Name;
+    CardTitle.GetComponent<TMPro.TextMeshPro>().text = _Card.Name;
+    CardDescription.GetComponent<TMPro.TextMeshPro>().text = _Card.Description;
+    CardPicture.GetComponent<SpriteRenderer>().sprite = _Card.image;
+    CardBackground.GetComponent<SpriteRenderer>().color = GameMaster.factionController.GetFactionColor(_Card.Faction);
     }
 
     // Update is called once per frame
@@ -76,7 +88,7 @@ public class JL_CardController : MonoBehaviour
         float y = Input.mousePosition.y;
         float z = transform.position.z - Camera.main.transform.position.z;
         Position = Camera.main.ScreenToWorldPoint(new Vector3 (x,y,z));
-        GetComponent<SpriteRenderer>().sortingOrder = 100;
+        SetDrawOrder(1000);
 
         if (Input.GetKeyDown("space")) // on space zooms the card
         {
@@ -110,17 +122,38 @@ public class JL_CardController : MonoBehaviour
     {
         Grabbed = false;
         bool AtTarget = false;
-        float TargetDistance = 1000000000; //so large maybe too large?
+        float TargetDistance = 1000000000; //so large maybe too large? //What is this????
         GameObject Target;
 
-        for (int i = 0; i < _HandController.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
+        for (int i = 0; i < GameMaster.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
         {
-            float NewTargetDistance = Vector3.Distance(gameObject.transform.position,_HandController.Targets[i].transform.position);
-            if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
+            float NewTargetDistance = Vector2.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
+            Target = GameMaster.Targets[i];
+            Targetable targetObj = Target.GetComponent<Targetable>();
+            if (Target.GetComponent<Targetable>() == null)
             {
-                Target = _HandController.Targets[i];
-                TargetDistance = NewTargetDistance;
+                Debug.LogWarning("Targetable component not found on target");
+                Debug.Break();
             }
+            //Is this ok landy?
+            if (NewTargetDistance < targetObj.allowedDistance)
+            {
+                TargetDistance = NewTargetDistance;
+                AtTarget = true;
+                Target.GetComponent<Targetable>().DropCard(_Card);
+            }
+            
+
+            // if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
+            // {
+                
+            //     TargetDistance = NewTargetDistance;
+            //     //check to see if the target has targetable components
+            //     if (Target.GetComponent<Targetable>() != null)
+            //     {
+                    
+            //     }
+            // }
         }
 
         if (AtTarget)
@@ -131,7 +164,7 @@ public class JL_CardController : MonoBehaviour
         {
             int DrawOrder;
             Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder); // if no target then goesback to hand on mouse up
-            GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+            SetDrawOrder(DrawOrder);
 
         }
         
@@ -150,7 +183,7 @@ public class JL_CardController : MonoBehaviour
             {
                 int DrawOrder;
                 Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder) + AdversaryZoomedOffset;
-                GetComponent<SpriteRenderer>().sortingOrder = 100;
+                SetDrawOrder(1000);
                 AdversaryZoomed = true; // and zooms
             }
             
@@ -169,6 +202,14 @@ public class JL_CardController : MonoBehaviour
                 if (transform.localScale.x > ZoomScale*2)
                 {
                     transform.localScale = new Vector3 (ZoomScale*2,ZoomScale*2,ZoomScale*2);
+                }
+            }
+            else if (transform.localScale.x > 1)
+            {
+                transform.localScale -= new Vector3 (1,1,1)*Time.deltaTime*ZoomSpeed*2;
+                if (transform.localScale.x < 1)
+                {
+                    transform.localScale = new Vector3 (1,1,1);
                 }
             }
         }
@@ -195,7 +236,7 @@ public class JL_CardController : MonoBehaviour
     {
         int DrawOrder;
         Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder);
-        GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+        SetDrawOrder(DrawOrder);
     }
             
 
@@ -232,5 +273,16 @@ public class JL_CardController : MonoBehaviour
     public void PlayAction()
     {
 
+    }
+    public void SetDrawOrder(int DrawOrder)
+    {
+    GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+    CardPicture.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
+    CardBackground.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
+    CardTitle.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
+    CardDescription.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
+    
+    
+      
     }
 }

@@ -14,20 +14,29 @@ public abstract class Trigger
     //The variable power of the trigger (type dependant)
     public int power;
 
-    public virtual void setVars(List<string> args)
-    {
-        power = int.Parse(args[0]);
-    }
-
-    public virtual void setVars(params int[] args)
-    {
-        power = args[0];
-    }
-
-    public virtual void SetupTrigger(Effect _effect, int _power)
+    public virtual void setVars(Effect _effect, List<string> args)
     {
         effect = _effect;
-        setVars(_power);
+        if(args.Count > 0)
+        {
+            power = int.Parse(args[0]);
+        }
+        SetupTrigger();
+    }
+
+    public virtual void setVars(Effect _effect, params int[] args)
+    {
+        effect = _effect;
+        if(args.Length > 0)
+        {
+            power = args[0];
+        }
+        SetupTrigger();
+    }
+
+    public virtual void SetupTrigger()
+    {
+        return;
     }
 
     public virtual bool CheckTrigger(string _triggerName = null){
@@ -47,13 +56,10 @@ public class Instant : Trigger
     {
         name = "Instant";
     }
-    public override void setVars(List<string> args){
-        return;
-    }
-    //Function that is called on setup
-    public override void SetupTrigger(Effect _effect, int _power){
+    public override void setVars(Effect _effect, List<string> args){
         _effect.DoEffect();
-    }    
+        return;
+    } 
 }
 
 /// <summary>
@@ -82,13 +88,10 @@ public class TimeOutTrigger : Trigger
     }
     public Timer timer;
 
-    public override void SetupTrigger(Effect _effect, int _power)
+    public override void SetupTrigger()
     {
-        effect = _effect;
-        power = _power;
-        timer = new Timer(power, _effect.DoEffect);
+        timer = new Timer(power, effect.DoEffect);
     }
-
 
     public override bool CheckTrigger(string _triggerName)
     {
@@ -113,10 +116,9 @@ public class UnhappyTrigger : Trigger{
         name = "UnhappyTrigger";
     }
 
-    public override void SetupTrigger(Effect _effect, int _power)
+    public override void SetupTrigger()
     {
-        effect = _effect;
-        power = _power;
+        
     }
 
     public void ActivateTrigger(){
