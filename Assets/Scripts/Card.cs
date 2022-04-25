@@ -19,7 +19,7 @@ public class Card
     //audio sound effect
     public AudioClip audio;
     //mana cost
-    public int ManaCost; 
+    public int ManaCost;
     //faction
     public string Faction;
     // Is in starting deck

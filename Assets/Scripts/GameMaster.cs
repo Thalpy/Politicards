@@ -33,8 +33,6 @@ public class GameMaster : MonoBehaviour
     [SerializeField] public static List<GameObject> Targets = new List<GameObject>();
 
 
-
-
     /// <summary>
     /// a reference to the pieChart
     /// </summary>
@@ -46,8 +44,6 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
-
-
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
@@ -108,6 +104,7 @@ public class GameMaster : MonoBehaviour
         {
             timer.increase_turn();
         }
+        crisisMaster.NewTurn();
     }
 
     //adds a timer to the list of timers
@@ -140,6 +137,10 @@ public class GameMaster : MonoBehaviour
         }
         Debug.LogError("Effect " + name + " not found!!");
         return null;
+    }
+
+    public static Effect GetRandomEffect(){
+        return effects[Random.Range(0, effects.Count)];
     }
 
     public static Trigger GetTrigger(string name)

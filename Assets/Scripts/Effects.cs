@@ -53,6 +53,23 @@ public abstract class Effect
         //creates a new object of the same type
         return System.Activator.CreateInstance(this.GetType()) as Effect;
     }
+
+    /// <summary>
+    /// Mostly an easy of use function to call the effect without copy pasting this code
+    /// </summary>
+    public virtual void AdjustProgress(Faction faction)
+    {
+        //if the source is a card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //find the card in the active crisises
+            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            //alter the crisis progress
+            crisis.AdjustProgress(power, faction);
+        }
+    }
 }
 
 /// <summary>
@@ -191,16 +208,7 @@ public class Progress : Effect
 
     public override void DoEffect()
     {
-        //if the source is a card
-        if (source is Card)
-        {
-            //get the card
-            Card card = source as Card;
-            //find the card in the active crisises
-            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
-            //alter the crisis progress
-            crisis.AdjustProgress(power, faction);
-        }
+
     }
 }
 
@@ -264,5 +272,87 @@ public class Double : Effect
                 crisis.triggerEffects.Add(entry.Key, entry.Value);
             }           
         }
+    }
+}
+
+public class MostPowerful : Effect
+{
+    public MostPowerful()
+    {
+        name = "MostPowerful";
+    }
+    Faction faction;
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        power = int.Parse(args[0]);
+        //if args[1] is can be an int
+        if (int.TryParse(args[1], out int factionID))
+        {
+            faction = GameMaster.factionController.SelectFaction(factionID);
+        }
+        else
+        {
+            //if it's not an int, it's a string
+            faction = GameMaster.factionController.SelectFaction(args[1]);
+        }
+    }
+
+    public override void DoEffect()
+    {
+        float highestPower = 0;
+        float factionPower = 0;
+        foreach(Faction _faction in GameMaster.factionController.GetFactions())
+        {
+            if (faction == _faction)
+            {
+                factionPower = _faction.FactionPower;
+                continue;
+            }
+            if (_faction.FactionPower > highestPower)
+            {
+                highestPower = _faction.FactionPower;
+            }
+        }
+        if(factionPower <= highestPower)
+        {
+            GameMaster.factionController.ChangeFactionPower(faction.FactionName, power);
+        }
+    }
+}
+
+public class BoostWeakest : Effect
+{
+    public BoostWeakest()
+    {
+        name = "BoostWeakest";
+    }
+    Faction faction;
+
+    public override void DoEffect()
+    {
+        float lowestPower = 100;
+        foreach (Faction _faction in GameMaster.factionController.GetFactions())
+        {
+            if (_faction.FactionPower < lowestPower)
+            {
+                faction = _faction;
+            }
+        }
+        AdjustProgress(faction);
+    }
+}
+
+public class Chaos :Effect
+{
+    public Chaos()
+    {
+        name = "Chaos";
+    }
+
+    public override void DoEffect()
+    {
+        //pick a random effect from the effect's list in GameMaster
+        Effect effect = GameMaster.GetRandomEffect();
     }
 }

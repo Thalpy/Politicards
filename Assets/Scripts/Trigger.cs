@@ -125,3 +125,17 @@ public class UnhappyTrigger : Trigger{
         effect.DoEffect();
     }
 }
+
+public class Investment : Trigger{
+    public Investment()
+    {
+        name = "Investment";
+    }
+
+    public override bool CheckTrigger(string _triggerName = null){
+        if(_triggerName == name){
+            return true;
+        }
+        return false;
+    }
+}

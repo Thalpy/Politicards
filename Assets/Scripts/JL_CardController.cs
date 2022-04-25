@@ -140,7 +140,11 @@ public class JL_CardController : MonoBehaviour
             {
                 TargetDistance = NewTargetDistance;
                 AtTarget = true;
-                Target.GetComponent<Targetable>().DropCard(_Card);
+                if(Target.GetComponent<Targetable>().DropCard(_Card))
+                {
+                    DiscardAction();
+                }
+                
             }
             
 

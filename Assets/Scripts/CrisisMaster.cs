@@ -53,7 +53,23 @@ public class CrisisMaster : MonoBehaviour
         }
         return null;
     }
-            
+
+    /// <summary>
+    /// Ddoes new turn stuff like check flags and the like
+    /// </summary>
+    public void NewTurn()
+    {
+        foreach (ActiveCrisis crisis in activeCrisses)
+        {
+            crisis.crisis.CheckTrigger("NewTurn");
+            //for each card in the crisis
+            foreach (Card card in crisis.playerCards)
+            {
+                //check if the card has a new turn trigger
+                card.CheckTrigger("Investment");
+            }
+        }
+    }            
 
     //determines if a new crisis can be added
     public bool CanAddCrisis()
@@ -99,6 +115,19 @@ public class CrisisMaster : MonoBehaviour
             }
         }
     }
+
+    //Checks if you can add a card to a specific crisis or not
+    public bool CanAddCard(Crisis crisis, int index, bool player = true)
+    {
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+            {
+                return activeCrisses[i].CanAddCard(index, player);
+            }
+        }
+        return false;
+    }
 }
 
 
@@ -124,7 +153,6 @@ public class ActiveCrisis
             if (playerCards[index] != null)
             {
                 Debug.LogWarning("CrisisMaster: Player card already set");
-                Debug.Break();
                 return;
             }
             playerCards[index] = card;
@@ -139,5 +167,25 @@ public class ActiveCrisis
             }
             AICards[index] = card;
         }
+    }
+
+    //Checks if you can add a card to an index or not
+    public bool CanAddCard(int index, bool player)
+    {
+        if (player)
+        {
+            if (playerCards[index] != null)
+            {
+                return false;
+            }
+        }
+        else
+        {
+            if (AICards[index] != null)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
