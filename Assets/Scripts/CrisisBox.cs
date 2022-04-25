@@ -10,13 +10,15 @@ using TMPro;
 public class CrisisBox : MonoBehaviour
 {
     //name text
-    public TextMeshProUGUI nameText;
+    public TextMeshPro nameText;
     //description text
-    public TextMeshProUGUI descriptionText;
+    public TextMeshPro descriptionText;
     //image
-    public Image image;
+    public SpriteRenderer image;
     //audio effect player
     public AudioSource audioSource;
+    //active crisis
+    Crisis crisis;
 
 
 
@@ -27,6 +29,7 @@ public class CrisisBox : MonoBehaviour
     /// </summary>
     public void ChangeEvent(Crisis SussyCrisis)
     {
+        crisis = SussyCrisis;
         //set the name
         nameText.text = SussyCrisis.Name;
         //set the description
@@ -36,5 +39,9 @@ public class CrisisBox : MonoBehaviour
         //play the sound
         audioSource.clip = SussyCrisis.audio;
         audioSource.Play();
+    }
+
+    public Crisis GetCurrentCrisis(){
+        return crisis;
     }
 }

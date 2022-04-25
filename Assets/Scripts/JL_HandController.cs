@@ -27,14 +27,18 @@ public class JL_HandController : MonoBehaviour
 
     [SerializeField] bool PlayersHand;
 
-    [SerializeField] public List<GameObject> Targets;
+
 
     [SerializeField] GameObject MouseOverText;
     [SerializeField] Vector3 MouseOverTextDefaultPosition;
 
+
+
     
     void Start()
     {
+
+
 
     for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
     {
@@ -67,21 +71,10 @@ public class JL_HandController : MonoBehaviour
             {
                 if (_Hit.transform == Deck.transform)
                 {
-                while(CardsInHand.Count < MaxHandSize)
-                {
                     
                     DrawCard();
-                }             
+            
                 }
-
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-
-            if (Physics.Raycast(_Ray, out _Hit, 200))
-            {
                 if (_Hit.transform == Discard.transform)
                 {
 
@@ -92,6 +85,8 @@ public class JL_HandController : MonoBehaviour
 
             }
         }
+
+
 
 
 
@@ -130,7 +125,7 @@ public class JL_HandController : MonoBehaviour
                 CardIndex = i;
             }
         }
-        Debug.Log(CardIndex);
+        //Debug.Log(CardIndex);
         
         
         HandWidth = Mathf.Min(MaxHandWidth,MaxCardSpacing*CardsInHand.Count);
@@ -148,10 +143,10 @@ public class JL_HandController : MonoBehaviour
         
         float y = gameObject.transform.position.y;
         float z = gameObject.transform.position.z;
-        DrawOrder = CardIndex;
+        DrawOrder = CardIndex*10+20;
 
 
-        Debug.Log(new Vector3(x,y,z));
+        //Debug.Log(new Vector3(x,y,z));
         return (new Vector3(x,y,z));
     }
 
@@ -160,13 +155,15 @@ public class JL_HandController : MonoBehaviour
         
         if (CardsInDeck.Count == 0)
         {
-            CardsInDeck = CardsInDiscard;
             
-            for (int i = 0; i < CardsInDeck.Count; i++)
+            for (int i = 0; i < CardsInDiscard.Count; i++)
             {
-                CardsInDeck[i].transform.position = DeckOffScreenLocation;
-                CardsInDeck[i].GetComponent<JL_CardController>().Position = DeckOffScreenLocation;
-                CardsInDeck[i].transform.SetParent(Deck.transform);
+                CardsInDiscard[i].transform.position = DeckOffScreenLocation;
+                CardsInDiscard[i].GetComponent<JL_CardController>().Position = DeckOffScreenLocation;
+                CardsInDiscard[i].transform.SetParent(Deck.transform);
+                CardsInDeck.Add(CardsInDiscard[i]);
+                
+                
             }
 
             CardsInDiscard.Clear();
@@ -175,27 +172,31 @@ public class JL_HandController : MonoBehaviour
 
         if (CardsInDeck.Count != 0)
         {
-            CardsInHand.Add(CardsInDeck[0]);
+            GameObject transitionCard = CardsInDeck[0];
+            JL_CardController cardController = transitionCard.GetComponent<JL_CardController>();
+            CardsInHand.Add(transitionCard);
+            cardController._Card.DrawCard();
 
-            CardsInDeck[0].transform.position = Deck.transform.position;
+            transitionCard.transform.position = Deck.transform.position;
             int DrawOrder;
-            CardsInDeck[0].GetComponent<JL_CardController>().Position = GetCardHandPosition(CardsInDeck[0], out DrawOrder);
-            CardsInDeck[0].GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+            transitionCard.GetComponent<JL_CardController>().Position = GetCardHandPosition(transitionCard, out DrawOrder);
+            transitionCard.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
 
             if (PlayersHand)
             {
-                CardsInDeck[0].GetComponent<JL_CardController>().InHand = true; 
+                transitionCard.GetComponent<JL_CardController>().InHand = true; 
             }
             else
             {
-                CardsInDeck[0].GetComponent<JL_CardController>().InAdversariesHand = true; 
+                transitionCard.GetComponent<JL_CardController>().InAdversariesHand = true; 
             }
 
-            CardsInDeck[0].transform.SetParent(gameObject.transform);
+            transitionCard.transform.SetParent(gameObject.transform);
 
         
            
-            CardsInDeck.Remove(CardsInDeck[0]);
+            CardsInDeck.Remove(transitionCard);
+            
 
         }
 
