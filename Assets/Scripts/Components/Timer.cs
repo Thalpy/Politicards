@@ -64,4 +64,10 @@ public class Timer
         //destroy the timer
         //Destroy(this);
     }
+
+    public void StopAndKillTimer()
+    {
+        timeLeft = 0;
+        EndTimer();
+    }
 }
