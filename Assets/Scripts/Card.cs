@@ -55,7 +55,7 @@ public class Card
 
         GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
         CheckTrigger("Use");
-        GameMaster.cardMaster.cardAudio.PlayOneShot(audio);
+        GameMaster.cardMaster.cardAudio.PlayOneShot(audio);        
     }
 
     //copy the card to a new card
