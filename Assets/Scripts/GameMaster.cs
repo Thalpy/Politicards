@@ -21,6 +21,13 @@ public class GameMaster : MonoBehaviour
 
     public static FactionController factionController;
 
+    /// <summary>
+    /// An event that notifies subscribers about about the end of the turn
+    /// </summary
+
+    public static TurnTimeController turnTimeController = new TurnTimeController();
+
+    
     //Change these to internal after debugging
     [SerializeField]
     public static List<Effect> effects = new List<Effect>();
@@ -31,6 +38,12 @@ public class GameMaster : MonoBehaviour
     public static int turn = 0;
     //List of objects that are targetable
     [SerializeField] public static List<GameObject> Targets = new List<GameObject>();
+
+
+
+    [SerializeField] Camera mainCamera;
+
+    [SerializeField] UIhandler uiHandler;
 
 
     /// <summary>
@@ -103,6 +116,7 @@ public class GameMaster : MonoBehaviour
         foreach(Timer timer in timers)
         {
             timer.increase_turn();
+            turnTimeController.turnTimeEvent.Invoke(turn);
         }
         crisisMaster.NewTurn();
     }
@@ -188,5 +202,26 @@ public class GameMaster : MonoBehaviour
         foreach (Crisis crisis in crisisMaster.crisises){
             crisis.CheckTrigger(trigger);
         }
+    }
+
+    public static float GetFactionMana(string factionName, string player)
+    {
+        return factionController.GetMana(factionName, player);
+        
+    }
+
+    //a function that accepts a player name and returns the list of cards in that player's hand
+    public static List<Card> GetHand(string player)
+    {
+        //write a not implemented exception to the Debug console
+        throw new System.NotImplementedException();
+
+    }
+
+
+    // a function called TestTurnSignal that calls the NextTurn function
+    public void TestTurnSignal()
+    {
+        NextTurn();
     }
 }
