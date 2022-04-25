@@ -19,7 +19,10 @@ public class Crisis
     public AudioClip audio;
     //the length of days the Crisis has
     public int DayLength;
+    //The minimum progress level required to win the crisis
+    public int minProgress;
     //The name of the resultnames
+    internal int activeTurns = -1;
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
@@ -83,9 +86,32 @@ public class Crisis
         triggerEffects = effects;
     }
 
+
+
     public void EndCrisis()
     {
+        if(!GameMaster.crisisMaster.isActiveCrisis(this)){
+            Debug.LogError("Crisis " + Name + " is not active but something tried to stop it.");
+            Debug.Break();
+            return;
+        }
+        Faction victory = null;
+        int victoryProgress = 0;
+        foreach(KeyValuePair<Faction, int> entry in factionProgress){
+            if(entry.Value > victoryProgress){
+                victory = entry.Key;
+                victoryProgress = entry.Value;
+            }
+        }
+        if(victory != null){
+            CheckTrigger("Lose");
+        }
+        else{
+            CheckTrigger($"{victory.FactionName}_Win");
+        }
         CheckTrigger("End");
+        //safety check
+        GameMaster.crisisMaster.RemoveCrisis(this);
     }
     
     //Checks each of the trigger effects to see if the trigger is true and if so calls the effect
