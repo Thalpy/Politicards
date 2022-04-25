@@ -6,11 +6,22 @@ using UnityEngine;
 /// This class handles the wider card functionality methods
 /// As well as providing the means to input new card data
 /// </summary>
+[RequireComponent(typeof(AudioSource))]
 public class CardMaster : MonoBehaviour
 {
     [SerializeField]
     public List<FactionDeck> Decks = new List<FactionDeck>();
     public GameObject dummyCard;
+    //Card sound effect player
+    public AudioSource cardAudio;
+    //backup sound
+    public AudioClip backupSound;
+
+    //awake
+    void Awake()
+    {
+        cardAudio = GetComponent<AudioSource>();
+    }
 
     /// <summary>
     /// Converts a string to an card object

@@ -37,9 +37,7 @@ public class GameMaster : MonoBehaviour
     public static List<Timer> timers = new List<Timer>();
     public static int turn = 0;
     //List of objects that are targetable
-    [SerializeField] public static List<GameObject> Targets = new List<GameObject>();
-
-
+    [SerializeField] public static List<GameObject> Targets = new List<GameObject>();   
 
     [SerializeField] Camera mainCamera;
 
