@@ -1660,7 +1660,7 @@ MonoBehaviour:
     - Name: 'Petition the Nobility '
       Description: Gives +1 people progress and +1 noble progress, if you are frindly
         with the nobles this effect is doubled.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
@@ -1677,7 +1677,7 @@ MonoBehaviour:
     - Name: Stand with the Merchants
       Description: Gives +1 people progress and +1 merchant progress, if you are
         frindly with the merchants this effect is doubled.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
@@ -1694,7 +1694,7 @@ MonoBehaviour:
     - Name: Power of the People
       Description: Gives +1 people progress and +1 people faction power and increases
         your realtions with the people faction by 1.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
@@ -1705,7 +1705,7 @@ MonoBehaviour:
       triggerEffectsStr: []
     - Name: Organised Chaos
       Description: Plays a random card's effect.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
@@ -1723,7 +1723,7 @@ MonoBehaviour:
       Description: Increases people faction power by 3 and reduces all other faction
         powers by 3. If the people faction is the most powerful faction also gives
         6 people progress.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
@@ -1772,7 +1772,7 @@ MonoBehaviour:
     - Name: 'Investment '
       Description: Gives 1 mechant faction progress also increase the Merchant faction's
         power by 1 while the crisis  is still ongoing.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
@@ -1789,7 +1789,7 @@ MonoBehaviour:
         triggerVars: []
     - Name: 'Purchasing Power '
       Description: Gives 2 mechant faction progress also draws a card.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
@@ -1807,7 +1807,7 @@ MonoBehaviour:
     - Name: 'Military Industrial Complex '
       Description: Increases the military factions power by 3 and also gives 2 military
         progress. Also increase your realtionship with the military faction..
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
@@ -1819,7 +1819,7 @@ MonoBehaviour:
     - Name: Spending Spree
       Description: Increases Merchant progress by 3 but reduces your standing with
         the merchant faction.
-      image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
@@ -5272,7 +5272,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2097631631
 MonoBehaviour:
   m_ObjectHideFlags: 0
