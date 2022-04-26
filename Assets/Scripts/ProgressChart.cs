@@ -15,6 +15,8 @@ public class ProgressChart : MonoBehaviour{
     public Crisis crisis;
     //SIGNALING TIMEEEEEEE
     internal float initalY;
+    //minimum size of bar
+    internal float minValue = 0.1f;
     
 
     private void Start() {
@@ -33,7 +35,7 @@ public class ProgressChart : MonoBehaviour{
             }
         }
         crisis.progressUpdateEvent.AddListener(onProgressUpdate);
-        initalY = peopleBar.transform.position.y - 0.1f;
+        initalY = peopleBar.transform.position.y - minValue;
     }
 
     public void SetUpChart(Crisis crisis) {
@@ -57,13 +59,13 @@ public class ProgressChart : MonoBehaviour{
     //a scale size of 8 matches the minProgress of the crisis
     public void UpdateProgress(int[] progress, int minProgress) {
         //floor scale to be at least 1
-        float scale = (Mathf.Max(0.1f, (float)progress[0]) / (float)minProgress) * 8;
+        float scale = (Mathf.Max(minValue, (float)progress[0]) / (float)minProgress) * 8;
         Resize(peopleBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(0.1f, (float)progress[1]) / (float)minProgress) * 8;
+        scale = (Mathf.Max(minValue, (float)progress[1]) / (float)minProgress) * 8;
         Resize(economicBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(0.1f, (float)progress[2]) / (float)minProgress) * 8;
+        scale = (Mathf.Max(minValue, (float)progress[2]) / (float)minProgress) * 8;
         Resize(militaryBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(0.1f, (float)progress[3]) / (float)minProgress) * 8;
+        scale = (Mathf.Max(minValue, (float)progress[3]) / (float)minProgress) * 8;
         Resize(nobilityBar.transform, scale, Vector3.up);
     }
 }
