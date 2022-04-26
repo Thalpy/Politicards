@@ -6,6 +6,10 @@ public class ChooseCardAllyState : State
 {
     public bool cardChosen;
 
+    public bool choosingCard;
+
+    Card chosenCard;
+
     ActiveCrisis activeCrisis;
 
     public PlayCardState playCardState;
@@ -14,10 +18,17 @@ public class ChooseCardAllyState : State
 
     public override State RunCurrentState()
     {
-        if (cardChosen)
+        if (cardChosen && !choosingCard)
         {
             cardChosen = false;
+            playCardState.ActiveCrisis = activeCrisis;
+            playCardState.Card = chosenCard;
             return playCardState;
+        }
+        if (!choosingCard && !cardChosen)
+        {
+            choosingCard = true;
+            chosenCard = chooseCard();
         }
         return null;
     }
@@ -65,7 +76,7 @@ public class ChooseCardAllyState : State
         string targetFactionName;
         FactionEnum targetFactionEnum = (FactionEnum)highestProgressValueIndex;
         targetFactionName = targetFactionEnum.ToString();
-        float aiMana = GameMaster.factionController.GetAiMana(targetFactionName);
+        float aiMana = GameMaster.factionController.GetAiMana(targetFactionName); //I'm sure this can be done in fewer lines.....
 
         // select cards from the ais hand if they have the target faction and require less mana than the ai has to spend with that faction
         List<Card> targetCards = new List<Card>();
@@ -92,6 +103,7 @@ public class ChooseCardAllyState : State
                 highestProgressValueIndex2 = i;
             }
         }
+        choosingCard = false;
         return targetCards[highestProgressValueIndex2];
 
     }
