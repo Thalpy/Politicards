@@ -38,6 +38,15 @@ public class JL_HandController : MonoBehaviour
     void Start()
     {
 
+    if (PlayersHand)
+    {
+        GameMaster.playerHand = gameObject.GetComponent<JL_HandController>();
+    }
+    else
+    {
+        GameMaster.AISHand = gameObject.GetComponent<JL_HandController>();
+    }
+
 
 
     for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
@@ -52,6 +61,19 @@ public class JL_HandController : MonoBehaviour
         CC.Hand = gameObject;
         CC.Position = DeckOffScreenLocation;
     }
+
+    }
+
+    public void AddCard(Card _Card)
+    {
+        GameObject NewCard = Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform);
+        CardsInDeck.Add(NewCard);
+        JL_CardController CC =  NewCard.GetComponent<JL_CardController>();
+        CC.Deck = Deck;
+        CC._Card = _Card;
+        CC.Discard = Discard;
+        CC.Hand = gameObject;
+        CC.Position = DeckOffScreenLocation;
 
     }
 
