@@ -35,7 +35,7 @@ public class ChooseCrisisNeutralState : State
         if (!choosingCrisis && chosenCrisis == null)
         {
             choosingCrisis = true;
-            chosenCrisis = CrisisMostLikleyToComplete(GameMaster.crisisMaster.ActiveCrisses);
+            chosenCrisis = CrisisWithHighestProgressOfAiFaction(GameMaster.crisisMaster.ActiveCrisses);
             
         }
         return null;
@@ -56,24 +56,12 @@ public class ChooseCrisisNeutralState : State
         return crisisMaster.ActiveCrisses;
     }
 
-    public ActiveCrisis CrisisMostLikleyToComplete(ActiveCrisis[] crises)
+    public ActiveCrisis CrisisWithHighestProgressOfAiFaction(ActiveCrisis[] crises)
     {
-        int mostLikelyCrisisValue = 0;
-        int mostLikleyCrisisIndex = 0;
-        for(int i = 0; i < crises.Length; i++)
-        {
-            Crisis crisis = crises[i].crisis;
-            int[] currentProgress = crisis.GetProgress();
-            // get the max value of current progress
-            int maxValue = currentProgress.Max();
-            int currentProgDiff = crisis.minProgress - maxValue;
-            if(currentProgDiff > mostLikelyCrisisValue)
-            {
-                mostLikelyCrisisValue = currentProgDiff;
-                mostLikleyCrisisIndex = i;
-            }
-        }
-        choosingCrisis = false;
-        return crises[mostLikleyCrisisIndex];
+        
+        //CURRENTLY WORKING HERE
+
+
+        
     }
 }
