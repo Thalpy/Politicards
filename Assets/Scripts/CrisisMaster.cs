@@ -99,10 +99,10 @@ public class CrisisMaster : MonoBehaviour
             if (activeCrisses[i] == null)
             {
                 activeCrisses[i] = new ActiveCrisis(crisis, crisisBox);
+                GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
                 return;
             }
         }
-        GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
     }
 
     internal void RemoveCrisis(Crisis crisis)
