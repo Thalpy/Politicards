@@ -53,8 +53,8 @@ public class Card
 
     public void UseCard(Crisis crisis, int index, bool player = true){
 
-        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
-        CheckTrigger("Use");
+        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player); 
+        CheckTrigger("OnUse");
         GameMaster.cardMaster.cardAudio.PlayOneShot(audio);
         //Aimanager.playturn()       
     }

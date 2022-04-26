@@ -208,7 +208,7 @@ public class Progress : Effect
 
     public override void DoEffect()
     {
-
+        AdjustProgress(faction);
     }
 }
 

@@ -173,6 +173,16 @@ public class Crisis
         return progress;
     }
 
+    public string SpeakProgress()
+    {
+        string progress = "";
+        foreach (KeyValuePair<Faction, int> entry in factionProgress)
+        {
+            progress += $"{entry.Key.FactionName}: {entry.Value}/{minProgress}\n";
+        }
+        return progress;
+    }
+
     // public Sprite GetImage()
     // {
     //     //convert image in to a sprite

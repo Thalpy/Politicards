@@ -169,9 +169,30 @@ public class CrisisMaster : MonoBehaviour
         }
         return false;
     }
+
+    //Lists the active crises progress for use with the editor
+    public void SpeakActiveCrisisProgress()
+    {
+        string[] progress = new string[activeCrisses.Length];
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null)
+            {
+                progress[i] = activeCrisses[i].crisis.Name + ": " + activeCrisses[i].crisis.SpeakProgress();
+            }
+            else
+            {
+                progress[i] = "Crisis slot " + i + " is empty";
+            }
+        }
+        foreach(string entry in progress)
+        {
+            Debug.Log(entry);
+        }
+    }
 }
 
-
+[System.Serializable]
 public class ActiveCrisis
 {
     public Crisis crisis;
