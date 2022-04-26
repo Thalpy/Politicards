@@ -13,11 +13,12 @@ public class DialoguePlayer : MonoBehaviour{
     internal string revealedText = "";
     internal string targetText = "";
     internal int index;
-    public float textDelay = 0.01f;
-    internal float time;
-    internal float oldTime;
 
-    public void Update(){
+    public void Awake(){
+        GameMaster.dialoguePlayer = this;
+    }
+
+    public void FixedUpdate(){
         //If the user clicks on the box
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)){
             if(targetText == revealedText){
@@ -31,12 +32,10 @@ public class DialoguePlayer : MonoBehaviour{
         }
         
         //Scroll the text over time       
-        if(targetText != revealedText && oldTime < time){
+        if(targetText != revealedText){
             RevealText(index);
             index++;
-            oldTime = Time.time + textDelay;
         }
-        time = Time.time;
     }
 
     //reveal text word by word progressively
@@ -87,6 +86,7 @@ public class DialoguePlayer : MonoBehaviour{
         //if there is no dialogue, return
         if(activeDialogues.Count == 0){
             EndDialogue();
+            return;
         }
         //if the dialogue is not done, continue
         Dialogue dialogue = activeDialogues[0];
