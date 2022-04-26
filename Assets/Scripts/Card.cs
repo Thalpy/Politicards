@@ -53,9 +53,10 @@ public class Card
 
     public void UseCard(Crisis crisis, int index, bool player = true){
 
-        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player);
-        CheckTrigger("Use");
-        GameMaster.cardMaster.cardAudio.PlayOneShot(audio);        
+        GameMaster.crisisMaster.ApplyCard(this, crisis, index, player); 
+        CheckTrigger("OnUse");
+        GameMaster.cardMaster.cardAudio.PlayOneShot(audio);
+        //Aimanager.playturn()       
     }
 
     //copy the card to a new card

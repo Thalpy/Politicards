@@ -55,17 +55,17 @@ public class CrisisMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Ddoes new turn stuff like check flags and the like
+    /// Does new turn stuff like check flags and the like
     /// </summary>
     public void NewTurn()
     {
         foreach (ActiveCrisis crisis in activeCrisses)
         {
-            crisis.crisis.CheckTrigger("NewTurn");
+            crisis.crisis.NewTurn();
             //for each card in the crisis
             foreach (Card card in crisis.playerCards)
             {
-                //check if the card has a new turn trigger
+                //check if the card has a new turn trigger 
                 card.CheckTrigger("Investment");
             }
         }
@@ -169,9 +169,30 @@ public class CrisisMaster : MonoBehaviour
         }
         return false;
     }
+
+    //Lists the active crises progress for use with the editor
+    public void SpeakActiveCrisisProgress()
+    {
+        string[] progress = new string[activeCrisses.Length];
+        for (int i = 0; i < activeCrisses.Length; i++)
+        {
+            if (activeCrisses[i] != null)
+            {
+                progress[i] = activeCrisses[i].crisis.Name + ": " + activeCrisses[i].crisis.SpeakProgress();
+            }
+            else
+            {
+                progress[i] = "Crisis slot " + i + " is empty";
+            }
+        }
+        foreach(string entry in progress)
+        {
+            Debug.Log(entry);
+        }
+    }
 }
 
-
+[System.Serializable]
 public class ActiveCrisis
 {
     public Crisis crisis;

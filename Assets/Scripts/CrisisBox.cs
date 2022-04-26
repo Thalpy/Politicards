@@ -17,6 +17,8 @@ public class CrisisBox : MonoBehaviour
     public SpriteRenderer image;
     //audio effect player
     public AudioSource audioSource;
+    //progressChart
+    public ProgressChart progressChart;
     //active crisis
     Crisis crisis;
 
@@ -39,6 +41,7 @@ public class CrisisBox : MonoBehaviour
         //play the sound
         audioSource.clip = SussyCrisis.audio;
         audioSource.Play();
+        progressChart.SetUpChart(SussyCrisis);
     }
 
     public Crisis GetCurrentCrisis(){
