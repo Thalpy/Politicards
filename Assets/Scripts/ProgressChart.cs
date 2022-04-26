@@ -35,7 +35,7 @@ public class ProgressChart : MonoBehaviour{
             }
         }
         crisis.progressUpdateEvent.AddListener(onProgressUpdate);
-        initalY = peopleBar.transform.position.y - minValue;
+        //initalY = peopleBar.transform.position.y - minValue;
     }
 
     public void SetUpChart(Crisis crisis) {
@@ -47,25 +47,26 @@ public class ProgressChart : MonoBehaviour{
         UpdateProgress(progress, minProgress);
     }
 
+    //This needs fixing to work in 3d space
     public void Resize(Transform transform, float amount, Vector3 direction)
     {
+        transform.localScale = new Vector3(transform.localScale.x, amount, transform.localScale.z);
         //calculate the difference
-
-        transform.position = new Vector3(transform.position.x, initalY + (amount / 2), transform.position.z); // Move the object in the direction of scaling, so that the corner on ther side stays in place
-        transform.localScale = new Vector3(transform.localScale.x,  amount, transform.localScale.z); // Scale the object
+        //transform.position = new Vector3(transform.position.x, initalY + (amount / 2), transform.position.z); // Move the object in the direction of scaling, so that the corner on ther side stays in place
+        //transform.localScale = new Vector3(transform.localScale.x,  amount, transform.localScale.z); // Scale the object
     }
 
     //Scales the bars depending on the current progress
     //a scale size of 8 matches the minProgress of the crisis
     public void UpdateProgress(int[] progress, int minProgress) {
         //floor scale to be at least 1
-        float scale = (Mathf.Max(minValue, (float)progress[0]) / (float)minProgress) * 8;
-        Resize(peopleBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(minValue, (float)progress[1]) / (float)minProgress) * 8;
-        Resize(economicBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(minValue, (float)progress[2]) / (float)minProgress) * 8;
-        Resize(militaryBar.transform, scale, Vector3.up);
-        scale = (Mathf.Max(minValue, (float)progress[3]) / (float)minProgress) * 8;
-        Resize(nobilityBar.transform, scale, Vector3.up);
+        float scale = (Mathf.Max(minValue, (float)progress[0]) / (float)minProgress);
+        Resize(peopleBar.transform.parent, scale, Vector3.up);
+        scale = (Mathf.Max(minValue, (float)progress[1]) / (float)minProgress);
+        Resize(economicBar.transform.parent, scale, Vector3.up);
+        scale = (Mathf.Max(minValue, (float)progress[2]) / (float)minProgress);
+        Resize(militaryBar.transform.parent, scale, Vector3.up);
+        scale = (Mathf.Max(minValue, (float)progress[3]) / (float)minProgress);
+        Resize(nobilityBar.transform.parent, scale, Vector3.up);
     }
 }
