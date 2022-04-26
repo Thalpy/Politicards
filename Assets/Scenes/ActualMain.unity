@@ -1521,6 +1521,7 @@ GameObject:
   - component: {fileID: 561427135}
   - component: {fileID: 561427136}
   - component: {fileID: 561427137}
+  - component: {fileID: 561427138}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -2310,6 +2311,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &561427138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561427128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3abfbb438702e4447a53503125ca4b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeDialogues: []
+  audioSource: {fileID: 561427137}
+  text: {fileID: 1137084560}
+  image: {fileID: 1285534776}
+  dialogueBox: {fileID: 1580537094}
+  textSpeed: 0.05
 --- !u!1 &620722758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2552,17 +2571,7 @@ PrefabInstance:
     - target: {fileID: 1005990168866631002, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1005990168866631006, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
-        type: 3}
-      propertyPath: textDelay
-      value: 2000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1005990168866631006, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
-        type: 3}
-      propertyPath: textSpeed
-      value: 0.001
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b, type: 3}
@@ -3450,6 +3459,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119141916}
   m_CullTransparentMesh: 1
+--- !u!114 &1137084560 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005990169934339292, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 704557569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1167632155
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,6 +4067,18 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+--- !u!114 &1285534776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1005990170376809698, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 704557569}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1318700171
 GameObject:
   m_ObjectHideFlags: 0
@@ -4636,6 +4669,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1580537094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005990168866631002, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 704557569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623138495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809540387840957827, guid: 6237028a6fb01634e8572b5e3545ae02,
