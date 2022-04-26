@@ -14,7 +14,6 @@ public class ProgressChart : MonoBehaviour{
     public SpriteRenderer nobilityBar;
     public Crisis crisis;
     //SIGNALING TIMEEEEEEE
-    ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
     
     private void Start() {
         foreach(Faction f in GameMaster.factionController.GetFactions()) {
@@ -31,7 +30,7 @@ public class ProgressChart : MonoBehaviour{
                 nobilityBar.color = f.FactionColor;
             }
         }
-        progressUpdateEvent.AddListener(onProgressUpdate);
+        crisis.progressUpdateEvent.AddListener(onProgressUpdate);
     }
 
     public void SetUpChart(Crisis crisis) {
@@ -39,7 +38,7 @@ public class ProgressChart : MonoBehaviour{
         UpdateProgress(crisis.GetProgress(), crisis.minProgress);
     }
 
-    public void onProgressUpdate(int[] progress, int minProgress) {
+    public void onProgressUpdate(int[] progress, int minProgress) { 
         UpdateProgress(progress, minProgress);
     }
 
