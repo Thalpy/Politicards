@@ -30,7 +30,8 @@ public class Crisis
     internal Dictionary<Faction, int> factionProgress;
     //ProgressUpdateEvent event
     public ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
-
+    [SerializeField]
+    public List<Dialogue> dialogues = new List<Dialogue>();
 
     //awake
     public void Awake()

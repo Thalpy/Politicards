@@ -16,7 +16,6 @@ public class ProgressChart : MonoBehaviour{
     //SIGNALING TIMEEEEEEE
     ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
     
-
     private void Start() {
         foreach(Faction f in GameMaster.factionController.GetFactions()) {
             if(f.FactionName == "People") {
