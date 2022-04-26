@@ -148,7 +148,7 @@ public class Investment : Trigger{
 
     Faction faction;
 
-    public override void setVars(Effect _effect, List<string> args){
+    public override  void setVars(Effect _effect, List<string> args){
         faction = GameMaster.factionController.SelectFaction(args[0]);
     }
 

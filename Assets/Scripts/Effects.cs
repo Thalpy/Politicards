@@ -378,11 +378,11 @@ public class AddCard : Effect{
         foreach(string cardname in cardNames)
         {
             Card card = GameMaster.cardMaster.getCard(cardname);
-            if(target == "player")
+            if(target == "Player")
             {
                 GameMaster.playerHand.AddCard(card);
             }
-            else if(target == "ai")
+            else if(target == "AI")
             {
                 GameMaster.AISHand.AddCard(card);
             }

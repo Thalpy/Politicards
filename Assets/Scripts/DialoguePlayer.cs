@@ -10,7 +10,7 @@ public class DialoguePlayer : MonoBehaviour{
     public TMPro.TextMeshProUGUI text;
     //unity image component
     public UnityEngine.UI.Image image;
-    internal string revealedText;
+    internal string revealedText = "";
     internal int index;
 
     public void Update(){
@@ -69,7 +69,6 @@ public class DialoguePlayer : MonoBehaviour{
 
     //Progress the dialogue by one
     public void ProgressDialogue(){
-        activeDialogues.RemoveAt(0);
         //if there is no dialogue, return
         if(activeDialogues.Count == 0){
             EndDialogue();
@@ -78,6 +77,7 @@ public class DialoguePlayer : MonoBehaviour{
         Dialogue dialogue = activeDialogues[0];
         LoadDialogue(dialogue);
         index = 0;
+        activeDialogues.RemoveAt(0);
     }
 
     //Ends the dialogue
