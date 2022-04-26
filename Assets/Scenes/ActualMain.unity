@@ -1645,16 +1645,10 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Crime
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 00000000000000000000000000000000fdffffff
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 10
-        - Crime
-        triggerName: OnUse
-        triggerVars: []
+      triggerEffectsStr: []
   - faction: People
     cards:
     - Name: 'Petition the Nobility '
@@ -2399,6 +2393,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4594483263681122304, guid: 1fe7144a8b1597840994ff5f821a37d0,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594483263681122304, guid: 1fe7144a8b1597840994ff5f821a37d0,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 4649754899223687022, guid: 1fe7144a8b1597840994ff5f821a37d0,
         type: 3}
       propertyPath: m_RootOrder
@@ -2458,6 +2462,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640513123274465930, guid: 1fe7144a8b1597840994ff5f821a37d0,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640513123274465930, guid: 1fe7144a8b1597840994ff5f821a37d0,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8640513123274465930, guid: 1fe7144a8b1597840994ff5f821a37d0,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2130732989060908682, guid: 1fe7144a8b1597840994ff5f821a37d0, type: 3}
