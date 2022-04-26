@@ -16,7 +16,7 @@ public class Crisis
     //the name of the image to use
     public Sprite image;
     //The name of the audioclip to play
-    public AudioClip audio;
+    public AudioClip audio; 
     //the length of days the Crisis has
     public int DayLength;
     //The minimum progress level required to win the crisis
