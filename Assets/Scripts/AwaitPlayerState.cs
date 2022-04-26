@@ -6,15 +6,31 @@ public class AwaitPlayerState : State
 {
     public bool playerTurnComplete;
 
-    public ChooseCardState chooseCardState;
+    CrisisMaster crisisMaster = GameMaster.crisisMaster;
+
+    [SerializeField] ChooseCrisisAllyState chooseCrisisState;
 
     public override State RunCurrentState()
     {
         if (playerTurnComplete)
         {
             playerTurnComplete = false;
-            return chooseCardState;
+            return chooseCrisisState;
         }
         return null;
     }
+
+    public void SetPlayerTurnComplete()
+    {
+        playerTurnComplete = true;
+    }
+
+
+    void Awake()
+    {
+        // subscribe to the player turn complete event on the crisis master
+        crisisMaster.PlayerPlayedCardEvent.AddListener(SetPlayerTurnComplete);
+    }
+
+    
 }

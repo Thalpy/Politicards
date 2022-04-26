@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// This class is used to store the list of possible crisises.
@@ -12,7 +13,17 @@ public class CrisisMaster : MonoBehaviour
     [SerializeField]
     public List<Crisis> crisises = new List<Crisis>();
     ActiveCrisis[] activeCrisses = new ActiveCrisis[3];
+    
+    //getter and setter for ActiveCrisis
+    public ActiveCrisis[] ActiveCrisses
+    {
+        get { return activeCrisses; }
+        set { activeCrisses = value; }
+    }
+
     public CrisisBox crisisBox;
+
+    public UnityEvent PlayerPlayedCardEvent = new UnityEvent();
     //TODO:
     // Track cards applied to events
 
@@ -152,6 +163,7 @@ public class CrisisMaster : MonoBehaviour
             if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
             {
                 activeCrisses[i].ApplyCard(card, index, player);
+                if (player){PlayerPlayedCardEvent.Invoke();} //if player, then invoke the player played card event
                 return;
             }
         }

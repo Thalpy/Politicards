@@ -19,6 +19,8 @@ public class GameMaster : MonoBehaviour
     public static JL_HandController handController;
     public static CardMaster cardMaster;
 
+    public static StateManager stateManager;
+
     public static FactionController factionController;
 
     /// <summary>
@@ -43,6 +45,8 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField] UIhandler uiHandler;
 
+ 
+
 
     /// <summary>
     /// a reference to the pieChart
@@ -55,6 +59,8 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
+        stateManager = GetComponent<StateManager>();
+        
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find
