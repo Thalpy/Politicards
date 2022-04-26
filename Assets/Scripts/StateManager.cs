@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class StateManager : MonoBehaviour
 {
-    State currentState;
+    [SerializeField] State currentState;
    
     void Update()
     {
-        
+        RunStateMachine();        
     }
 
     private void RunStateMachine()
