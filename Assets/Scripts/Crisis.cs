@@ -20,7 +20,7 @@ public class Crisis
     //the length of days the Crisis has
     public int DayLength;
     //The minimum progress level required to win the crisis
-    public int minProgress;
+    public int minProgress = 5;
     //The name of the resultnames
     internal int activeTurns = -1;
     [SerializeField]
@@ -28,6 +28,19 @@ public class Crisis
     //The actual effect and trigger objects
     internal Dictionary<Effect, Trigger> triggerEffects;
     internal Dictionary<Faction, int> factionProgress;
+    //ProgressUpdateEvent event
+    public ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
+
+
+    //awake
+    public void Awake()
+    {
+        //Prevents a bug
+        if(minProgress <= 0)
+        {
+            minProgress = 1;
+        }
+    }
 
     //copy the crisis to a new crisis
     public Crisis Copy()
@@ -50,6 +63,9 @@ public class Crisis
     public void AdjustProgress(int power, Faction faction){
         //get the faction from the factionProgress dictionary and add the power
         factionProgress[faction] += power;
+        //sends an event signal to ProgressUpdateEvent
+        progressUpdateEvent.Invoke(GetProgress(), minProgress);
+
     }
 
     //Conversion from string to result
@@ -87,7 +103,10 @@ public class Crisis
     }
 
 
-
+    /// <summary>
+    /// Checks if the crisis is active and if it is, it will end it
+    /// Sends off flags for the result then removes it from the active crisis list
+    /// </summary>
     public void EndCrisis()
     {
         if(!GameMaster.crisisMaster.isActiveCrisis(this)){
@@ -113,6 +132,11 @@ public class Crisis
         //safety check
         GameMaster.crisisMaster.RemoveCrisis(this);
     }
+
+    public void NewTurn(){
+        activeTurns++;
+        CheckTrigger("NewTurn");
+    }
     
     //Checks each of the trigger effects to see if the trigger is true and if so calls the effect
     public void CheckTriggers()
@@ -135,6 +159,18 @@ public class Crisis
                 effect.Key.DoEffect();
             }
         }
+    }
+
+    public int[] GetProgress()
+    {
+        int[] progress = new int[factionProgress.Count];
+        int i = 0;
+        foreach (KeyValuePair<Faction, int> entry in factionProgress)
+        {
+            progress[i] = entry.Value;
+            i++;
+        }
+        return progress;
     }
 
     // public Sprite GetImage()

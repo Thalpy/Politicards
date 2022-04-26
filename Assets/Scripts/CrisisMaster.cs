@@ -55,17 +55,17 @@ public class CrisisMaster : MonoBehaviour
     }
 
     /// <summary>
-    /// Ddoes new turn stuff like check flags and the like
+    /// Does new turn stuff like check flags and the like
     /// </summary>
     public void NewTurn()
     {
         foreach (ActiveCrisis crisis in activeCrisses)
         {
-            crisis.crisis.CheckTrigger("NewTurn");
+            crisis.crisis.NewTurn();
             //for each card in the crisis
             foreach (Card card in crisis.playerCards)
             {
-                //check if the card has a new turn trigger
+                //check if the card has a new turn trigger 
                 card.CheckTrigger("Investment");
             }
         }

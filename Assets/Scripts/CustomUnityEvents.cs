@@ -16,3 +16,5 @@ public class StringEvent: UnityEvent<string> {}
 public class PlayerHappinessEvent: UnityEvent<Faction.PlayerHappinessEnum> {}
 
 public class AIHappinessEvent: UnityEvent<Faction.AIHappinessEnum> {}
+
+public class ProgressUpdateEvent: UnityEvent<int[], int> {}
