@@ -64,7 +64,7 @@ public class JL_HandController : MonoBehaviour
 
     }
 
-    void AddCard(Card _Card)
+    void public AddCard(Card _Card)
     {
         GameObject NewCard = Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform);
         CardsInDeck.Add(NewCard);
