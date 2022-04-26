@@ -281,7 +281,7 @@ public class JL_CardController : MonoBehaviour
     public void SetDrawOrder(int DrawOrder)
     {
     GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
-    CardPicture.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
+    CardPicture.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder + 1;
     CardBackground.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
     CardTitle.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
     CardDescription.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
