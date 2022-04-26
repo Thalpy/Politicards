@@ -102,6 +102,7 @@ public class CrisisMaster : MonoBehaviour
                 return;
             }
         }
+        GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
     }
 
     internal void RemoveCrisis(Crisis crisis)
