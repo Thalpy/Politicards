@@ -8,3 +8,15 @@ public enum PlayerRelationshipEnum
     Ally,
     Enemy
 }
+
+/// <summary>
+/// Abstract enum to make it less stressful to keep track of the factions
+/// </summary>
+public enum FactionEnum
+{
+    People,
+    Economic,
+    Military,
+    Nobility,
+    Crime
+}

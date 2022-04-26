@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ChooseCrisisAllyState : State
+public class ChooseCrisisNeutralState : State
 {
     public bool CrisisChosen;
 
@@ -29,8 +29,7 @@ public class ChooseCrisisAllyState : State
     {
         if (CrisisChosen && chosenCrisis != null)
         {
-            CrisisChosen = false;
-            chooseCardState.ActiveCrisis = chosenCrisis;       
+            CrisisChosen = false;          
             return chooseCardState;
         }
         if (!choosingCrisis && chosenCrisis == null)

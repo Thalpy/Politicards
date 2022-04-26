@@ -10,6 +10,10 @@ public class AwaitPlayerState : State
 
     [SerializeField] ChooseCrisisAllyState chooseCrisisState;
 
+    [SerializeField] ChooseCrisisEnemyState chooseCrisisEnemyState;
+
+    [SerializeField] ChooseCrisisNeutralState chooseCrisisNeutralState;
+
     public override State RunCurrentState()
     {
         if (playerTurnComplete)
