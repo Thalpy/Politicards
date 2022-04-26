@@ -10,15 +10,18 @@ public class DialoguePlayer : MonoBehaviour{
     public TMPro.TextMeshProUGUI text;
     //unity image component
     public UnityEngine.UI.Image image;
+    public GameObject dialogueBox;
     internal string revealedText = "";
     internal string targetText = "";
     internal int index;
+    public float textSpeed = 0.05f;
+    internal float time;
 
     public void Awake(){
         GameMaster.dialoguePlayer = this;
     }
 
-    public void FixedUpdate(){
+    public void Update(){
         //If the user clicks on the box
         if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)){
             if(targetText == revealedText){
@@ -32,10 +35,12 @@ public class DialoguePlayer : MonoBehaviour{
         }
         
         //Scroll the text over time       
-        if(targetText != revealedText){
+        if(targetText != revealedText && time > textSpeed){
             RevealText(index);
             index++;
+            time = 0;
         }
+        time = time + Time.deltaTime;
     }
 
     //reveal text word by word progressively
@@ -55,7 +60,7 @@ public class DialoguePlayer : MonoBehaviour{
 
     public void StartDialogue(List<Dialogue> dialogues){
         CopyDialogue(dialogues);
-        gameObject.SetActive(true);
+        dialogueBox.SetActive(true);
         //set the first dialogue
         ProgressDialogue();
     }
@@ -96,7 +101,7 @@ public class DialoguePlayer : MonoBehaviour{
 
     //Ends the dialogue
     public void EndDialogue(){
-        gameObject.SetActive(false);
+        dialogueBox.SetActive(false);
     }
 
 
