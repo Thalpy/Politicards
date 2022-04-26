@@ -16,7 +16,9 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
-    public static JL_HandController handController;
+    public static DialoguePlayer dialoguePlayer;
+    public static JL_HandController playerHand;
+    public static JL_HandController AISHand;
     public static CardMaster cardMaster;
 
     public static FactionController factionController;
@@ -55,6 +57,7 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
+        dialoguePlayer = GetComponent<DialoguePlayer>();
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find

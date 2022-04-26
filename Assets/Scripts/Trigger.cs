@@ -139,3 +139,32 @@ public class Investment : Trigger{
         return false;
     }
 }
+
+ public class VictoryTrigger : Trigger{
+    public VictoryTrigger()
+    {
+        name = "Victory";
+    }
+
+    Faction faction;
+
+    public override void setVars(Effect _effect, List<string> args){
+        faction = GameMaster.factionController.SelectFaction(args[0]);
+    }
+
+    public override bool CheckTrigger(string _triggerName = null){
+        string check = faction.FactionName + "_Win";
+        if(_triggerName == name){
+            return true;
+        }
+        return false;
+    }
+ }
+
+ public class LoseTrigger : Trigger{
+    public LoseTrigger()
+    {
+        name = "Lose";
+    }
+
+ }

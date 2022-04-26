@@ -88,7 +88,7 @@ public class DrawCard : Effect
         for (int i = 0; i < power; i++)
         {
             //draw a card
-            GameMaster.handController.DrawCard();
+            GameMaster.playerHand.DrawCard();
         }
     }
 }
@@ -354,5 +354,38 @@ public class Chaos :Effect
     {
         //pick a random effect from the effect's list in GameMaster
         Effect effect = GameMaster.GetRandomEffect();
+    }
+}
+
+public class AddCard : Effect{
+    public AddCard()
+    {
+        name = "AddCard";
+    }
+
+    List<string> cardNames = new List<string>();
+    string target;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        target = args[0];
+        cardNames = args.GetRange(1, args.Count - 1);
+    }
+
+    public override void DoEffect()
+    {
+        foreach(string cardname in cardNames)
+        {
+            Card card = GameMaster.cardMaster.getCard(cardname);
+            if(target == "player")
+            {
+                GameMaster.playerHand.AddCard(card);
+            }
+            else if(target == "ai")
+            {
+                GameMaster.AISHand.AddCard(card);
+            }
+        } 
     }
 }
