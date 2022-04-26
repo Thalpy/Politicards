@@ -1520,8 +1520,8 @@ GameObject:
   - component: {fileID: 561427133}
   - component: {fileID: 561427135}
   - component: {fileID: 561427136}
-  - component: {fileID: 561427138}
   - component: {fileID: 561427137}
+  - component: {fileID: 561427138}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -1561,8 +1561,18 @@ MonoBehaviour:
       triggerName: TimeOut
       triggerVars:
       - 2
+    - effectName: AddCard
+      effectVars:
+      - player
+      - Power of the People
+      triggerName: Victory
+      triggerVars:
+      - People
     dialogues:
-    - text: SImply Audacios!
+    - text: Worm charming is a practice used by people to attract earthworms out
+        of the ground by driving in a wooden stake to vibrate the soil. This activity
+        is commonly performed to collect presidential candidates and as a competitive
+        esport.
       audio: {fileID: 0}
       image: {fileID: 0}
   crisisBox: {fileID: 2097631631}
@@ -2317,6 +2327,8 @@ MonoBehaviour:
   audioSource: {fileID: 561427137}
   text: {fileID: 1137084560}
   image: {fileID: 1285534776}
+  dialogueBox: {fileID: 1580537094}
+  textSpeed: 0.05
 --- !u!1 &620722758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2556,6 +2568,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 1005990168866631002, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b, type: 3}
 --- !u!114 &731674672 stripped
@@ -2740,7 +2757,7 @@ PrefabInstance:
     - target: {fileID: 6743857965630550767, guid: 1fe7144a8b1597840994ff5f821a37d0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8640513123274465930, guid: 1fe7144a8b1597840994ff5f821a37d0,
         type: 3}
@@ -4652,6 +4669,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1580537094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1005990168866631002, guid: 3d391c40a8019b54d9fcd83e5b0f4c3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 704557569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623138495 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2809540387840957827, guid: 6237028a6fb01634e8572b5e3545ae02,
@@ -5813,8 +5836,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097631630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.76, y: 6.83, z: 50.47}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 18.59, y: 8.08, z: 50.47}
+  m_LocalScale: {x: 0.997791, y: 0.997791, z: 0.997791}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 639562360}

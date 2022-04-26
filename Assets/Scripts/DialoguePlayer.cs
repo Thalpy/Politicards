@@ -10,31 +10,48 @@ public class DialoguePlayer : MonoBehaviour{
     public TMPro.TextMeshProUGUI text;
     //unity image component
     public UnityEngine.UI.Image image;
+    public GameObject dialogueBox;
     internal string revealedText = "";
+    internal string targetText = "";
     internal int index;
+    public float textSpeed = 0.05f;
+    internal float time;
+
+    public void Awake(){
+        GameMaster.dialoguePlayer = this;
+    }
 
     public void Update(){
-        if(Input.GetKeyDown(KeyCode.Space)){
-            ProgressDialogue();
-        }
         //If the user clicks on the box
-        if(Input.GetMouseButtonDown(0)){
-            ProgressDialogue();
+        if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)){
+            if(targetText == revealedText){
+                ProgressDialogue();
+            }    
+            else
+            {
+                revealedText = targetText;
+                text.text = revealedText;
+            }
         }
-        //Scroll the text over time
-        RevealText(index);
-        index++;
+        
+        //Scroll the text over time       
+        if(targetText != revealedText && time > textSpeed){
+            RevealText(index);
+            index++;
+            time = 0;
+        }
+        time = time + Time.deltaTime;
     }
 
     //reveal text word by word progressively
-    public bool RevealText(int index){
-        if(index < revealedText.Length){
-            revealedText = revealedText.Substring(0, index);
+    public bool RevealText(int index, int speed = 1){
+        if(index < targetText.Length){
+            revealedText = targetText.Substring(0, index);
             text.text = revealedText;
             return false;
         }
         else{
-            revealedText = revealedText.Substring(0, revealedText.Length);
+            revealedText = targetText;
             text.text = revealedText;
             return true;
         }
@@ -42,8 +59,8 @@ public class DialoguePlayer : MonoBehaviour{
 
 
     public void StartDialogue(List<Dialogue> dialogues){
-        activeDialogues = dialogues;
-        gameObject.SetActive(true);
+        CopyDialogue(dialogues);
+        dialogueBox.SetActive(true);
         //set the first dialogue
         ProgressDialogue();
     }
@@ -58,7 +75,9 @@ public class DialoguePlayer : MonoBehaviour{
     //update the shown text and etc
     public void LoadDialogue(Dialogue dialogue){
         //set the text
-        text.text = dialogue.text;
+        targetText = dialogue.text;
+        revealedText = "";
+        index = 0;
         //set the image
         image.sprite = dialogue.image;
         //set the audio
@@ -72,17 +91,17 @@ public class DialoguePlayer : MonoBehaviour{
         //if there is no dialogue, return
         if(activeDialogues.Count == 0){
             EndDialogue();
+            return;
         }
         //if the dialogue is not done, continue
         Dialogue dialogue = activeDialogues[0];
         LoadDialogue(dialogue);
-        index = 0;
         activeDialogues.RemoveAt(0);
     }
 
     //Ends the dialogue
     public void EndDialogue(){
-        gameObject.SetActive(false);
+        dialogueBox.SetActive(false);
     }
 
 
