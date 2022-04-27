@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// This class is used to store the list of possible crisises.
@@ -12,7 +13,17 @@ public class CrisisMaster : MonoBehaviour
     [SerializeField]
     public List<Crisis> crisises = new List<Crisis>();
     ActiveCrisis[] activeCrisses = new ActiveCrisis[3];
+    
+    //getter and setter for ActiveCrisis
+    public ActiveCrisis[] ActiveCrisses
+    {
+        get { return activeCrisses; }
+        set { activeCrisses = value; }
+    }
+
     public CrisisBox crisisBox;
+
+    public UnityEvent PlayerPlayedCardEvent = new UnityEvent();
     //TODO:
     // Track cards applied to events
 
@@ -153,6 +164,7 @@ public class CrisisMaster : MonoBehaviour
             if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
             {
                 activeCrisses[i].ApplyCard(card, index, player);
+                if (player){PlayerPlayedCardEvent.Invoke();} //if player, then invoke the player played card event
                 return;
             }
         }
@@ -257,4 +269,30 @@ public class ActiveCrisis
         crisis.EndCrisis();
         crisis = null;
     }
+
+    /// <summary>
+    /// a function to get all the cards so far played on the crisis.
+    /// required for the AI to evaluate the crisis progress
+    /// </summary>
+    /// <returns>A list of all the cards played on the crisis</returns>
+    public List<Card> GetAllPlayedCards()
+    {
+        List<Card> playedCards = new List<Card>();
+        foreach (Card card in playerCards)
+        {
+            if (card != null)
+            {
+                playedCards.Add(card);
+            }
+        }
+        foreach (Card card in AICards)
+        {
+            if (card != null)
+            {
+                playedCards.Add(card);
+            }
+        }
+        return playedCards;
+    }
+
 }

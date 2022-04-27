@@ -24,7 +24,10 @@ public class FactionController : MonoBehaviour
 
     [SerializeField] public ManaEvent ManaEvent = new ManaEvent();
 
-
+    /// <summary>
+    /// a dictionary of all the factions vs the legacy index of the faction
+    /// </summary>
+    public Dictionary<string, int> FactionDictionary {get; set;}
 
     public void onPlayerManaChange(float mana, string factionName)
     {
@@ -40,10 +43,14 @@ public class FactionController : MonoBehaviour
         
         //get the game master
         gameMaster = GetComponent<GameMaster>();
+        FactionDictionary = new Dictionary<string, int>();
+        int i = 0;
         foreach(Faction faction in factions)
         {
             //subscribe to the faction's mana change event
             faction.playerManaChange.AddListener(onPlayerManaChange);
+            FactionDictionary.Add(faction.FactionName, i);
+            i++;
         }
 
     }

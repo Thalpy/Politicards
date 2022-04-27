@@ -21,6 +21,8 @@ public class GameMaster : MonoBehaviour
     public static JL_HandController AISHand;
     public static CardMaster cardMaster;
 
+    public static StateManager stateManager;
+
     public static FactionController factionController;
 
     public static JL_EventMover _JL_EventMover;
@@ -47,6 +49,8 @@ public class GameMaster : MonoBehaviour
 
     [SerializeField] UIhandler uiHandler;
 
+ 
+
 
     /// <summary>
     /// a reference to the pieChart
@@ -59,6 +63,8 @@ public class GameMaster : MonoBehaviour
         crisisMaster = GetComponent<CrisisMaster>();
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
+        stateManager = GetComponent<StateManager>();
+        
         dialoguePlayer = GetComponent<DialoguePlayer>();
         _JL_EventMover = GetComponent<JL_EventMover>();
 
