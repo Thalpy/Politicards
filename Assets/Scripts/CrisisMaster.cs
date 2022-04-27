@@ -65,6 +65,22 @@ public class CrisisMaster : MonoBehaviour
         return null;
     }
 
+    public ActiveCrisis FindActiveCrisisFromCard(Card card){
+        foreach (ActiveCrisis crisis in activeCrisses){
+            foreach(Card p_card in crisis.playerCards){
+                if(p_card == card){
+                    return crisis;
+                }
+            }
+            foreach(Card ai_card in crisis.AICards){
+                if(ai_card == card){
+                    return crisis;
+                }
+            }
+        }
+        return null;
+    }
+
     /// <summary>
     /// Does new turn stuff like check flags and the like
     /// </summary>

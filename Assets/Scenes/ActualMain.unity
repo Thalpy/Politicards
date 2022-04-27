@@ -1750,6 +1750,9 @@ MonoBehaviour:
       audio: {fileID: 0}
       image: {fileID: 0}
   crisisBox: {fileID: 2097631631}
+  PlayerPlayedCardEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &561427131
 Transform:
   m_ObjectHideFlags: 0
@@ -6488,7 +6491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2097631630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.59, y: 8.08, z: 50.47}
+  m_LocalPosition: {x: 18.59, y: 5.7, z: 50.47}
   m_LocalScale: {x: 0.997791, y: 0.997791, z: 0.997791}
   m_ConstrainProportionsScale: 0
   m_Children:

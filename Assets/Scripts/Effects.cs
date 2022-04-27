@@ -71,13 +71,13 @@ public abstract class Effect
         }
         else if (source is Crisis){
             //go through all other crises
-            foreach (Crisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+            foreach(ActiveCrisis crisis in GameMaster.crisisMaster.ActiveCrisses)
             {
                 //if the source is the current crisis
-                if (crisis != source)
+                if (crisis.crisis != source)
                 {
                     //alter the crisis progress
-                    crisis.AdjustProgress(power, faction);
+                    crisis.crisis.AdjustProgress(power, faction);
                 }
             }
         }
@@ -418,9 +418,9 @@ public class TwoHeads : Effect
             //get the card
             Card card = source as Card;
             //find the card in the active crisises
-            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            ActiveCrisis crisis = GameMaster.crisisMaster.FindActiveCrisisFromCard(card);
             //Get the last played card by the AI
-            Card lastPlayed = GameMaster.crisisMaster.GetLastPlayedAICard();
+            Card lastPlayed = crisis.GetLastPlayedAICard();
             //recall all of the effects of the last played card
             foreach (KeyValuePair<Effect, Trigger> efftrig in lastPlayed.triggerEffects)
             {
@@ -429,13 +429,17 @@ public class TwoHeads : Effect
         }
         else if (source is Crisis){
             //go through all other crises
-            foreach (Crisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+            foreach (ActiveCrisis crisis in GameMaster.crisisMaster.ActiveCrisses)
             {
                 //if the source is the current crisis
-                if (crisis != source)
+                if (crisis.crisis != source)
                 {
+                    Card lastPlayed = crisis.GetLastPlayedAICard();
                     //alter the crisis progress
-                    crisis.AdjustProgress(power, faction);
+                    foreach (KeyValuePair<Effect, Trigger> efftrig in lastPlayed.triggerEffects)
+                    {
+                        efftrig.Key.DoEffect();
+                    }
                 }
             }
         }
