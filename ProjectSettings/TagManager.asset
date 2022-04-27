@@ -49,3 +49,6 @@ TagManager:
   - name: Cards
     uniqueID: 2836771741
     locked: 0
+  - name: Dialogue
+    uniqueID: 3833255569
+    locked: 0

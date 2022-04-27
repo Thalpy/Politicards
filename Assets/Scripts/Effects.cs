@@ -69,6 +69,18 @@ public abstract class Effect
             //alter the crisis progress
             crisis.AdjustProgress(power, faction);
         }
+        else if (source is Crisis){
+            //go through all other crises
+            foreach (Crisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+            {
+                //if the source is the current crisis
+                if (crisis != source)
+                {
+                    //alter the crisis progress
+                    crisis.AdjustProgress(power, faction);
+                }
+            }
+        }
     }
 }
 
@@ -387,5 +399,58 @@ public class AddCard : Effect{
                 GameMaster.AISHand.AddCard(card);
             }
         } 
+    }
+}
+
+//Duplicate Effectz
+public class TwoHeads : Effect
+{
+    public TwoHeads()
+    {
+        name = "TwoHeads";
+    }
+
+    public override void DoEffect()
+    {
+        //if the source is a card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //find the card in the active crisises
+            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            //Get the last played card by the AI
+            Card lastPlayed = GameMaster.crisisMaster.GetLastPlayedAICard();
+            //recall all of the effects of the last played card
+            foreach (KeyValuePair<Effect, Trigger> efftrig in lastPlayed.triggerEffects)
+            {
+                efftrig.Key.DoEffect();
+            }
+        }
+        else if (source is Crisis){
+            //go through all other crises
+            foreach (Crisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+            {
+                //if the source is the current crisis
+                if (crisis != source)
+                {
+                    //alter the crisis progress
+                    crisis.AdjustProgress(power, faction);
+                }
+            }
+        }
+    }
+}
+
+public class AIHappy : Effect
+{
+    public AIHappy()
+    {
+        name = "AIHappy";
+    }
+
+    public override void DoEffect()
+    {
+        
     }
 }

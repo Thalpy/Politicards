@@ -9,7 +9,7 @@ public class DialoguePlayer : MonoBehaviour{
     public AudioSource audioSource;
     public TMPro.TextMeshProUGUI text;
     //unity image component
-    public UnityEngine.UI.Image image;
+    public SpriteRenderer image;
     public GameObject dialogueBox;
     internal string revealedText = "";
     internal string targetText = "";

@@ -13,6 +13,7 @@ public class JL_HandController : MonoBehaviour
     [SerializeField] float MaxHandWidth;
     [SerializeField] float MaxCardSpacing;
     [SerializeField] float HandWidth;
+    [SerializeField] int startingCards;
 
     [SerializeField] GameObject Deck;
     [SerializeField] GameObject Discard;
@@ -48,7 +49,7 @@ public class JL_HandController : MonoBehaviour
     }
 
 
-    for (int j = 0; j < 2; j++)
+    for (int j = 0; j < startingCards; j++)
     {
         for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
         {

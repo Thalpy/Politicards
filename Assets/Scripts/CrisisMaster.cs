@@ -264,6 +264,17 @@ public class ActiveCrisis
         return true;
     }
 
+    public Card GetLastPlayedAICard(){
+        for (int i = 2; i < AICards.Length; i--)
+        {
+            if (AICards[i] != null)
+            {
+                return AICards[i];
+            }
+        }
+        return null;
+    }
+
     public void EndCrisis()
     {
         crisis.EndCrisis();
