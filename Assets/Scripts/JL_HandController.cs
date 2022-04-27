@@ -13,7 +13,7 @@ public class JL_HandController : MonoBehaviour
     [SerializeField] float MaxHandWidth;
     [SerializeField] float MaxCardSpacing;
     [SerializeField] float HandWidth;
-    [SerializeField] int startingCards;
+    [SerializeField] int startingCards = 2;
 
     [SerializeField] GameObject Deck;
     [SerializeField] GameObject Discard;

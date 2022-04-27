@@ -1016,6 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 1623138495}
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
+      propertyPath: startingCards
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
       propertyPath: DictionaryKeys.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1172,6 +1177,11 @@ PrefabInstance:
       propertyPath: Discard
       value: 
       objectReference: {fileID: 676508780}
+    - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
+        type: 3}
+      propertyPath: startingCards
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6237028a6fb01634e8572b5e3545ae02, type: 3}
 --- !u!1 &375151809
@@ -1748,7 +1758,7 @@ MonoBehaviour:
         is commonly performed to collect presidential candidates and as a competitive
         esport.
       audio: {fileID: 0}
-      image: {fileID: 0}
+      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
@@ -2524,7 +2534,7 @@ MonoBehaviour:
   activeDialogues: []
   audioSource: {fileID: 561427137}
   text: {fileID: 1005990170623094493}
-  image: {fileID: 0}
+  image: {fileID: 1005990169979297518}
   dialogueBox: {fileID: 1005990169543319387}
   textSpeed: 0.05
 --- !u!114 &561427139
@@ -6254,8 +6264,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -461711727
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 82bf32238ed5fdc49a747df2f92ec7f1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6637,8 +6647,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -461711727
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
