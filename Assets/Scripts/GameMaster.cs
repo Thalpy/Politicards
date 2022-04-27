@@ -16,12 +16,16 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     public static CrisisMaster crisisMaster;
-    public static JL_HandController handController;
+    public static DialoguePlayer dialoguePlayer;
+    public static JL_HandController playerHand;
+    public static JL_HandController AISHand;
     public static CardMaster cardMaster;
 
     public static StateManager stateManager;
 
     public static FactionController factionController;
+
+    public static JL_EventMover _JL_EventMover;
 
     /// <summary>
     /// An event that notifies subscribers about about the end of the turn
@@ -61,6 +65,8 @@ public class GameMaster : MonoBehaviour
         factionController = GetComponent<FactionController>();
         stateManager = GetComponent<StateManager>();
         
+        dialoguePlayer = GetComponent<DialoguePlayer>();
+        _JL_EventMover = GetComponent<JL_EventMover>();
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find

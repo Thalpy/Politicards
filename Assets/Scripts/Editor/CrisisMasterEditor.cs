@@ -15,4 +15,4 @@ public class CrisisMasterEditor : Editor
             myScript.SpeakActiveCrisisProgress();
         }
     }
-}
+}   

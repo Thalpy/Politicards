@@ -47,6 +47,12 @@ public class JL_CardController : MonoBehaviour
 
     [SerializeField] GameObject CardBackground;
 
+    [SerializeField] GameObject ManaBackGround;
+
+    [SerializeField] GameObject ManaCost;
+
+    [SerializeField] GameObject AITarget;
+
    
     
     void Start() //initalises some component referemces
@@ -57,6 +63,8 @@ public class JL_CardController : MonoBehaviour
     CardDescription.GetComponent<TMPro.TextMeshPro>().text = _Card.Description;
     CardPicture.GetComponent<SpriteRenderer>().sprite = _Card.image;
     CardBackground.GetComponent<SpriteRenderer>().color = GameMaster.factionController.GetFactionColor(_Card.Faction);
+    ManaCost.GetComponent<TMPro.TextMeshPro>().text = ""+_Card.ManaCost;
+    
     }
 
     // Update is called once per frame
@@ -178,35 +186,43 @@ public class JL_CardController : MonoBehaviour
 
     else if (InAdversariesHand) //in adversaries hands effects
     {
-        Ray _Ray = Camera.main.ScreenPointToRay(Input.mousePosition); //checks if the mouse is over the object
-        RaycastHit _Hit;
-
-        if (Physics.Raycast(_Ray, out _Hit, 200))
-        {
-            if (_Hit.transform == transform && !Discarded)
+        if(!Grabbed)
             {
-                int DrawOrder;
-                Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder) + AdversaryZoomedOffset;
-                SetDrawOrder(1000);
-                AdversaryZoomed = true; // and zooms
-            }
-            
-            
-        }
-        else //if not mouse over then unzooms
-        {
-            AdversaryZoomed = false; 
-        }
+            Ray _Ray = Camera.main.ScreenPointToRay(Input.mousePosition); //checks if the mouse is over the object
+            RaycastHit _Hit;
 
-        if (AdversaryZoomed) //if zoomed it scales up/down over a few frames this happens over the course of a few frames
-        {
-            if (transform.localScale.x < ZoomScale*2)
+            if (Physics.Raycast(_Ray, out _Hit, 200))
             {
-                transform.localScale += new Vector3 (1,1,1)*Time.deltaTime*ZoomSpeed*2;
-                if (transform.localScale.x > ZoomScale*2)
+                if (_Hit.transform == transform && !Discarded)
                 {
-                    transform.localScale = new Vector3 (ZoomScale*2,ZoomScale*2,ZoomScale*2);
+                    int DrawOrder;
+                    Position = _HandController.GetCardHandPosition(gameObject, out DrawOrder) + AdversaryZoomedOffset;
+                    SetDrawOrder(1000);
+                    AdversaryZoomed = true; // and zooms
                 }
+                else //if not mouse over then unzooms
+                {
+                    AdversaryZoomed = false; 
+                }
+                    
+                
+            }
+            else //if not mouse over then unzooms
+            {
+                AdversaryZoomed = false; 
+            }
+
+            if (AdversaryZoomed) //if zoomed it scales up/down over a few frames this happens over the course of a few frames
+            {
+                if (transform.localScale.x < ZoomScale*2)
+                {
+                    transform.localScale += new Vector3 (1,1,1)*Time.deltaTime*ZoomSpeed*2;
+                    if (transform.localScale.x > ZoomScale*2)
+                    {
+                        transform.localScale = new Vector3 (ZoomScale*2,ZoomScale*2,ZoomScale*2);
+                    }
+                }
+
             }
             else if (transform.localScale.x > 1)
             {
@@ -217,15 +233,19 @@ public class JL_CardController : MonoBehaviour
                 }
             }
         }
-            else if (transform.localScale.x > 1)
+        else
+        {
+            if (transform.position == Position)
             {
-                transform.localScale -= new Vector3 (1,1,1)*Time.deltaTime*ZoomSpeed*2;
-                if (transform.localScale.x < 1)
+                Grabbed = false;
+                if(AITarget.GetComponent<Targetable>().DropCard(_Card))
                 {
-                    transform.localScale = new Vector3 (1,1,1);
+                    DiscardAction();
                 }
+
             }
         }
+    }
 
 
 
@@ -285,8 +305,15 @@ public class JL_CardController : MonoBehaviour
     CardBackground.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder - 1;
     CardTitle.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
     CardDescription.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 1;
-    
-    
-      
+    ManaCost.GetComponent<TMPro.TextMeshPro>().sortingOrder = DrawOrder + 3;
+    ManaBackGround.GetComponent<SpriteRenderer>().sortingOrder= DrawOrder + 2;
+    }
+
+
+    public void AiCardPlay(GameObject Target)
+    {
+        Grabbed = true;
+        Position = Target.transform.position;
+        AITarget = Target;
     }
 }
