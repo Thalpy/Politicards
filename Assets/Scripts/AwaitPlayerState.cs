@@ -6,6 +6,8 @@ public class AwaitPlayerState : State
 {
     public bool playerTurnComplete;
 
+    StateManager stateManager = GameMaster.stateManager;
+
     CrisisMaster crisisMaster = GameMaster.crisisMaster;
 
     [SerializeField] ChooseCrisisAllyState chooseCrisisState;
@@ -16,10 +18,25 @@ public class AwaitPlayerState : State
 
     public override State RunCurrentState()
     {
-        if (playerTurnComplete)
+        // reset the choose crisis states
+        chooseCrisisState.ChosenCrisis = null;
+        chooseCrisisEnemyState.ChosenCrisis = null;
+        chooseCrisisNeutralState.ChosenCrisis = null;
+
+        if (playerTurnComplete && stateManager.RelationshipWithPlayer > 0.5)
         {
             playerTurnComplete = false;
             return chooseCrisisState;
+        }
+        if (playerTurnComplete && stateManager.RelationshipWithPlayer >= 0.25 && stateManager.RelationshipWithPlayer <= 0.5)
+        {
+            playerTurnComplete = false;
+            return chooseCrisisNeutralState;
+        }
+        if (playerTurnComplete && stateManager.RelationshipWithPlayer < 0.25)
+        {
+            playerTurnComplete = false;
+            return chooseCrisisEnemyState;
         }
         return null;
     }

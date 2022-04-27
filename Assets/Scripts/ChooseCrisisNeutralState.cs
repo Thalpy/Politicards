@@ -21,7 +21,7 @@ public class ChooseCrisisNeutralState : State
 
     StateManager stateManager = GameMaster.stateManager;
 
-    [SerializeField] ChooseCardAllyState chooseCardState;
+    [SerializeField] ChooseCardNeutralState chooseCardState;
 
 
 
@@ -57,6 +57,11 @@ public class ChooseCrisisNeutralState : State
         return crisisMaster.ActiveCrisses;
     }
 
+    /// <summary>
+    /// gets the crisis with the highest progress of the AI faction
+    /// </summary>
+    /// <param name="crises">The list of active crises</param>
+    /// <returns>The active crisis with the highest progress of the AI faction</returns>
     public ActiveCrisis CrisisWithHighestProgressOfAiFaction(ActiveCrisis[] crises)
     {
         Faction aiFaction = GameMaster.stateManager.AiFaction;

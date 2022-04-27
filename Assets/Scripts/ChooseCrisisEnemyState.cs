@@ -9,6 +9,8 @@ public class ChooseCrisisEnemyState : State
 
     bool choosingCrisis;
 
+    Faction playerFaction = GameMaster.stateManager.PlayerFaction;
+
     public ActiveCrisis chosenCrisis;
 
     public ActiveCrisis ChosenCrisis { get => chosenCrisis; set => chosenCrisis = value; }
@@ -29,13 +31,14 @@ public class ChooseCrisisEnemyState : State
     {
         if (CrisisChosen && chosenCrisis != null)
         {
-            CrisisChosen = false;          
+            CrisisChosen = false; 
+            chooseCardState.ActiveCrisis = chosenCrisis;         
             return chooseCardState;
         }
         if (!choosingCrisis && chosenCrisis == null)
         {
             choosingCrisis = true;
-            chosenCrisis = CrisisMostLikleyToComplete(GameMaster.crisisMaster.ActiveCrisses);
+            chosenCrisis = CrisisWIthLowestProgressOfPlayerFaction(GameMaster.crisisMaster.ActiveCrisses);
             
         }
         return null;
@@ -56,24 +59,24 @@ public class ChooseCrisisEnemyState : State
         return crisisMaster.ActiveCrisses;
     }
 
-    public ActiveCrisis CrisisMostLikleyToComplete(ActiveCrisis[] crises)
+    /// <summary>
+    /// gets the crisis with the lowest progress of the player's faction
+    /// </summary>
+    /// <param name="crises">list of all crises</param>
+    /// <returns>the crisis with the lowest progress of the player's faction</returns>
+    public ActiveCrisis CrisisWIthLowestProgressOfPlayerFaction(ActiveCrisis[] crises)
     {
-        int mostLikelyCrisisValue = 0;
-        int mostLikleyCrisisIndex = 0;
-        for(int i = 0; i < crises.Length; i++)
-        {
-            Crisis crisis = crises[i].crisis;
-            int[] currentProgress = crisis.GetProgress();
-            // get the max value of current progress
-            int maxValue = currentProgress.Max();
-            int currentProgDiff = crisis.minProgress - maxValue;
-            if(currentProgDiff > mostLikelyCrisisValue)
-            {
-                mostLikelyCrisisValue = currentProgDiff;
-                mostLikleyCrisisIndex = i;
-            }
-        }
-        choosingCrisis = false;
-        return crises[mostLikleyCrisisIndex];
+         ActiveCrisis lowestProgressCrisis = null;
+         int lowestProgress = 0;
+         for (int i = 0; i < crises.Length; i++)
+         {
+             if(crises[i].crisis.factionProgress[playerFaction] < lowestProgress)
+             {
+                 lowestProgress = crises[i].crisis.factionProgress[playerFaction];
+                 lowestProgressCrisis = crises[i];
+             }
+
+         }
+        return lowestProgressCrisis;
     }
 }
