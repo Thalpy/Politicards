@@ -13,6 +13,7 @@ public class JL_HandController : MonoBehaviour
     [SerializeField] float MaxHandWidth;
     [SerializeField] float MaxCardSpacing;
     [SerializeField] float HandWidth;
+    [SerializeField] int startingCards = 2;
 
     [SerializeField] GameObject Deck;
     [SerializeField] GameObject Discard;
@@ -48,18 +49,20 @@ public class JL_HandController : MonoBehaviour
     }
 
 
-
-    for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
+    for (int j = 0; j < startingCards; j++)
     {
-        
-        CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
-        JL_CardController CC =  CardsInDeck[i].GetComponent<JL_CardController>();
-        CardsInDeck[i].name = "Card " + i;
-        CC.Deck = Deck;
-        CC._Card = GameMaster.cardMaster.Decks[0].cards[i];
-        CC.Discard = Discard;
-        CC.Hand = gameObject;
-        CC.Position = DeckOffScreenLocation;
+        for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
+        {
+            
+            CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
+            JL_CardController CC =  CardsInDeck[i].GetComponent<JL_CardController>();
+            CardsInDeck[i].name = "Card " + i;
+            CC.Deck = Deck;
+            CC._Card = GameMaster.cardMaster.Decks[0].cards[i];
+            CC.Discard = Discard;
+            CC.Hand = gameObject;
+            CC.Position = DeckOffScreenLocation;
+        }
     }
 
     }
