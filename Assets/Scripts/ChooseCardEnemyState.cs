@@ -72,7 +72,6 @@ public class ChooseCardEnemyState : State
         return cardObjects[indexOfLowestValue].GetComponent<Card>();
 
 
-
     }
 }
 
