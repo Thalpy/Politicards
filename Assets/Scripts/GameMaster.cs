@@ -23,6 +23,8 @@ public class GameMaster : MonoBehaviour
 
     public static FactionController factionController;
 
+    public static JL_EventMover _JL_EventMover;
+
     /// <summary>
     /// An event that notifies subscribers about about the end of the turn
     /// </summary
@@ -58,6 +60,7 @@ public class GameMaster : MonoBehaviour
         cardMaster = GetComponent<CardMaster>();
         factionController = GetComponent<FactionController>();
         dialoguePlayer = GetComponent<DialoguePlayer>();
+        _JL_EventMover = GetComponent<JL_EventMover>();
 
         //LANDY TODO:
         // Add a reference to the hand controller here in a way that doesn't use GameObject.Find

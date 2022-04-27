@@ -739,6 +739,9 @@ MonoBehaviour:
   CardDescription: {fileID: 2255679189087158136}
   CardPicture: {fileID: 4009819775477292239}
   CardBackground: {fileID: 9120658458294240421}
+  ManaBackGround: {fileID: 6730963327413403306}
+  ManaCost: {fileID: 4204024698225760630}
+  AITarget: {fileID: 0}
 --- !u!65 &-6361052746629559467
 BoxCollider:
   m_ObjectHideFlags: 0
