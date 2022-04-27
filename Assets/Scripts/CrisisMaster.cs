@@ -268,4 +268,30 @@ public class ActiveCrisis
         crisis.EndCrisis();
         crisis = null;
     }
+
+    /// <summary>
+    /// a function to get all the cards so far played on the crisis.
+    /// required for the AI to evaluate the crisis progress
+    /// </summary>
+    /// <returns>A list of all the cards played on the crisis</returns>
+    public List<Card> GetAllPlayedCards()
+    {
+        List<Card> playedCards = new List<Card>();
+        foreach (Card card in playerCards)
+        {
+            if (card != null)
+            {
+                playedCards.Add(card);
+            }
+        }
+        foreach (Card card in AICards)
+        {
+            if (card != null)
+            {
+                playedCards.Add(card);
+            }
+        }
+        return playedCards;
+    }
+
 }

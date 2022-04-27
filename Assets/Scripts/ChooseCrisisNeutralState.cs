@@ -29,7 +29,8 @@ public class ChooseCrisisNeutralState : State
     {
         if (CrisisChosen && chosenCrisis != null)
         {
-            CrisisChosen = false;          
+            CrisisChosen = false;     
+            chooseCardState.ActiveCrisis = chosenCrisis;
             return chooseCardState;
         }
         if (!choosingCrisis && chosenCrisis == null)
@@ -58,10 +59,18 @@ public class ChooseCrisisNeutralState : State
 
     public ActiveCrisis CrisisWithHighestProgressOfAiFaction(ActiveCrisis[] crises)
     {
-        
-        //CURRENTLY WORKING HERE
-
-
-        
+        Faction aiFaction = GameMaster.stateManager.AiFaction;
+        ActiveCrisis selectedCrisis = null;
+        int highestProgress = 0;
+        for (int i = 0; i < crises.Length; i++)
+        {
+            if (crises[i].crisis.factionProgress[aiFaction] > highestProgress)
+            {
+                highestProgress = crises[i].crisis.factionProgress[aiFaction];
+                selectedCrisis = crises[i];
+            }
+        }  
+        CrisisChosen = true;
+        return selectedCrisis;        
     }
 }

@@ -9,7 +9,7 @@ public class ChooseCrisisEnemyState : State
 
     bool choosingCrisis;
 
-    ActiveCrisis chosenCrisis;
+    public ActiveCrisis chosenCrisis;
 
     public ActiveCrisis ChosenCrisis { get => chosenCrisis; set => chosenCrisis = value; }
     
