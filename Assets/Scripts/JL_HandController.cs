@@ -249,6 +249,4 @@ public class JL_HandController : MonoBehaviour
             TempDeck.Remove(TempDeck[j]);
         }
     }
-
-
 }
