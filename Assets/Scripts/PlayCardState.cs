@@ -40,13 +40,17 @@ public class PlayCardState : State
         if (turnComplete)
         {
             turnComplete = false;
-            awaitPlayerState.playerTurnComplete = false;
+            //make sure that the player turn complete bool is set to false to avoid looping.
+            awaitPlayerState.PlayerTurnComplete = false;
             return awaitPlayerState;
         }
 
         return null;
     }
 
+    /// <summary>
+    /// plays the card the AI has chosen
+    /// </summary>
     void PlayCard()
     {
         // if not already playing card

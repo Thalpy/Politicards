@@ -165,6 +165,7 @@ public class CrisisMaster : MonoBehaviour
             {
                 activeCrisses[i].ApplyCard(card, index, player);
                 if (player){PlayerPlayedCardEvent.Invoke();} //if player, then invoke the player played card event
+                if (!player){GameMaster.NextTurn();}
                 return;
             }
         }
