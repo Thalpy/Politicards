@@ -23,10 +23,11 @@ public class CrisisBox : MonoBehaviour
     //active crisis
     public Crisis crisis;
 
-    private void Awake() {
+    private void Start() {
         //Add this to the master list
         GameMaster.crisisMaster.crisisBoxes.Add(this);
         GameMaster._JL_EventMover.AddEvent(gameObject);
+        EndCrisis();
     }
 
     //on click event

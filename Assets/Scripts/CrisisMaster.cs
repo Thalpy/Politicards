@@ -27,15 +27,7 @@ public class CrisisMaster : MonoBehaviour
     //TODO:
     // Track cards applied to events
     public List<CrisisBox> crisisBoxes = new List<CrisisBox>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //get the kirby crisis
-        Crisis kirby = getCrisis("Kirby's Fooking Pissed");
-        //Active the crisis
-        ActivateCrisis(kirby);
-    }
+    public string DEBUGCRISIS = "Kirby";
 
     public Crisis getCrisis(string name)
     {
@@ -48,6 +40,17 @@ public class CrisisMaster : MonoBehaviour
         }
         Debug.LogWarning("Crisis not found: " + name);
         return null;
+    }
+
+    public void StartCrisisFromText(string crisisName)
+    {
+        Crisis crisis = getCrisis(crisisName);
+        if (crisis == null)
+        {
+            Debug.LogWarning("Crisis not found: " + crisisName);
+            return;
+        }
+        ActivateCrisis(crisis);
     }
 
     public Crisis FindCrisisFromCard(Card card){
@@ -121,6 +124,19 @@ public class CrisisMaster : MonoBehaviour
             Debug.Break();
             return;
         }
+        CrisisBox targetBox = null;
+        if(crisis.location != "None"){
+            //for eahc crisis box
+            foreach(CrisisBox crisisBox in crisisBoxes){
+                //if the crisis box is the right location
+                if(crisisBox.location == crisis.location){
+                    targetBox = crisisBox;
+                }
+            }
+        }
+        if(targetBox == null){
+            targetBox = PickACrisisBox();
+        }
 
         for (int i = 0; i < activeCrisses.Length; i++)
         {
@@ -128,6 +144,7 @@ public class CrisisMaster : MonoBehaviour
             {
                 activeCrisses[i] = new ActiveCrisis(crisis, crisisBox);
                 GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
+                targetBox.ChangeEvent(crisis);
                 return;
             }
         }
@@ -160,6 +177,22 @@ public class CrisisMaster : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void DisableCrisisBox(Crisis crisis){
+        foreach(CrisisBox crisisBox in crisisBoxes){
+        //if the crisis box is the right location
+            if(crisisBox.crisis == crisis){
+                crisisBox.EndCrisis();
+            }
+        }
+    }
+
+    public CrisisBox PickACrisisBox()
+    {
+        //picks a random crisis box from the list
+        int index = Random.Range(0, crisisBoxes.Count);
+            return crisisBoxes[index];
     }
 
     public bool isActiveCrisis(Crisis crisis)
