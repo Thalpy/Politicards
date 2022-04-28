@@ -23,8 +23,7 @@ public class ChooseCrisisEnemyState : State
     public bool ChoosingCrisis { get => choosingCrisis; set => choosingCrisis = value; }
     public ActiveCrisis ChosenCrisis { get => chosenCrisis; set => chosenCrisis = value; }
 
-    Faction playerFaction = GameMaster.stateManager.PlayerFaction;
-
+    Faction playerFaction;
     /// <summary>
     /// the crisis the AI has chosen
     /// </summary>
@@ -36,9 +35,14 @@ public class ChooseCrisisEnemyState : State
     /// <summary>
     /// the state the AI will move into once it has chosen a crisis
     /// </summary>
-    [SerializeField] ChooseCardAllyState chooseCardState;
+    [SerializeField] ChooseCardEnemyState chooseCardState;
 
     #endregion
+
+    void Start()
+    {
+        playerFaction = GameMaster.stateManager.PlayerFaction;        
+    }
 
     /// <summary>
     /// handles the flow of execution of the state

@@ -59,11 +59,14 @@ public class StateManager : MonoBehaviour
         RunStateMachine();        
     }
 
-    void Awake()
+   
+    void Start()
     {
         //subscribe to the crisis master's player played card event so that we update our guess at the player faction for each round played.
         GameMaster.crisisMaster.PlayerPlayedCardEvent.AddListener(GetPlayerFaction);
-    }
+        GetPlayerFaction();
+        
+    }    
 
     /// <summary>
     /// Sets the player faction to the faction that is happiest with the player
