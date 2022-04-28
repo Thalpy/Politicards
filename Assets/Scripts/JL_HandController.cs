@@ -56,9 +56,9 @@ public class JL_HandController : MonoBehaviour
             
             CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
             JL_CardController CC =  CardsInDeck[i].GetComponent<JL_CardController>();
-            CardsInDeck[i].name = "Card " + i;
+            CardsInDeck[i].name = "Card " + i+j*GameMaster.cardMaster.Decks[0].cards.Count;
             CC.Deck = Deck;
-            CC._Card = GameMaster.cardMaster.Decks[0].cards[i];
+            CC._Card = GameMaster.cardMaster.Decks[0].cards[i+j*GameMaster.cardMaster.Decks[0].cards.Count];
             CC.Discard = Discard;
             CC.Hand = gameObject;
             CC.Position = DeckOffScreenLocation;
