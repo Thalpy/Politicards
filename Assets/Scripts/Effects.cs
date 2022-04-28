@@ -425,10 +425,20 @@ public class TwoHeads : Effect
             //find the card in the active crisises
             ActiveCrisis crisis = GameMaster.crisisMaster.FindActiveCrisisFromCard(card);
             //Get the last played card by the AI
-            Card lastPlayed = crisis.GetLastPlayedAICard();
+            Card lastPlayed = crisis.GetLastPlayedCard(false);
+
+            if(lastPlayed == null || lastPlayed == card)
+            {   
+                lastPlayed = crisis.GetLastPlayedCard(true);
+            }
+            
             //recall all of the effects of the last played card
             foreach (KeyValuePair<Effect, Trigger> efftrig in lastPlayed.triggerEffects)
             {
+                if(efftrig.Key.name == name)
+                {
+                    continue;
+                }
                 efftrig.Key.DoEffect();
             }
         }
@@ -439,7 +449,7 @@ public class TwoHeads : Effect
                 //if the source is the current crisis
                 if (crisis.crisis != source)
                 {
-                    Card lastPlayed = crisis.GetLastPlayedAICard();
+                    Card lastPlayed = crisis.GetLastPlayedCard(false);
                     //alter the crisis progress
                     foreach (KeyValuePair<Effect, Trigger> efftrig in lastPlayed.triggerEffects)
                     {
@@ -461,5 +471,26 @@ public class AIHappy : Effect
     public override void DoEffect()
     {
         GameMaster.stateManager.RelationshipWithPlayer += power;
+    }
+}
+
+public class PlayScene : Effect
+{
+    public PlayScene()
+    {
+        name = "PlayScene";
+    }
+
+    string scene;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        scene = args[0];
+    }
+
+    public override void DoEffect()
+    {
+        GameMaster.dialoguePlayer.StartDialogueFromScene(scene);
     }
 }
