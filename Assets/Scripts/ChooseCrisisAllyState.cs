@@ -3,28 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// The state the AI will be in when it is choosing a crisis and has a good relationship with the player
+/// </summary>
 public class ChooseCrisisAllyState : State
 {
+    /// <summary>
+    /// true: the AI has chosen a crisis
+    /// false: the AI has not chosen a crisis
+    /// </summary>
     public bool CrisisChosen;
 
+    /// <summary>
+    /// true: the AI is choosing a crisis
+    /// false: the AI has chosen a crisis
+    /// </summary>
     bool choosingCrisis;
+    public bool ChoosingCrisis { get => choosingCrisis; set => choosingCrisis = value; }
 
+    /// <summary>
+    /// the crisis the AI has chosen
+    /// </summary>
     ActiveCrisis chosenCrisis;
 
     public ActiveCrisis ChosenCrisis { get => chosenCrisis; set => chosenCrisis = value; }
-    
-
-    public bool ChoosingCrisis { get => choosingCrisis; set => choosingCrisis = value; }
-
-
     CrisisMaster crisisMaster = GameMaster.crisisMaster;
 
     StateManager stateManager = GameMaster.stateManager;
 
+    /// <summary>
+    /// the state the AI will move into once it has chosen a crisis
+    /// </summary>
     [SerializeField] ChooseCardAllyState chooseCardState;
 
 
-
+    /// <summary>
+    /// handles the flow of execution of the state
+    /// once the AI has chosen a crisis to play, it will move into the ChooseCardAllyState
+    /// </summary>
     public override State RunCurrentState()
     {
         if (CrisisChosen && chosenCrisis != null)
@@ -51,12 +67,20 @@ public class ChooseCrisisAllyState : State
         CrisisChosen = true;
     }
 
-    // a function that gets a list of all crises currrntly in play
+    /// <summary>
+    /// a function that gets a list of all crises currrntly in play
+    /// </summary>
+    /// <returns>The list of currently active crises</returns>
     public ActiveCrisis[] GetCrisisList()
     {
         return crisisMaster.ActiveCrisses;
     }
 
+    /// <summary>
+    /// Gets the crisis which is closest to a successful outcome
+    /// </summary>
+    /// <param name="crises">The list of active crises</param>
+    /// <returns>The active crisis which is closest to a successful outcome - The AI will play on this crisis.</returns>
     public ActiveCrisis CrisisMostLikleyToComplete(ActiveCrisis[] crises)
     {
         int mostLikelyCrisisValue = 0;
