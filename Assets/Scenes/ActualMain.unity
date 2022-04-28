@@ -2257,22 +2257,45 @@ MonoBehaviour:
     triggerEffectsStr:
     - effectName: Power
       effectVars:
-      - 15
+      - 2
       - Crime
       triggerName: Instant
       triggerVars: []
-    - effectName: Double
+    - effectName: DrawCard
       effectVars: []
-      triggerName: TimeOut
+      triggerName: Win
       triggerVars:
-      - 2
-    - effectName: AddCard
+      - 1
+    - effectName: Power
       effectVars:
-      - player
-      - Power of the People
-      triggerName: Victory
-      triggerVars:
+      - 5
+      - Crime
+      triggerName: Win
+      triggerVars: []
+    - effectName: Happy
+      effectVars:
+      - 5
       - People
+      triggerName: People_Win
+      triggerVars: []
+    - effectName: Happy
+      effectVars:
+      - 5
+      - Economic
+      triggerName: Economic_Win
+      triggerVars: []
+    - effectName: Happy
+      effectVars:
+      - 5
+      - Military
+      triggerName: Military_Win
+      triggerVars: []
+    - effectName: Happy
+      effectVars:
+      - 5
+      - Nobility
+      triggerName: Nobility_Win
+      triggerVars: []
     dialogues:
     - text: 'Greetings and congratulations my Liege I hope this letter reaches you
         well. I have quite an opportunity for you, historically this country has

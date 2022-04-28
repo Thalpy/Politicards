@@ -347,6 +347,27 @@ public class ActiveCrisis
         return null;
     }
 
+    public TargetCrisis GetTargetFromIndex(int index)
+    {
+        TargetCrisis target;
+        switch(index){
+            case 0:
+                //gets the AIslot 0 target from the children of the crisis box
+                target = crisisBox.transform.Find("AISlot1").GetComponent<TargetCrisis>();
+                break;
+            case 1:
+                target = crisisBox.transform.Find("AISlot2").GetComponent<TargetCrisis>();                
+                break;
+            case 2:
+                target = crisisBox.transform.Find("AISlot3").GetComponent<TargetCrisis>();
+                break;
+            default:
+                Debug.LogWarning("CrisisMaster: GetTargetFromIndex: Index out of range");
+                break;
+        }
+        return target;
+    }
+
     public void EndCrisis()
     {
         crisis.EndCrisis();
