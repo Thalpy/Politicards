@@ -2261,8 +2261,9 @@ MonoBehaviour:
       - Crime
       triggerName: Instant
       triggerVars: []
-    - effectName: DrawCard
-      effectVars: []
+    - effectName: Draw
+      effectVars:
+      - 1
       triggerName: Win
       triggerVars:
       - 1
@@ -2272,30 +2273,34 @@ MonoBehaviour:
       - Crime
       triggerName: Win
       triggerVars: []
-    - effectName: Happy
+    - effectName: Happiness
       effectVars:
       - 5
       - People
-      triggerName: People_Win
-      triggerVars: []
-    - effectName: Happy
+      triggerName: Victory
+      triggerVars:
+      - People
+    - effectName: Happiness
       effectVars:
       - 5
       - Economic
-      triggerName: Economic_Win
-      triggerVars: []
-    - effectName: Happy
+      triggerName: Victory
+      triggerVars:
+      - Economic
+    - effectName: Happiness
       effectVars:
       - 5
       - Military
-      triggerName: Military_Win
-      triggerVars: []
-    - effectName: Happy
+      triggerName: Victory
+      triggerVars:
+      - Military
+    - effectName: Happiness
       effectVars:
       - 5
       - Nobility
-      triggerName: Nobility_Win
-      triggerVars: []
+      triggerName: Victory
+      triggerVars:
+      - Nobility
     dialogues:
     - text: 'Greetings and congratulations my Liege I hope this letter reaches you
         well. I have quite an opportunity for you, historically this country has

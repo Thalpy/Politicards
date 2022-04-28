@@ -149,7 +149,13 @@ public class Investment : Trigger{
     Faction faction;
 
     public override  void setVars(Effect _effect, List<string> args){
-        faction = GameMaster.factionController.SelectFaction(args[0]);
+        //try parsing args[0] as an int
+        if(int.TryParse(args[0], out int factionID)){
+            faction = GameMaster.factionController.SelectFaction(int.Parse(args[0]));
+        }
+        else{
+            faction = GameMaster.factionController.SelectFaction(args[0]);
+        }
     }
 
     public override bool CheckTrigger(string _triggerName = null){

@@ -349,7 +349,7 @@ public class ActiveCrisis
 
     public TargetCrisis GetTargetFromIndex(int index)
     {
-        TargetCrisis target;
+        TargetCrisis target = null;
         switch(index){
             case 0:
                 //gets the AIslot 0 target from the children of the crisis box
