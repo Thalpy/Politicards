@@ -73,7 +73,7 @@ public class StateManager : MonoBehaviour
     /// </summary>
     public void GetPlayerFaction()
     {
-        float highestHappiness = 0;
+        float highestHappiness = -10; // make sure this is less than 0 to start
         Faction happiestFaction = null;
         List<Faction> factionList = GameMaster.factionController.GetFactions();
         foreach (Faction faction in factionList)
@@ -84,6 +84,7 @@ public class StateManager : MonoBehaviour
                 happiestFaction = faction;
             }
         }
+        PlayerFaction = happiestFaction;
     }
 
     /// <summary>

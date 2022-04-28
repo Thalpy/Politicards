@@ -47,6 +47,7 @@ public class ChooseCardEnemyState : State
     {
         if (cardChosen && !choosingCard)
         {
+            Debug.Log("Card Chosen: " + chosenCard.Name);
             cardChosen = false;
             playCardState.ActiveCrisis = activeCrisis;
             playCardState.Card = chosenCard;
@@ -56,6 +57,7 @@ public class ChooseCardEnemyState : State
         {
             choosingCard = true;
             chosenCard = chooseCard();
+            cardChosen = true;
         }
         return null;
     }
@@ -78,7 +80,8 @@ public class ChooseCardEnemyState : State
         // for each card in the ai hand get the list of progress values
         foreach (GameObject card in cardObjects)
         {
-            cardProgressValues.Add(card.GetComponent<Card>().ProgressValues);
+            cardProgressValues.Add(card.GetComponent<JL_CardController>()._Card.ProgressValues);
+            //cardProgressValues.Add(card.GetComponent<Card>().ProgressValues);
         }
 
         int numberOfCardsInHand = cardProgressValues.Count;
@@ -98,7 +101,7 @@ public class ChooseCardEnemyState : State
 
         // return the card at the index of the lowest value
         choosingCard = false;
-        return cardObjects[indexOfLowestValue].GetComponent<Card>();
+        return cardObjects[indexOfLowestValue].GetComponent<JL_CardController>()._Card;
 
 
     }

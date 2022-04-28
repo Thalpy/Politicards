@@ -50,6 +50,8 @@ public class ChooseCrisisEnemyState : State
     /// </summary>
     public override State RunCurrentState()
     {
+        // log the value of CrisisChosen and ChoosingCrisis to the console
+        Debug.Log("CrisisChosen: " + CrisisChosen + " ChoosingCrisis: " + ChoosingCrisis);
         if (CrisisChosen && chosenCrisis != null)
         {
             CrisisChosen = false; 
@@ -60,6 +62,9 @@ public class ChooseCrisisEnemyState : State
         {
             choosingCrisis = true;
             chosenCrisis = CrisisWIthLowestProgressOfPlayerFaction(GameMaster.crisisMaster.ActiveCrisses);
+            CrisisChosen = true;
+            choosingCrisis = false;
+            
             
         }
         return null;
@@ -90,16 +95,33 @@ public class ChooseCrisisEnemyState : State
     public ActiveCrisis CrisisWIthLowestProgressOfPlayerFaction(ActiveCrisis[] crises)
     {
          ActiveCrisis lowestProgressCrisis = null;
-         int lowestProgress = 0;
+         int lowestProgress = int.MaxValue;
          for (int i = 0; i < crises.Length; i++)
-         {
-             if(crises[i].crisis.factionProgress[playerFaction] < lowestProgress)
-             {
-                 lowestProgress = crises[i].crisis.factionProgress[playerFaction];
-                 lowestProgressCrisis = crises[i];
-             }
+        {
+            ActiveCrisis currentCrisis = crises[i];
+            
+            if (currentCrisis == null) { continue; }
+            int FactionProgress = FactionProgressOnCard(crises, i);
+            if (FactionProgress <= lowestProgress)
+            {
+                lowestProgress = FactionProgress;
+                lowestProgressCrisis = crises[i];
+            }
 
-         }
+        }
+        //throw an error if we try to return null
+        if (lowestProgressCrisis == null)
+        {
+            Debug.LogError("No crisis with lowest progress");
+            Debug.Break();
+        }
         return lowestProgressCrisis;
+
+        int FactionProgressOnCard(ActiveCrisis[] crises, int i)
+        {
+            Dictionary<Faction, int> factionProgress = crises[i].crisis.factionProgress;
+            int FactionProgressOnCard = factionProgress[playerFaction];
+            return FactionProgressOnCard;
+        }
     }
 }

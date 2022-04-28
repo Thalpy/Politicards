@@ -289,6 +289,10 @@ public class ActiveCrisis
 
     public void ApplyCard(Card card, int index, bool player)
     {
+        #if DEBUG
+        Debug.Log("Applying card " + card.Name + " to crisis " + crisis.Name);
+        #endif
+
         if (player)
         {
             if (playerCards[index] != null)
