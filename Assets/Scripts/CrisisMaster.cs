@@ -27,15 +27,7 @@ public class CrisisMaster : MonoBehaviour
     //TODO:
     // Track cards applied to events
     public List<CrisisBox> crisisBoxes = new List<CrisisBox>();
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        //get the kirby crisis
-        Crisis kirby = getCrisis("Kirby's Fooking Pissed");
-        //Active the crisis
-        ActivateCrisis(kirby);
-    }
+    public string DEBUGCRISIS = "Kirby";
 
     public Crisis getCrisis(string name)
     {
@@ -48,6 +40,17 @@ public class CrisisMaster : MonoBehaviour
         }
         Debug.LogWarning("Crisis not found: " + name);
         return null;
+    }
+
+    public void StartCrisisFromText(string crisisName)
+    {
+        Crisis crisis = getCrisis(crisisName);
+        if (crisis == null)
+        {
+            Debug.LogWarning("Crisis not found: " + crisisName);
+            return;
+        }
+        ActivateCrisis(crisis);
     }
 
     public Crisis FindCrisisFromCard(Card card){

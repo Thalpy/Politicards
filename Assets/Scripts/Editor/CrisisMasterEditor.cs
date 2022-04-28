@@ -14,5 +14,8 @@ public class CrisisMasterEditor : Editor
         if(GUILayout.Button("List active crisises' progress")){
             myScript.SpeakActiveCrisisProgress();
         }
+        if(GUILayout.Button("Run DEBUGCRISIS NAME")){
+            myScript.StartCrisisFromText(myScript.DEBUGCRISIS);
+        }
     }
 }   

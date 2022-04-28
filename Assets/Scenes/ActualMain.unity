@@ -2251,6 +2251,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   crisisBoxes: []
+  DEBUGCRISIS: Kirby's Fooking Pissed
 --- !u!4 &561427131
 Transform:
   m_ObjectHideFlags: 0
