@@ -49,9 +49,12 @@ public class CardMaster : MonoBehaviour
         //creates a new dummyCard
         GameObject newCard = Instantiate(dummyCard, transform.position, Quaternion.identity);
         newCard.transform.parent = transform;
+        newCard.transform.rotation = new Quaternion(0, 0, 0, 0);
+        //Get the spriterenderer of the card
+        SpriteRenderer renderer = newCard.GetComponent<SpriteRenderer>();
         //gets the psudoCard script
         newCard.GetComponent<PsuedoCard>().SetUp(card, transform.position);
-        newCard.transform.localScale = newCard.transform.localScale * 0.6f;
+        newCard.transform.localScale = new Vector3(1, 1, 1);
         return newCard;
     }
 }

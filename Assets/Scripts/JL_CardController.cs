@@ -132,10 +132,13 @@ public class JL_CardController : MonoBehaviour
         bool AtTarget = false;
         float TargetDistance = 1000000000; //so large maybe too large? //What is this????
         GameObject Target;
+    
+        float smallestTarget = 100f;
+        Targetable TargetTarget = null;
 
         for (int i = 0; i < GameMaster.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
         {
-            float NewTargetDistance = Vector2.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
+            float NewTargetDistance = Vector3.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
             Target = GameMaster.Targets[i];
             Targetable targetObj = Target.GetComponent<Targetable>();
             if (Target.GetComponent<Targetable>() == null)
@@ -144,28 +147,16 @@ public class JL_CardController : MonoBehaviour
                 Debug.Break();
             }
             //Is this ok landy?
-            if (NewTargetDistance < targetObj.allowedDistance)
+            if (NewTargetDistance < targetObj.allowedDistance && NewTargetDistance < smallestTarget)
             {
-                TargetDistance = NewTargetDistance;
+                smallestTarget = NewTargetDistance;
+                TargetTarget = targetObj;
                 AtTarget = true;
-                if(Target.GetComponent<Targetable>().DropCard(_Card))
-                {
-                    DiscardAction();
-                }
-                
             }
-            
-
-            // if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
-            // {
-                
-            //     TargetDistance = NewTargetDistance;
-            //     //check to see if the target has targetable components
-            //     if (Target.GetComponent<Targetable>() != null)
-            //     {
-                    
-            //     }
-            // }
+        }
+        if(TargetTarget && TargetTarget.DropCard(_Card))
+        {
+            DiscardAction();
         }
 
         if (AtTarget)
@@ -248,13 +239,14 @@ public class JL_CardController : MonoBehaviour
     }
 
 
-
+    Debug.Log(gameObject.name);
     if (Vector3.Distance(Discard.transform.position,transform.position)<0.1 && Discarded) //detects if near to the dicard pile after being dicarded and moves the card to the discard pile
     {
         transform.position =  _HandController.DiscardOffScreenLocation;
         Position = _HandController.DiscardOffScreenLocation;
         Discarded = false;
     }
+    Debug.Log(gameObject.name + "Passed");
 
     if(!Grabbed && !Discarded && !AdversaryZoomed && (InHand||InAdversariesHand)) //if nothing else the position in the hand is updated (in case cards have been drawn/played)
     {
