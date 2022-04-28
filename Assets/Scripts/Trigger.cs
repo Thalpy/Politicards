@@ -161,6 +161,26 @@ public class Investment : Trigger{
     }
  }
 
+  public class WinTrigger : Trigger{
+    public WinTrigger()
+    {
+        name = "Win";
+    }
+
+    Faction faction;
+
+    public override  void setVars(Effect _effect, List<string> args){
+        return;
+    }
+
+    public override bool CheckTrigger(string _triggerName = null){
+        if(_triggerName == name){
+            return true;
+        }
+        return false;
+    }
+ }
+
  public class LoseTrigger : Trigger{
     public LoseTrigger()
     {

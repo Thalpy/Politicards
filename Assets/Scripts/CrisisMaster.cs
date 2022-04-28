@@ -144,7 +144,7 @@ public class CrisisMaster : MonoBehaviour
             {
                 activeCrisses[i] = new ActiveCrisis(crisis, targetBox);
                 GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
-                //targetBox.ChangeEvent(crisis);
+                GameMaster._JL_EventMover.SetSingleActive(targetBox.gameObject);
                 return;
             }
         }
@@ -323,19 +323,25 @@ public class ActiveCrisis
         else
         {
             if (AICards[index] != null)
-            {
+            {   
                 return false;
             }
         }
         return true;
     }
 
-    public Card GetLastPlayedAICard(){
-        for (int i = 2; i < AICards.Length; i--)
+    public Card GetLastPlayedCard(bool player = true){
+        for (int i = 2; i > -1; i--)
         {
-            if (AICards[i] != null)
-            {
-                return AICards[i];
+            if(player == true){
+                if(playerCards[i] != null){
+                    return playerCards[i];
+                }
+            }
+            else{
+                if(AICards[i] != null){
+                    return AICards[i];
+                }
             }
         }
         return null;

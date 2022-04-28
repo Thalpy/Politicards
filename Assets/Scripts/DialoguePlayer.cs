@@ -11,6 +11,9 @@ public class DialoguePlayer : MonoBehaviour{
     //unity image component
     public SpriteRenderer image;
     public GameObject dialogueBox;
+
+    [SerializeField]
+    public Dictionary<string, List<Dialogue>> Scenes  = new Dictionary<string, List<Dialogue>>();
     internal string revealedText = "";
     internal string targetText = "";
     internal int index;
@@ -58,6 +61,15 @@ public class DialoguePlayer : MonoBehaviour{
     }
 
 
+    public void StartDialogueFromScene(string name){
+        if(Scenes.ContainsKey(name)){
+            StartDialogue(Scenes[name]);
+        }
+        else{
+            Debug.LogError("Dialogue " + name + " not found!");
+        }
+    }
+
     public void StartDialogue(List<Dialogue> dialogues){
         CopyDialogue(dialogues);
         dialogueBox.SetActive(true);
@@ -85,6 +97,8 @@ public class DialoguePlayer : MonoBehaviour{
         //play the audio
         audioSource.Play();
     }
+
+    
 
     //Progress the dialogue by one
     public void ProgressDialogue(){

@@ -51,7 +51,11 @@ public class CardMaster : MonoBehaviour
         newCard.transform.parent = transform;
         newCard.transform.rotation = new Quaternion(0, 0, 0, 0);
         //Get the spriterenderer of the card
-        SpriteRenderer renderer = newCard.GetComponent<SpriteRenderer>();
+        //Get the background child of the gameobject
+        //Set the sprite to the card's image
+        SpriteRenderer renderer = newCard.transform.Find("BackGround").GetComponent<SpriteRenderer>();
+        newCard.transform.Find("Picture").GetComponent<SpriteRenderer>().sprite = card.image;
+        renderer.color = GameMaster.factionController.GetFactionColor(card.Faction);
         //gets the psudoCard script
         newCard.GetComponent<PsuedoCard>().SetUp(card, transform.position);
         newCard.transform.localScale = new Vector3(1, 1, 1);

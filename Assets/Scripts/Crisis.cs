@@ -129,6 +129,7 @@ public class Crisis
         }
         else{
             CheckTrigger($"{victory.FactionName}_Win");
+            CheckTrigger($"Win");
         }
         CheckTrigger("End");
         //safety check
