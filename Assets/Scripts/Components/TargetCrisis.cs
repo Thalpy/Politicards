@@ -22,12 +22,39 @@ public class TargetCrisis : Targetable
         Crisis crisis = crisisBox.GetCurrentCrisis();
         if(GameMaster.crisisMaster.CanAddCard(crisis, index))
         {
+            #if DEBUG_TargetCrisis
+            Debug.Log("In TargetCrisis.DropCard()");
+            Debug.Log("Adding card to crisis: " + crisis.Name);
+            #endif
             GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
             GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
             return true;
         }
+        #if DEBUG_TargetCrisis
+        Debug.Log("Cannot add card to crisis: " + crisis.Name);
+        #endif
         return false;        
+    }
+
+    public bool DropCardAI(Card card)
+    {
+        Crisis crisis = crisisBox.GetCurrentCrisis();
+        if (GameMaster.crisisMaster.CanAddCard(crisis, index, false))
+        {
+            #if DEBUG_TargetCrisis
+            Debug.Log("In TargetCrisis.DropCard()");
+            Debug.Log("Adding card to crisis: " + crisis.Name);
+            #endif
+            //GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
+            card.UseCard(crisis, index, player);
+            GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
+            return true;
+        }
+        #if DEBUG_TargetCrisis
+        Debug.Log("Cannot add card to crisis: " + crisis.Name);
+        #endif
+        return false;
     }
 
     //Update

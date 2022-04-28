@@ -92,11 +92,15 @@ public class CrisisMaster : MonoBehaviour
     {
         foreach (ActiveCrisis crisis in activeCrisses)
         {
+            //plz :( if you're dealing a statically sized array of objects which isn't pre-populated you need to do null checks!)
+            if (crisis == null){continue;}
             crisis.crisis.NewTurn();
             //for each card in the crisis
             foreach (Card card in crisis.playerCards)
             {
                 //check if the card has a new turn trigger 
+                //TODO: null check
+                if (card == null){continue;}
                 card.CheckTrigger("Investment");
             }
         }
@@ -363,13 +367,16 @@ public class ActiveCrisis
         //get the target
 
         switch(index){
+            //gets the AIslot 0 target from the children of the crisis box  
             case 0:
-                //gets the AIslot 0 target from the children of the crisis box
+                
                 target = cardSlots.GetChild(3).GetComponent<TargetCrisis>();
                 return target;
+            //gets the AIslot 1 target from the children of the crisis box    
             case 1:
                 target = cardSlots.GetChild(4).GetComponent<TargetCrisis>();             
                 return target;
+            //gets the AIslot 2 target from the children of the crisis box
             case 2:
                 target = cardSlots.GetChild(5).GetComponent<TargetCrisis>();
                 return target;

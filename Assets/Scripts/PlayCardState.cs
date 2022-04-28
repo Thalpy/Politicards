@@ -59,7 +59,7 @@ public class PlayCardState : State
             // set the card to be played
             TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
 
-            tgt.DropCard(card);
+            tgt.DropCardAI(card);
 
             //activeCrisis.ApplyCard(card, getFirstEmptyAICardSlot(), false);
             // set the turn complete bool to true
