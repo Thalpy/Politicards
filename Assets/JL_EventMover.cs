@@ -84,6 +84,18 @@ public class JL_EventMover : MonoBehaviour
         }
     }
 
+    public bool IsActive(GameObject Crisis)
+    {
+        for (int i = 0; i < Events.Count; i++)
+        {
+            if (Events[i] == Crisis)
+            {
+                return Active[i];
+            }
+        }
+        return false;
+    }
+
     public void SetActive(GameObject Crisis)
     {
         

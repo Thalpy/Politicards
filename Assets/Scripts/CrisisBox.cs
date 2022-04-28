@@ -38,7 +38,13 @@ public class CrisisBox : MonoBehaviour
             Debug.LogWarning("Crisis not active when clicked on!!");
             return;
         }
-        GameMaster._JL_EventMover.SetSingleActive(gameObject);
+        if(GameMaster._JL_EventMover.IsActive(gameObject)){
+            GameMaster._JL_EventMover.SetInactive(gameObject);            
+        }
+        else{
+            GameMaster._JL_EventMover.SetSingleActive(gameObject);
+        }
+        
     }
 
     //Feeling variable might comment later

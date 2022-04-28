@@ -34,7 +34,7 @@ public class CrisisMaster : MonoBehaviour
         //get the kirby crisis
         Crisis kirby = getCrisis("Kirby's Fooking Pissed");
         //Active the crisis
-        ActivateCrisis(kirby);
+        //ActivateCrisis(kirby);
     }
 
     public Crisis getCrisis(string name)
