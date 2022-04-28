@@ -26,6 +26,7 @@ public class CrisisMaster : MonoBehaviour
     public UnityEvent PlayerPlayedCardEvent = new UnityEvent();
     //TODO:
     // Track cards applied to events
+    public List<CrisisBox> crisisBoxes = new List<CrisisBox>();
 
     // Start is called before the first frame update
     void Start()
@@ -220,6 +221,19 @@ public class CrisisMaster : MonoBehaviour
             Debug.Log(entry);
         }
     }
+
+    public CrisisBox GetFreeCrisisBox()
+    {
+        foreach(CrisisBox box in crisisBoxes)
+        {
+            if(box.crisis == null)
+            {
+                return box;
+            }
+        }
+        return null;
+    }
+
 }
 
 [System.Serializable]
@@ -229,12 +243,14 @@ public class ActiveCrisis
     public Timer timer;
     public Card[] playerCards = new Card[3];
     public Card[] AICards = new Card[3];
+    public CrisisBox crisisBox;
 
-    public ActiveCrisis(Crisis _crisis, CrisisBox crisisBox)
+    public ActiveCrisis(Crisis _crisis, CrisisBox _crisisBox)
     {
         crisis = _crisis.Copy();
         timer = new Timer(crisis.DayLength, crisis.EndCrisis);
         crisis.StartCrisis();
+        crisisBox = _crisisBox;
         crisisBox.ChangeEvent(crisis);
     }
 
@@ -295,6 +311,8 @@ public class ActiveCrisis
     public void EndCrisis()
     {
         crisis.EndCrisis();
+        crisisBox.EndCrisis();
+        crisisBox = null;
         crisis = null;
     }
 
@@ -322,5 +340,4 @@ public class ActiveCrisis
         }
         return playedCards;
     }
-
 }

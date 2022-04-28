@@ -84,7 +84,7 @@ public class JL_EventMover : MonoBehaviour
         }
     }
 
-    void SetActive(GameObject Crisis)
+    public void SetActive(GameObject Crisis)
     {
         
     
@@ -101,7 +101,7 @@ public class JL_EventMover : MonoBehaviour
 
     }
 
-    void SetInactive(GameObject Crisis)
+    public void SetInactive(GameObject Crisis)
     {
         
     
@@ -114,16 +114,28 @@ public class JL_EventMover : MonoBehaviour
 
             }
         }
-    
-
     }
 
-    
+    public void InactiveAll()
+    {
+        for (int i = 0; i < Events.Count; i++)
+        {
+            Active[i] = false;
+        }
+    }
 
-
-
-
-
-
-    
+    public void SetSingleActive(GameObject crisis)
+    {
+        for (int i = 0; i < Events.Count; i++)
+        {
+            if (Events[i] == crisis)
+            {
+                Active[i] = true;
+            }
+            else
+            {
+                Active[i] = false;
+            }
+        }
+    }
 }

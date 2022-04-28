@@ -9,6 +9,7 @@ using TMPro;
 /// </summary>
 public class CrisisBox : MonoBehaviour
 {
+    public string location;
     //name text
     public TextMeshPro nameText;
     //description text
@@ -20,10 +21,25 @@ public class CrisisBox : MonoBehaviour
     //progressChart
     public ProgressChart progressChart;
     //active crisis
-    Crisis crisis;
+    public Crisis crisis;
 
+    private void Awake() {
+        //Add this to the master list
+        GameMaster.crisisMaster.crisisBoxes.Add(this);
+        GameMaster._JL_EventMover.AddEvent(gameObject);
+    }
 
-
+    //on click event
+    public void OnMouseDown()
+    {
+        //if the crisis is active
+        if (crisis == null || gameObject.active == false)
+        {
+            Debug.LogWarning("Crisis not active when clicked on!!");
+            return;
+        }
+        GameMaster._JL_EventMover.SetSingleActive(gameObject);
+    }
 
     //Feeling variable might comment later
     /// <summary>
@@ -42,6 +58,13 @@ public class CrisisBox : MonoBehaviour
         audioSource.clip = SussyCrisis.audio;
         audioSource.Play();
         progressChart.SetUpChart(SussyCrisis);
+        gameObject.SetActive(true);
+    }
+
+    public void EndCrisis()
+    {
+        crisis = null;
+        gameObject.SetActive(false);
     }
 
     public Crisis GetCurrentCrisis(){
