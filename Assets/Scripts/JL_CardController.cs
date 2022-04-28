@@ -239,14 +239,12 @@ public class JL_CardController : MonoBehaviour
     }
 
 
-    Debug.Log(gameObject.name);
     if (Vector3.Distance(Discard.transform.position,transform.position)<0.1 && Discarded) //detects if near to the dicard pile after being dicarded and moves the card to the discard pile
     {
         transform.position =  _HandController.DiscardOffScreenLocation;
         Position = _HandController.DiscardOffScreenLocation;
         Discarded = false;
     }
-    Debug.Log(gameObject.name + "Passed");
 
     if(!Grabbed && !Discarded && !AdversaryZoomed && (InHand||InAdversariesHand)) //if nothing else the position in the hand is updated (in case cards have been drawn/played)
     {
