@@ -192,7 +192,7 @@ public class CrisisMaster : MonoBehaviour
     {
         //picks a random crisis box from the list
         int index = Random.Range(0, crisisBoxes.Count);
-            return crisisBoxes[index];
+        return crisisBoxes[index];
     }
 
     public bool isActiveCrisis(Crisis crisis)
