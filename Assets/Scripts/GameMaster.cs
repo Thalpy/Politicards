@@ -84,11 +84,11 @@ public class GameMaster : MonoBehaviour
             .Select(type => (Trigger)System.Activator.CreateInstance(type)));
         foreach(Effect e in effects)
         {
-            Debug.Log(e.name);
+            //Debug.Log(e.name);
         }
         foreach(Trigger t in triggers)
         {
-            Debug.Log(t.name);
+            //Debug.Log(t.name);
         }
     }
 
