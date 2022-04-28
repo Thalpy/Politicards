@@ -57,6 +57,8 @@ public class PlayCardState : State
         if (!turnComplete)
         {
             // set the card to be played
+            
+
             activeCrisis.ApplyCard(card, getFirstEmptyAICardSlot(), false);
             // set the turn complete bool to true
             turnComplete = true;
