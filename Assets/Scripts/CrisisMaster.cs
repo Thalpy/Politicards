@@ -142,9 +142,9 @@ public class CrisisMaster : MonoBehaviour
         {
             if (activeCrisses[i] == null)
             {
-                activeCrisses[i] = new ActiveCrisis(crisis, crisisBox);
+                activeCrisses[i] = new ActiveCrisis(crisis, targetBox);
                 GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
-                targetBox.ChangeEvent(crisis);
+                //targetBox.ChangeEvent(crisis);
                 return;
             }
         }
@@ -191,7 +191,7 @@ public class CrisisMaster : MonoBehaviour
     public CrisisBox PickACrisisBox()
     {
         //picks a random crisis box from the list
-        int index = Random.Range(0, crisisBoxes.Count);
+        int index = Random.Range(0, crisisBoxes.Count - 1);
         return crisisBoxes[index];
     }
 
