@@ -132,10 +132,13 @@ public class JL_CardController : MonoBehaviour
         bool AtTarget = false;
         float TargetDistance = 1000000000; //so large maybe too large? //What is this????
         GameObject Target;
+    
+        float smallestTarget = 100f;
+        Targetable TargetTarget = null;
 
         for (int i = 0; i < GameMaster.Targets.Count; i++) //loops through targerts and checks if they are near the cards position, gets the nearest target to the center of the card.
         {
-            float NewTargetDistance = Vector2.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
+            float NewTargetDistance = Vector3.Distance(gameObject.transform.position, GameMaster.Targets[i].transform.position);
             Target = GameMaster.Targets[i];
             Targetable targetObj = Target.GetComponent<Targetable>();
             if (Target.GetComponent<Targetable>() == null)
@@ -144,28 +147,16 @@ public class JL_CardController : MonoBehaviour
                 Debug.Break();
             }
             //Is this ok landy?
-            if (NewTargetDistance < targetObj.allowedDistance)
+            if (NewTargetDistance < targetObj.allowedDistance && NewTargetDistance < smallestTarget)
             {
-                TargetDistance = NewTargetDistance;
+                smallestTarget = NewTargetDistance;
+                TargetTarget = targetObj;
                 AtTarget = true;
-                if(Target.GetComponent<Targetable>().DropCard(_Card))
-                {
-                    DiscardAction();
-                }
-                
             }
-            
-
-            // if (NewTargetDistance < TargetDistance && NewTargetDistance < TargetTriggerDistance)
-            // {
-                
-            //     TargetDistance = NewTargetDistance;
-            //     //check to see if the target has targetable components
-            //     if (Target.GetComponent<Targetable>() != null)
-            //     {
-                    
-            //     }
-            // }
+        }
+        if(TargetTarget && TargetTarget.DropCard(_Card))
+        {
+            DiscardAction();
         }
 
         if (AtTarget)
