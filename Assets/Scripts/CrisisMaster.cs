@@ -121,6 +121,19 @@ public class CrisisMaster : MonoBehaviour
             Debug.Break();
             return;
         }
+        CrisisBox targetBox = null;
+        if(crisis.location != "None"){
+            //for eahc crisis box
+            foreach(CrisisBox crisisBox in crisisBoxes){
+                //if the crisis box is the right location
+                if(crisisBox.location == crisis.location){
+                    targetBox = crisisBox;
+                }
+            }
+        }
+        if(targetBox == null){
+            targetBox = PickACrisisBox();
+        }
 
         for (int i = 0; i < activeCrisses.Length; i++)
         {
@@ -128,6 +141,7 @@ public class CrisisMaster : MonoBehaviour
             {
                 activeCrisses[i] = new ActiveCrisis(crisis, crisisBox);
                 GameMaster.dialoguePlayer.StartDialogue(crisis.dialogues);
+                targetBox.ChangeEvent(crisis);
                 return;
             }
         }
@@ -160,6 +174,22 @@ public class CrisisMaster : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void DisableCrisisBox(Crisis crisis){
+        foreach(CrisisBox crisisBox in crisisBoxes){
+        //if the crisis box is the right location
+            if(crisisBox.crisis == crisis){
+                crisisBox.EndCrisis();
+            }
+        }
+    }
+
+    public CrisisBox PickACrisisBox()
+    {
+        //picks a random crisis box from the list
+        int index = Random.Range(0, crisisBoxes.Count);
+            return crisisBoxes[index];
     }
 
     public bool isActiveCrisis(Crisis crisis)
