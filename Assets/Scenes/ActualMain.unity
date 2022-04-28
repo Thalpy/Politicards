@@ -2246,12 +2246,87 @@ MonoBehaviour:
     - text: I just want to check that 2 texts work
       audio: {fileID: 0}
       image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+  - Name: Narzon's letter
+    Description: Nazron has reached out to you to offer you a particular proposal.
+      Finding a way to help will draw you an extra card but may also have other consequences.
+    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
+    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+    location: None
+    DayLength: 3
+    minProgress: 3
+    triggerEffectsStr:
+    - effectName: Power
+      effectVars:
+      - 2
+      - Crime
+      triggerName: Instant
+      triggerVars: []
+    - effectName: Draw
+      effectVars:
+      - 1
+      triggerName: Win
+      triggerVars:
+      - 1
+    - effectName: Power
+      effectVars:
+      - 5
+      - Crime
+      triggerName: Win
+      triggerVars: []
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - People
+      triggerName: Victory
+      triggerVars:
+      - People
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Economic
+      triggerName: Victory
+      triggerVars:
+      - Economic
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Military
+      triggerName: Victory
+      triggerVars:
+      - Military
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Nobility
+      triggerName: Victory
+      triggerVars:
+      - Nobility
+    dialogues:
+    - text: 'Greetings and congratulations my Liege I hope this letter reaches you
+        well. I have quite an opportunity for you, historically this country has
+        failed to see eye to eye on our particular business venture, but from what
+        I''ve heard of your prowess I have high hopes for a new kind of partnership.
+        One that meets the needs of all the people. '
+      audio: {fileID: 8300000, guid: 3ef734cdb5da6b94fafc846c8145b5db, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: I have a modest proposal for you that would benefit both of us, as your
+        position is a perilous one, mm?  I would be more than happy to offer our
+        services to investigate the affairs of one of the other parties, to ensure
+        of course that their heart is in the right place about your sudden rise to
+        power. All I need from you is to distract them while my associates and I
+        examine their affairs.
+      audio: {fileID: 8300000, guid: 79f29d57842c6ff42952192b3363ef24, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: I trust that this gesture of goodwill will not fall by the wayside, as
+        we will be watching your actions with great anticipation.
+      audio: {fileID: 8300000, guid: 2d07daa3005c0d44fa25fbb4a6d354b7, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
       m_Calls: []
   crisisBoxes: []
-  DEBUGCRISIS: Kirby's Fooking Pissed
+  DEBUGCRISIS: Narzon's letter
 --- !u!4 &561427131
 Transform:
   m_ObjectHideFlags: 0
@@ -5499,8 +5574,8 @@ Transform:
   m_GameObject: {fileID: 1273702087}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2097631633}
   m_RootOrder: 2
@@ -8609,8 +8684,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10323,8 +10398,8 @@ Transform:
   m_GameObject: {fileID: 2883156948406132494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156949180754008}
   m_RootOrder: 2
@@ -12418,8 +12493,8 @@ Transform:
   m_GameObject: {fileID: 2883156948660090759}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156948893106385}
   m_RootOrder: 2
@@ -14615,8 +14690,8 @@ Transform:
   m_GameObject: {fileID: 2883156949088595362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156948196498164}
   m_RootOrder: 2
@@ -14662,7 +14737,7 @@ SpriteRenderer:
   m_SortingLayerID: 660287397
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -18202,8 +18277,8 @@ Transform:
   m_GameObject: {fileID: 2883156949627612630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156949802474112}
   m_RootOrder: 2
@@ -21599,8 +21674,8 @@ Transform:
   m_GameObject: {fileID: 2883156950131713913}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156949298368559}
   m_RootOrder: 2
@@ -21648,8 +21723,8 @@ Transform:
   m_GameObject: {fileID: 2883156950140688934}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0841, y: 5.2563, z: -0.1}
-  m_LocalScale: {x: 5.879731, y: 4.277821, z: 4.1331935}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2883156949291625840}
   m_RootOrder: 2

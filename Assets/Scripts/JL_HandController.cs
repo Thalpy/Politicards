@@ -70,17 +70,15 @@ public class JL_HandController : MonoBehaviour
             GameObject cardObj = Instantiate(Card, DeckOffScreenLocation, transform.rotation, Deck.transform);
             CardsInDeck.Add(cardObj);
             JL_CardController CC = cardObj.GetComponent<JL_CardController>();
-            //cardObj.name = "Card " + startingCard;
             CC.Deck = Deck;
             CC._Card = card;
             CC.Discard = Discard;
             CC.Hand = gameObject;
             CC.Position = DeckOffScreenLocation;
         }
-        for (int startingCard = 1; startingCard < startingCards; startingCard++)
+        for (int startingCard = 0; startingCard <= startingCards; startingCard++)
         {
-            CardsInHand.Add(CardsInDeck[startingCard]);
-            CardsInDeck.Remove(CardsInDeck[startingCard]);
+            DrawCard(false);
         }
     }
 
@@ -192,7 +190,7 @@ public class JL_HandController : MonoBehaviour
         return (new Vector3(x,y,z));
     }
 
-    public void DrawCard() //This function is how cards are moved from the deck to the hand, it is in hand controller because it is a triggered by the LANDY WHY
+    public void DrawCard(bool shuffle = true) //This function is how cards are moved from the deck to the hand, it is in hand controller because it is a triggered by the LANDY WHY
     {
         
         if (CardsInDeck.Count == 0)
@@ -209,7 +207,7 @@ public class JL_HandController : MonoBehaviour
             }
 
             CardsInDiscard.Clear();
-            ShuffleDeck();
+            //ShuffleDeck();
         }
 
         if (CardsInDeck.Count != 0)
@@ -234,36 +232,47 @@ public class JL_HandController : MonoBehaviour
             }
 
             transitionCard.transform.SetParent(gameObject.transform);
-
-        
-           
             CardsInDeck.Remove(transitionCard);            
-
         }
-
-
+        if(shuffle)
+        {
+            ShuffleDeck();
+        }
     }
 
-    public void ShuffleDeck() // randomly moves cards into a new list and then randomly back again.
+    public void ShuffleDeck() // This function shuffles the deck.
     {
-        float x = CardsInDeck.Count;
-        
-        List<GameObject> TempDeck = new List<GameObject>();
-        
-        for (int i = 0; i < x; i++)
+        for (int i = 0; i < CardsInDeck.Count; i++)
         {
-            int j = Random.Range(0,CardsInDeck.Count);
-            
-            TempDeck.Add(CardsInDeck[j]);
-            CardsInDeck.Remove(CardsInDeck[j]);
-        }
-
-        for (int i = 0; i < x; i++)
-        {
-            int j = Random.Range(0,TempDeck.Count);
-            
-            CardsInDeck.Add(TempDeck[j]);
-            TempDeck.Remove(TempDeck[j]);
+            int randomIndex = Random.Range(i, CardsInDeck.Count);
+            GameObject temp = CardsInDeck[randomIndex];
+            CardsInDeck[randomIndex] = CardsInDeck[i];
+            CardsInDeck[i] = temp;
         }
     }
+    // public void ShuffleDeck() // randomly moves cards into a new list and then randomly back again.
+    // {
+    //     CardsInDeck.shu
+
+
+    //     float x = CardsInDeck.Count;
+        
+    //     List<GameObject> TempDeck = new List<GameObject>();
+        
+    //     for (int i = 0; i < x; i++)
+    //     {
+    //         int j = Random.Range(0,CardsInDeck.Count);
+            
+    //         TempDeck.Add(CardsInDeck[j]);
+    //         CardsInDeck.Remove(CardsInDeck[j]);
+    //     }
+
+    //     for (int i = 0; i < x; i++)
+    //     {
+    //         int j = Random.Range(0,TempDeck.Count);
+            
+    //         CardsInDeck.Add(TempDeck[j]);
+    //         TempDeck.Remove(TempDeck[j]);
+    //     }
+    // }
 }

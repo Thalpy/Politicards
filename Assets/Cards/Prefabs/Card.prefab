@@ -734,7 +734,7 @@ MonoBehaviour:
   ZoomScale: 2
   ZoomSpeed: 5
   TargetTriggerDistance: 10
-  AdversaryZoomedOffset: {x: 0, y: -5, z: -2}
+  AdversaryZoomedOffset: {x: 0, y: -2, z: -4}
   CardTitle: {fileID: 2113283062063779349}
   CardDescription: {fileID: 2255679189087158136}
   CardPicture: {fileID: 4009819775477292239}
