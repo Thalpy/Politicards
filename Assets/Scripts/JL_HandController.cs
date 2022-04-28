@@ -13,7 +13,7 @@ public class JL_HandController : MonoBehaviour
     [SerializeField] float MaxHandWidth;
     [SerializeField] float MaxCardSpacing;
     [SerializeField] float HandWidth;
-    [SerializeField] int startingCards = 2;
+    [SerializeField] int startingCards = 3;
 
     [SerializeField] GameObject Deck;
     [SerializeField] GameObject Discard;
@@ -39,32 +39,49 @@ public class JL_HandController : MonoBehaviour
     void Start()
     {
 
-    if (PlayersHand)
-    {
-        GameMaster.playerHand = gameObject.GetComponent<JL_HandController>();
-    }
-    else
-    {
-        GameMaster.AISHand = gameObject.GetComponent<JL_HandController>();
-    }
-
-
-    for (int j = 0; j < startingCards; j++)
-    {
-        for (int i = 0; i < GameMaster.cardMaster.Decks[0].cards.Count; i++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
+        if (PlayersHand)
         {
-            
-            CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
-            JL_CardController CC =  CardsInDeck[i].GetComponent<JL_CardController>();
-            CardsInDeck[i].name = "Card " + i+j*GameMaster.cardMaster.Decks[0].cards.Count+1;
+            GameMaster.playerHand = gameObject.GetComponent<JL_HandController>();
+        }
+        else
+        {
+            GameMaster.AISHand = gameObject.GetComponent<JL_HandController>();
+        }
+
+
+        //for (int startingCard = 0; startingCard < startingCards; startingCard++)
+        //{
+            // for (int cards = 0; cards < GameMaster.cardMaster.Decks[0].cards.Count; cards++) //Initalizes the deck, in future this will be done from a predermined list of cards based on character choice.
+            // {
+                
+            //     CardsInDeck.Add(Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform));
+            //     JL_CardController CC =  CardsInDeck[cards].GetComponent<JL_CardController>();
+            //     CardsInDeck[cards].name = "Card " + cards*GameMaster.cardMaster.Decks[0].cards.Count;
+            //     CC.Deck = Deck;
+            //     CC._Card = GameMaster.cardMaster.Decks[0].cards[cards*GameMaster.cardMaster.Decks[0].cards.Count];
+            //     CC.Discard = Discard;
+            //     CC.Hand = gameObject;
+            //     CC.Position = DeckOffScreenLocation;
+            // }
+        //}
+
+        foreach(Card card in GameMaster.cardMaster.Decks[0].cards)
+        {
+            GameObject cardObj = Instantiate(Card, DeckOffScreenLocation, transform.rotation, Deck.transform);
+            CardsInDeck.Add(cardObj);
+            JL_CardController CC = cardObj.GetComponent<JL_CardController>();
+            //cardObj.name = "Card " + startingCard;
             CC.Deck = Deck;
-            CC._Card = GameMaster.cardMaster.Decks[0].cards[i+j*GameMaster.cardMaster.Decks[0].cards.Count+1];
+            CC._Card = card;
             CC.Discard = Discard;
             CC.Hand = gameObject;
             CC.Position = DeckOffScreenLocation;
         }
-    }
-
+        for (int startingCard = 1; startingCard < startingCards; startingCard++)
+        {
+            CardsInHand.Add(CardsInDeck[startingCard]);
+            CardsInDeck.Remove(CardsInDeck[startingCard]);
+        }
     }
 
     public void AddCard(Card _Card)
@@ -175,7 +192,7 @@ public class JL_HandController : MonoBehaviour
         return (new Vector3(x,y,z));
     }
 
-    public void DrawCard() //This function is how cards are moved from the deck to the hand, it is in hand controller because it is a triggered by the 
+    public void DrawCard() //This function is how cards are moved from the deck to the hand, it is in hand controller because it is a triggered by the LANDY WHY
     {
         
         if (CardsInDeck.Count == 0)

@@ -74,7 +74,6 @@ public class JL_EventMover : MonoBehaviour
                 
                 float k = Distance/TotalDistance;
                 k = k + Time.deltaTime;
-                Debug.Log(k);
                 if (k>1) {k=1;}
 
                 Events[i].transform.position = Vector3.Lerp(EventLocations[i],ActivePosition.transform.position,k);

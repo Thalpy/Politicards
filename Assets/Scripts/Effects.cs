@@ -410,6 +410,11 @@ public class TwoHeads : Effect
         name = "TwoHeads";
     }
 
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
     public override void DoEffect()
     {
         //if the source is a card
@@ -455,6 +460,6 @@ public class AIHappy : Effect
 
     public override void DoEffect()
     {
-        
+        GameMaster.stateManager.RelationshipWithPlayer += power;
     }
 }
