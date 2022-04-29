@@ -59,8 +59,9 @@ public class Timer
     /// </summary>
     public void EndTimer()
     {
-        callback();
-        GameMaster.RemoveTimer(this);
+        //TODO: JOE FIX PLZ
+        //callback();
+        //GameMaster.RemoveTimer(this);
         //destroy the timer
         //Destroy(this);
     }
