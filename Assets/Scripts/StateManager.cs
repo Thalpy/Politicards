@@ -59,18 +59,21 @@ public class StateManager : MonoBehaviour
         RunStateMachine();        
     }
 
-    void Awake()
+   
+    void Start()
     {
         //subscribe to the crisis master's player played card event so that we update our guess at the player faction for each round played.
         GameMaster.crisisMaster.PlayerPlayedCardEvent.AddListener(GetPlayerFaction);
-    }
+        GetPlayerFaction();
+        
+    }    
 
     /// <summary>
     /// Sets the player faction to the faction that is happiest with the player
     /// </summary>
     public void GetPlayerFaction()
     {
-        float highestHappiness = 0;
+        float highestHappiness = -10; // make sure this is less than 0 to start
         Faction happiestFaction = null;
         List<Faction> factionList = GameMaster.factionController.GetFactions();
         foreach (Faction faction in factionList)
@@ -81,6 +84,7 @@ public class StateManager : MonoBehaviour
                 happiestFaction = faction;
             }
         }
+        PlayerFaction = happiestFaction;
     }
 
     /// <summary>
