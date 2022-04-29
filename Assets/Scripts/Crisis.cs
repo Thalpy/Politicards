@@ -23,7 +23,7 @@ public class Crisis
     //The minimum progress level required to win the crisis
     public int minProgress = 5;
     //The name of the resultnames
-    internal int activeTurns = -1;
+    internal int activeTurns = 0;
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects

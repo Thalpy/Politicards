@@ -14,6 +14,7 @@ public class CrisisBox : MonoBehaviour
     public TextMeshPro nameText;
     //description text
     public TextMeshPro descriptionText;
+    public TextMeshPro timeLeftText;
     //image
     public SpriteRenderer image;
     //audio effect player
@@ -28,6 +29,12 @@ public class CrisisBox : MonoBehaviour
         GameMaster.crisisMaster.crisisBoxes.Add(this);
         GameMaster._JL_EventMover.AddEvent(gameObject);
         EndCrisis();
+    }
+
+    private void Update() {
+        if(crisis != null){
+            timeLeftText.text = (crisis.DayLength - crisis.activeTurns).ToString();
+        }
     }
 
     //on click event
