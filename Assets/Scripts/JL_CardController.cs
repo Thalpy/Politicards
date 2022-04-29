@@ -154,7 +154,7 @@ public class JL_CardController : MonoBehaviour
                 AtTarget = true;
             }
         }
-        if(gameObject.active == true && TargetTarget && TargetTarget.DropCard(_Card))
+        if(TargetTarget && TargetTarget.DropCard(_Card))
         {
             DiscardAction();
         }

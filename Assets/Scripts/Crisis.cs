@@ -27,7 +27,7 @@ public class Crisis
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
-    internal Dictionary<Effect, Trigger> triggerEffects;
+    [SerializeField] internal Dictionary<Effect, Trigger> triggerEffects;
     internal Dictionary<Faction, int> factionProgress;
     //ProgressUpdateEvent event
     public ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();

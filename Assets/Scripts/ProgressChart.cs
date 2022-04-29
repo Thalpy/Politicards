@@ -18,6 +18,9 @@ public class ProgressChart : MonoBehaviour{
     //minimum size of bar
     internal float minValue = 0.1f;
     
+    private void Update() {
+        UpdateProgress(crisis.GetProgress(), crisis.minProgress);
+    }
 
     private void Start() {
         foreach(Faction f in GameMaster.factionController.GetFactions()) {
@@ -44,7 +47,7 @@ public class ProgressChart : MonoBehaviour{
     }
 
     public void onProgressUpdate(int[] progress, int minProgress) {
-        UpdateProgress(progress, minProgress);
+        //UpdateProgress(crisis.GetProgress(), crisis.minProgress);
     }
 
     //This needs fixing to work in 3d space
