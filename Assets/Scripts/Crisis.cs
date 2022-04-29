@@ -127,7 +127,7 @@ public class Crisis
                 victoryProgress = entry.Value;
             }
         }
-        if(victory != null){
+        if(victory == null){
             CheckTrigger("Lose");
         }
         else{
@@ -139,9 +139,13 @@ public class Crisis
         GameMaster.crisisMaster.RemoveCrisis(this);
     }
 
-    public void NewTurn(){
+    public bool NewTurn(){
         activeTurns++;
         CheckTrigger("NewTurn");
+        if(activeTurns >= DayLength){
+            return false;
+        }
+        return true;
     }
     
     //Checks each of the trigger effects to see if the trigger is true and if so calls the effect

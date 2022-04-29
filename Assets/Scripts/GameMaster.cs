@@ -123,12 +123,15 @@ public class GameMaster : MonoBehaviour
     public static void NextTurn()
     {
         turn++;
+        List<Timer> timersCache = new List<Timer>();
         foreach(Timer timer in timers)
         {
             timer.increase_turn();
             turnTimeController.turnTimeEvent.Invoke(turn);
         }
         crisisMaster.NewTurn();
+        playerHand.DrawCard();
+        AISHand.DrawCard();
     }
 
     //adds a timer to the list of timers
