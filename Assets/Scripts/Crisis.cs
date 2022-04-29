@@ -23,7 +23,7 @@ public class Crisis
     //The minimum progress level required to win the crisis
     public int minProgress = 5;
     //The name of the resultnames
-    internal int activeTurns = -1;
+    internal int activeTurns = 0;
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
@@ -33,6 +33,9 @@ public class Crisis
     public ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
     [SerializeField]
     public List<Dialogue> dialogues = new List<Dialogue>();
+
+    [SerializeField]
+    public List<EndCrisis> endCrisis = new List<EndCrisis>();
 
     //awake
     public void Awake()
@@ -124,7 +127,7 @@ public class Crisis
                 victoryProgress = entry.Value;
             }
         }
-        if(victory != null){
+        if(victory == null){
             CheckTrigger("Lose");
         }
         else{
@@ -136,9 +139,13 @@ public class Crisis
         GameMaster.crisisMaster.RemoveCrisis(this);
     }
 
-    public void NewTurn(){
+    public bool NewTurn(){
         activeTurns++;
         CheckTrigger("NewTurn");
+        if(activeTurns >= DayLength){
+            return false;
+        }
+        return true;
     }
     
     //Checks each of the trigger effects to see if the trigger is true and if so calls the effect
@@ -211,4 +218,15 @@ public class Crisis
         }
         return results;
     }
+}
+
+[System.Serializable]
+public class EndCrisis 
+{
+    public string faction = null;
+    [SerializeField]
+    public List<Dialogue> dialogues = new List<Dialogue>();
+    [SerializeField]
+    public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
+
 }

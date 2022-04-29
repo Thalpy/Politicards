@@ -94,7 +94,9 @@ public class CrisisMaster : MonoBehaviour
         {
             //plz :( if you're dealing a statically sized array of objects which isn't pre-populated you need to do null checks!)
             if (crisis == null){continue;}
-            crisis.crisis.NewTurn();
+            if(!crisis.crisis.NewTurn()){
+                crisis.EndCrisis();
+            };
             //for each card in the crisis
             foreach (Card card in crisis.playerCards)
             {
@@ -277,7 +279,7 @@ public class CrisisMaster : MonoBehaviour
 public class ActiveCrisis
 {
     public Crisis crisis;
-    public Timer timer;
+    //public Timer timer;
     public Card[] playerCards = new Card[3];
     public Card[] AICards = new Card[3];
     public CrisisBox crisisBox;
@@ -285,10 +287,16 @@ public class ActiveCrisis
     public ActiveCrisis(Crisis _crisis, CrisisBox _crisisBox)
     {
         crisis = _crisis.Copy();
-        timer = new Timer(crisis.DayLength, crisis.EndCrisis);
+        //timer = new Timer(crisis.DayLength, crisis.EndCrisis);
         crisis.StartCrisis();
         crisisBox = _crisisBox;
         crisisBox.ChangeEvent(crisis);
+    }
+
+    public void NextTurn()
+    {
+        //timer.NextTurn();
+        //crisis.NextTurn();
     }
 
     public void ApplyCard(Card card, int index, bool player)
