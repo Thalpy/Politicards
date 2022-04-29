@@ -34,6 +34,9 @@ public class Crisis
     [SerializeField]
     public List<Dialogue> dialogues = new List<Dialogue>();
 
+    [SerializeField]
+    public List<EndCrisis> endCrisis = new List<EndCrisis>();
+
     //awake
     public void Awake()
     {
@@ -211,4 +214,15 @@ public class Crisis
         }
         return results;
     }
+}
+
+[System.Serializable]
+public class EndCrisis 
+{
+    public string faction = null;
+    [SerializeField]
+    public List<Dialogue> dialogues = new List<Dialogue>();
+    [SerializeField]
+    public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
+
 }

@@ -2246,6 +2246,7 @@ MonoBehaviour:
     - text: I just want to check that 2 texts work
       audio: {fileID: 0}
       image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+    endCrisis: []
   - Name: Narzon's letter
     Description: Nazron has reached out to you to offer you a particular proposal.
       Finding a way to help will draw you an extra card but may also have other consequences.
@@ -2321,6 +2322,101 @@ MonoBehaviour:
         we will be watching your actions with great anticipation.
       audio: {fileID: 8300000, guid: 2d07daa3005c0d44fa25fbb4a6d354b7, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: 
+        audio: {fileID: 0}
+        image: {fileID: 0}
+      triggerEffectsStr: []
+    - faction: People
+      dialogues:
+      - text: 
+        audio: {fileID: 0}
+        image: {fileID: 0}
+      triggerEffectsStr: []
+  - Name: Narzon's letter
+    Description: Nazron has reached out to you to offer you a particular proposal.
+      Finding a way to help will draw you an extra card but may also have other consequences.
+    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
+    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+    location: None
+    DayLength: 3
+    minProgress: 3
+    triggerEffectsStr:
+    - effectName: Power
+      effectVars:
+      - 2
+      - Crime
+      triggerName: Instant
+      triggerVars: []
+    - effectName: Draw
+      effectVars:
+      - 1
+      triggerName: Win
+      triggerVars:
+      - 1
+    - effectName: Power
+      effectVars:
+      - 5
+      - Crime
+      triggerName: Win
+      triggerVars: []
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - People
+      triggerName: Victory
+      triggerVars:
+      - People
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Economic
+      triggerName: Victory
+      triggerVars:
+      - Economic
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Military
+      triggerName: Victory
+      triggerVars:
+      - Military
+    - effectName: Happiness
+      effectVars:
+      - 5
+      - Nobility
+      triggerName: Victory
+      triggerVars:
+      - Nobility
+    dialogues:
+    - text: 'Greetings and congratulations my Liege I hope this letter reaches you
+        well. I have quite an opportunity for you, historically this country has
+        failed to see eye to eye on our particular business venture, but from what
+        I''ve heard of your prowess I have high hopes for a new kind of partnership.
+        One that meets the needs of all the people. '
+      audio: {fileID: 8300000, guid: 3ef734cdb5da6b94fafc846c8145b5db, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: I have a modest proposal for you that would benefit both of us, as your
+        position is a perilous one, mm?  I would be more than happy to offer our
+        services to investigate the affairs of one of the other parties, to ensure
+        of course that their heart is in the right place about your sudden rise to
+        power. All I need from you is to distract them while my associates and I
+        examine their affairs.
+      audio: {fileID: 8300000, guid: 79f29d57842c6ff42952192b3363ef24, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: I trust that this gesture of goodwill will not fall by the wayside, as
+        we will be watching your actions with great anticipation.
+      audio: {fileID: 8300000, guid: 2d07daa3005c0d44fa25fbb4a6d354b7, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: 
+        audio: {fileID: 0}
+        image: {fileID: 0}
+      triggerEffectsStr: []
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
@@ -5729,6 +5825,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!4 &1293858070 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 971eb5962f7eabe4298147d58abfece2,
@@ -8326,6 +8423,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!82 &2097631632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8873,6 +8971,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156948196498155
 GameObject:
   m_ObjectHideFlags: 0
@@ -10236,6 +10335,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!212 &2883156948361864589
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12266,6 +12366,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156948639349752
 GameObject:
   m_ObjectHideFlags: 0
@@ -13455,6 +13556,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!82 &2883156948893106384
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14114,6 +14216,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!212 &2883156949013321505
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15334,6 +15437,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156949180753991
 GameObject:
   m_ObjectHideFlags: 0
@@ -16035,6 +16139,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156949291625839
 GameObject:
   m_ObjectHideFlags: 0
@@ -16363,6 +16468,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!4 &2883156949326110529
 Transform:
   m_ObjectHideFlags: 0
@@ -18114,6 +18220,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!212 &2883156949556008789
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19540,6 +19647,7 @@ MonoBehaviour:
     minProgress: 5
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156949802474143
 GameObject:
   m_ObjectHideFlags: 0
@@ -21328,6 +21436,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!212 &2883156950116802725
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -21490,6 +21599,7 @@ MonoBehaviour:
     minProgress: 0
     triggerEffectsStr: []
     dialogues: []
+    endCrisis: []
 --- !u!1 &2883156950125649404
 GameObject:
   m_ObjectHideFlags: 0
