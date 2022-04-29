@@ -92,11 +92,15 @@ public class CrisisMaster : MonoBehaviour
     {
         foreach (ActiveCrisis crisis in activeCrisses)
         {
+            //plz :( if you're dealing a statically sized array of objects which isn't pre-populated you need to do null checks!)
+            if (crisis == null){continue;}
             crisis.crisis.NewTurn();
             //for each card in the crisis
             foreach (Card card in crisis.playerCards)
             {
                 //check if the card has a new turn trigger 
+                //TODO: null check
+                if (card == null){continue;}
                 card.CheckTrigger("Investment");
             }
         }
@@ -289,6 +293,10 @@ public class ActiveCrisis
 
     public void ApplyCard(Card card, int index, bool player)
     {
+        #if DEBUG
+        Debug.Log("Applying card " + card.Name + " to crisis " + crisis.Name);
+        #endif
+
         if (player)
         {
             if (playerCards[index] != null)
@@ -349,23 +357,36 @@ public class ActiveCrisis
 
     public TargetCrisis GetTargetFromIndex(int index)
     {
-        TargetCrisis target = null;
+        TargetCrisis target;
+        //get the transform of the crisis box
+        Transform boxTransform = crisisBox.transform;
+
+        //get the "card slots" child
+        Transform cardSlots = boxTransform.GetChild(5);
+
+        //get the target
+
         switch(index){
+            //gets the AIslot 0 target from the children of the crisis box  
             case 0:
-                //gets the AIslot 0 target from the children of the crisis box
-                target = crisisBox.transform.Find("AISlot1").GetComponent<TargetCrisis>();
-                break;
+                
+                target = cardSlots.GetChild(3).GetComponent<TargetCrisis>();
+                return target;
+            //gets the AIslot 1 target from the children of the crisis box    
             case 1:
-                target = crisisBox.transform.Find("AISlot2").GetComponent<TargetCrisis>();                
-                break;
+                target = cardSlots.GetChild(4).GetComponent<TargetCrisis>();             
+                return target;
+            //gets the AIslot 2 target from the children of the crisis box
             case 2:
-                target = crisisBox.transform.Find("AISlot3").GetComponent<TargetCrisis>();
-                break;
+                target = cardSlots.GetChild(5).GetComponent<TargetCrisis>();
+                return target;
             default:
                 Debug.LogWarning("CrisisMaster: GetTargetFromIndex: Index out of range");
                 break;
         }
-        return target;
+        Debug.LogWarning("CrisisMaster: GetTargetFromIndex: No target found");
+        Debug.Break();        
+        return null;
     }
 
     public void EndCrisis()

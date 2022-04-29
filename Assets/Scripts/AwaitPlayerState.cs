@@ -15,9 +15,9 @@ public class AwaitPlayerState : State
 
     bool playerTurnComplete;
     public bool PlayerTurnComplete { get => playerTurnComplete; set => playerTurnComplete = value; }
-    StateManager stateManager = GameMaster.stateManager;
+    StateManager stateManager;
 
-    CrisisMaster crisisMaster = GameMaster.crisisMaster;
+    CrisisMaster crisisMaster;
 
     /// <summary>
     /// the state the AI will move into once the PlayerPlayedCard event has been recieved if the player has a good relationship with the AI
@@ -72,9 +72,12 @@ public class AwaitPlayerState : State
     }
 
 
-    void Awake()
+
+    void Start()
     {
         // subscribe to the player turn complete event on the crisis master
+        crisisMaster = GameMaster.crisisMaster;
+        stateManager = GameMaster.stateManager;
         crisisMaster.PlayerPlayedCardEvent.AddListener(SetPlayerTurnComplete);
     }
 

@@ -57,9 +57,26 @@ public class PlayCardState : State
         if (!turnComplete)
         {
             // set the card to be played
-            activeCrisis.ApplyCard(card, activeCrisis.AICards.Length, false);
+            TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
+
+            tgt.DropCardAI(card);
+
+            //activeCrisis.ApplyCard(card, getFirstEmptyAICardSlot(), false);
             // set the turn complete bool to true
             turnComplete = true;
+        }
+
+        // a helper function to find the first slot on the crisis for the AI
+        int getFirstEmptyAICardSlot()
+        {
+            for (int i = 0; i < activeCrisis.AICards.Length; i++)
+            {
+                if (activeCrisis.AICards[i] == null)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }
