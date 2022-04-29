@@ -196,9 +196,16 @@ public class CrisisMaster : MonoBehaviour
 
     public CrisisBox PickACrisisBox()
     {
-        //picks a random crisis box from the list
-        int index = Random.Range(0, crisisBoxes.Count - 1);
-        return crisisBoxes[index];
+        
+        //creates a cached copy of crisis boxes
+        List<CrisisBox> crisisBoxesCopy = new List<CrisisBox>();
+        foreach(CrisisBox crisisBox in crisisBoxes){
+            if(crisisBox.gameObject.active == false){
+                crisisBoxesCopy.Add(crisisBox);
+            }
+        }
+        int index = Random.Range(0, crisisBoxesCopy.Count - 1);
+        return crisisBoxesCopy[index];
     }
 
     public bool isActiveCrisis(Crisis crisis)
