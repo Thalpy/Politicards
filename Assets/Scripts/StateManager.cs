@@ -64,6 +64,17 @@ public class StateManager : MonoBehaviour
     {
         //subscribe to the crisis master's player played card event so that we update our guess at the player faction for each round played.
         GameMaster.crisisMaster.PlayerPlayedCardEvent.AddListener(GetPlayerFaction);
+        #if AI_PLAYER_RELATIONSHIP_NEUTRAL
+            playerRelationship = PlayerRelationshipEnum.Neutral;
+            RelationshipWithPlayer = 5;
+        #elif AI_PLAYER_RELATIONSHIP_HAPPY
+            playerRelationship = PlayerRelationshipEnum.Ally;
+            RelationshipWithPlayer = 10;
+        #elif AI_PLAYER_RELATIONSHIP_UNHAPPY
+            playerRelationship = PlayerRelationshipEnum.Enemy;
+            RelationshipWithPlayer = 1;
+        #endif
+
         GetPlayerFaction();
         
     }    
@@ -116,5 +127,38 @@ public class StateManager : MonoBehaviour
     public void PrepareExaminer()
     {
         crisisExaminer = new CrisisExaminer(GameMaster.crisisMaster.ActiveCrisses); // setup a new crisis examiner
+    }
+
+    /// <summary>
+    /// Converts the RelationshipWithPlayer to a PlayerRelationshipEnum
+    /// TODO: consider removing and doing away with the enum - straight use of the int is probably easier to grok
+    /// </summary>
+    /// <returns>The PlayerRelationshipEnum</returns>
+
+    public PlayerRelationshipEnum GetPlayerRelationship()
+    {
+        if (RelationshipWithPlayer > 5)
+        {
+            return PlayerRelationshipEnum.Ally;
+        }
+        else if (RelationshipWithPlayer < 2)
+        {
+            return PlayerRelationshipEnum.Enemy;
+        }
+        else
+        {
+            return PlayerRelationshipEnum.Neutral;
+        }
+    }
+
+    public List<Card> GetCardsInHand()
+    {
+        List<GameObject> cardObjects = GameMaster.AISHand.CardsInHand;
+        List<Card> cards = new List<Card>();
+        foreach (GameObject cardObject in cardObjects)
+        {
+            cards.Add(cardObject.GetComponent<JL_CardController>()._Card);
+        }
+        return cards;
     }
 }
