@@ -2917,26 +2917,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crisises:
-  - Name: Kirby's Fooking Pissed
-    Description: 'My Leige, Kirby has arrived and he''s pissed. He''s gonna give
-      you the big suck if you don''t deal with him with your apt decorum. '
-    image: {fileID: 21300000, guid: 0e1f6fc25cff3eb43b9c0927e10dea4a, type: 3}
-    audio: {fileID: 8300000, guid: 2a88bf84557c0cc4f9da5ddadec84feb, type: 3}
-    location: None
-    DayLength: 3
-    minProgress: 5
-    triggerEffectsStr: []
-    dialogues:
-    - text: Worm charming is a practice used by people to attract earthworms out
-        of the ground by driving in a wooden stake to vibrate the soil. This activity
-        is commonly performed to collect presidential candidates and as a competitive
-        esport.
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-    - text: I just want to check that 2 texts work
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-    endCrisis: []
   - Name: Narzon's letter
     Description: Nazron has reached out to you to offer you a particular proposal.
       Finding a way to help will draw you an extra card but may also have other consequences.
@@ -2998,12 +2978,6 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
-    - faction: People
-      dialogues:
-      - text: 
-        audio: {fileID: 0}
-        image: {fileID: 0}
-      triggerEffectsStr: []
     - faction: Economic
       dialogues:
       - text: Gracious news my Liege, our infiltration into the Economic party has
@@ -3092,88 +3066,780 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-  - Name: Narzon's letter
-    Description: Nazron has reached out to you to offer you a particular proposal.
-      Finding a way to help will draw you an extra card but may also have other consequences.
-    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
-    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+  - Name: Concerns of Security
+    Description: 'A local lord, Sir Featherington, has reported ratfolk getting into
+      his stores. '
+    image: {fileID: 0}
+    audio: {fileID: 0}
     location: None
     DayLength: 3
-    minProgress: 3
-    triggerEffectsStr:
-    - effectName: Power
-      effectVars:
-      - 2
-      - Crime
-      triggerName: Instant
-      triggerVars: []
-    - effectName: Draw
-      effectVars:
-      - 1
-      triggerName: Win
-      triggerVars:
-      - 1
-    - effectName: Power
-      effectVars:
-      - 5
-      - Crime
-      triggerName: Win
-      triggerVars: []
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - People
-      triggerName: Victory
-      triggerVars:
-      - People
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Economic
-      triggerName: Victory
-      triggerVars:
-      - Economic
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Military
-      triggerName: Victory
-      triggerVars:
-      - Military
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Nobility
-      triggerName: Victory
-      triggerVars:
-      - Nobility
+    minProgress: 2
+    triggerEffectsStr: []
     dialogues:
-    - text: 'Greetings and congratulations my Liege I hope this letter reaches you
-        well. I have quite an opportunity for you, historically this country has
-        failed to see eye to eye on our particular business venture, but from what
-        I''ve heard of your prowess I have high hopes for a new kind of partnership.
-        One that meets the needs of all the people. '
-      audio: {fileID: 8300000, guid: 3ef734cdb5da6b94fafc846c8145b5db, type: 3}
+    - text: A good day to you sire, I am right honourable pigeon and I am pleased
+        to make your acquaintance. I represent the head of the nobility party, the
+        only party with any class and decorum and you would do well to keep us on
+        your side.
+      audio: {fileID: 8300000, guid: 42820cba2d466c24e9079db8d3f3256f, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    - text: Here's how things work around here you act as the figurehead of the country
+        while we run things behind the scenes so whenever we require your assistance
+        you are to come immediately and solve it is that clear?
+      audio: {fileID: 8300000, guid: 8494a2cfd8a62c64e86d995fdf613b91, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    - text: Speaking of which  lord honerable featherington has reported that commoners
+        are getting into his stores! You need to keep this riffraff away in the proper
+        place.
+      audio: {fileID: 8300000, guid: e5c7e773bb0e59c49a8ed0b9c30c7425, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: you bloody buffoon why did you think sending more commoners to get
+          rid of the commoners would lower the amount of commoners. Do you not understand
+          math?! I did not realise you were so simple minded.
+        audio: {fileID: 8300000, guid: b9d37ae888f3f4246b6173844205a04f, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: Your suggestion and justification for us to raise our prices beyond
+          the reach of those pesky commoners was very impressive. Good Job!
+        audio: {fileID: 8300000, guid: 3d3185e89e986b14db6184dfa7a5c11d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: Using the military to get rid of the common people is a little brutish
+          but I can't argue with the results. well done I suppose.
+        audio: {fileID: 8300000, guid: d515eb984f5df744db37143ec8a6b1b6, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Ah yes, unending amounts of litigation for anyone demanding to visit
+          the store. A classic move! Good thing we all have lawyers to go through
+          it mm?
+        audio: {fileID: 8300000, guid: 0385765b29961e8458c55736d45e2004, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: You think you can just ignore us when we have a crisis? you forget
+          who really owns the country. My lawyer will be hearing about this.
+        audio: {fileID: 8300000, guid: 1d51ec9ad9f08b04fa17625713d5ce40, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: Crime! In my Streets!
+    Description: I don't know if you've noticed but the amount of crime in this area
+      is simply unacceptable! I
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: I don't know if you've noticed but the amount of crime in this area is
+        simply unacceptable! I expect you to do something to lower it immediately!
+        The other nobles and I have never felt more unsafe out in the streets.
+      audio: {fileID: 8300000, guid: 0c50c1e09f5e4a74d873e4fd40100048, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: Why on earth did you think of throwing a parade would stop crime??
+          there are people everywhere!! this is a complete disaster. Refrain audacious
+          tar!
+        audio: {fileID: 8300000, guid: 8ce2f95ddce21fd4191bb40ef10182bb, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: Your decision to increase the crime prevention budget is greatly appreciated!
+          Soon the streets will be safe again and free of that dreadful riffraff.
+        audio: {fileID: 8300000, guid: 8637e3da9451f0b4c948f0ad26148f50, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: I see you like to rule with an iron fist! No matter, your results speak
+          for themselves I suppose but could you at least do the brutalising out
+          of sight?
+        audio: {fileID: 8300000, guid: 32bcad70d436aff4a95dae6d48a18fa9, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: 'Hosting an awards ceremony to bring awareness of the crime problem
+          was a bit of a roundabout way of solving it I suppose but I appreciate
+          your efforts. You do know these types of events usually are only pretending
+          to solve it right? '
+        audio: {fileID: 8300000, guid: 0c50c1e09f5e4a74d873e4fd40100048, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: Do you think this level of crime is acceptable in our city? Do you
+          really think it's fine for every man, woman and child to simply walk out
+          their door and get stabbed immediately? Some ruler you're turning out to
+          be!
+        audio: {fileID: 8300000, guid: a2c1881cf7508894baa50a97a7acde0d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: Factory Stike!
+    Description: The workers of their factory are out protesting en masse.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: Sire, Right honourable Birdwingington is dealing with a tremendous problem
+        that I believe you can solve. The workers of their factory are out protesting
+        en masse and nothing is getting done! I expect you to take matters into your
+        own hands get them back into that factory!
+      audio: {fileID: 8300000, guid: 6e913ede56eec0c42a9bf2b37b2362d9, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: "You unionised the protesters? In order to pay the wages they\u2019re
+          demanding I will have to cut my yearly bonus and I will die before I do
+          that. You\u2019re a Class A muppet destined to lead my factories and this
+          country to ruin."
+        audio: {fileID: 8300000, guid: a5720f35d7c93d44a89772fa6468425e, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: Your decision to use a stimulus package to boost their wages to get
+          them back is not the way I would have done it. If they get too used to
+          handouts still never want to work you know!
+        audio: {fileID: 8300000, guid: 5e5fd2ff4a3773648910016e64a1f221, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: That recent display of military might was absolutely splendid. the
+          way they ran with their tails between their legs was simply beautiful.
+          I am pleased to announce that they are all back in their proper place though
+          a tad bruised.
+        audio: {fileID: 8300000, guid: 188b83d92c887ac4ca830dce61289dfd, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Thank you for supporting our efforts to break up this protest. With
+          your help we were able to sow doubt and fracture the whole movement. splendid
+          work and keep it up!
+        audio: {fileID: 8300000, guid: 196b7e095d4ee674aa4e9996fe3c1483, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: I should have known someone of your meager calibre would have sided
+          with those lazy rapscallions. If you give them too many victories they'll
+          start to get big headed you know, and then you'll be sorry!
+        audio: {fileID: 8300000, guid: 5665ae7b28df86e4d8b1e17e2209894e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: The Usurper
+    Description: "Watch your back, my liege \u2013 discovery of an aggressive usurper
+      amongst the nobility who believes he should have been chosen, not you. The
+      Undercity will take care of this for you, if you\u2019d like."
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: 'Greetings my Liege I come to you with a most urgent matter. a few of
+        our associates have caught wind of a plot most foul.  you will of course
+        remember some of the other names put forth to lead the Biuverate, well one
+        of those members is seeking to usurp your place. '
+      audio: {fileID: 8300000, guid: da9abb6ad15010e40bd83689a028d155, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
-    - text: I have a modest proposal for you that would benefit both of us, as your
-        position is a perilous one, mm?  I would be more than happy to offer our
-        services to investigate the affairs of one of the other parties, to ensure
-        of course that their heart is in the right place about your sudden rise to
-        power. All I need from you is to distract them while my associates and I
-        examine their affairs.
-      audio: {fileID: 8300000, guid: 79f29d57842c6ff42952192b3363ef24, type: 3}
-      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
-    - text: I trust that this gesture of goodwill will not fall by the wayside, as
-        we will be watching your actions with great anticipation.
-      audio: {fileID: 8300000, guid: 2d07daa3005c0d44fa25fbb4a6d354b7, type: 3}
+    - text: We caught wind of this when he came to the undercity to arrange your
+        assassination. As you are a valued client we are more than happy to deal
+        with the problem for a fee of course.
+      audio: {fileID: 8300000, guid: bea59a98a518fd24cb705471a4d628e2, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
     endCrisis:
     - faction: People
       dialogues:
-      - text: 
+      - text: Gracious news my liege with the help you have afforded me I have managed
+          to make the usurper disappear. Truly this is a partnership to remember
+        audio: {fileID: 8300000, guid: 8727380ac186eb2489ef6d9283599e70, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: With the funds you have afforded us we have managed to deal with the
+          usurper problem. I'm glad to report that you won't be hearing from him
+          anymore.
+        audio: {fileID: 8300000, guid: 255bc07635f9fa04ba57f86c426f447e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: 'My Leige, I don''t know what you expected but sending the military
+          to stomp around in our affairs is the biggest blunder I''ve seen you do
+          yet. The dust that they have kicked up has completely discombobulated our
+          operations that will take us weeks to sort out. '
+        audio: {fileID: 8300000, guid: 188b83d92c887ac4ca830dce61289dfd, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: "My Liege, I come with fantastic news, with the help of the contacts
+          you gave us were able to dig up some interesting facts about this fellow.
+          Now I can't speak for their truthfulness but certainly his family believed
+          it enough to disown him. Regardless, we won\u2019t be seeing much of him
+          anymore. "
+        audio: {fileID: 8300000, guid: 196b7e095d4ee674aa4e9996fe3c1483, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: 'I see you managed to deal with the matter yourself. It took a great
+          deal of effort and goodwill for me to reach out and offer my services like
+          this. I do not appreciate being left out of the equation like this either.
+          See that it does not happen again, or else. '
+        audio: {fileID: 8300000, guid: 5ca297cf7097b444a8e64d46808b520e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: Snooping Military
+    Description: The military are snooping around our business.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: 'A moment if you can my Liege, the military has recently been snooping
+        around our affairs and we''d rather they left well enough alone. Our impending
+        operation depends on your assistance. If you scratch our backs, we will surely
+        scratch yours. '
+      audio: {fileID: 8300000, guid: c6435479f76451544bcf9a7597f0e4cc, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: Thank you my liege, the crowd you organised was very much appreciated.
+          Thanks to you our operation was a complete success. As promised here is
+          a slice of our gains.
+        audio: {fileID: 8300000, guid: 4a5ba87959c1597469a68f41a915e3df, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: "The keys you gave us to the merchant\u2019s vault were very much appreciated.
+          Do not worry my liege, we made sure not to take more than would be missed,
+          of course. We also made sure to get you these while we were in there."
+        audio: {fileID: 8300000, guid: a580de893a9592e41b59811139646513, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: My Liege please! your insistence on sending in the military keeps making
+          things worse! How on earth did you think the solution to less military
+          was more military?!
+        audio: {fileID: 8300000, guid: 804f4dfa35150a04a9ba04e20cb83d6d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Thanks to your most gracious fundraiser you hosted, we were able to
+          use the opportunity to rifle through a few of the attendees items. Of course,
+          we made sure to save some of the spoils for you.
+        audio: {fileID: 8300000, guid: cd48a6273aeb4054ca65dd9a147a281d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: 'It seems you don''t quite understand how things work here. A ruler
+          without the support of the undercity is a ruler lacking longevity. '
+        audio: {fileID: 8300000, guid: afb26ea76c326f04e8cf0a317c09230e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: 'A Hostile Hunger '
+    Description: The ratfolk who live in the lower city have brought to my attention
+      a food shortage.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: "The ratfolk who live in the lower city have brought to my attention
+        a food shortage, which is causing some to go without food. Their hunger is
+        fueling the hostility between us and the pigeonfolk living in the upper lofts.
+        I\u2019d ask you to deal with this issue quickly, so as fighting doesn\u2019t
+        break out. "
+      audio: {fileID: 0}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: "Best to hear it from the horse\u2019s mouth, so to speak, we moved
+          to the lower city to speak to the people most affected. We found out what
+          they are missing most to then came up with a way to best tackle the issue
+          district. "
         audio: {fileID: 0}
-        image: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr: []
+    - faction: Economic
+      dialogues:
+      - text: "We reached out to the merchant\u2019s guild to call in a few favours
+          on your behalf. After a lot of humming and hawing they agreed to give a
+          portion of their savings to import food from our neighbouring areas"
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: First, we dealt with the hostility brewing with a more visible presence
+          of soldiers to remind people to keep the peace. Then, we dealt with the
+          hunger. The same soldiers ensured the delivery of care packages to the
+          families.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: 'We appealed to the nobles and the pigeonfolk in the upper lofts. Your
+          charitable donation has gone a long way for the people who are the cogs
+          who keep our capital operating. With Duke Lupain help we were able to rain
+          scraps down to feed the hungry ratfolk. '
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: Your disregard of this crisis has led to a great instability forming
+          in the region, enraging both the respective parties. We tried to do what
+          we could, but our lack of resources greatly limited our ability to help
+          the people.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
   storyCrisises:
   - Name: Tutorial
     Description: Playing a card will choose your faction
@@ -3220,10 +3886,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
-        - 
-        - 
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 0
@@ -3238,7 +3901,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3252,9 +3915,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
-        - 
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3269,8 +3930,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
   - Name: A Dispute Between Lords
@@ -3318,7 +3978,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3342,8 +4003,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3393,7 +4053,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3459,7 +4120,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3481,8 +4143,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3505,7 +4166,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -3529,7 +4191,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3586,7 +4249,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3608,8 +4272,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3630,7 +4293,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -3650,7 +4314,12 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: 
+        effectVars:
+        - 4
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: On the morn of the day we are due to visit the expedition, you wake
@@ -3708,7 +4377,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3750,7 +4420,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars: []
-        triggerName: 
+        triggerName: 3
         triggerVars: []
     - faction: 3
       dialogues:
@@ -3775,7 +4445,11 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 4
+        triggerVars: []
     - faction: 
       dialogues:
       - text: "The balancing act between the farmer disrupted by Tom\u2019s efforts,
@@ -3837,7 +4511,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3859,8 +4534,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3882,7 +4556,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -3902,7 +4577,12 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 4
+        triggerName: 
+        triggerVars: []
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
@@ -3987,16 +4667,53 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000100000000000000
       ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
-    - Name: Stamp Out Crime
-      Description: Reduce the crime faction power by 3.
-      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+    - Name: Support The People
+      Description: Increase Relationship with the People Faction by 1 and gain 1
+        Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
-      Faction: Crime
+      Faction: People
       StartingCard: 1
-      PowerValues: 00000000000000000000000000000000fdffffff
-      HappinessValues: 0000000000000000000000000000000000000000
-      ProgressValues: 0000000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0100000000000000000000000000000000000000
+      ProgressValues: 0100000000000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Merchants
+      Description: Increase Relationship with the Merchant Faction by 1 and gain
+        1 Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Economic
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000001000000000000000000000000000000
+      ProgressValues: 0000000001000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Military
+      Description: Increase Relationship with the Military Faction by 1 and gain
+        1 Military  progress on the played event.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000010000000000000000000000
+      ProgressValues: 0000000000000000010000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Nobles
+      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
+        Nobles  progress on the played event.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
     - Name: Two Heads Are Better Than One
       Description: Duplicate the effect of last card played by the other Head of
@@ -4019,6 +4736,17 @@ MonoBehaviour:
         - 1
         triggerName: OnUse
         triggerVars: []
+    - Name: Stamp Out Crime
+      Description: Reduce the crime faction power by 3.
+      image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Crime
+      StartingCard: 1
+      PowerValues: 00000000000000000000000000000000fdffffff
+      HappinessValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0000000000000000000000000000000000000000
+      triggerEffectsStr: []
   - faction: People
     cards:
     - Name: 'Petition the Nobility '
@@ -4078,7 +4806,7 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: OrganisdChaos
+      - effectName: Chaos
         effectVars: []
         triggerName: OnUse
         triggerVars:
