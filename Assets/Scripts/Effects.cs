@@ -74,11 +74,11 @@ public abstract class Effect
             //alter the crisis progress
             if(crisis == null)
             {
-                Debug.LogError("Crisis not found");
-                crisis = GameMaster.crisisMaster.GetRandomCrisis().crisis;
+                Debug.LogError("Crisis not found (game proceeding with random)");
+                crisis = GameMaster.crisisMaster.GetRandomActiveCrisis().crisis;
             }
             if(faction == null){
-                Debug.LogError("Faction is null");
+                Debug.LogError("Faction is null (game proceeding with random)");
                 faction = GameMaster.factionController.GetRandomFaction();
             }
             crisis.AdjustProgress(power, faction);
@@ -397,7 +397,7 @@ public class Chaos :Effect
             //get a random faction
             Faction faction = GameMaster.factionController.GetFactions()[UnityEngine.Random.Range(0, GameMaster.factionController.GetFactions().Count)];
             //loop over index of activecrisses
-            ActiveCrisis crisis = GameMaster.crisisMaster.GetRandomCrisis();
+            ActiveCrisis crisis = GameMaster.crisisMaster.GetRandomActiveCrisis();
             crisis.crisis.AdjustProgress(power, faction);
             GameMaster.factionController.ChangeFactionPower(faction.FactionName, 1);
         }
@@ -465,6 +465,10 @@ public class TwoHeads : Effect
             if(lastPlayed == null || lastPlayed == card)
             {   
                 lastPlayed = crisis.GetLastPlayedCard(true);
+            }
+            if(lastPlayed == null) //just in case
+            {
+                return;
             }
             
             //recall all of the effects of the last played card

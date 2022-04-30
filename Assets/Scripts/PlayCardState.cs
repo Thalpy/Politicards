@@ -70,6 +70,7 @@ public class PlayCardState : State
         // if not already playing card
         if (!turnComplete)
         {
+            
             // set the card to be played
             TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
 

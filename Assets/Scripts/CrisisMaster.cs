@@ -81,7 +81,7 @@ public class CrisisMaster : MonoBehaviour
     }
 
     //Return a random active ActiveCrisis
-    public ActiveCrisis GetRandomCrisis()
+    public ActiveCrisis GetRandomActiveCrisis()
     {
         //DO a controlled loop
         int index = Random.Range(0, activeCrisses.Length);
@@ -97,6 +97,11 @@ public class CrisisMaster : MonoBehaviour
             }
         }
         return activeCrisses[index]; 
+    }
+
+    public Crisis GetRandomCrisis(){
+        int randomIndex = Random.Range(0, crisises.Count);
+        return crisises[randomIndex];
     }
 
     public ActiveCrisis FindActiveCrisisFromCard(Card card){
@@ -152,7 +157,7 @@ public class CrisisMaster : MonoBehaviour
         }
         Crisis crisis = null;
         if(HasStoryCrisis()){
-            crisis = GetRandomCrisis().crisis;
+            crisis = GetRandomCrisis();
             if(crisis != null){
                 ActivateCrisis(crisis);
                 return;

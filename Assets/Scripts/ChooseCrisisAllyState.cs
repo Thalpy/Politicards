@@ -96,7 +96,7 @@ public class ChooseCrisisAllyState : State
             // get the max value of current progress
             int maxValue = currentProgress.Max();
             int currentProgDiff = crisis.minProgress - maxValue;
-            if(currentProgDiff > mostLikelyCrisisValue && currentActiveCrisis.AICards[i] != null)
+            if(currentProgDiff > mostLikelyCrisisValue && currentActiveCrisis.AICards[2] != null)
             {
                 mostLikelyCrisisValue = currentProgDiff;
                 mostLikleyCrisisIndex = i;
