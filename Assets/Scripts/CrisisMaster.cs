@@ -12,6 +12,7 @@ public class CrisisMaster : MonoBehaviour
 {
     [SerializeField]
     public List<Crisis> crisises = new List<Crisis>();
+    public List<Crisis> storyCrisises = new List<Crisis>();
     ActiveCrisis[] activeCrisses = new ActiveCrisis[3];
     
     //getter and setter for ActiveCrisis
