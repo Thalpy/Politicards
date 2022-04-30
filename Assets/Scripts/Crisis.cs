@@ -59,11 +59,14 @@ public class Crisis
         newCrisis.minProgress = minProgress;
         newCrisis.endCrisis = endCrisis;
         newCrisis.dialogues = dialogues;
-        //bugfix    
-        foreach (Faction faction in GameMaster.factionController.GetFactions())
-        {
-            //add the faction to the dictionary
-            factionProgress.Add(faction, 0);
+        //bugfix
+        if(factionProgress.Count == 0)
+        {   
+            foreach (Faction faction in GameMaster.factionController.GetFactions())
+            {
+                //add the faction to the dictionary
+                factionProgress.Add(faction, 0);
+            }
         }
         if (triggerEffects != null){
             newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
@@ -130,7 +133,7 @@ public class Crisis
             return;
         }
         Faction victory = null;
-        int victoryProgress = 0;
+        int victoryProgress = minProgress;
         foreach(KeyValuePair<Faction, int> entry in factionProgress){
             if(entry.Value > victoryProgress){
                 victory = entry.Key;
@@ -147,6 +150,10 @@ public class Crisis
                 if (end.faction == "")
                 {
                     end.run();
+                    CheckTrigger("End");
+                    //safety check
+                    GameMaster.crisisMaster.RemoveCrisis(this);
+                    return;
                 }
             }
         }
@@ -155,6 +162,9 @@ public class Crisis
         {
             //try{
                 Faction faction = null;
+                if(end.faction == ""){
+                    continue;
+                }
                 if (int.TryParse(end.faction, out int factionID))
                 {
                     faction = GameMaster.factionController.SelectFaction(factionID);
@@ -162,7 +172,7 @@ public class Crisis
                 else{
                     faction = GameMaster.factionController.SelectFaction(end.faction);
                 }
-                if(faction == null){
+                if(faction == null || faction.FactionName == null || victory == null || victory.FactionName == null){
                     Debug.LogError("Faction " + end.faction + " does not exist in crisis " + Name);
                     
                 }
@@ -171,17 +181,8 @@ public class Crisis
                     end.run();
                 }
                 Debug.Log(faction.FactionName);
-            //}
-            // catch(System.Exception e){
-            //     Debug.Break();
-            //     Debug.LogError("Error in EndCrisis: " + e.Message);
-            //}
         }
 
-        // else{
-        //     CheckTrigger($"{victory.FactionName}_Win");
-        //     CheckTrigger($"Win");
-        // }
         CheckTrigger("End");
         //safety check
         GameMaster.crisisMaster.RemoveCrisis(this);
@@ -280,7 +281,12 @@ public class EndCrisis
     public void run(){
         GameMaster.dialoguePlayer.StartDialogue(dialogues);
         foreach(TriggerEffect trigEff in triggerEffectsStr){
-            Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
+            Effect _eff = GameMaster.GetEffect(trigEff.effectName);
+            if(_eff == null){
+                Debug.LogError("Effect is missing!! does not exist in EndCrisis! Bad name!! Red dot me!!");
+                continue;
+            }
+            Effect effectObj = _eff.Copy();
             effectObj.setVars(this, trigEff.effectVars);
             effectObj.DoEffect();
         }

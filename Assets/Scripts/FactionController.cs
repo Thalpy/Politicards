@@ -87,6 +87,18 @@ public class FactionController : MonoBehaviour
         return factionHappiness;
     }
 
+    public Faction GetRandomFaction(bool crime = false)
+    {
+        if(crime)
+        {
+            return factions[UnityEngine.Random.Range(0, factions.Count)];
+        }
+        else
+        {
+            return factions[UnityEngine.Random.Range(0, factions.Count-1)];
+        }
+    }
+
     /// <summary>
     /// Gets the happiness of all factions with the AI
     /// </summary>

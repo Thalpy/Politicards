@@ -80,6 +80,30 @@ public class CrisisMaster : MonoBehaviour
         return null;
     }
 
+    //Return a random active ActiveCrisis
+    public ActiveCrisis GetRandomActiveCrisis()
+    {
+        //DO a controlled loop
+        int index = Random.Range(0, activeCrisses.Length);
+        int i = 0;
+        while (activeCrisses[index] == null)
+        {
+            index = Random.Range(0, activeCrisses.Length);
+            i++;
+            if (i > 100)
+            {
+                Debug.LogError("Could not find a random active crisis");
+                return null;
+            }
+        }
+        return activeCrisses[index]; 
+    }
+
+    public Crisis GetRandomCrisis(){
+        int randomIndex = Random.Range(0, crisises.Count);
+        return crisises[randomIndex];
+    }
+
     public ActiveCrisis FindActiveCrisisFromCard(Card card){
         foreach (ActiveCrisis crisis in activeCrisses){
             foreach(Card p_card in crisis.playerCards){
@@ -166,11 +190,6 @@ public class CrisisMaster : MonoBehaviour
             }
         }
         return false;
-    }
-
-    public Crisis GetRandomCrisis(){
-        int randomIndex = Random.Range(0, crisises.Count);
-        return crisises[randomIndex];
     }
 
     public Crisis GetStoryCrisis(){

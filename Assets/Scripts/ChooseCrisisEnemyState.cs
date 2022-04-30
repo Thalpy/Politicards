@@ -101,6 +101,7 @@ public class ChooseCrisisEnemyState : State
             ActiveCrisis currentCrisis = crises[i];
             
             if (currentCrisis == null) { continue; }
+            if (currentCrisis.AICards[2] != null) { continue;}
             int FactionProgress = FactionProgressOnCard(crises, i);
             if (FactionProgress <= lowestProgress)
             {
