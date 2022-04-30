@@ -88,7 +88,8 @@ public class ChooseCrisisNeutralState : State
         int highestProgress = 0;
         for (int i = 0; i < crises.Length; i++)
         {
-            if (crises[i].crisis.factionProgress[aiFaction] > highestProgress)
+            if(crises[i] == null){continue;} // null check
+            if (crises[i].crisis.factionProgress[aiFaction] >= highestProgress)
             {
                 highestProgress = crises[i].crisis.factionProgress[aiFaction];
                 selectedCrisis = crises[i];

@@ -45,17 +45,17 @@ public class AwaitPlayerState : State
         chooseCrisisEnemyState.ChosenCrisis = null;
         chooseCrisisNeutralState.ChosenCrisis = null;
 
-        if (playerTurnComplete && stateManager.RelationshipWithPlayer > 0.5)
+        if (playerTurnComplete && stateManager.PlayerRelationship == PlayerRelationshipEnum.Ally)
         {
             playerTurnComplete = false;
             return chooseCrisisState;
         }
-        if (playerTurnComplete && stateManager.RelationshipWithPlayer >= 0.25 && stateManager.RelationshipWithPlayer <= 0.5)
+        if (playerTurnComplete && stateManager.PlayerRelationship == PlayerRelationshipEnum.Neutral)
         {
             playerTurnComplete = false;
             return chooseCrisisNeutralState;
         }
-        if (playerTurnComplete && stateManager.RelationshipWithPlayer < 0.25)
+        if (playerTurnComplete && stateManager.PlayerRelationship == PlayerRelationshipEnum.Enemy)
         {
             playerTurnComplete = false;
             return chooseCrisisEnemyState;

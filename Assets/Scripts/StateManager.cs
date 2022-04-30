@@ -74,6 +74,11 @@ public class StateManager : MonoBehaviour
             playerRelationship = PlayerRelationshipEnum.Enemy;
             RelationshipWithPlayer = 1;
         #endif
+        #if AI_FACTION_RANDOM
+            List<Faction> factions = GameMaster.factionController.GetFactions();
+            int randomIndex = Random.Range(0, factions.Count);
+            AiFaction = factions[randomIndex];
+        #endif
 
         GetPlayerFaction();
         
