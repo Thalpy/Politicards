@@ -90,12 +90,17 @@ public class ChooseCrisisAllyState : State
         for(int i = 0; i < crises.Length; i++)
         {
             if (crises[i] == null){continue;}
+            ActiveCrisis currentActiveCrisis = crises[i];
             Crisis crisis = crises[i].crisis; //TODO add a null check
             int[] currentProgress = crisis.GetProgress();
             // get the max value of current progress
             int maxValue = currentProgress.Max();
             int currentProgDiff = crisis.minProgress - maxValue;
-            if(currentProgDiff > mostLikelyCrisisValue)
+            if(currentProgDiff > mostLikelyCrisisValue && currentActiveCrisis.AICards[i] != null)
+            {
+                mostLikelyCrisisValue = currentProgDiff;
+                mostLikleyCrisisIndex = i;
+            }
             {
                 mostLikelyCrisisValue = currentProgDiff;
                 mostLikleyCrisisIndex = i;
