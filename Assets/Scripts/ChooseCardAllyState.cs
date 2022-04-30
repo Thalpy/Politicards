@@ -46,6 +46,7 @@ public class ChooseCardAllyState : State
         {
             cardChosen = false;
             playCardState.ActiveCrisis = activeCrisis;
+            playCardState.AttemptedToPlay = false;
             playCardState.Card = chosenCard;
             return playCardState;
         }

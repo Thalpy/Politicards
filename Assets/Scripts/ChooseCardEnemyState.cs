@@ -50,6 +50,7 @@ public class ChooseCardEnemyState : State
             Debug.Log("Card Chosen: " + chosenCard.Name);
             cardChosen = false;
             playCardState.ActiveCrisis = activeCrisis;
+            playCardState.AttemptedToPlay = false;
             playCardState.Card = chosenCard;
             return playCardState;
         }
