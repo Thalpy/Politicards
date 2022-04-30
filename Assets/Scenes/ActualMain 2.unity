@@ -1919,7 +1919,7 @@ PrefabInstance:
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: startingCards
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -2232,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: startingCards
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -2622,7 +2622,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432086062}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba043f7b5167c354687328d2367f9ac1, type: 3}
@@ -3212,7 +3212,7 @@ MonoBehaviour:
     - text: I don't know if you've noticed but the amount of crime in this area is
         simply unacceptable! I expect you to do something to lower it immediately!
         The other nobles and I have never felt more unsafe out in the streets.
-      audio: {fileID: 8300000, guid: 1eef125a8a1a3d3488c7031bd123da21, type: 3}
+      audio: {fileID: 8300000, guid: 0c50c1e09f5e4a74d873e4fd40100048, type: 3}
       image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
     endCrisis:
     - faction: People
@@ -3321,7 +3321,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
+        - -1
         - 4
         triggerName: 
         triggerVars: []
@@ -3457,7 +3457,7 @@ MonoBehaviour:
       amongst the nobility who believes he should have been chosen, not you. The
       Undercity will take care of this for you, if you\u2019d like."
     image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
-    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+    audio: {fileID: 0}
     location: None
     DayLength: 3
     minProgress: 2
@@ -3595,7 +3595,7 @@ MonoBehaviour:
   - Name: Snooping Military
     Description: The military are snooping around our business.
     image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
-    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+    audio: {fileID: 0}
     location: None
     DayLength: 3
     minProgress: 2
@@ -3724,8 +3724,8 @@ MonoBehaviour:
   - Name: 'A Hostile Hunger '
     Description: The ratfolk who live in the lower city have brought to my attention
       a food shortage.
-    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
-    audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
+    image: {fileID: 21300000, guid: 4c659b10fab80ca4f92b3479bbf3ede7, type: 3}
+    audio: {fileID: 0}
     location: None
     DayLength: 3
     minProgress: 2
@@ -3764,71 +3764,74 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - -1
         - 1
+        - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
+      - effectName: RandomCard
         effectVars:
-        - 4
-        - 2
+        - 5
         triggerName: 
         triggerVars: []
     - faction: Military
       dialogues:
-      - text: Gracious news my Liege, our infiltration into the Military party has
-          yielded that they are not planning your demise, for now. Though, during
-          our pilfering we found this which may prove useful to you.
-        audio: {fileID: 8300000, guid: 13158910cc36db641bc9790c9fb14727, type: 3}
+      - text: First, we dealt with the hostility brewing with a more visible presence
+          of soldiers to remind people to keep the peace. Then, we dealt with the
+          hunger. The same soldiers ensured the delivery of care packages to the
+          families.
+        audio: {fileID: 0}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
-      - effectName: Draw
-        effectVars:
-        - 1
-        triggerName: 
-        triggerVars: []
       - effectName: Happiness
         effectVars:
-        - -1
-        - 2
+        - 1
+        - 4
         triggerName: 
         triggerVars: []
       - effectName: Power
         effectVars:
+        - 1
         - 4
-        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
         triggerName: 
         triggerVars: []
     - faction: Nobility
       dialogues:
-      - text: Gracious news my Liege, our infiltration into the Nobel's party has
-          yielded that they are not planning your demise, for now. Though, during
-          our pilfering we found this which may prove useful to you.
-        audio: {fileID: 8300000, guid: e5d643a23f846c14da24246ae90e6f40, type: 3}
+      - text: 'We appealed to the nobles and the pigeonfolk in the upper lofts. Your
+          charitable donation has gone a long way for the people who are the cogs
+          who keep our capital operating. With Duke Lupain help we were able to rain
+          scraps down to feed the hungry ratfolk. '
+        audio: {fileID: 0}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
-      - effectName: Draw
-        effectVars:
-        - 1
-        triggerName: 
-        triggerVars: []
       - effectName: Happiness
         effectVars:
-        - -1
-        - 3
+        - 1
+        - 4
         triggerName: 
         triggerVars: []
       - effectName: Power
         effectVars:
+        - 1
         - 4
-        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
         triggerName: 
         triggerVars: []
     - faction: 
       dialogues:
-      - text: I see you let our offer fall by the wayside. How disappointing. We
-          were expecting much more from you.
-        audio: {fileID: 8300000, guid: 2808f06277d6ad84299b3be0615b54b4, type: 3}
+      - text: Your disregard of this crisis has led to a great instability forming
+          in the region, enraging both the respective parties. We tried to do what
+          we could, but our lack of resources greatly limited our ability to help
+          the people.
+        audio: {fileID: 0}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3837,539 +3840,15 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-  - Name: Mountain Bandits
-    Description: Bandits in the mountians Sir!
-    image: {fileID: 21300000, guid: 00bb8b82c6ccebe4f9fb34d075ad869c, type: 3}
-    audio: {fileID: 0}
-    location: None
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: Sir it has been reported that bandits have bene spotted itn the mountains
-        to the east of the Capital!
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: Sir, it was genius of you to enlis the help of the local peasenty in
-          flushing out the bandits, it's safe to say we won't be seeing them again!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - -1
-        - 4
-        triggerName: 
-        triggerVars: []
-      - effectName: Happiness
-        effectVars:
-        - 1
-        - 0
-        triggerName: 
-        triggerVars: []
-    - faction: Economic
-      dialogues:
-      - text: Sir it was genius of you to place a bounty on the bandits, their severed
-          heads are practically rolling in the door!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 1
-        - 1
-        triggerName: 
-        triggerVars: []
-    - faction: Military
-      dialogues:
-      - text: Sir your finest soldiers report great success in flushing out the bandits.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 4
-        - 2
-        triggerName: 
-        triggerVars: []
-    - faction: Nobility
-      dialogues:
-      - text: Sir, it wa sa genius ides to make hunting bandits a noble sport, the
-          bandits have been thouroughly eradicated.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Draw
-        effectVars:
-        - 1
-        triggerName: 
-        triggerVars: []
-      - effectName: Happiness
-        effectVars:
-        - -1
-        - 3
-        triggerName: 
-        triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 4
-        - 2
-        triggerName: 
-        triggerVars: []
-    - faction: 
-      dialogues:
-      - text: Sir, your in action has lead to many of the villages in the east being
-          pillaged!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - -1
-        - 2
-        triggerName: 
-        triggerVars: []
-      - effectName: Power
-        effectVars:
-        - -1
-        - 0
-        triggerName: 
-        triggerVars: []
-  - Name: Military Tournament
-    Description: What a glorious spectacle!
-    image: {fileID: 21300000, guid: 00bb8b82c6ccebe4f9fb34d075ad869c, type: 3}
-    audio: {fileID: 0}
-    location: None
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: Sir! The Generals and I would like to through a tournemnt in honour of
-        the late Rulers honour.
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: Sir inviting the common folk was a great succes! Support for the military
-          amongst the common folk is at an all time high!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 1
-        - 2
-        triggerName: 
-        triggerVars: []
-      - effectName: Happiness
-        effectVars:
-        - 0
-        - 2
-        triggerName: 
-        triggerVars: []
-    - faction: Economic
-      dialogues:
-      - text: Sir, I wil admit I was sceptical about your plan to sell sponsership
-          spots to the local mechants...
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      - text: However, several new supliers for military equimpent have been identified
-          as a result!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 1
-        - 2
-        triggerName: 
-        triggerVars: []
-      - effectName: Happy
-        effectVars:
-        - 1
-        - 1
-        triggerName: 
-        triggerVars: []
-    - faction: Military
-      dialogues:
-      - text: Sir, the men really appreciated being the center focus of the tournament!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Happy
-        effectVars:
-        - 3
-        - 1
-        triggerName: 
-        triggerVars: []
-    - faction: Nobility
-      dialogues:
-      - text: Sir including a competition for the younger nobles was  an excellent
-          idea, several promising candidates for the officer trainign school have
-          been identified.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - 1
-        - 2
-        triggerName: 
-        triggerVars: []
-      - effectName: Happy
-        effectVars:
-        - 1
-        - 3
-        triggerName: 
-        triggerVars: []
-    - faction: 
-      dialogues:
-      - text: Sir, we were sad not to see you attend the tournement ....
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
-      triggerEffectsStr:
-      - effectName: Happy
-        effectVars:
-        - -1
-        - 3
-        triggerName: 
-        triggerVars: []
-  - Name: A Bird in The Hand
-    Description: The accession of a new ruler is often an occasion of great pomp
-      and circumstance. In Allrahni, a special tax is normally levied upon citizens
-      to pay for the revalries. Some feel that the interregnum is a good time to
-      try and shirk this ancient duty.
-    image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
-    audio: {fileID: 0}
-    location: 
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: Good Day my Liege!
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    - text: "A wise ruler such as yourself understands that small business owners,
-        such as those I represent, play a key role in ensuring society runs smoothly.
-        I\u2019m sure that all the riff raff on the street are only one hungry day
-        away from climbing these walls and eating the both of us."
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    - text: "As you know, the business environment has been very difficult these
-        last seasons and the last thing that my colleagues need right now is to have
-        to pay a special tax to allow the unwashed to have a good piss up. The merchant
-        community would surley be grateful if you could find a way to \u2026\u2026
-        ease this burden?"
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: "You Populist Pillock! Do you really think that you can buy the loyalty
-          of such creatures? Within a week they will have forgotten what you\u2019ve
-          done for them and will be baying for your blood! And if you don\u2019t
-          pay us more respect, we might even join them. "
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Economic
-      dialogues:
-      - text: "My Leige I am please to report that our profit projections have tripled
-          this quarter, all thanks to your appasite decision to shift the burden
-          of taxation to where it really belongs \u2013 everyone else!"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Military
-      dialogues:
-      - text: "Don\u2019t think we don\u2019t know your game you tin pot tyrant!
-          There aren\u2019t enough battallions in the world to protect you from our
-          righteous fury!"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Nobility
-      dialogues:
-      - text: You blue blooded baboon! Do you think that siding with those in-bred
-          high society fops will strengthen your powerbase? Where do you think they
-          get their power from?!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: 
-      dialogues:
-      - text: "You insidious monster. I see now that you don\u2019t share our love
-          of country! All you\u2019re interested in is feathering your own nest,
-          bugger everybody else!"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-  - Name: With Friends Like These
-    Description: "As all leaders know, a good cabinet reshuffle helps to keep things
-      exciting, however not everyone can be a winner at this type of thing and you\u2019re
-      going to have to upset somebody\u2026\u2026"
-    image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
-    audio: {fileID: 0}
-    location: 
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: "My Liege, I\u2019m sure you were terribly shocked to hear that the master
-        of your bed chamber was fired for sleeping on the job. While I share your
-        dismay at this appaling slip in standards, the job of running the country
-        must go on. "
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    - text: "I have an excellent candidate who would be more than happy to occupy
-        the position\u2026 I only ask that you pay a very modest finder\u2019s fee\u2026."
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: I am disgusted at how far you have allowed standards to slip. A commoner
-          in your bed chamber?! What next, One of us cleaning your latrines? For
-          shame!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Economic
-      dialogues:
-      - text: "Oh sire, you\u2019ve made an excellent choice. With one of us in your
-          bed chamber I can assure you that your household will run smoother than
-          ever before!"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Military
-      dialogues:
-      - text: "Why, I\u2019ve never heard of anything so absurd as a soldier in the
-          ruler\u2019s bed chamber. The army is for crushing your enemies and threatening
-          the masses. Why on earth would you want it in your house?!"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Nobility
-      dialogues:
-      - text: "While I understand that your might be comfortable with an old blue
-          blood in your household, I think you\u2019ll find their services ultimately
-          prove to be\u2026.. not worth the price?"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: 
-      dialogues:
-      - text: 'A criminal. A known, criminal invited into your bed chamber. Not only
-          do you spit my generous offer back in my face but you flagrantly violate
-          the law in allowing such persons so close to the seat of power. You will
-          regret this. '
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-  - Name: Fire Sale
-    Description: "In order to generate more revenues for the government\u2019s coffers 
-      portion of the nations wealth has been sold. It\u2019s up to you to decide
-      where the majority of this new wealth should go\u2026."
-    image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
-    audio: {fileID: 0}
-    location: 
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: "Good day sire and may I say how fabulous you\u2019re looking this morning?
-        Have I mentioned recently that a ruler of such strength, wisdom and physical
-        attributes that no gentle creature on this world could compete with, is represented
-        by the person who inhabits the chair in which you sit? "
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    - text: 'Slimey? Me?! Why ever would you say such a thing. '
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    - text: "By the way, I wanted to talk to you about your generosity\u2026\u2026."
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: 'What exactly did you think you would accomplish by distributing wealth
-          among the people? Popularity? Contentedness?! Standard of living???? SUCH
-          MATTERS ARE TRIFLING WHEN COMPARED WITH OUR PROFITABILITY! You will regret
-          this. '
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Economic
-      dialogues:
-      - text: Oh sire you have made such a wonderful choice. You realised of course
-          that by trusting the merchants of our great land with this treasure you
-          have garunteed prosperity for all who reside within her! Truly a wiser
-          ruler has never occupied your throne!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Military
-      dialogues:
-      - text: "Do you really think it wise to give more money to a bunch of jumped
-          up thugs with an inferiority complex? Give them a taste for the finer things
-          in life and they might just decide they\u2019re entitled to it! What then?
-          You really didn\u2019t use your head with this one."
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: Nobility
-      dialogues:
-      - text: Did you just give more money to the nobility? You realise that they
-          already have all the money? Of all the groups you could have chosen to
-          make an endowment to, you chose the people who need it least? Tell me,
-          was this a deliberate act or did you just close your eyes and point at
-          the first person you saw?
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-    - faction: 
-      dialogues:
-      - text: "Ah yes, crime. While it dosen\u2019t surprise me to see a rapscallion
-          like yourself engaging in such nefarious activity, it does disappoint me
-          to see it being done so openly. Have a little shame sir. "
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-  - Name: Crime in our Streets.
-    Description: The people in the streets have noticed an increase in crime.
-    image: {fileID: 21300000, guid: f44baa93086c4d64683e42b3d47b166f, type: 3}
-    audio: {fileID: 0}
-    location: 
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: The people in the streets have noticed an increase in crime and it's
-        causing nerves to heighten!
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: My Leige, our people thankyou. Not only have you been tough on crime
-          but also the causes of crime! This novel approach has ensured that the
-          people can freely move at liberty, free from fear of attack or molestaion.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Economic
-      dialogues:
-      - text: I'm disgusted. Given the opportunity to make the lives of decent, honest
-          folk better, you decided instead to line the coffers of those already screwing
-          the populace for all they own. I haope you atleast got a penny for your
-          trouble.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Military
-      dialogues:
-      - text: Sir, I know that I asked you to to put the world to rights, but I wasn't
-          asking you to declare martial law! You've replaced one lot of thugs with
-          another! The people don't even have recourse to the law to help them out!
-          Surely there was a better way.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Nobility
-      dialogues:
-      - text: I am speechless. I came to you with a simple request for help and you
-          heard "Please prostrate yourself before the blue bloods". You will regret
-          this you old sponge!
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: 
-      dialogues:
-      - text: Your vaciliation has put our lives and our livelihood in Jeoppardy.
-          Good honest gentlefolk now afraid to leave their homes for fear of being
-          attacked. If I were you I would hang my head in shame and reconsider my
-          position.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
-  - Name: Farmers Argument
-    Description: The farmers are arguing.
-    image: {fileID: 21300000, guid: f44baa93086c4d64683e42b3d47b166f, type: 3}
-    audio: {fileID: 0}
-    location: 
-    DayLength: 3
-    minProgress: 2
-    triggerEffectsStr: []
-    dialogues:
-    - text: The farmers are arguing with the militarty over the passage of some seeds
-        from a neigbouring kingdom. The farmers argue that the entire consignment
-        should go to them, in order to produce a good harvest. The military demands
-        that a portion of the shipment shoudl be distributed amongest the soldiers.
-      audio: {fileID: 0}
-      image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-    endCrisis:
-    - faction: People
-      dialogues:
-      - text: My Liege the people are rejoicing in the streets - your gift of seed
-          has ensured that, at least for a time, the humble folk will be freed from
-          the tyranny of hunger.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Economic
-      dialogues:
-      - text: My Leige, I have to inform you that the people aren't exactly pleased
-          with your decision. Without the grain, the people will go hungry. With
-          the grain, the merchants will make more profit this season. Is the latter
-          really more important than the former.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Military
-      dialogues:
-      - text: I understand that you might have felt that your psoition in the world
-          would become more secure by siding with the military. But remember true
-          that true authority is derived fromt he people and that true stability
-          comes from their hapiness.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: Nobility
-      dialogues:
-      - text: We had hoped that when the Biumvirate came to power, ours would be
-          a fairer kingdom. I see now that you intend to carry ont he old ways and
-          look after the interests of your friends, instead of those who really depend
-          on you.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
-    - faction: 
-      dialogues:
-      - text: While I can understand being in charge is a difficult job and you were
-          trying ot bring balance to the needs of all the factions, form our perspective,
-          this was the worst possible outcome. People will go hungry because you
-          weren't decisive enough. I hope you learn form your failure.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
   storyCrisises:
   - Name: Tutorial
     Description: Playing a card will choose your faction
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 1
     minProgress: 1
-    triggerEffectsStr:
-    - effectName: SetAINeutral
-      effectVars: []
-      triggerName: End
-      triggerVars: []
+    triggerEffectsStr: []
     dialogues:
     - text: "With the passing of the late Sovereign Marqe, the Kingdom of Arrahni
         is in need of guidance whilst we await for the Sovereign\u2019s cousin to
@@ -4457,7 +3936,7 @@ MonoBehaviour:
   - Name: A Dispute Between Lords
     Description: It appears that the late Sovereign had been dealing with a land
       dispute between the two before passing which has unfortunately yet to be settled.
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 6
@@ -4601,7 +4080,7 @@ MonoBehaviour:
         triggerVars: []
   - Name: A Wonderfully Warm Welcome
     Description: "It\u2019s really quite exciting, isn\u2019t it? "
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 6
@@ -4728,7 +4207,7 @@ MonoBehaviour:
   - Name: Remains of the Remains
     Description: 'Renowned archaeologist, Mister Tom Longclaw, had recently discovered
       some old ruins lost in the Akarthoun Plains. '
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 6
@@ -4859,7 +4338,7 @@ MonoBehaviour:
   - Name: A Halt in Movement
     Description: 'We have received word from Tom Longclaw that there has been an
       issue at the expedition.  '
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 6
@@ -4991,7 +4470,7 @@ MonoBehaviour:
   - Name: Resounding Results
     Description: "Tom Longclaw\u2019s visits the Palace to present us with something
       extraordinary."
-    image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
+    image: {fileID: 0}
     audio: {fileID: 0}
     location: 
     DayLength: 6
@@ -5148,7 +4627,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: People
       StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0100000000000000000000000000000000000000
       ProgressValues: 0100000000000000000000000000000000000000
       triggerEffectsStr: []
@@ -5160,7 +4639,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000001000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr: []
@@ -5414,7 +4893,7 @@ MonoBehaviour:
       - effectName: Draw
         effectVars:
         - 
-        triggerName: OnUse
+        triggerName: On Use
         triggerVars:
         - 3
     - Name: 'Military Industrial Complex '
@@ -5557,20 +5036,24 @@ MonoBehaviour:
       - effectName: BoostWeakest
         effectVars:
         - 6
-        triggerName: OnUse
+        triggerName: On Use
         triggerVars: []
     - Name: Noble Pagentry
-      Description: Increases the power and happiness of all factions by 1 (except
-        the Crime faction) and gives 1 Noble progress.
+      Description: Increases your relationship with all factions by 1 (except the
+        Crime faction) and gives 1 Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: 0100000001000000010000000100000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0100000001000000010000000100000000000000
       ProgressValues: 0000000000000000000000000100000000000000
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: ExploitTheWeak
+        effectVars: []
+        triggerName: On Use
+        triggerVars: []
   - faction: Crime
     cards:
     - Name: Bribe The Military
@@ -18169,7 +17652,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2883156948893106382}
   m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: 0.742, y: -1.939, z: -1.205}
+  m_LocalPosition: {x: -0.505, y: -2.975, z: -2.005}
   m_LocalScale: {x: 0.05, y: 0.050000004, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:

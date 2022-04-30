@@ -30,6 +30,10 @@ public abstract class Effect
     public virtual void setVars(object source, List<string> args)
     {
         this.source = source;
+        if(args == null)
+        {
+            Debug.LogError("args is null");
+        }
         power = int.Parse(args[0]);
     }
 
@@ -206,6 +210,10 @@ public class Progress : Effect
     public override void setVars(object source, List<string> args)
     {
         this.source = source;
+        if(args == null)
+        {
+            Debug.LogError("args is null");
+        }
         power = int.Parse(args[0]);
         //if args[1] is can be an int
         if (int.TryParse(args[1], out int factionID))
@@ -350,6 +358,16 @@ public class BoostWeakest : Effect
             if (_faction.FactionPower < lowestPower)
             {
                 faction = _faction;
+                lowestPower = _faction.FactionPower;
+                continue;
+            }
+            if(_faction.FactionPower == lowestPower)
+            {
+                if(UnityEngine.Random.Range(0, 2) == 0)
+                {
+                    faction = _faction;
+                    lowestPower = _faction.FactionPower;
+                }
             }
         }
         AdjustProgress(faction);
@@ -539,5 +557,26 @@ public class RandomCard : Effect{
         List<Card> cards = GameMaster.cardMaster.Decks[index].cards;
         Card card = cards[UnityEngine.Random.Range(0, cards.Count)];
         GameMaster.playerHand.AddCard(card);
+    }
+}
+
+public class SetAINeutral : Effect
+{
+    public SetAINeutral()
+    {
+        name = "SetAINeutral";
+    }
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    /// <summary>
+    /// Sets the AI's relationship to the player to neutral
+    /// </summary>
+    public override void DoEffect()
+    {
+        GameMaster.stateManager.SetRelationshipByString("Neutral");
     }
 }

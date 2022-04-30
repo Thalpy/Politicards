@@ -28,7 +28,7 @@ public class Crisis
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
     //The actual effect and trigger objects
     [SerializeField] internal Dictionary<Effect, Trigger> triggerEffects;
-    internal Dictionary<Faction, int> factionProgress;
+    internal Dictionary<Faction, int> factionProgress = new Dictionary<Faction, int>();
     //ProgressUpdateEvent event
     public ProgressUpdateEvent progressUpdateEvent = new ProgressUpdateEvent();
     [SerializeField]
@@ -59,7 +59,7 @@ public class Crisis
         newCrisis.minProgress = minProgress;
         newCrisis.endCrisis = endCrisis;
         newCrisis.dialogues = dialogues;
-        //
+        //bugfix    
         foreach (Faction faction in GameMaster.factionController.GetFactions())
         {
             //add the faction to the dictionary
@@ -133,6 +133,10 @@ public class Crisis
         int victoryProgress = 0;
         foreach(KeyValuePair<Faction, int> entry in factionProgress){
             if(entry.Value > victoryProgress){
+                victory = entry.Key;
+                victoryProgress = entry.Value;
+            }
+            if(entry.Value == victoryProgress && Random.Range(0,2) == 0){
                 victory = entry.Key;
                 victoryProgress = entry.Value;
             }

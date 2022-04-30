@@ -176,7 +176,12 @@ public class Faction
     public float FactionHappiness
     {
         get { return factionHappiness; }
-        set { factionHappiness = value; }
+        set 
+        {
+             factionHappiness = value;
+             SetPlayerHappiness();
+             playerHappinessChange.Invoke(playerHappiness);
+        }
     }
 
     /// <summary>
@@ -189,7 +194,12 @@ public class Faction
     public float FactionAiHappiness
     {
         get { return factionAiHappiness; }
-        set { factionAiHappiness = value; }
+        set 
+        {   
+            factionAiHappiness = value;
+            SetAiHappiness();
+            aiHappinessChange.Invoke(aiHappiness);
+        }
     }
 
     //The icon of the faction
@@ -233,7 +243,7 @@ public class Faction
 
         bool happinessChanged = false;
         //if the faction happiness is greater than 50, set the faction happiness to happy, if it is between 25 and 50, set it to neutral, and if it is less than 25, set it to unhappy
-        if (factionHappiness > 50)
+        if (factionHappiness > 10)
         {
             //if the faction happiness is already happy, do nothing
             if (playerHappiness == PlayerHappinessEnum.happy)
@@ -243,7 +253,7 @@ public class Faction
             PlayerHappiness = PlayerHappinessEnum.happy;
             happinessChanged = true;
         }
-        else if (factionHappiness > 25)
+        else if (factionHappiness > 3)
         {
             //if the faction happiness is already neutral, do nothing
             if (playerHappiness == PlayerHappinessEnum.neutral)
@@ -262,6 +272,41 @@ public class Faction
             }
             PlayerHappiness = PlayerHappinessEnum.unhappy;
             happinessChanged = true;
+        }
+    }
+
+    // a function that set the player happiness enum to a value appropriate for the faction happiness
+    public void SetPlayerHappiness()
+    {
+        if (factionHappiness > 50)
+        {
+            PlayerHappiness = PlayerHappinessEnum.happy;
+        }
+        else if (factionHappiness > 25)
+        {
+            PlayerHappiness = PlayerHappinessEnum.neutral;
+        }
+        else
+        {
+            PlayerHappiness = PlayerHappinessEnum.unhappy;
+        }
+    }
+
+
+    // a function that set the ai happiness enum to a value appropriate for the faction happiness
+    public void SetAiHappiness()
+    {
+        if (factionHappiness > 50)
+        {
+            AIHappiness = AIHappinessEnum.happy;
+        }
+        else if (factionHappiness > 25)
+        {
+            AIHappiness = AIHappinessEnum.neutral;
+        }
+        else
+        {
+            AIHappiness = AIHappinessEnum.unhappy;
         }
     }
 
