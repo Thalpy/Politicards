@@ -3085,7 +3085,7 @@ MonoBehaviour:
     - text: Here's how things work around here you act as the figurehead of the country
         while we run things behind the scenes so whenever we require your assistance
         you are to come immediately and solve it is that clear?
-      audio: {fileID: 8300000, guid: 5c0c4d917ac0e454a853a9fb1fec156e, type: 3}
+      audio: {fileID: 8300000, guid: 8494a2cfd8a62c64e86d995fdf613b91, type: 3}
       image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
     - text: Speaking of which  lord honerable featherington has reported that commoners
         are getting into his stores! You need to keep this riffraff away in the proper
@@ -3453,7 +3453,9 @@ MonoBehaviour:
         triggerName: 
         triggerVars: []
   - Name: The Usurper
-    Description: " The Undercity will take care of this for you, if you\u2019d like..."
+    Description: "Watch your back, my liege \u2013 discovery of an aggressive usurper
+      amongst the nobility who believes he should have been chosen, not you. The
+      Undercity will take care of this for you, if you\u2019d like."
     image: {fileID: 0}
     audio: {fileID: 0}
     location: None
@@ -3461,9 +3463,10 @@ MonoBehaviour:
     minProgress: 2
     triggerEffectsStr: []
     dialogues:
-    - text: "Watch your back, my liege \u2013 discovery of an aggressive usurper
-        amongst the nobility who believes he should have been chosen, not you. The
-        Undercity will take care of this for you, if you\u2019d like."
+    - text: 'Greetings my Liege I come to you with a most urgent matter. a few of
+        our associates have caught wind of a plot most foul.  you will of course
+        remember some of the other names put forth to lead the Biuverate, well one
+        of those members is seeking to usurp your place. '
       audio: {fileID: 8300000, guid: da9abb6ad15010e40bd83689a028d155, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
     - text: We caught wind of this when he came to the undercity to arrange your
@@ -3581,6 +3584,254 @@ MonoBehaviour:
           this. I do not appreciate being left out of the equation like this either.
           See that it does not happen again, or else. '
         audio: {fileID: 8300000, guid: 5ca297cf7097b444a8e64d46808b520e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: Snooping Military
+    Description: The military are snooping around our business.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: 'A moment if you can my Liege, the military has recently been snooping
+        around our affairs and we''d rather they left well enough alone. Our impending
+        operation depends on your assistance. If you scratch our backs, we will surely
+        scratch yours. '
+      audio: {fileID: 8300000, guid: c6435479f76451544bcf9a7597f0e4cc, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: Thank you my liege, the crowd you organised was very much appreciated.
+          Thanks to you our operation was a complete success. As promised here is
+          a slice of our gains.
+        audio: {fileID: 8300000, guid: 4a5ba87959c1597469a68f41a915e3df, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: "The keys you gave us to the merchant\u2019s vault were very much appreciated.
+          Do not worry my liege, we made sure not to take more than would be missed,
+          of course. We also made sure to get you these while we were in there."
+        audio: {fileID: 8300000, guid: a580de893a9592e41b59811139646513, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: My Liege please! your insistence on sending in the military keeps making
+          things worse! How on earth did you think the solution to less military
+          was more military?!
+        audio: {fileID: 8300000, guid: 804f4dfa35150a04a9ba04e20cb83d6d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Thanks to your most gracious fundraiser you hosted, we were able to
+          use the opportunity to rifle through a few of the attendees items. Of course,
+          we made sure to save some of the spoils for you.
+        audio: {fileID: 8300000, guid: cd48a6273aeb4054ca65dd9a147a281d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: 'It seems you don''t quite understand how things work here. A ruler
+          without the support of the undercity is a ruler lacking longevity. '
+        audio: {fileID: 8300000, guid: afb26ea76c326f04e8cf0a317c09230e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: 'A Hostile Hunger '
+    Description: The ratfolk who live in the lower city have brought to my attention
+      a food shortage.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: "The ratfolk who live in the lower city have brought to my attention
+        a food shortage, which is causing some to go without food. Their hunger is
+        fueling the hostility between us and the pigeonfolk living in the upper lofts.
+        I\u2019d ask you to deal with this issue quickly, so as fighting doesn\u2019t
+        break out. "
+      audio: {fileID: 0}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: "Best to hear it from the horse\u2019s mouth, so to speak, we moved
+          to the lower city to speak to the people most affected. We found out what
+          they are missing most to then came up with a way to best tackle the issue
+          district. "
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr: []
+    - faction: Economic
+      dialogues:
+      - text: "We reached out to the merchant\u2019s guild to call in a few favours
+          on your behalf. After a lot of humming and hawing they agreed to give a
+          portion of their savings to import food from our neighbouring areas"
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: First, we dealt with the hostility brewing with a more visible presence
+          of soldiers to remind people to keep the peace. Then, we dealt with the
+          hunger. The same soldiers ensured the delivery of care packages to the
+          families.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: 'We appealed to the nobles and the pigeonfolk in the upper lofts. Your
+          charitable donation has gone a long way for the people who are the cogs
+          who keep our capital operating. With Duke Lupain help we were able to rain
+          scraps down to feed the hungry ratfolk. '
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: Your disregard of this crisis has led to a great instability forming
+          in the region, enraging both the respective parties. We tried to do what
+          we could, but our lack of resources greatly limited our ability to help
+          the people.
+        audio: {fileID: 0}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -4889,7 +5140,28 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
-    endEvent: []
+    endEvent:
+    - text: It starts as whispers behind closed doors. Pamphlets handed round discretely.
+        Grows into secret meetings in bars, to people standing and giving talks in
+        the streets. The people recognise how much we rely on them for help, and
+        a revolution has started.
+      audio: {fileID: 8300000, guid: 2ae87581c7750cb41b65386ca871baec, type: 3}
+      image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+    - text: "It is possible that by the time Sovereign Sash\u2019an arrives, we will
+        no longer be a kingdom, but something else entirely. For now, however, we
+        must escape."
+      audio: {fileID: 8300000, guid: 83a15ec59d583a742965bce2456ed14d, type: 3}
+      image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+    - text: Thank you so much for playing our game! You've reached the People's Ending
+        (because they got over 50% power). Because we have no time to code it you
+        can keep playing on this doomed timeline, or press f5 (refresh your browser)
+        to play again.
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+        Mae McAllister'
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
     factionName: People
     factionColor: {r: 0.4523407, g: 0.48966703, b: 0.8962264, a: 1}
     playerHappiness: 0
@@ -4903,7 +5175,25 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
-    endEvent: []
+    endEvent:
+    - text: "There is an irony in the way merchants and traders operate. A legal
+        version of crime it feels like, sometimes. The local merchants have pockets
+        lined with gold, thanks to our doting support, and if there\u2019s one thing
+        that\u2019s more important than the crown, it\u2019s money. They repay our
+        support through support of their own, a demonstration of how you can buy
+        someone\u2019s loyalty."
+      audio: {fileID: 8300000, guid: 240d6b6c4c5252641af5072be2bcc4c7, type: 3}
+      image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+    - text: Thank you so much for playing our game! You've reached the Economic bad
+        ending (because they got over 50% power). Because we have no time to code
+        it you can keep playing on this doomed timeline, or press f5 (refresh your
+        browser) to play again.
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+        Mae McAllister'
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
     factionName: Economic
     factionColor: {r: 0.990566, g: 0.87235224, b: 0.23829652, a: 1}
     playerHappiness: 0
@@ -4917,7 +5207,25 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
-    endEvent: []
+    endEvent:
+    - text: "The colonel has come knocking. As strong as the steel on his sword,
+        he has imposed martial law through the streets. Enough is enough, he has
+        declared. From the first whispering suggestions of the Biumvirate he has
+        been sure of its doom. Only someone who knew Sovereign Marqe like he did
+        would be able to do justice to his rule whilst awaiting Sovereign Sash\u2019an,
+        and that is what he will do. Justice. Starting with us."
+      audio: {fileID: 8300000, guid: e7dab76ce0ef56e4c8aeffcc608211c8, type: 3}
+      image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+    - text: Thank you so much for playing our game! You've reached the Military bad
+        ending (because they got over 50% power). Because we have no time to code
+        it you can keep playing on this doomed timeline, or press f5 (refresh your
+        browser) to play again.
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+        Mae McAllister'
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
     factionName: Military
     factionColor: {r: 0.754717, g: 0.28835887, b: 0.28835887, a: 1}
     playerHappiness: 0
@@ -4931,7 +5239,24 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
-    endEvent: []
+    endEvent:
+    - text: "As favour with the nobility grows, so does their ambitions. The lord\u2019s
+        have amassed enough power that they have called into question our leadership.
+        With a swift vote of no confidence the Biumvirate is broken, and Duke Lupain
+        so graciously offers to step in and pick up the broken pieces that are left
+        in our wake."
+      audio: {fileID: 8300000, guid: 47e8ffb59d1ed8148bbc4c5bf1147ac6, type: 3}
+      image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+    - text: Thank you so much for playing our game! You've reached the Nobility bad
+        ending (because they got over 50% power). Because we have no time to code
+        it you can keep playing on this doomed timeline, or press f5 (refresh your
+        browser) to play again.
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+        Mae McAllister'
+      audio: {fileID: 8300000, guid: 842419e9b9003fc41855159ab947ebc4, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
     factionName: Nobility
     factionColor: {r: 0.6175616, g: 0.38047346, b: 0.8490566, a: 1}
     playerHappiness: 0
@@ -4945,7 +5270,29 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
-    endEvent: []
+    endEvent:
+    - text: "It has been so kind of us to show the under city such a warm welcome
+        into our rule of the kingdom. Why, if they didn\u2019t know any better, they
+        would think we were the perfect puppet. "
+      audio: {fileID: 8300000, guid: 239e2e7f01db06140a11316d958f427d, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: "Perhaps that is what we will end up being. When Narzon slides evidence
+        of corruption across the table, it\u2019s with a smile and a promise that
+        our reign will not be ending soon. That Sovereign Sash\u2019an will never
+        make it to the capital. And he will never speak of any corruption...so long
+        as we abide by his rules. "
+      audio: {fileID: 8300000, guid: 98ada58ebe216cd49a98b87028acda29, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: Thank you so much for playing our game! You've reached the Crime bad
+        ending (because they got over 50% power). Because we have no time to code
+        it you can keep playing on this doomed timeline, or press f5 (refresh your
+        browser) to play again.
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+        Mae McAllister'
+      audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+      image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
     factionName: Crime
     factionColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     playerHappiness: 0
@@ -5166,6 +5513,37 @@ MonoBehaviour:
   image: {fileID: 1005990169979297518}
   dialogueBox: {fileID: 1005990169543319387}
   textSpeed: 0.05
+  WinningDialogue:
+  - text: "At last, the long awaited arrival of Sovereign Sash\u2019an arrives. They
+      are graceful and kind, as fitting for our humble kingdom, and they thank us
+      greatly for our efforts in keeping the land peaceful whilst they made their
+      journey to the capital. "
+    audio: {fileID: 8300000, guid: c86a0c5d44d6bc9488117f61f73a5f2e, type: 3}
+    image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+  - text: They make point to learn of the work we have been doing in their stead,
+      and are overjoyed to see that the expedition that their late cousin was so
+      excited for has been seen through. Whilst no doubt the expedition will continue,
+      the bulk of it has been completed, and it can continue with little to no supervision
+      from the crown.
+    audio: {fileID: 8300000, guid: 4ef808d7320a4234d825ddcc49528c77, type: 3}
+    image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+  - text: "The sovereign offers each of us a place with them to assist them further
+      as they become familiar with our land. Humbled by the offer, we remain together,
+      by the right and left hand side of Sovereign Sash\u2019an, ready to continue
+      seeing the prosperity of our home."
+    audio: {fileID: 8300000, guid: b0c3a5a08c49aed4d84bf31b9a39a69e, type: 3}
+    image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+  - text: Thank you so much for playing our game! You've reached the Good ending!!
+      I can't believe our code held up long enough for you to win! Because we have
+      no time to code it you can keep playing with all the bugs that follow, or press
+      f5 (refresh your browser) to play again. There are 5 extra endings for getting
+      each of the factions over 50% too!
+    audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+    image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+  - text: 'Credits: Thalpy (Fermi#1350), Missive, Sithlordal, Kivea, Gravedog and
+      Mae McAllister'
+    audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
+    image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
 --- !u!114 &561427139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12021,6 +12399,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &2097631632
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12571,6 +12953,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2883156948196498155
 GameObject:
   m_ObjectHideFlags: 0
@@ -17158,6 +17544,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &2883156948893106384
 AudioSource:
   m_ObjectHideFlags: 0
@@ -19041,6 +19431,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2883156949180753991
 GameObject:
   m_ObjectHideFlags: 0
@@ -19745,6 +20139,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2883156949291625839
 GameObject:
   m_ObjectHideFlags: 0
@@ -20077,6 +20475,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &2883156949326110529
 Transform:
   m_ObjectHideFlags: 0
@@ -23258,6 +23660,10 @@ MonoBehaviour:
     triggerEffectsStr: []
     dialogues: []
     endCrisis: []
+  Psuedos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &2883156949802474143
 GameObject:
   m_ObjectHideFlags: 0
