@@ -48,6 +48,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] Camera mainCamera;
 
     [SerializeField] UIhandler uiHandler;
+    [SerializeField] int startingPower = 5;
 
  
 
@@ -89,6 +90,14 @@ public class GameMaster : MonoBehaviour
         foreach(Trigger t in triggers)
         {
             //Debug.Log(t.name);
+        }
+    }
+
+    private void Start()
+    {
+        foreach(Faction faction in factionController.GetFactions())
+        {
+            GameMaster.factionController.ChangeFactionPower(faction.FactionName, startingPower);
         }
     }
 
