@@ -3452,6 +3452,143 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
+  - Name: The Usurper
+    Description: " The Undercity will take care of this for you, if you\u2019d like..."
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: "Watch your back, my liege \u2013 discovery of an aggressive usurper
+        amongst the nobility who believes he should have been chosen, not you. The
+        Undercity will take care of this for you, if you\u2019d like."
+      audio: {fileID: 8300000, guid: da9abb6ad15010e40bd83689a028d155, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    - text: We caught wind of this when he came to the undercity to arrange your
+        assassination. As you are a valued client we are more than happy to deal
+        with the problem for a fee of course.
+      audio: {fileID: 8300000, guid: bea59a98a518fd24cb705471a4d628e2, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: Gracious news my liege with the help you have afforded me I have managed
+          to make the usurper disappear. Truly this is a partnership to remember
+        audio: {fileID: 8300000, guid: 8727380ac186eb2489ef6d9283599e70, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: With the funds you have afforded us we have managed to deal with the
+          usurper problem. I'm glad to report that you won't be hearing from him
+          anymore.
+        audio: {fileID: 8300000, guid: 255bc07635f9fa04ba57f86c426f447e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: 'My Leige, I don''t know what you expected but sending the military
+          to stomp around in our affairs is the biggest blunder I''ve seen you do
+          yet. The dust that they have kicked up has completely discombobulated our
+          operations that will take us weeks to sort out. '
+        audio: {fileID: 8300000, guid: 188b83d92c887ac4ca830dce61289dfd, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: "My Liege, I come with fantastic news, with the help of the contacts
+          you gave us were able to dig up some interesting facts about this fellow.
+          Now I can't speak for their truthfulness but certainly his family believed
+          it enough to disown him. Regardless, we won\u2019t be seeing much of him
+          anymore. "
+        audio: {fileID: 8300000, guid: 196b7e095d4ee674aa4e9996fe3c1483, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: 'I see you managed to deal with the matter yourself. It took a great
+          deal of effort and goodwill for me to reach out and offer my services like
+          this. I do not appreciate being left out of the equation like this either.
+          See that it does not happen again, or else. '
+        audio: {fileID: 8300000, guid: 5ca297cf7097b444a8e64d46808b520e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
   storyCrisises:
   - Name: Tutorial
     Description: Playing a card will choose your faction
@@ -3498,10 +3635,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
-        - 
-        - 
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 0
@@ -3516,7 +3650,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3530,9 +3664,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
-        - 
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3547,8 +3679,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: GetDeck
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
   - Name: A Dispute Between Lords
@@ -3596,7 +3727,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3620,8 +3752,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3671,7 +3802,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3737,7 +3869,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3759,8 +3892,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3783,7 +3915,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -3807,7 +3940,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3864,7 +3998,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -3886,8 +4021,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -3908,7 +4042,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -3928,7 +4063,12 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: 
+        effectVars:
+        - 4
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: On the morn of the day we are due to visit the expedition, you wake
@@ -3986,7 +4126,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -4028,7 +4169,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars: []
-        triggerName: 
+        triggerName: 3
         triggerVars: []
     - faction: 3
       dialogues:
@@ -4053,7 +4194,11 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 4
+        triggerVars: []
     - faction: 
       dialogues:
       - text: "The balancing act between the farmer disrupted by Tom\u2019s efforts,
@@ -4115,7 +4260,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: 1
@@ -4137,8 +4283,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -4160,7 +4305,8 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
+        effectVars:
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 3
@@ -4180,7 +4326,12 @@ MonoBehaviour:
       - text: You've gained a random Noble Card.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 4
+        triggerName: 
+        triggerVars: []
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
@@ -4217,6 +4368,102 @@ MonoBehaviour:
   Decks:
   - faction: Basic
     cards:
+    - Name: Support The People
+      Description: Increase Relationship with the People Faction by 1 and gain 1
+        Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: People
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0100000000000000000000000000000000000000
+      ProgressValues: 0100000000000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Merchants
+      Description: Increase Relationship with the Merchant Faction by 1 and gain
+        1 Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Economic
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000001000000000000000000000000000000
+      ProgressValues: 0000000001000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Military
+      Description: Increase Relationship with the Military Faction by 1 and gain
+        1 Military  progress on the played event.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000010000000000000000000000
+      ProgressValues: 0000000000000000010000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Nobles
+      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
+        Nobles  progress on the played event.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr: []
+    - Name: Support The People
+      Description: Increase Relationship with the People Faction by 1 and gain 1
+        Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: People
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0100000000000000000000000000000000000000
+      ProgressValues: 0100000000000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Merchants
+      Description: Increase Relationship with the Merchant Faction by 1 and gain
+        1 Merchant progress on the played event.
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Economic
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000001000000000000000000000000000000
+      ProgressValues: 0000000001000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Military
+      Description: Increase Relationship with the Military Faction by 1 and gain
+        1 Military  progress on the played event.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000010000000000000000000000
+      ProgressValues: 0000000000000000010000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Nobles
+      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
+        Nobles  progress on the played event.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000000000000000000
+      HappinessValues: 0000000000000000000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
+      triggerEffectsStr: []
     - Name: Two Heads Are Better Than One
       Description: Duplicate the effect of last card played by the other Head of
         State on Crisis.
@@ -4238,102 +4485,6 @@ MonoBehaviour:
         - 1
         triggerName: OnUse
         triggerVars: []
-    - Name: Support The People
-      Description: Increase Relationship with the People Faction by 1 and gain 1
-        Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: People
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0100000000000000000000000000000000000000
-      ProgressValues: 0100000000000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The People
-      Description: Increase Relationship with the People Faction by 1 and gain 1
-        Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: People
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0100000000000000000000000000000000000000
-      ProgressValues: 0100000000000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Merchants
-      Description: Increase Relationship with the Merchant Faction by 1 and gain
-        1 Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Economic
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000001000000000000000000000000000000
-      ProgressValues: 0000000001000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Merchants
-      Description: Increase Relationship with the Merchant Faction by 1 and gain
-        1 Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Economic
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000001000000000000000000000000000000
-      ProgressValues: 0000000001000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Military
-      Description: Increase Relationship with the Military Faction by 1 and gain
-        1 Military  progress on the played event.
-      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Military
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000010000000000000000000000
-      ProgressValues: 0000000000000000010000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Military
-      Description: Increase Relationship with the Military Faction by 1 and gain
-        1 Military  progress on the played event.
-      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Military
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000010000000000000000000000
-      ProgressValues: 0000000000000000010000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Nobles
-      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
-        Nobles  progress on the played event.
-      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Nobility
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000000000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
-      triggerEffectsStr: []
-    - Name: Support The Nobles
-      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
-        Nobles  progress on the played event.
-      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Nobility
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
-      HappinessValues: 0000000000000000000000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
-      triggerEffectsStr: []
     - Name: Stamp Out Crime
       Description: Reduce the crime faction power by 3.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
@@ -4404,7 +4555,7 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: OrganisdChaos
+      - effectName: Chaos
         effectVars: []
         triggerName: OnUse
         triggerVars:
