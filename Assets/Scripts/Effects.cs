@@ -495,3 +495,49 @@ public class PlayScene : Effect
         GameMaster.dialoguePlayer.StartDialogueFromScene(scene);
     }
 }
+
+public class GetDeck : Effect
+{
+    public GetDeck()
+    {
+        name = "GetDeck";
+    }
+
+    int index;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        index = int.Parse(args[0]);
+    }
+
+    public override void DoEffect()
+    {
+        foreach(Card card in GameMaster.cardMaster.Decks[index].cards)
+        {
+            GameMaster.playerHand.AddCard(card);
+        }
+    }
+}
+
+public class RandomCard : Effect{
+    public RandomCard()
+    {
+        name = "RandomCard";
+    }
+
+    int index;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        index = int.Parse(args[0]);
+    }
+
+    public override void DoEffect()
+    {
+        List<Card> cards = GameMaster.cardMaster.Decks[index].cards;
+        Card card = cards[UnityEngine.Random.Range(0, cards.Count)];
+        GameMaster.playerHand.AddCard(card);
+    }
+}

@@ -2953,10 +2953,10 @@ MonoBehaviour:
       triggerName: Instant
       triggerVars: []
     dialogues:
-    - text: 'Greetings and congratulations my Liege I hope this letter reaches you
-        well. I have quite an opportunity for you, historically this country has
-        failed to see eye to eye on our particular business venture, but from what
-        I''ve heard of your prowess I have high hopes for a new kind of partnership.
+    - text: 'Greetings and congratulations \n my Liege I hope this letter reaches
+        you well. I have quite an opportunity for you, historically this country
+        has failed to see eye to eye on our particular business venture, but from
+        what I''ve heard of your prowess I have high hopes for a new kind of partnership.
         One that meets the needs of all the people. '
       audio: {fileID: 8300000, guid: 3ef734cdb5da6b94fafc846c8145b5db, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
@@ -3719,6 +3719,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: People
     factionColor: {r: 0.4523407, g: 0.48966703, b: 0.8962264, a: 1}
     playerHappiness: 0
@@ -3732,6 +3733,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Economic
     factionColor: {r: 0.990566, g: 0.87235224, b: 0.23829652, a: 1}
     playerHappiness: 0
@@ -3745,6 +3747,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Military
     factionColor: {r: 0.754717, g: 0.28835887, b: 0.28835887, a: 1}
     playerHappiness: 0
@@ -3758,6 +3761,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Nobility
     factionColor: {r: 0.6175616, g: 0.38047346, b: 0.8490566, a: 1}
     playerHappiness: 0
@@ -3771,6 +3775,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Crime
     factionColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     playerHappiness: 0
@@ -9780,17 +9785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CrisisChosen: 0
   chosenCrisis:
-    crisis:
-      Name: 
-      Description: 
-      image: {fileID: 0}
-      audio: {fileID: 0}
-      location: None
-      DayLength: 0
-      minProgress: 5
-      triggerEffectsStr: []
-      dialogues: []
-      endCrisis: []
     playerCards: []
     AICards: []
     crisisBox: {fileID: 0}
@@ -11241,7 +11235,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
-  m_parseCtrlCharacters: 1
+  m_parseCtrlCharacters: 0
   m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_horizontalMapping: 0

@@ -64,17 +64,10 @@ public class JL_HandController : MonoBehaviour
             //     CC.Position = DeckOffScreenLocation;
             // }
         //}
-
+        
         foreach(Card card in GameMaster.cardMaster.Decks[0].cards)
         {
-            GameObject cardObj = Instantiate(Card, DeckOffScreenLocation, transform.rotation, Deck.transform);
-            CardsInDeck.Add(cardObj);
-            JL_CardController CC = cardObj.GetComponent<JL_CardController>();
-            CC.Deck = Deck;
-            CC._Card = card;
-            CC.Discard = Discard;
-            CC.Hand = gameObject;
-            CC.Position = DeckOffScreenLocation;
+            AddCard(card);
         }
         for (int startingCard = 0; startingCard <= startingCards; startingCard++)
         {
@@ -82,17 +75,18 @@ public class JL_HandController : MonoBehaviour
         }
     }
 
+
+
     public void AddCard(Card _Card)
     {
-        GameObject NewCard = Instantiate(Card,DeckOffScreenLocation,transform.rotation,Deck.transform);
-        CardsInDeck.Add(NewCard);
-        JL_CardController CC =  NewCard.GetComponent<JL_CardController>();
+        GameObject cardObj = Instantiate(Card, DeckOffScreenLocation, transform.rotation, Deck.transform);
+        CardsInDeck.Add(cardObj);
+        JL_CardController CC = cardObj.GetComponent<JL_CardController>();
         CC.Deck = Deck;
-        CC._Card = _Card;
+        CC._Card = _Card.Copy();
         CC.Discard = Discard;
         CC.Hand = gameObject;
         CC.Position = DeckOffScreenLocation;
-
     }
 
     void Update() // These Update functions are just for Debugging and can be removed from the final build, clicking on the deck draws cards and clicking ont he discard discards them.
@@ -202,8 +196,6 @@ public class JL_HandController : MonoBehaviour
                 CardsInDiscard[i].GetComponent<JL_CardController>().Position = DeckOffScreenLocation;
                 CardsInDiscard[i].transform.SetParent(Deck.transform);
                 CardsInDeck.Add(CardsInDiscard[i]);
-                
-                
             }
 
             CardsInDiscard.Clear();

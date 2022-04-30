@@ -19,6 +19,7 @@ public class DialoguePlayer : MonoBehaviour{
     internal int index;
     public float textSpeed = 0.05f;
     internal float time;
+    [SerializeField] public static List<Dialogue> WinningDialogue = new List<Dialogue>();
 
     public void Awake(){
         GameMaster.dialoguePlayer = this;
@@ -118,6 +119,10 @@ public class DialoguePlayer : MonoBehaviour{
         dialogueBox.SetActive(false);
     }
 
+
+    public void EndGame(){
+        StartDialogue(WinningDialogue);
+    }
 
 }
 
