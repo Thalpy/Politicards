@@ -59,7 +59,12 @@ public class Crisis
         newCrisis.minProgress = minProgress;
         newCrisis.endCrisis = endCrisis;
         newCrisis.dialogues = dialogues;
-
+        //
+        foreach (Faction faction in GameMaster.factionController.GetFactions())
+        {
+            //add the faction to the dictionary
+            factionProgress.Add(faction, 0);
+        }
         if (triggerEffects != null){
             newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
         }
@@ -153,7 +158,7 @@ public class Crisis
                 else{
                     faction = GameMaster.factionController.SelectFaction(end.faction);
                 }
-                if (end.faction == victory.FactionName)
+                if (faction.FactionName == victory.FactionName)
                 {
                     end.run();
                 }

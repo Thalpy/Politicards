@@ -73,9 +73,12 @@ public class DialoguePlayer : MonoBehaviour{
 
     public void StartDialogue(List<Dialogue> dialogues){
         CopyDialogue(dialogues);
+        if(dialogueBox.active == false){
+            //set the first dialogue
+            ProgressDialogue();
+        }
         dialogueBox.SetActive(true);
-        //set the first dialogue
-        ProgressDialogue();
+        
     }
 
     public void CopyDialogue(List<Dialogue> dialogues){
@@ -103,6 +106,9 @@ public class DialoguePlayer : MonoBehaviour{
 
     //Progress the dialogue by one
     public void ProgressDialogue(){
+        if(targetText != revealedText){
+            return;
+        }
         //if there is no dialogue, return
         if(activeDialogues.Count == 0){
             EndDialogue();
