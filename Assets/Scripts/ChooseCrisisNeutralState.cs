@@ -32,7 +32,7 @@ public class ChooseCrisisNeutralState : State
     /// <summary>
     /// the state the AI will move into once it has chosen a crisis
     /// </summary>
-    [SerializeField] ChooseCardNeutralState chooseCardState;
+    [SerializeField] public ChooseCardNeutralState chooseCardState;
 
     #endregion
 

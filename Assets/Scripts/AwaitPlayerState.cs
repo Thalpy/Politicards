@@ -22,17 +22,17 @@ public class AwaitPlayerState : State
     /// <summary>
     /// the state the AI will move into once the PlayerPlayedCard event has been recieved if the player has a good relationship with the AI
     /// </summary>
-    [SerializeField] ChooseCrisisAllyState chooseCrisisState;
+    [SerializeField] public ChooseCrisisAllyState chooseCrisisState;
 
     /// <summary>
     /// the state the AI will move into once the PlayerPlayedCard event has been recieved if the player has a bad relationship with the AI
     /// </summary>
-    [SerializeField] ChooseCrisisEnemyState chooseCrisisEnemyState;
+    [SerializeField] public ChooseCrisisEnemyState chooseCrisisEnemyState;
 
     /// <summary>
     /// the state the AI will move into once the PlayerPlayedCard event has been recieved if the player has a neutral relationship with the AI
     /// </summary>
-    [SerializeField] ChooseCrisisNeutralState chooseCrisisNeutralState;
+    [SerializeField] public ChooseCrisisNeutralState chooseCrisisNeutralState;
 
     /// <summary>
     /// handles the logic for determining which crisis state the AI will move into

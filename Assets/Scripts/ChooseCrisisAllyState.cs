@@ -34,7 +34,7 @@ public class ChooseCrisisAllyState : State
     /// <summary>
     /// the state the AI will move into once it has chosen a crisis
     /// </summary>
-    [SerializeField] ChooseCardAllyState chooseCardState;
+    [SerializeField] public ChooseCardAllyState chooseCardState;
 
 
     /// <summary>

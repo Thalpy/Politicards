@@ -9,6 +9,12 @@ public class StateManager : MonoBehaviour
 {
     #region Fields
 
+    bool recovering;
+
+    [SerializeField] GameObject rootNode;
+
+
+
     /// <summary>
     /// The current state the AI is in.
     /// </summary>
@@ -76,6 +82,11 @@ public class StateManager : MonoBehaviour
     /// </summary>
     void Update()
     {
+        if(recovering == true)
+        {
+            recovering = false;
+            gameObject.SetActive(true);
+        }
         RunStateMachine();
     }
 
@@ -134,11 +145,26 @@ public class StateManager : MonoBehaviour
     /// </summary>
     private void RunStateMachine()
     {
+        try{
+
+        
         State nextState = currentState?.RunCurrentState(); // returns null if we should continue with the current state otherwise returns the next state
 
         if (nextState != null)
         {
             SwitchToNextState(nextState);
+        }
+        }
+        catch(System.Exception e)
+        {
+            recovering = true;
+            Debug.LogError(e.Message);
+            Debug.LogError("Something has occured and the AI broke :(");
+            Debug.LogError("The AI will try and recover from this error");
+            Debug.LogError("If you've got here the AI totally shit the bed, this is not good");
+            gameObject.SetActive(false);
+            recoverAISubsystems();
+
         }
     }
 
@@ -217,6 +243,18 @@ public class StateManager : MonoBehaviour
                 RelationshipWithPlayer = Random.Range(3, 5);
                 break;
         }
+    }
+
+    /// <summary>
+    /// tries to rebuild the AI system following a collapse of the thread running the AI
+    /// </summary>
+    void recoverAISubsystems()
+    {
+        DestroyImmediate(rootNode);
+        //load the ai prefab
+        GameObject ai = Instantiate(Resources.Load("AI")) as GameObject;
+        rootNode = ai;
+        currentState = rootNode.transform.GetChild(0).GetComponent<AwaitPlayerState>();
     }
 
 }
