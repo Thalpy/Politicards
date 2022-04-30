@@ -104,13 +104,15 @@ public class CrisisMaster : MonoBehaviour
 
             };
             //for each card in the crisis
-            foreach (Card card in activeCrisses[i].playerCards)
-            {
-                if(card == null){continue;}
-                //check if the card has a new turn trigger 
-                //TODO: null check
-                if (card == null){continue;}
-                card.CheckTrigger("Investment");
+            if(activeCrisses[i] != null){
+                foreach (Card card in activeCrisses[i].playerCards)
+                {
+                    if(card == null){continue;}
+                    //check if the card has a new turn trigger 
+                    //TODO: null check
+                    if (card == null){continue;}
+                    card.CheckTrigger("Investment");
+                }
             }
         }
     }            
@@ -235,7 +237,6 @@ public class CrisisMaster : MonoBehaviour
             {
                 activeCrisses[i].ApplyCard(card, index, player);
                 if (player){PlayerPlayedCardEvent.Invoke();} //if player, then invoke the player played card event
-                if (!player){GameMaster.NextTurn();}
                 return;
             }
         }

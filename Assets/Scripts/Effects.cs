@@ -66,6 +66,7 @@ public abstract class Effect
             Card card = source as Card;
             //find the card in the active crisises
             Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            Debug.Log(GameMaster.crisisMaster.ActiveCrisses);
             //alter the crisis progress
             crisis.AdjustProgress(power, faction);
         }
