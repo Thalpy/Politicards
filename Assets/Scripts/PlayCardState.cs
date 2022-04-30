@@ -13,7 +13,7 @@ public class PlayCardState : State
 
     bool attemptedToPlay;
 
-    public bool AttemptedToPlay {get => attemptedToPlay; set => attemptedToPlay = value; }
+    public bool AttemptedToPlay { get => attemptedToPlay; set => attemptedToPlay = value; }
 
     /// <summary>
     /// the current crisis the AI is playing
@@ -26,7 +26,7 @@ public class PlayCardState : State
     /// </summary>
     Card card;
     public Card Card { get => card; set => card = value; }
-    
+
 
 
     public AwaitPlayerState awaitPlayerState;
@@ -39,8 +39,8 @@ public class PlayCardState : State
     /// </summary>
     /// <returns>The next state</returns>
     public override State RunCurrentState()
-    { 
-        if(attemptedToPlay)
+    {
+        if (attemptedToPlay)
         {
             awaitPlayerState.PlayerTurnComplete = false;
             return awaitPlayerState;
@@ -71,9 +71,11 @@ public class PlayCardState : State
         if (!turnComplete)
         {
             // set the card to be played
-            TargetCrisis tgt = activeCrisis. GetTargetFromIndex(getFirstEmptyAICardSlot());
+            TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
 
             tgt.DropCardAI(card);
+
+            discardCard();
 
             //activeCrisis.ApplyCard(card, getFirstEmptyAICardSlot(), false);
             // set the turn complete bool to true
@@ -93,5 +95,18 @@ public class PlayCardState : State
             return -1;
         }
     }
-}
 
+    private void discardCard()
+    {
+        GameObject[] currentCardsInHand = GameMaster.AISHand.CardsInHand.ToArray();
+
+        for (int i = 0; i < currentCardsInHand.Length; i++)
+        {
+            if (card.GetHashCode() == currentCardsInHand[i].GetComponent<JL_CardController>()._Card.GetHashCode())
+            {
+                GameMaster.AISHand.CardsInHand[i].GetComponent<JL_CardController>().DiscardAction();
+            }
+        }
+    }
+
+}
