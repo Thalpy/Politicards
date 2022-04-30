@@ -119,8 +119,7 @@ public class FactionController : MonoBehaviour
                 return factions[i];
             }
         }
-        Debug.LogWarning("Faction not found");
-        Debug.Break();
+        Debug.LogWarning("Faction not found:" + factionName);
         return null;
     }
 

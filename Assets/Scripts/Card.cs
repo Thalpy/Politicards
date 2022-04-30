@@ -56,6 +56,7 @@ public class Card
         GameMaster.crisisMaster.ApplyCard(this, crisis, index, player); 
         CheckTrigger("OnUse");
         GameMaster.cardMaster.cardAudio.PlayOneShot(audio);
+        if (!player){GameMaster.NextTurn();}
         //Aimanager.playturn()       
     }
 

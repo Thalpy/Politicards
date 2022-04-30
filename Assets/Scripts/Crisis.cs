@@ -59,7 +59,7 @@ public class Crisis
         newCrisis.minProgress = minProgress;
         newCrisis.endCrisis = endCrisis;
         newCrisis.dialogues = dialogues;
-        
+
         if (triggerEffects != null){
             newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
         }
