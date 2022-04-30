@@ -77,7 +77,7 @@ public class PlayCardState : State
             {
                 Debug.Log("Sommat broke like. This should have a red dot on it innit!");
             }
-            tgt.DropCardAI(card);
+            tgt.DropCardAI(card);   
 
             discardCard();
 

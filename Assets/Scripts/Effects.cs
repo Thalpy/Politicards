@@ -72,6 +72,15 @@ public abstract class Effect
             Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
             Debug.Log(GameMaster.crisisMaster.ActiveCrisses);
             //alter the crisis progress
+            if(crisis == null)
+            {
+                Debug.LogError("Crisis not found");
+                crisis = GameMaster.crisisMaster.GetRandomCrisis().crisis;
+            }
+            if(faction == null){
+                Debug.LogError("Faction is null");
+                faction = GameMaster.factionController.GetRandomFaction();
+            }
             crisis.AdjustProgress(power, faction);
         }
         else if (source is Crisis){
@@ -387,17 +396,10 @@ public class Chaos :Effect
         {
             //get a random faction
             Faction faction = GameMaster.factionController.GetFactions()[UnityEngine.Random.Range(0, GameMaster.factionController.GetFactions().Count)];
-            
             //loop over index of activecrisses
-            for(int j = 0; j < GameMaster.crisisMaster.ActiveCrisses.Length; j++)
-            {
-                ActiveCrisis crisis = GameMaster.crisisMaster.ActiveCrisses[j];
-                if(crisis == null){
-                    continue;
-                }
-                AdjustProgress(faction);
-                GameMaster.factionController.ChangeFactionPower(faction.FactionName, 1);
-            }
+            ActiveCrisis crisis = GameMaster.crisisMaster.GetRandomCrisis();
+            crisis.crisis.AdjustProgress(power, faction);
+            GameMaster.factionController.ChangeFactionPower(faction.FactionName, 1);
         }
     }
 }   

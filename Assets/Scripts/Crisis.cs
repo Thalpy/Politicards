@@ -59,11 +59,14 @@ public class Crisis
         newCrisis.minProgress = minProgress;
         newCrisis.endCrisis = endCrisis;
         newCrisis.dialogues = dialogues;
-        //bugfix    
-        foreach (Faction faction in GameMaster.factionController.GetFactions())
-        {
-            //add the faction to the dictionary
-            factionProgress.Add(faction, 0);
+        //bugfix
+        if(factionProgress.Count == 0)
+        {   
+            foreach (Faction faction in GameMaster.factionController.GetFactions())
+            {
+                //add the faction to the dictionary
+                factionProgress.Add(faction, 0);
+            }
         }
         if (triggerEffects != null){
             newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
@@ -130,7 +133,7 @@ public class Crisis
             return;
         }
         Faction victory = null;
-        int victoryProgress = 0;
+        int victoryProgress = minProgress;
         foreach(KeyValuePair<Faction, int> entry in factionProgress){
             if(entry.Value > victoryProgress){
                 victory = entry.Key;
