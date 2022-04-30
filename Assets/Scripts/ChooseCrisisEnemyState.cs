@@ -102,7 +102,7 @@ public class ChooseCrisisEnemyState : State
             
             if (currentCrisis == null) { continue; }
             int FactionProgress = FactionProgressOnCard(crises, i);
-            if (FactionProgress <= lowestProgress)
+            if (FactionProgress <= lowestProgress && crises[i].AICards[2] == null)
             {
                 lowestProgress = FactionProgress;
                 lowestProgressCrisis = crises[i];
