@@ -2944,7 +2944,7 @@ MonoBehaviour:
     audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
     location: None
     DayLength: 3
-    minProgress: 3
+    minProgress: 2
     triggerEffectsStr:
     - effectName: Power
       effectVars:
@@ -2952,46 +2952,6 @@ MonoBehaviour:
       - Crime
       triggerName: Instant
       triggerVars: []
-    - effectName: Draw
-      effectVars:
-      - 1
-      triggerName: Win
-      triggerVars:
-      - 1
-    - effectName: Power
-      effectVars:
-      - 5
-      - Crime
-      triggerName: Win
-      triggerVars: []
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - People
-      triggerName: Victory
-      triggerVars:
-      - People
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Economic
-      triggerName: Victory
-      triggerVars:
-      - Economic
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Military
-      triggerName: Victory
-      triggerVars:
-      - Military
-    - effectName: Happiness
-      effectVars:
-      - 5
-      - Nobility
-      triggerName: Victory
-      triggerVars:
-      - Nobility
     dialogues:
     - text: 'Greetings and congratulations my Liege I hope this letter reaches you
         well. I have quite an opportunity for you, historically this country has
@@ -3015,16 +2975,123 @@ MonoBehaviour:
     endCrisis:
     - faction: People
       dialogues:
-      - text: 
-        audio: {fileID: 0}
-        image: {fileID: 0}
-      triggerEffectsStr: []
+      - text: "Gracious news my Liege, our infiltration into the People\u2019s party
+          has yielded that they are not planning your demise, for now. Though, during
+          our pilfering we found this which may prove useful to you."
+        audio: {fileID: 8300000, guid: b4f44dad530b7fc41b76a6529c02eb16, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
     - faction: People
       dialogues:
       - text: 
         audio: {fileID: 0}
         image: {fileID: 0}
       triggerEffectsStr: []
+    - faction: Economic
+      dialogues:
+      - text: Gracious news my Liege, our infiltration into the Economic party has
+          yielded that they are not planning your demise, for now. Though, during
+          our pilfering we found this which may prove useful to you.
+        audio: {fileID: 8300000, guid: 779a527371729704fb0379cd66fd6739, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: Gracious news my Liege, our infiltration into the Military party has
+          yielded that they are not planning your demise, for now. Though, during
+          our pilfering we found this which may prove useful to you.
+        audio: {fileID: 8300000, guid: 13158910cc36db641bc9790c9fb14727, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Gracious news my Liege, our infiltration into the Nobel's party has
+          yielded that they are not planning your demise, for now. Though, during
+          our pilfering we found this which may prove useful to you.
+        audio: {fileID: 8300000, guid: e5d643a23f846c14da24246ae90e6f40, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Happiness
+        effectVars:
+        - -1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 4
+        - 2
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: I see you let our offer fall by the wayside. How disappointing. We
+          were expecting much more from you.
+        audio: {fileID: 8300000, guid: 2808f06277d6ad84299b3be0615b54b4, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
   - Name: Narzon's letter
     Description: Nazron has reached out to you to offer you a particular proposal.
       Finding a way to help will draw you an extra card but may also have other consequences.
@@ -3634,7 +3701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 432086064}
   uiHandler: {fileID: 1195906802}
-  startingPower: 0
+  startingPower: 5
   pieChart: {fileID: 731674672}
 --- !u!114 &561427135
 MonoBehaviour:

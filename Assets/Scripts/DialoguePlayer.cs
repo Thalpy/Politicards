@@ -78,7 +78,7 @@ public class DialoguePlayer : MonoBehaviour{
     }
 
     public void CopyDialogue(List<Dialogue> dialogues){
-        activeDialogues = new List<Dialogue>();
+        //activeDialogues = new List<Dialogue>();
         foreach(Dialogue d in dialogues){
             activeDialogues.Add(d.Copy());
         }

@@ -19,7 +19,8 @@ public class CrisisMaster : MonoBehaviour
     public ActiveCrisis[] ActiveCrisses
     {
         get { return activeCrisses; }
-        set { activeCrisses = value; }
+        set { activeCrisses = value; 
+        Debug.Log("Active Crisises was edited!!"); }
     }
 
     public CrisisBox crisisBox;
@@ -56,6 +57,9 @@ public class CrisisMaster : MonoBehaviour
 
     public Crisis FindCrisisFromCard(Card card){
         foreach (ActiveCrisis crisis in activeCrisses){
+            if(crisis == null){
+                continue;
+            }
             foreach(Card p_card in crisis.playerCards){
                 if(p_card == card){
                     return crisis.crisis;
@@ -97,13 +101,14 @@ public class CrisisMaster : MonoBehaviour
             if (activeCrisses[i] == null){continue;}
             if(!activeCrisses[i].crisis.NewTurn()){
                 activeCrisses[i].EndCrisis();
-                activeCrisses[i] = null;
+                //activeCrisses[i] = null;
                 continue;
 
             };
             //for each card in the crisis
             foreach (Card card in activeCrisses[i].playerCards)
             {
+                if(card == null){continue;}
                 //check if the card has a new turn trigger 
                 //TODO: null check
                 if (card == null){continue;}
@@ -172,22 +177,22 @@ public class CrisisMaster : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// This ends the crisis and removes it from the active list
-    /// </summary>
-    /// <param name="crisis">The crisis to end</param>
-    public void EndCrisis(Crisis crisis)
-    {
-        for (int i = 0; i < activeCrisses.Length; i++)
-        {
-            if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
-            {
-                activeCrisses[i].EndCrisis();
-                activeCrisses[i] = null;
-                return;
-            }
-        }
-    }
+    // /// <summary>
+    // /// This ends the crisis and removes it from the active list
+    // /// </summary>
+    // /// <param name="crisis">The crisis to end</param>
+    // public void EndCrisis(Crisis crisis)
+    // {
+    //     for (int i = 0; i < activeCrisses.Length; i++)
+    //     {
+    //         if (activeCrisses[i] != null && activeCrisses[i].crisis == crisis)
+    //         {
+    //             activeCrisses[i].EndCrisis();
+    //             activeCrisses[i] = null;
+    //             return;
+    //         }
+    //     }
+    // }
 
     public void DisableCrisisBox(Crisis crisis){
         foreach(CrisisBox crisisBox in crisisBoxes){
@@ -289,7 +294,15 @@ public class CrisisMaster : MonoBehaviour
 [System.Serializable]
 public class ActiveCrisis
 {
-    public Crisis crisis;
+    Crisis Crisis;
+
+    public Crisis crisis{
+        get{return Crisis;}
+        set{Crisis = value;
+        Debug.LogWarning("CrisisMaster: Set crisis to " + Crisis.Name);
+        }
+    }
+
     //public Timer timer;
     public Card[] playerCards = new Card[3];
     public Card[] AICards = new Card[3];
@@ -376,7 +389,7 @@ public class ActiveCrisis
 
     public TargetCrisis GetTargetFromIndex(int index)
     {
-        TargetCrisis target;
+        //TargetCrisis target;
         //get the transform of the crisis box
         Transform boxTransform = crisisBox.transform;
 
@@ -385,26 +398,36 @@ public class ActiveCrisis
 
         //get the target
 
-        switch(index){
-            //gets the AIslot 0 target from the children of the crisis box  
-            case 0:
-                
-                target = cardSlots.GetChild(3).GetComponent<TargetCrisis>();
+        foreach(TargetCrisis target in cardSlots.GetComponentsInChildren<TargetCrisis>()){
+            //target = child.GetComponent<TargetCrisis>();
+            if(target.player == true){
+                continue;
+            }
+            if(target.index == index){
                 return target;
-            //gets the AIslot 1 target from the children of the crisis box    
-            case 1:
-                target = cardSlots.GetChild(4).GetComponent<TargetCrisis>();             
-                return target;
-            //gets the AIslot 2 target from the children of the crisis box
-            case 2:
-                target = cardSlots.GetChild(5).GetComponent<TargetCrisis>();
-                return target;
-            default:
-                Debug.LogWarning("CrisisMaster: GetTargetFromIndex: Index out of range");
-                break;
+            }
         }
+
+        // switch(index){
+        //     //gets the AIslot 0 target from the children of the crisis box  
+        //     case 0:
+                
+        //         target = cardSlots.GetChild(3).GetComponent<TargetCrisis>();
+        //         return target;
+        //     //gets the AIslot 1 target from the children of the crisis box    
+        //     case 1:
+        //         target = cardSlots.GetChild(4).GetComponent<TargetCrisis>();             
+        //         return target;
+        //     //gets the AIslot 2 target from the children of the crisis box
+        //     case 2:
+        //         target = cardSlots.GetChild(5).GetComponent<TargetCrisis>();
+        //         return target;
+        //     default:
+        //         Debug.LogWarning("CrisisMaster: GetTargetFromIndex: Index out of range");
+        //         break;
+        // }
         Debug.LogWarning("CrisisMaster: GetTargetFromIndex: No target found");
-        Debug.Break();        
+        //Debug.Break();        
         return null;
     }
 

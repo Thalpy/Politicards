@@ -30,7 +30,7 @@ public class TargetCrisis : Targetable
             Debug.Log("In TargetCrisis.DropCard()");
             Debug.Log("Adding card to crisis: " + crisis.Name);
             #endif
-            GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
+            //GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
             GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
             return true;

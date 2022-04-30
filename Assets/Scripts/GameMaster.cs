@@ -48,7 +48,7 @@ public class GameMaster : MonoBehaviour
     [SerializeField] Camera mainCamera;
 
     [SerializeField] UIhandler uiHandler;
-    [SerializeField] int startingPower;
+    [SerializeField] int startingPower = 5;
 
  
 

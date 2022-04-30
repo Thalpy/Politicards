@@ -56,6 +56,10 @@ public class Crisis
         newCrisis.image = image;
         newCrisis.audio = audio;
         newCrisis.DayLength = DayLength;
+        newCrisis.minProgress = minProgress;
+        newCrisis.endCrisis = endCrisis;
+        newCrisis.dialogues = dialogues;
+        
         if (triggerEffects != null){
             newCrisis.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
         }
@@ -108,6 +112,7 @@ public class Crisis
     }
 
 
+
     /// <summary>
     /// Checks if the crisis is active and if it is, it will end it
     /// Sends off flags for the result then removes it from the active crisis list
@@ -128,12 +133,35 @@ public class Crisis
             }
         }
         if(victory == null){
-            CheckTrigger("Lose");
+            foreach (EndCrisis end in endCrisis)
+            {
+                if (end.faction == "")
+                {
+                    end.run();
+                }
+            }
         }
-        else{
-            CheckTrigger($"{victory.FactionName}_Win");
-            CheckTrigger($"Win");
+        
+        foreach (EndCrisis end in endCrisis)
+        {
+            Faction faction = null;
+            if (int.TryParse(end.faction, out int factionID))
+            {
+                faction = GameMaster.factionController.SelectFaction(factionID);
+            }
+            else{
+                faction = GameMaster.factionController.SelectFaction(end.faction);
+            }
+            if (end.faction == victory.FactionName)
+            {
+                end.run();
+            }
         }
+
+        // else{
+        //     CheckTrigger($"{victory.FactionName}_Win");
+        //     CheckTrigger($"Win");
+        // }
         CheckTrigger("End");
         //safety check
         GameMaster.crisisMaster.RemoveCrisis(this);
@@ -229,4 +257,12 @@ public class EndCrisis
     [SerializeField]
     public List<TriggerEffect> triggerEffectsStr = new List<TriggerEffect>();
 
+    public void run(){
+        GameMaster.dialoguePlayer.StartDialogue(dialogues);
+        foreach(TriggerEffect trigEff in triggerEffectsStr){
+            Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
+            effectObj.setVars(this, trigEff.effectVars);
+            effectObj.DoEffect();
+        }
+    }
 }

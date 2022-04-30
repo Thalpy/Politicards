@@ -77,7 +77,7 @@ public class CrisisBox : MonoBehaviour
 
     public void EndCrisis()
     {
-        crisis = null;
+        //crisis = null;
         gameObject.SetActive(false);
     }
 
