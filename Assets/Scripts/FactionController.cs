@@ -123,6 +123,23 @@ public class FactionController : MonoBehaviour
         return null;
     }
 
+    public Faction CheckIfFactionsOver50()
+    {
+        float sumPower = 0;
+        for (int i = 0; i < factions.Count; i++)
+        {
+            sumPower += factions[i].FactionPower;
+        }
+        for (int i = 0; i < factions.Count; i++)
+        {
+            if (factions[i].FactionPower > sumPower / 2)
+            {
+                return factions[i];
+            }
+        }
+        return null;
+    }
+
     public Faction SelectFaction(int factionIndex)
     {
         return factions[factionIndex];

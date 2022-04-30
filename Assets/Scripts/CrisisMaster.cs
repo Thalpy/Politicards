@@ -30,6 +30,13 @@ public class CrisisMaster : MonoBehaviour
     // Track cards applied to events
     public List<CrisisBox> crisisBoxes = new List<CrisisBox>();
     public string DEBUGCRISIS = "Kirby";
+    int storyIndex = 0;
+
+    private void Start() {
+        //run this function 2 seconds later
+        Invoke("TryStartCrisis", 2);
+
+    }
 
     public Crisis getCrisis(string name)
     {
@@ -43,6 +50,7 @@ public class CrisisMaster : MonoBehaviour
         Debug.LogWarning("Crisis not found: " + name);
         return null;
     }
+
 
     public void StartCrisisFromText(string crisisName)
     {
@@ -115,7 +123,64 @@ public class CrisisMaster : MonoBehaviour
                 }
             }
         }
+        CheckEndings();
+        TryStartCrisis();
     }            
+
+    public void TryStartCrisis(){
+        if(CanAddCrisis() == false){
+            return;
+        }
+        Crisis crisis = null;
+        if(HasStoryCrisis()){
+            crisis = GetRandomCrisis();
+            if(crisis != null){
+                ActivateCrisis(crisis);
+                return;
+            }    
+        }
+        crisis = GetStoryCrisis();
+        if(crisis != null){
+            ActivateCrisis(crisis);
+            return;
+        }
+    }
+    
+    public void CheckEndings(){
+        Faction faction = GameMaster.factionController.CheckIfFactionsOver50();
+        if(faction != null){
+            faction.EndGame();
+        }
+    }
+
+    public bool HasStoryCrisis(){
+        foreach(ActiveCrisis Acrisis in activeCrisses){
+            // if Acrisis is in the storyCrisises list
+            if(Acrisis == null){
+                continue;
+            }
+            foreach(Crisis crisis in storyCrisises){
+                if(Acrisis.crisis.Name == crisis.Name){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public Crisis GetRandomCrisis(){
+        int randomIndex = Random.Range(0, crisises.Count);
+        return crisises[randomIndex];
+    }
+
+    public Crisis GetStoryCrisis(){
+        if(storyIndex > storyCrisises.Count){
+            GameMaster.dialoguePlayer.EndGame();
+        }
+        return storyCrisises[storyIndex];
+        storyIndex++;
+        
+    }
 
     //determines if a new crisis can be added
     public bool CanAddCrisis()
@@ -213,7 +278,7 @@ public class CrisisMaster : MonoBehaviour
                 crisisBoxesCopy.Add(crisisBox);
             }
         }
-        int index = Random.Range(0, crisisBoxesCopy.Count - 1);
+        int index = Random.Range(0, crisisBoxesCopy.Count);
         return crisisBoxesCopy[index];
     }
 
@@ -258,7 +323,7 @@ public class CrisisMaster : MonoBehaviour
     //Lists the active crises progress for use with the editor
     public void SpeakActiveCrisisProgress()
     {
-        string[] progress = new string[activeCrisses.Length];
+        string[] progress = new string[3];
         for (int i = 0; i < activeCrisses.Length; i++)
         {
             if (activeCrisses[i] != null)
