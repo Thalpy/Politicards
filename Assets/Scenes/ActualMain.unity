@@ -3069,7 +3069,7 @@ MonoBehaviour:
   - Name: Concerns of Security
     Description: 'A local lord, Sir Featherington, has reported ratfolk getting into
       his stores. '
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3
@@ -3202,7 +3202,7 @@ MonoBehaviour:
   - Name: Crime! In my Streets!
     Description: I don't know if you've noticed but the amount of crime in this area
       is simply unacceptable! I
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3
@@ -3327,7 +3327,7 @@ MonoBehaviour:
         triggerVars: []
   - Name: Factory Stike!
     Description: The workers of their factory are out protesting en masse.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3
@@ -3456,7 +3456,7 @@ MonoBehaviour:
     Description: "Watch your back, my liege \u2013 discovery of an aggressive usurper
       amongst the nobility who believes he should have been chosen, not you. The
       Undercity will take care of this for you, if you\u2019d like."
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3
@@ -3594,7 +3594,7 @@ MonoBehaviour:
         triggerVars: []
   - Name: Snooping Military
     Description: The military are snooping around our business.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3
@@ -3724,7 +3724,7 @@ MonoBehaviour:
   - Name: 'A Hostile Hunger '
     Description: The ratfolk who live in the lower city have brought to my attention
       a food shortage.
-    image: {fileID: 0}
+    image: {fileID: 21300000, guid: 4c659b10fab80ca4f92b3479bbf3ede7, type: 3}
     audio: {fileID: 0}
     location: None
     DayLength: 3

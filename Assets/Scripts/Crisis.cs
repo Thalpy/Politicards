@@ -149,7 +149,7 @@ public class Crisis
         
         foreach (EndCrisis end in endCrisis)
         {
-            try{
+            //try{
                 Faction faction = null;
                 if (int.TryParse(end.faction, out int factionID))
                 {
@@ -162,11 +162,12 @@ public class Crisis
                 {
                     end.run();
                 }
-            }
-            catch(System.Exception e){
-                Debug.Break();
-                Debug.LogError("Error in EndCrisis: " + e.Message);
-            }
+                Debug.Log(faction.FactionName);
+            //}
+            // catch(System.Exception e){
+            //     Debug.Break();
+            //     Debug.LogError("Error in EndCrisis: " + e.Message);
+            //}
         }
 
         // else{
