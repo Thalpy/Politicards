@@ -3846,9 +3846,9 @@ MonoBehaviour:
     minProgress: 2
     triggerEffectsStr: []
     dialogues:
-    - text: Sir! We've had some reports of bandits snooping around our moutains.
-        What're your orders?
-      audio: {fileID: 8300000, guid: 1fd20f7dc4fa851418e0b3785a5b475d, type: 3}
+    - text: Sir it has been reported that bandits have bene spotted itn the mountains
+        to the east of the Capital!
+      audio: {fileID: 0}
       image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
     endCrisis:
     - faction: People
@@ -5172,7 +5172,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000000000000010000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000010000000000000000000000
       ProgressValues: 0000000000000000010000000000000000000000
       triggerEffectsStr: []
@@ -5184,7 +5184,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: 0000000000000000000000000100000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000100000000000000
       ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
@@ -5196,7 +5196,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: People
       StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0100000000000000000000000000000000000000
       ProgressValues: 0100000000000000000000000000000000000000
       triggerEffectsStr: []
@@ -5208,7 +5208,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000001000000000000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr: []
@@ -5220,7 +5220,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000000000000010000000000000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000010000000000000000000000
       ProgressValues: 0000000000000000010000000000000000000000
       triggerEffectsStr: []
@@ -5232,7 +5232,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: 0000000000000000000000000100000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000100000000000000
       ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
@@ -5317,7 +5317,7 @@ MonoBehaviour:
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr: []
     - Name: Organised Chaos
-      Description: Randomly assigns 3 power and progress to factions across all crisises.
+      Description: Plays a random card's effect.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5333,17 +5333,53 @@ MonoBehaviour:
         triggerVars:
         - 1
     - Name: Viva Le Revolution
-      Description: Increases people faction power and progress by 3 and reduces all
-        other faction powers by 3.
+      Description: Increases people faction power by 3 and reduces all other faction
+        powers by 3. If the people faction is the most powerful faction also gives
+        6 people progress.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
       StartingCard: 0
-      PowerValues: 03000000fdfffffffdfffffffdfffffffdffffff
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 3
+        - 0
+        triggerName: OnUse
+        triggerVars:
+        - 1
+      - effectName: Power
+        effectVars:
+        - -3
+        - 1
+        triggerName: OnUse
+        triggerVars:
+        - 1
+      - effectName: Power
+        effectVars:
+        - -3
+        - 2
+        triggerName: OnUse
+        triggerVars:
+        - 1
+      - effectName: Power
+        effectVars:
+        - -3
+        - 3
+        triggerName: OnUse
+        triggerVars:
+        - 1
+      - effectName: Progress
+        effectVars:
+        - 0
+        - 6
+        triggerName: 'MostPowerful '
+        triggerVars:
+        - 0
   - faction: Economic
     cards:
     - Name: 'Investment '
@@ -5377,9 +5413,10 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Draw
         effectVars:
-        - 1
+        - 
         triggerName: OnUse
-        triggerVars: []
+        triggerVars:
+        - 3
     - Name: 'Military Industrial Complex '
       Description: Increases the military factions power by 3 and also gives 2 military
         progress. Also increase your realtionship with the military faction..
@@ -5450,16 +5487,21 @@ MonoBehaviour:
         triggerName: Investment
         triggerVars: []
     - Name: Send in the Army
-      Description: Gives 3 military progress and power.
+      Description: Gives 3 military progress, gives 3 extra progress if the military
+        faction is the most powerful faction.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000000000000000000000300000000000000
+      PowerValues: 0000000000000000000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
-      ProgressValues: 0000000000000000000000000300000000000000
-      triggerEffectsStr: []
+      ProgressValues: 0000000000000000000000000000000000000000
+      triggerEffectsStr:
+      - effectName: Progress
+        effectVars: []
+        triggerName: MostPowerful
+        triggerVars: []
   - faction: Nobles
     cards:
     - Name: Trade Restrictions
