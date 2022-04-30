@@ -297,7 +297,7 @@ public class ActiveCrisis
     public Crisis crisis{
         get{return Crisis;}
         set{Crisis = value;
-        Debug.LogWarning("CrisisMaster: Set crisis to " + Crisis.Name);
+        Debug.LogWarning("CrisisMaster: Set crisis to new value");
         }
     }
 
