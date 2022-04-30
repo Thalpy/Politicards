@@ -57,9 +57,7 @@ public class CrisisMaster : MonoBehaviour
 
     public Crisis FindCrisisFromCard(Card card){
         foreach (ActiveCrisis crisis in activeCrisses){
-            if(crisis == null){
-                continue;
-            }
+            if (crisis == null) {continue;}
             foreach(Card p_card in crisis.playerCards){
                 if(p_card == card){
                     return crisis.crisis;

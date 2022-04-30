@@ -11,6 +11,10 @@ public class PlayCardState : State
     /// </summary>
     public bool turnComplete;
 
+    bool attemptedToPlay;
+
+    public bool AttemptedToPlay {get => attemptedToPlay; set => attemptedToPlay = value; }
+
     /// <summary>
     /// the current crisis the AI is playing
     /// </summary>
@@ -36,7 +40,17 @@ public class PlayCardState : State
     /// <returns>The next state</returns>
     public override State RunCurrentState()
     { 
-        PlayCard();
+        if(attemptedToPlay)
+        {
+            awaitPlayerState.PlayerTurnComplete = false;
+            return awaitPlayerState;
+        }
+        if (!turnComplete)
+        {
+            attemptedToPlay = true;
+            PlayCard();
+            turnComplete = true;
+        }
         if (turnComplete)
         {
             turnComplete = false;
@@ -57,7 +71,7 @@ public class PlayCardState : State
         if (!turnComplete)
         {
             // set the card to be played
-            TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
+            TargetCrisis tgt = activeCrisis. GetTargetFromIndex(getFirstEmptyAICardSlot());
 
             tgt.DropCardAI(card);
 
