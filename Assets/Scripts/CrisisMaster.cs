@@ -413,7 +413,6 @@ public class ActiveCrisis
         crisisBox.EndCrisis();
         crisisBox = null;
         crisis = null;
-
     }
 
     /// <summary>
