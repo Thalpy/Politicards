@@ -50,7 +50,6 @@ public class GameMaster : MonoBehaviour
     [SerializeField] UIhandler uiHandler;
     [SerializeField] int startingPower = 5;
 
- 
 
 
     /// <summary>
@@ -142,6 +141,7 @@ public class GameMaster : MonoBehaviour
         playerHand.DrawCard();
         AISHand.DrawCard();
     }
+
 
     //adds a timer to the list of timers
     public static void AddTimer(Timer timer)

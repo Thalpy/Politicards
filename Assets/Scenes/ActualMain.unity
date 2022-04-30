@@ -2953,10 +2953,10 @@ MonoBehaviour:
       triggerName: Instant
       triggerVars: []
     dialogues:
-    - text: 'Greetings and congratulations my Liege I hope this letter reaches you
-        well. I have quite an opportunity for you, historically this country has
-        failed to see eye to eye on our particular business venture, but from what
-        I''ve heard of your prowess I have high hopes for a new kind of partnership.
+    - text: 'Greetings and congratulations \n my Liege I hope this letter reaches
+        you well. I have quite an opportunity for you, historically this country
+        has failed to see eye to eye on our particular business venture, but from
+        what I''ve heard of your prowess I have high hopes for a new kind of partnership.
         One that meets the needs of all the people. '
       audio: {fileID: 8300000, guid: 3ef734cdb5da6b94fafc846c8145b5db, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
@@ -3207,8 +3207,701 @@ MonoBehaviour:
       audio: {fileID: 8300000, guid: d1e43dd9dd027fe449f918425303d6cd, type: 3}
       image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
     endCrisis:
+    - faction: 3
+      dialogues:
+      - text: "You called in a favour from Sir Featherington, who was thrilled at
+          the prospect of being able to assist you with preparing the Palace for
+          Sovereign Sash\u2019an. Between the Palace servants and the ones borrowed
+          from Sir Featherington, along with his keen eye for detail, you successfully
+          dispose of the old Sovereign\u2019s perishables and make the Palace fresh
+          for a new face."
+        audio: {fileID: 8300000, guid: 0772da3dec07f474c87682dcfccca139, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      triggerEffectsStr:
+      - effectName: GetDeck
+        effectVars:
+        - 
+        - 
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 0
+      dialogues:
+      - text: "You turned to the Palace staff for guidance as the ones who are most
+          familiar with the old Sovereign\u2019s possessions. They are able to swiftly
+          and effectively take you through the Sovereign chambers to note what belonged
+          to Sovereign Marqe, and what was inherited through lineage. This seems
+          to have helped heal a wound left by the passing of a beloved leader."
+        audio: {fileID: 8300000, guid: 8e3f0dddd1841b5448c76562053ab6cc, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      triggerEffectsStr:
+      - effectName: GetDeck
+        effectVars:
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: Colonel Howler was keen to offer his hand of assistance after the passing
+          of his old friend, Sovereign Marqe. Whilst strange to have the soldiers
+          leaving the training grounds in favour of helping the servants, it was
+          a welcome reprieve from training to put their minds to a different task.
+        audio: {fileID: 8300000, guid: 6b200d41863c67a48869623bf7b7a238, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      triggerEffectsStr:
+      - effectName: GetDeck
+        effectVars:
+        - 
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: With almost militant efficiency, you exchange a few coins through a
+          few hands and have hired help to take care of the preparations within the
+          same day. They move with exceptional efficiency and before long you are
+          looking at practically a brand new Palace with the help of the local merchant
+          families.
+        audio: {fileID: 8300000, guid: c22fce782f693b14787b9bc585920b44, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      triggerEffectsStr:
+      - effectName: GetDeck
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+  - Name: A Dispute Between Lords
+    Description: It appears that the late Sovereign had been dealing with a land
+      dispute between the two before passing which has unfortunately yet to be settled.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: 
+    DayLength: 6
+    minProgress: 3
+    triggerEffectsStr: []
+    dialogues:
+    - text: You are approached by Duke Lupain of the Urhathu Forest, and Lord Fuzzybeard
+        of the Himalu Mountains. It appears that the late Sovereign had been dealing
+        with a land dispute between the two before passing which has unfortunately
+        yet to be settled.
+      audio: {fileID: 8300000, guid: c28083a1a67aea94da49ed5dd195c75f, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    - text: Neither is particularly known for their patience, so you will give them
+        credit for at least waiting one day of you being in your new position before
+        approaching you with furrowed brows and grunts of annoyance. It falls to
+        you and your partner to resolve this dispute as fairly as possible; lest
+        you end up with horns through your table, or fangs in your hand.
+      audio: {fileID: 8300000, guid: 7e251be64e700cc45a6c60be38515143, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    endCrisis:
+    - faction: 0
+      dialogues:
+      - text: "It isn\u2019t exactly behind their backs, but you do reach out to
+          the farmers that work the land between the Himalu Mountains and the Urhathu
+          Forest for their opinion on the matter. You get a varied response; many
+          do not know who is supposed to own the land, but a few do have opinions
+          on who they would like to serve under."
+        audio: {fileID: 8300000, guid: 1b884eb61df596b4b96add036be20d23, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: "The Duke is given the land, and Lord Fuzzybeard\u2019s temper is placated
+          with the reminder of the trading routes that pass through his lands; these
+          are immensely important and require his attention, not some farmers with
+          their innate issues. One of those issues being Lord Fuzzybeard\u2019s tendency
+          to put stone statues in awkward places."
+        audio: {fileID: 8300000, guid: 92d59881d95515a4f83ecb0b8877a76d, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You've gained a random people card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: "It is with great regret, you inform Duke Lupain, that on this occasion
+          you will have to give favour to Lord Fuzzybeard. Whilst you appreciate
+          that he has rank on the Lord, Duke Lupain cannot possibly deny the economic
+          advantage of giving Lord Fuzzybeard the territory to allow merchants an
+          easier pass from the Himalu Mountains towards the Kingdom\u2019s Capital."
+        audio: {fileID: 8300000, guid: 07aa98a0118bdb142b220505c79cf653, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: 'The Duke leaves the meeting with his tail between his legs after you
+          so eloquently deny him the land he believed he had right to, unable to
+          argue with your stance. Or perhaps he was unable to argue with the smugness
+          that was exuding from Lord '
+        audio: {fileID: 8300000, guid: a311d5fc9b4810e40a5fd004cd733740, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You've gained a random economic card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: Colonel Howler has an easy solution to this issue; seize the land for
+          training purposes. If the pair cannot come to an agreement, then the Royal
+          Guard can put the land to much better use to create a base and safe house
+          for scouts who ensure our boarders are safe and can be out on missions
+          for days at a time.
+        audio: {fileID: 8300000, guid: e2ca7986213f6ee498bbfb6fbd34bbfb, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: Colonel Howler has an easy solution to this issue; seize the land for
+          training purposes. If the pair cannot come to an agreement, then the Royal
+          Guard can put the land to much better use to create a base and safe house
+          for scouts who ensure our boarders are safe and can be out on missions
+          for days at a time.
+        audio: {fileID: 8300000, guid: 797faa27ce4479f42b5ac641cb9b2eac, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You've gained a random military card .
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 3
+      dialogues:
+      - text: "It is with the most graceful, most respectful charm that you manage
+          to get both Duke Lupain and Lord Fuzzybeard to sit down in the Palace and
+          discuss their issue like civilised animals. Whether Lord Fuzzybeard likes
+          it or not, the Duke does rank higher than him, and it\u2019s with that
+          in mind that he agrees Duke Lupain should be the one to map the edge of
+          his land best."
+        audio: {fileID: 8300000, guid: 065f89c22ab79bd4ea70f98111280f9b, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: "It is with the most graceful, most respectful charm that you manage
+          to get both Duke Lupain and Lord Fuzzybeard to sit down in the Palace and
+          discuss their issue like civilised animals. Whether Lord Fuzzybeard likes
+          it or not, the Duke does rank higher than him, and it\u2019s with that
+          in mind that he agrees Duke Lupain should be the one to map the edge of
+          his land best."
+        audio: {fileID: 8300000, guid: 8d1d065052eb92d4e8ed4b698fdf3629, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You've gained a random Noble Card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
     - faction: 
-      dialogues: []
+      dialogues:
+      - text: 'You sat Duke Lupain and Lord Fuzzybeard down to resolve their dispute.
+          After listening to them go back and forth and back and forth for an upsettingly
+          long time, you suggest that there is a much simpler way to deal with this:
+          a coin toss!'
+        audio: {fileID: 8300000, guid: e4d53efc54cc70745b2d031035dcc017, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      - text: You stand between them and ask the Duke to pick a side. He stares at
+          you with a dropped jaw and no words. You assign him tails, and Lord Fuzzybeard
+          claws. As soon as you flip the coin to the sky, the Duke stands with enough
+          force to knock his chair over and storms out the room. You assume this
+          means he concedes, and announce the land ownership to be given to Lord
+          Fuzzybeard.
+        audio: {fileID: 8300000, guid: 991cac4e580b9704b820f6f1771614d1, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: 
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+  - Name: A Wonderfully Warm Welcome
+    Description: "It\u2019s really quite exciting, isn\u2019t it? "
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: 
+    DayLength: 6
+    minProgress: 3
+    triggerEffectsStr: []
+    dialogues:
+    - text: "It has been suggested that a welcoming party should be organised for
+        Sovereign Sash\u2019an, a coronation of sorts when he arrives. You are to
+        take charge of this task as it is you who will be giving over the key to
+        the country."
+      audio: {fileID: 8300000, guid: dcfd8199ab72b814e94316932e002519, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    - text: "It\u2019s really quite exciting, isn\u2019t it? To be able to organise
+        such a grand event. I\u2019m sure that you will do a fine job of it \u2013
+        even if it isn\u2019t exactly what you expected to be doing when they asked
+        you both to join this Biumvirate."
+      audio: {fileID: 8300000, guid: 5c0c4d917ac0e454a853a9fb1fec156e, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    endCrisis:
+    - faction: 0
+      dialogues:
+      - text: "The staff in the castle have yet to steer you wrong, and you\u2019re
+          certain you can trust them now. They are tasked with organising the palace
+          d\xE9cor, using flowers from the royal gardens and taking old cutlery out
+          that is saved for special occasions."
+        audio: {fileID: 8300000, guid: 3517dc8b22a22184d93eca3431106f86, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: "The whole kingdom has been informed of the party, with people of all
+          walks of life making plans to attend the capital city for the arrival of
+          Sovereign Sash\u2019an. The city is abuzz with the news, with many people
+          making special plans for this special day. It has turned the arrival of
+          the Sovereign into a most joyous occasion, indeed. "
+        audio: {fileID: 8300000, guid: bab282fc80c0dd148b1a7c79f80024c7, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You've gained a random people card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: "For the arrival of the new Sovereign, you decide that only the best
+          will do. You spare no expense in creating a ceremony suitable for royalty.
+          Merchants secure you fabrics, food, and flowers imported from your neighbouring
+          kingdoms, along with some locally sourced luxuries to give Sovereign Sash\u2019an
+          a test of the best of what your kingdom has to offer."
+        audio: {fileID: 8300000, guid: 1bea0f005d2f2c741847857e9be1352d, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You are certain by the end of the preparations that no one could refute
+          the exquisite nature of the welcome party you have organised.
+        audio: {fileID: 8300000, guid: 6a200526a84c7024c98e36cd009fd2db, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You've gained a random economic card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: You summon Colonel Howler to assist you with organising the event,
+          who is less than impressed with the summons. However, he does not deny
+          your wish, and instead assigns a group of trainee recruits to assist you
+          with the preparations.
+        audio: {fileID: 8300000, guid: f63567a9fde18884ab86aefd7632b0af, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: The trainees do their best to secure you whatever it is you ask for.
+          You go through the list of requirements and instruct them for each one
+          until you are satisfied with their work. When Colonel Howler returns for
+          his anifolk, he requests that perhaps next time you may prefer people with
+          a little more experience.
+        audio: {fileID: 8300000, guid: a6c9974f598cdd44b84c3322e52fdb94, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You've gained a random military card .
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 3
+      dialogues:
+      - text: Who better to know how to organise a grand, extravagant ball than the
+          nobility who would be attending it themselves? Viscount Slitherham is most
+          amenable when you approach her and ask for assistance in this case, and
+          she rallies the other nobles to assist.
+        audio: {fileID: 8300000, guid: c769487d073125c4eb947c032d1cfb06, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: "It is with the most graceful, most respectful charm that you manage
+          to get both Duke Lupain and Lord Fuzzybeard to sit down in the Palace and
+          discuss their issue like civilised animals. Whether Lord Fuzzybeard likes
+          it or not, the Duke does rank higher than him, and it\u2019s with that
+          in mind that he agrees Duke Lupain should be the one to map the edge of
+          his land best."
+        audio: {fileID: 8300000, guid: 388f99932438f804e89cfadcf6981097, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You've gained a random Noble Card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: "A welcome party? If anyone thinks you have time for that, they are
+          sorely mistaken. Beyond the very basics, you decide that the wound form
+          Sovereign Marqe is still too fresh. If Sovereign Sash\u2019an decides they
+          want a party when they arrive, then it will be up to them to organise it."
+        audio: {fileID: 8300000, guid: 79c6c95c85c3fe24c91ecfbea11955ee, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr: []
+  - Name: Remains of the Remains
+    Description: 'Renowned archaeologist, Mister Tom Longclaw, had recently discovered
+      some old ruins lost in the Akarthoun Plains. '
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: 
+    DayLength: 6
+    minProgress: 3
+    triggerEffectsStr: []
+    dialogues:
+    - text: "We would like to bring to your attention a project that the late Sovereign
+        Marqe had taken personal interest in. Renowned archaeologist, Mister Tom
+        Longclaw, had recently discovered some old ruins lost in the Akarthoun Plains.
+        Sovereign Marqe was personally overseeing the development of Mister Tom Longclaw\u2019s
+        discovery to find out what had been here before. At present, they believe
+        that it may have been of religious significance to our ancestors."
+      audio: {fileID: 8300000, guid: fb545420b4419ab4995e21ff7db85f68, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    - text: "Tom is hoping that he has your support in completing his project. We
+        believe that it would be beneficial to have this project completed before
+        the arrival of Sovereign Sash\u2019an, to allow the new sovereign to start
+        new without being weighed down by a project he has no knowledge of."
+      audio: {fileID: 8300000, guid: 137acbf584843124999c394df8f4bdaa, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    endCrisis:
+    - faction: 0
+      dialogues:
+      - text: You decide to go right to the heart of the project; the people who
+          are working on the ground. While they are surprised to see your faces lingering
+          round, they do not turn you away. They instead take you through the ruins
+          and you get to see first hand the stonework they are uncovering. The runes
+          etched into the surface by people who lived here once upon a time, years
+          ago.
+        audio: {fileID: 8300000, guid: 38c8fa53760fd3b48adbf8de4acffc8d, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: Tom Longclaw is a little ruffled when he sees you on site with his
+          staff, but he recovers quick enough to thank you profusely for coming down
+          to see the site, and for your assumed support.
+        audio: {fileID: 8300000, guid: c67e27a29d99cc64cb3fa3a2610531ef, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You've gained a random people card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: "We know exactly what will assist an archaeological expedition completing
+          quickly, and that\u2019s cold, hard cash. We arrive at the dig site with
+          funding in hand and the response from the staff is priceless."
+        audio: {fileID: 8300000, guid: 485010d05c7143741a1ac5fee9e1d12f, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: "Tom Longclaw who is leading the project thanks us for the generous
+          donation and promises to keep us up to date with the project, along with
+          the assurance that with the additional funds they will be able to complete
+          it before the arrival of Sovereign Sash\u2019an. "
+        audio: {fileID: 8300000, guid: fcf67a03db187744691a0f8d1daf8e97, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You've gained a random economic card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: 'Colonel Howler reviews the request you make of him, before giving
+          a resolute nod and assigning you a retinue to escort you to the site. The
+          guard you have is diligent and allows you to demonstrate a reserved eagerness
+          in resolving this project swiftly. '
+        audio: {fileID: 8300000, guid: 15b50677728c48f4c8044fd63b93e0ee, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: The leader of the expedition, Tom Longclaw, promises you that there
+          will be no delay in their work and assures you he understands the time
+          constraints now imposed on him.
+        audio: {fileID: 8300000, guid: 5d34e1bdd44010d4e80b4d13f9dd3ee2, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You've gained a random military card .
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 3
+      dialogues:
+      - text: With a little persuasion, Duke Lupain agrees to assist you with overseeing
+          the archaeological dig site. He takes you there personally where you are
+          able to meet with Tom Longclaw, who spends some time talking you through
+          various aspects of his discovery. As suspected, it does appear to have
+          symbols that you associate with old religious factions from many years
+          ago.
+        audio: {fileID: 8300000, guid: 26b6aa036f02d7d44b2a0ebfddcf07fd, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: The assistance of the Duke has left you feeling a little more hopeful
+          with undertaking the responsibility left to you by Sovereign Marqe.
+        audio: {fileID: 8300000, guid: 8b3c39139d37f544d8cf79b3883d6515, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You've gained a random Noble Card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr: []
+    - faction: 
+      dialogues:
+      - text: On the morn of the day we are due to visit the expedition, you wake
+          up late. It does not get better from there. The journey is long, and we
+          have many things still to do at the palace, which weigh on our minds. As
+          we arrive, Tom Longclaw is supposed to meet us at the entrance, but it
+          takes us some time to find him after he grew tired of waiting for us.
+        audio: {fileID: 8300000, guid: fc628ff8815fbad43a33d63dc758d945, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      - text: "He tells us about the project, but it is of little consequence. He
+          is advised that he must be finished by the time Sovereign Sash\u2019an
+          arrives. He is unsure, but accepts it. We leave."
+        audio: {fileID: 8300000, guid: d36251269700b2342baf86c57f95d962, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr: []
+  - Name: A Halt in Movement
+    Description: 'We have received word from Tom Longclaw that there has been an
+      issue at the expedition.  '
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: 
+    DayLength: 6
+    minProgress: 3
+    triggerEffectsStr: []
+    dialogues:
+    - text: "We have received word from Tom Longclaw that there has been an issue
+        at the expedition. The work ongoing has crossed the Akarthoun plains and
+        neighbouring river, straight onto a farmer\u2019s field. The farmer is enraged
+        by the disruption, and demands justice for Tom Longclaw\u2019s crimes. Mister
+        Longclaw simply wants to apologise and continue his very important work."
+      audio: {fileID: 8300000, guid: 949c0cd9826abb1459b2a9d762e7e2d7, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    - text: "We should tread carefully here, as disruption to the year\u2019s harvest
+        could have major impacts. Yet it appears that the ruins under this field
+        that Tom Longclaw wishes to disturb are hundreds of years old."
+      audio: {fileID: 8300000, guid: 467fbc2553c5d8f45ae2650b1d2b5671, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    endCrisis:
+    - faction: 0
+      dialogues:
+      - text: "With some convincing we manage to get Tom to agree to sit with Jenny,
+          allowing her access to the site. The ruins he has found he shows her, and
+          she is enthralled by the history that has been hiding under her very feet.
+          They come to an agreement together which allows Tom to continue his work
+          with as little impact on Jenny\u2019s as possible."
+        audio: {fileID: 8300000, guid: d8fd38b4dc448f04e9384f0c7aa8e7bd, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: Tom Longclaw is a little ruffled when he sees you on site with his
+          staff, but he recovers quick enough to thank you profusely for coming down
+          to see the site, and for your assumed support.
+        audio: {fileID: 8300000, guid: 7631c33c5e1eef64daaa151cb876d8d6, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You've gained a random people card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: "Our economic advisor is quite insistent that there is no problem that
+          money can\u2019t fix. A respectably round bag is sent directly to the farmer
+          impacted by the issue, and merchants are contacted to arrange for extra
+          imported wheat in the coming months. Tom Longclaw is thrilled that he is
+          able to continue his work uninterrupted."
+        audio: {fileID: 8300000, guid: 0e1ef8bd552bb034a816ab2f95d6ea3b, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You've gained a random economic card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: "Colonel HowlWhen you contact Colonel Howler for assistance, you expect
+          to receive your usual guard. Instead, the colonel joins you himself. He
+          accepts that his dear late friend Sovereign Marqe may have had an interest
+          in the work which Tom Longclaw is conducting, but that does not come above
+          the people\u2019s needs. He and his men draw clear lines of where is acceptable
+          for Tom to work, and entertain no complaints from the farmer\u2019s side,
+          either.er reviews the request you make of him, before giving a resolute
+          nod and assigning you a retinue to escort you to the site. The guard you
+          have is diligent and allows you to demonstrate a reserved eagerness in
+          resolving this project swiftly. "
+        audio: {fileID: 8300000, guid: dd6b0f5fda2dc944d86d1e624a8cb083, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You've gained a random military card .
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 3
+      dialogues:
+      - text: "We contact the local lord who oversees the area for further assistance
+          that he is more than happy to offer. Lord Yimblefur attends to placate
+          his farmer, whilst we deal with Tom Longclaw. Indeed, the ruins he has
+          found are very old indeed, and will bring great knowledge of how our ancestors
+          lived. We come to an agreement with Lord Yimblefur and his farmer that
+          will allow Tom to keep working with little impact on the farmer\u2019s
+          fields."
+        audio: {fileID: 8300000, guid: 90d056ddf03ea8a47b19276032c88d91, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: "We contact the local lord who oversees the area for further assistance
+          that he is more than happy to offer. Lord Yimblefur attends to placate
+          his farmer, whilst we deal with Tom Longclaw. Indeed, the ruins he has
+          found are very old indeed, and will bring great knowledge of how our ancestors
+          lived. We come to an agreement with Lord Yimblefur and his farmer that
+          will allow Tom to keep working with little impact on the farmer\u2019s
+          fields."
+        audio: {fileID: 8300000, guid: c773b23c4ee7f82488d4fd7bb5be1f63, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You've gained a random Noble Card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr: []
+    - faction: 
+      dialogues:
+      - text: "The balancing act between the farmer disrupted by Tom\u2019s efforts,
+          and the work that Tom is doing is much more complex than it seemed on paper.
+          A lot of resources have gone into unearthing Tom\u2019s ruins. Resources
+          that cannot simply go to waste, but the farmer affected, a rabbitfolk no
+          less, is impossibly vocal in her displeasure of the whole ordeal."
+        audio: {fileID: 8300000, guid: eb02968c796b49d468c56f5f7ed563e5, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      - text: The end result looks a lot like us doing very little amidst an argument
+          before the farmer refuses to give produce to the expedition, and Tom Longclaw
+          is forced to abandon a whole section of ruins lest he have his work vandalised
+          every other day. You expect there will be consequences to this later in
+          the year. Perhaps once Sovereign Marqe takes over.
+        audio: {fileID: 8300000, guid: 2477661440e89d848b6f658e2fc17392, type: 3}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr: []
+  - Name: Resounding Results
+    Description: "Tom Longclaw\u2019s visits the Palace to present us with something
+      extraordinary."
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: 
+    DayLength: 6
+    minProgress: 3
+    triggerEffectsStr: []
+    dialogues:
+    - text: "We have received word from Tom Longclaw that there has been an issue
+        at the expedition. The work ongoing has crossed the Akarthoun plains and
+        neighbouring river, straight onto a farmer\u2019s field. The farmer is enraged
+        by the disruption, and demands justice for Tom Longclaw\u2019s crimes. Mister
+        Longclaw simply wants to apologise and continue his very important work."
+      audio: {fileID: 8300000, guid: df4258e96e7ac004fad64ace35f88cf7, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    - text: "We should tread carefully here, as disruption to the year\u2019s harvest
+        could have major impacts. Yet it appears that the ruins under this field
+        that Tom Longclaw wishes to disturb are hundreds of years old."
+      audio: {fileID: 8300000, guid: 73359c8489470a441801165f4f18891a, type: 3}
+      image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+    endCrisis:
+    - faction: 0
+      dialogues:
+      - text: After so much help from the people, patience from the farmers, and
+          efforts from the animalfolk working hard every day, it is with great pride
+          that we set up the shield in a secure place for all to see. Tom Longclaw
+          is thrilled to find himself inundated with requests for work, as more people
+          take interest in what he does.
+        audio: {fileID: 8300000, guid: 5e9c34c7be7ee824683fa0b4a57acdb0, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: "Even Jenny Redpaw, the farmer who was once at odds with him, is impressed
+          by his work. She relinquishes the field that they had been forced to share,
+          and her eldest son is taken on as apprentice to Tom. Unfortunately, this
+          does leave us one field of wheat down, however I suppose that is a concern
+          only for Sovereign Sash\u2019an, now."
+        audio: {fileID: 8300000, guid: 317ae35ab2c1f3c4c9f44e07ab14e0b1, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You've gained a random people card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 1
+      dialogues:
+      - text: Such an artifact would fetch for a great price, but more than that,
+          would have a great impact on tourism in the region. We agree to spread
+          news of the discovery far and wide, to encourage all to visit and admire
+          the artifact found within our fair kingdom; at a price.
+        audio: {fileID: 8300000, guid: df4258e96e7ac004fad64ace35f88cf7, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: "It is secured within the Palace grounds, in the public gardens behind
+          a iron barred shield of it\u2019s own, and the local shopkeepers and merchants
+          reap great reqards in the visitors it brings to the capital."
+        audio: {fileID: 8300000, guid: 73359c8489470a441801165f4f18891a, type: 3}
+        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You've gained a random economic card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 
+        - 
+        triggerName: 
+        triggerVars: []
+    - faction: 2
+      dialogues:
+      - text: "There is immediate panic from Colonel Howler that the discovery of
+          such an artifact will cause panic. We manage to calm him down, and make
+          plans to secure the shield in a vault. We agree that the best course of
+          action will be to allow it\u2019s viewing only on special occasions, to
+          be arranged with Sovereign Sash\u2019an when they arrive."
+        audio: {fileID: 8300000, guid: d89121c2f30c53549be21ee8d462f277, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: It is suggested that the Colonel would rather it was simply never mentioned,
+          however the expedition was well publicised after it received such interest
+          from Sovereign Marqe. He accepts this as second best.
+        audio: {fileID: 8300000, guid: 09585c6e1b9fe364c9d9c59f9598c1d7, type: 3}
+        image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You've gained a random military card .
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars: []
+        triggerName: 
+        triggerVars: []
+    - faction: 3
+      dialogues:
+      - text: "The answer appears obvious. It is a royal relic, and as such should
+          be kept where all royal relics belong: The Palace. No other gift could
+          be more fitting to welcome Sovereign Sash\u2019an with than a legendary
+          shield to accompany what will hopefully be a legendary reign."
+        audio: {fileID: 8300000, guid: 67eb196c3ea5d2749a2dc6a9a8e6d24b, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: "Duke Lupain of the Urhathu Forest visits at a special request to see
+          the shield for himself, followed by many other nobles within the kingdom.
+          The shields is secured in the centre of the throne room, ready to be presented
+          to Sovereign Sash\u2019an on their arrival."
+        audio: {fileID: 8300000, guid: f5b2b8e7294d9d846a279c13a6249e3f, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You've gained a random Noble Card.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr: []
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
@@ -3719,6 +4412,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: People
     factionColor: {r: 0.4523407, g: 0.48966703, b: 0.8962264, a: 1}
     playerHappiness: 0
@@ -3732,6 +4426,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Economic
     factionColor: {r: 0.990566, g: 0.87235224, b: 0.23829652, a: 1}
     playerHappiness: 0
@@ -3745,6 +4440,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Military
     factionColor: {r: 0.754717, g: 0.28835887, b: 0.28835887, a: 1}
     playerHappiness: 0
@@ -3758,6 +4454,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Nobility
     factionColor: {r: 0.6175616, g: 0.38047346, b: 0.8490566, a: 1}
     playerHappiness: 0
@@ -3771,6 +4468,7 @@ MonoBehaviour:
   - factionPowerChange:
       m_PersistentCalls:
         m_Calls: []
+    endEvent: []
     factionName: Crime
     factionColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     playerHappiness: 0
@@ -9780,17 +10478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CrisisChosen: 0
   chosenCrisis:
-    crisis:
-      Name: 
-      Description: 
-      image: {fileID: 0}
-      audio: {fileID: 0}
-      location: None
-      DayLength: 0
-      minProgress: 5
-      triggerEffectsStr: []
-      dialogues: []
-      endCrisis: []
     playerCards: []
     AICards: []
     crisisBox: {fileID: 0}
@@ -11241,7 +11928,7 @@ MonoBehaviour:
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
-  m_parseCtrlCharacters: 1
+  m_parseCtrlCharacters: 0
   m_isOrthographic: 1
   m_isCullingEnabled: 0
   m_horizontalMapping: 0

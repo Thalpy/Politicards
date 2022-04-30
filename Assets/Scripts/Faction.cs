@@ -48,6 +48,8 @@ public class Faction
     /// </summary>
     [SerializeField] public UnityEvent factionPowerChange = new UnityEvent();
 
+    [SerializeField] public List<Dialogue> endEvent = new List<Dialogue>();
+
 
     #endregion
 
@@ -368,7 +370,10 @@ public class Faction
 
     }
 
-
+    public void EndGame()
+    {
+        GameMaster.dialoguePlayer.StartDialogue(endEvent);
+    }
 
 
     /// <summary>

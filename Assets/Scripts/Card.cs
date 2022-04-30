@@ -67,9 +67,20 @@ public class Card
         newCard.Name = Name;
         newCard.Description = Description;
         newCard.image = image;
+        newCard.audio = audio;
         newCard.ManaCost = ManaCost;
         newCard.Faction = Faction;
-        newCard.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
+        newCard.StartingCard = StartingCard;
+        newCard.ProgressValues = ProgressValues;
+        newCard.PowerValues = PowerValues;
+        newCard.HappinessValues = HappinessValues;
+        newCard.triggerEffectsStr = triggerEffectsStr;
+        if(triggerEffects != null){
+            newCard.triggerEffects = new Dictionary<Effect, Trigger>(triggerEffects);
+        }
+        // else{    
+        //     newCard.triggerEffectsStr = new List<TriggerEffect>(triggerEffectsStr);
+        // }
         return newCard;
     }
 
