@@ -50,6 +50,10 @@ public class ChooseCrisisEnemyState : State
     /// </summary>
     public override State RunCurrentState()
     {
+        chooseCardState.ActiveCrisis = null;
+        chooseCardState.cardChosen = false;
+        chooseCardState.choosingCard = false;
+        chooseCardState.chosenCard = null;
         // log the value of CrisisChosen and ChoosingCrisis to the console
         Debug.Log("CrisisChosen: " + CrisisChosen + " ChoosingCrisis: " + ChoosingCrisis);
         if (CrisisChosen && chosenCrisis != null)

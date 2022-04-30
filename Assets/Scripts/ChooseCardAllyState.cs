@@ -22,7 +22,7 @@ public class ChooseCardAllyState : State
     /// <summary>
     /// the card the AI has chosen
     /// </summary>
-    Card chosenCard;
+    public Card chosenCard;
 
     /// <summary>
     /// The crisis the AI has chosen to play
@@ -42,6 +42,10 @@ public class ChooseCardAllyState : State
     /// </summary>
     public override State RunCurrentState()
     {
+        playCardState.ActiveCrisis = null;
+        playCardState.Card = null;
+        playCardState.AttemptedToPlay = false;
+        playCardState.turnComplete = false;
         if (cardChosen && !choosingCard)
         {
             cardChosen = false;

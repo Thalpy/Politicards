@@ -9,7 +9,6 @@ public class StateManager : MonoBehaviour
 {
     #region Fields
 
-    bool recovering;
 
     [SerializeField] GameObject rootNode;
 
@@ -82,11 +81,7 @@ public class StateManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if(recovering == true)
-        {
-            recovering = false;
-            gameObject.SetActive(true);
-        }
+
         RunStateMachine();
     }
 
@@ -157,13 +152,12 @@ public class StateManager : MonoBehaviour
         }
         catch(System.Exception e)
         {
-            recovering = true;
+
             Debug.LogError(e.Message);
             Debug.LogError("Something has occured and the AI broke :(");
             Debug.LogError("The AI will try and recover from this error");
             Debug.LogError("If you've got here the AI totally shit the bed, this is not good");
-            gameObject.SetActive(false);
-            recoverAISubsystems();
+            
 
         }
     }

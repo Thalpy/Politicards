@@ -24,7 +24,7 @@ public class ChooseCardEnemyState : State
     /// <summary>
     /// the card the AI has chosen 
     /// </summary>
-    Card chosenCard;
+    public Card chosenCard;
 
     /// <summary>
     /// The crisis the AI has chosen
@@ -45,6 +45,10 @@ public class ChooseCardEnemyState : State
     /// </summary>
     public override State RunCurrentState()
     {
+        playCardState.ActiveCrisis = null;
+        playCardState.Card = null;
+        playCardState.AttemptedToPlay = false;
+        playCardState.turnComplete = false;
         if (cardChosen && !choosingCard)
         {
             Debug.Log("Card Chosen: " + chosenCard.Name);

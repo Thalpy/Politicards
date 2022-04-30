@@ -31,7 +31,7 @@ public class ChooseCardNeutralState : State
     /// <summary>
     /// the card the AI has chosen
     /// </summary>
-    Card chosenCard;   
+    public Card chosenCard;   
 
     /// <summary>
     /// the state the AI will move into once it has chosen a card
@@ -49,6 +49,10 @@ public class ChooseCardNeutralState : State
     /// <returns>The next state</returns>
     public override State RunCurrentState()
     {
+        playCardState.ActiveCrisis = null;
+        playCardState.Card = null;
+        playCardState.AttemptedToPlay = false;
+        playCardState.turnComplete = false;
         if (cardChosen && !choosingCard)
         {
             cardChosen = false;

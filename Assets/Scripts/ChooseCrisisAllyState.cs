@@ -43,6 +43,11 @@ public class ChooseCrisisAllyState : State
     /// </summary>
     public override State RunCurrentState()
     {
+        chooseCardState.ActiveCrisis = null;
+        chooseCardState.cardChosen = false;
+        chooseCardState.choosingCard = false;
+        chooseCardState.chosenCard = null;
+        
         if (CrisisChosen && chosenCrisis != null)
         {
             CrisisChosen = false;

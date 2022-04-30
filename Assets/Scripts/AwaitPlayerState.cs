@@ -41,9 +41,16 @@ public class AwaitPlayerState : State
     public override State RunCurrentState()
     {
         // reset the choose crisis states
+        chooseCrisisState.CrisisChosen = false;
         chooseCrisisState.ChosenCrisis = null;
+        chooseCrisisState.ChoosingCrisis = false;
         chooseCrisisEnemyState.ChosenCrisis = null;
+        chooseCrisisEnemyState.CrisisChosen = false;
+        chooseCrisisEnemyState.ChoosingCrisis = false;
         chooseCrisisNeutralState.ChosenCrisis = null;
+        chooseCrisisNeutralState.CrisisChosen = false;
+        chooseCrisisNeutralState.ChoosingCrisis = false;
+        
 
         if (playerTurnComplete && stateManager.PlayerRelationship == PlayerRelationshipEnum.Ally)
         {

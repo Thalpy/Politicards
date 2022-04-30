@@ -46,6 +46,11 @@ public class ChooseCrisisNeutralState : State
     /// <returns>The next state</returns>
     public override State RunCurrentState()
     {
+        chooseCardState.ActiveCrisis = null;
+        chooseCardState.cardChosen = false;
+        chooseCardState.choosingCard = false;
+        chooseCardState.chosenCard = null;
+        
         if (CrisisChosen && chosenCrisis != null)
         {
             CrisisChosen = false;     
