@@ -3085,7 +3085,7 @@ MonoBehaviour:
     - text: Here's how things work around here you act as the figurehead of the country
         while we run things behind the scenes so whenever we require your assistance
         you are to come immediately and solve it is that clear?
-      audio: {fileID: 8300000, guid: 5c0c4d917ac0e454a853a9fb1fec156e, type: 3}
+      audio: {fileID: 8300000, guid: 8494a2cfd8a62c64e86d995fdf613b91, type: 3}
       image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
     - text: Speaking of which  lord honerable featherington has reported that commoners
         are getting into his stores! You need to keep this riffraff away in the proper
@@ -3453,7 +3453,9 @@ MonoBehaviour:
         triggerName: 
         triggerVars: []
   - Name: The Usurper
-    Description: " The Undercity will take care of this for you, if you\u2019d like..."
+    Description: "Watch your back, my liege \u2013 discovery of an aggressive usurper
+      amongst the nobility who believes he should have been chosen, not you. The
+      Undercity will take care of this for you, if you\u2019d like."
     image: {fileID: 0}
     audio: {fileID: 0}
     location: None
@@ -3461,9 +3463,10 @@ MonoBehaviour:
     minProgress: 2
     triggerEffectsStr: []
     dialogues:
-    - text: "Watch your back, my liege \u2013 discovery of an aggressive usurper
-        amongst the nobility who believes he should have been chosen, not you. The
-        Undercity will take care of this for you, if you\u2019d like."
+    - text: 'Greetings my Liege I come to you with a most urgent matter. a few of
+        our associates have caught wind of a plot most foul.  you will of course
+        remember some of the other names put forth to lead the Biuverate, well one
+        of those members is seeking to usurp your place. '
       audio: {fileID: 8300000, guid: da9abb6ad15010e40bd83689a028d155, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
     - text: We caught wind of this when he came to the undercity to arrange your
@@ -3581,6 +3584,254 @@ MonoBehaviour:
           this. I do not appreciate being left out of the equation like this either.
           See that it does not happen again, or else. '
         audio: {fileID: 8300000, guid: 5ca297cf7097b444a8e64d46808b520e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: Snooping Military
+    Description: The military are snooping around our business.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: 'A moment if you can my Liege, the military has recently been snooping
+        around our affairs and we''d rather they left well enough alone. Our impending
+        operation depends on your assistance. If you scratch our backs, we will surely
+        scratch yours. '
+      audio: {fileID: 8300000, guid: c6435479f76451544bcf9a7597f0e4cc, type: 3}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: Thank you my liege, the crowd you organised was very much appreciated.
+          Thanks to you our operation was a complete success. As promised here is
+          a slice of our gains.
+        audio: {fileID: 8300000, guid: 4a5ba87959c1597469a68f41a915e3df, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Economic
+      dialogues:
+      - text: "The keys you gave us to the merchant\u2019s vault were very much appreciated.
+          Do not worry my liege, we made sure not to take more than would be missed,
+          of course. We also made sure to get you these while we were in there."
+        audio: {fileID: 8300000, guid: a580de893a9592e41b59811139646513, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: My Liege please! your insistence on sending in the military keeps making
+          things worse! How on earth did you think the solution to less military
+          was more military?!
+        audio: {fileID: 8300000, guid: 804f4dfa35150a04a9ba04e20cb83d6d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: Thanks to your most gracious fundraiser you hosted, we were able to
+          use the opportunity to rifle through a few of the attendees items. Of course,
+          we made sure to save some of the spoils for you.
+        audio: {fileID: 8300000, guid: cd48a6273aeb4054ca65dd9a147a281d, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: 'It seems you don''t quite understand how things work here. A ruler
+          without the support of the undercity is a ruler lacking longevity. '
+        audio: {fileID: 8300000, guid: afb26ea76c326f04e8cf0a317c09230e, type: 3}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 4
+        triggerName: 
+        triggerVars: []
+  - Name: 'A Hostile Hunger '
+    Description: The ratfolk who live in the lower city have brought to my attention
+      a food shortage.
+    image: {fileID: 0}
+    audio: {fileID: 0}
+    location: None
+    DayLength: 3
+    minProgress: 2
+    triggerEffectsStr: []
+    dialogues:
+    - text: "The ratfolk who live in the lower city have brought to my attention
+        a food shortage, which is causing some to go without food. Their hunger is
+        fueling the hostility between us and the pigeonfolk living in the upper lofts.
+        I\u2019d ask you to deal with this issue quickly, so as fighting doesn\u2019t
+        break out. "
+      audio: {fileID: 0}
+      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+    endCrisis:
+    - faction: People
+      dialogues:
+      - text: "Best to hear it from the horse\u2019s mouth, so to speak, we moved
+          to the lower city to speak to the people most affected. We found out what
+          they are missing most to then came up with a way to best tackle the issue
+          district. "
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr: []
+    - faction: Economic
+      dialogues:
+      - text: "We reached out to the merchant\u2019s guild to call in a few favours
+          on your behalf. After a lot of humming and hawing they agreed to give a
+          portion of their savings to import food from our neighbouring areas"
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Military
+      dialogues:
+      - text: First, we dealt with the hostility brewing with a more visible presence
+          of soldiers to remind people to keep the peace. Then, we dealt with the
+          hunger. The same soldiers ensured the delivery of care packages to the
+          families.
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: Nobility
+      dialogues:
+      - text: 'We appealed to the nobles and the pigeonfolk in the upper lofts. Your
+          charitable donation has gone a long way for the people who are the cogs
+          who keep our capital operating. With Duke Lupain help we were able to rain
+          scraps down to feed the hungry ratfolk. '
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      triggerEffectsStr:
+      - effectName: Happiness
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
+    - faction: 
+      dialogues:
+      - text: Your disregard of this crisis has led to a great instability forming
+          in the region, enraging both the respective parties. We tried to do what
+          we could, but our lack of resources greatly limited our ability to help
+          the people.
+        audio: {fileID: 0}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
       - effectName: Power
