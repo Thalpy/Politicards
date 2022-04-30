@@ -49,7 +49,7 @@ public class UIhandler : MonoBehaviour
         //get the distance between the pie chart and the mouse position
         float distance = Vector2.Distance(mousePosition, pieChartSprite.transform.position);
         float angle = NormalizeAngle(Mathf.Atan2(relativeClickPosition.y, relativeClickPosition.x) * Mathf.Rad2Deg);
-        //Debug.Log($"The angle is {angle}");
+        //  Debug.Log($"The angle is {angle}");
         //Debug.Log($"The relative Progression is {angle / 360}");
 
 

@@ -280,7 +280,7 @@ public class CrisisMaster : MonoBehaviour
             }
         }
         int index = Random.Range(0, crisisBoxesCopy.Count);
-        return crisisBoxesCopy[index];
+        return crisisBoxesCopy[index]; 
     }
 
     public bool isActiveCrisis(Crisis crisis)

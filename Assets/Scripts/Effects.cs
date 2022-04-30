@@ -506,7 +506,7 @@ public class GetDeck : Effect
     int index;
 
     public override void setVars(object source, List<string> args)
-    {
+    { 
         this.source = source;
         index = int.Parse(args[0]);
     }

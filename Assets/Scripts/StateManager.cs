@@ -80,7 +80,7 @@ public class StateManager : MonoBehaviour
             AiFaction = factions[randomIndex];
             //get a random number between 1 -5 
             int randomRelationship = Random.Range(1, 6);
-            foreach(Card card in GameMaster.cardMaster.Decks[0].cards)
+            foreach(Card card in GameMaster.cardMaster.Decks[randomRelationship].cards)
             {
                 GameMaster.AISHand.AddCard(card);
             }
