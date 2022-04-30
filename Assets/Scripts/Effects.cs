@@ -358,6 +358,16 @@ public class BoostWeakest : Effect
             if (_faction.FactionPower < lowestPower)
             {
                 faction = _faction;
+                lowestPower = _faction.FactionPower;
+                continue;
+            }
+            if(_faction.FactionPower == lowestPower)
+            {
+                if(UnityEngine.Random.Range(0, 2) == 0)
+                {
+                    faction = _faction;
+                    lowestPower = _faction.FactionPower;
+                }
             }
         }
         AdjustProgress(faction);

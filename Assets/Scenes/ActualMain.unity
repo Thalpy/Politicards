@@ -3321,7 +3321,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
+        - 2
         - 4
         triggerName: 
         triggerVars: []
@@ -5148,7 +5148,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: People
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 0100000000000000000000000000000000000000
       HappinessValues: 0100000000000000000000000000000000000000
       ProgressValues: 0100000000000000000000000000000000000000
       triggerEffectsStr: []
@@ -5160,7 +5160,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 0000000001000000000000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr: []
