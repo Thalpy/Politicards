@@ -61,6 +61,7 @@ public class CrisisBox : MonoBehaviour
     /// </summary>
     public void ChangeEvent(Crisis SussyCrisis)
     {
+        gameObject.SetActive(true);
         crisis = SussyCrisis;
         //set the name
         nameText.text = SussyCrisis.Name;
@@ -72,7 +73,6 @@ public class CrisisBox : MonoBehaviour
         audioSource.clip = SussyCrisis.audio;
         audioSource.Play();
         progressChart.SetUpChart(SussyCrisis);
-        gameObject.SetActive(true);
     }
 
     public void EndCrisis()

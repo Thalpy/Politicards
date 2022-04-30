@@ -19,6 +19,10 @@ public class TargetCrisis : Targetable
     }
     public override bool DropCard(Card card)
     {
+        if(gameObject.active == false)
+        {
+            return false;
+        }
         Crisis crisis = crisisBox.GetCurrentCrisis();
         if(GameMaster.crisisMaster.CanAddCard(crisis, index))
         {
@@ -32,7 +36,7 @@ public class TargetCrisis : Targetable
             return true;
         }
         #if DEBUG_TargetCrisis
-        Debug.Log("Cannot add card to crisis: " + crisis.Name);
+        Debug.LogWarning("Cannot add card to crisis: " + crisis.Name);
         #endif
         return false;        
     }
