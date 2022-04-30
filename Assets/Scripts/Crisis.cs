@@ -144,6 +144,9 @@ public class Crisis
         
         foreach (EndCrisis end in endCrisis)
         {
+            try{
+
+            
             Faction faction = null;
             if (int.TryParse(end.faction, out int factionID))
             {
@@ -155,6 +158,11 @@ public class Crisis
             if (end.faction == victory.FactionName)
             {
                 end.run();
+            }
+            }
+            catch(System.Exception e){
+                Debug.Break();
+                Debug.LogError("Error in EndCrisis: " + e.Message);
             }
         }
 
