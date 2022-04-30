@@ -177,8 +177,9 @@ public class CrisisMaster : MonoBehaviour
         if(storyIndex > storyCrisises.Count){
             GameMaster.dialoguePlayer.EndGame();
         }
-        return storyCrisises[storyIndex];
+        Crisis crisis = storyCrisises[storyIndex];
         storyIndex++;
+        return crisis;
         
     }
 
