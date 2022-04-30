@@ -56,6 +56,7 @@ public class ChooseCrisisNeutralState : State
         {
             choosingCrisis = true;
             chosenCrisis = CrisisWithHighestProgressOfAiFaction(GameMaster.crisisMaster.ActiveCrisses);
+            choosingCrisis = false;
             
         }
         return null;
