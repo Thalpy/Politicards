@@ -30,7 +30,7 @@ public abstract class Effect
     public virtual void setVars(object source, List<string> args)
     {
         this.source = source;
-        if(args == null)
+        if(args == null || args.Count == 0)
         {
             Debug.LogError("args is null");
         }
@@ -210,9 +210,9 @@ public class Progress : Effect
     public override void setVars(object source, List<string> args)
     {
         this.source = source;
-        if(args == null)
+        if(args == null || args.Count < 2)
         {
-            Debug.LogError("args is null");
+            Debug.LogError("args is null or less than 2");
         }
         power = int.Parse(args[0]);
         //if args[1] is can be an int
@@ -255,23 +255,17 @@ public class Double : Effect
             //get the card
             Card card = source as Card;
             //itterate through the card's triggerEffects
-            Dictionary<Effect, Trigger> additions = new Dictionary<Effect, Trigger>();
             foreach(KeyValuePair<Effect, Trigger> efftrig in card.triggerEffects)
             {
                 //if the effect is a double
-                if (efftrig.Key.name == name && blackist.Contains(efftrig.Key.name))
+                if (efftrig.Key.name == name || blackist.Contains(efftrig.Key.name))
                 {
                     continue;
                 }
-                additions.Add(efftrig.Key.Copy(), efftrig.Value.Copy());
-            }
-            //add the new effects to the card
-            foreach(var entry in additions)
-            {
-                card.triggerEffects.Add(entry.Key, entry.Value);
+                efftrig.Key.DoEffect();
             }
         }
-        //if source is a Crisis
+        //if source is a Crisis - This is borken
         else if (source is Crisis)
         {
             //get the crisis
@@ -381,12 +375,32 @@ public class Chaos :Effect
         name = "Chaos";
     }
 
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
     public override void DoEffect()
     {
-        //pick a random effect from the effect's list in GameMaster
-        Effect effect = GameMaster.GetRandomEffect();
+        //loop 5 times
+        for (int i = 0; i < 5; i++)
+        {
+            //get a random faction
+            Faction faction = GameMaster.factionController.GetFactions()[UnityEngine.Random.Range(0, GameMaster.factionController.GetFactions().Count)];
+            
+            //loop over index of activecrisses
+            for(int j = 0; j < GameMaster.crisisMaster.ActiveCrisses.Length; j++)
+            {
+                ActiveCrisis crisis = GameMaster.crisisMaster.ActiveCrisses[j];
+                if(crisis == null){
+                    continue;
+                }
+                AdjustProgress(faction);
+                GameMaster.factionController.ChangeFactionPower(faction.FactionName, 1);
+            }
+        }
     }
-}
+}   
 
 public class AddCard : Effect{
     public AddCard()

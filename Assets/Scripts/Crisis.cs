@@ -162,6 +162,10 @@ public class Crisis
                 else{
                     faction = GameMaster.factionController.SelectFaction(end.faction);
                 }
+                if(faction == null){
+                    Debug.LogError("Faction " + end.faction + " does not exist in crisis " + Name);
+                    
+                }
                 if (faction.FactionName == victory.FactionName)
                 {
                     end.run();

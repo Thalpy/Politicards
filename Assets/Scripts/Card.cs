@@ -93,7 +93,7 @@ public class Card
                 Debug.Log("TriggerEffect has no effect name in crisis " + Name + "Replacing with nothing.");
                 continue;
             }
-            Debug.Log("Setting up effect " + trigEff.effectName + " with trigger " + trigEff.triggerName + "on card " + Name);
+            Debug.Log("Setting up effect " + trigEff.effectName + " with trigger " + trigEff.triggerName + " on card " + Name);
             Effect effectObj = GameMaster.GetEffect(trigEff.effectName).Copy();
             effectObj.setVars(this, (List<string>)trigEff.effectVars);
             Trigger triggerObj = GameMaster.GetTrigger(trigEff.triggerName).Copy();
