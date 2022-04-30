@@ -227,3 +227,17 @@ public class Investment : Trigger{
     }
 
  }
+
+ public class End : Trigger{
+    public End()
+    {
+        name = "End";
+    }
+
+    public override bool CheckTrigger(string _triggerName = null){
+        if(_triggerName == name){
+            return true;
+        }
+        return false;
+    }
+ }

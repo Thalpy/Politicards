@@ -73,6 +73,10 @@ public class PlayCardState : State
             // set the card to be played
             TargetCrisis tgt = activeCrisis.GetTargetFromIndex(getFirstEmptyAICardSlot());
 
+            if(tgt == null)
+            {
+                Debug.Log("Sommat broke like. This should have a red dot on it innit!");
+            }
             tgt.DropCardAI(card);
 
             discardCard();

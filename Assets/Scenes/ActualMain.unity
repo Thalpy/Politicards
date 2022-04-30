@@ -4365,7 +4365,11 @@ MonoBehaviour:
     location: 
     DayLength: 1
     minProgress: 1
-    triggerEffectsStr: []
+    triggerEffectsStr:
+    - effectName: SetAINeutral
+      effectVars: []
+      triggerName: End
+      triggerVars: []
     dialogues:
     - text: "With the passing of the late Sovereign Marqe, the Kingdom of Arrahni
         is in need of guidance whilst we await for the Sovereign\u2019s cousin to
@@ -5410,7 +5414,7 @@ MonoBehaviour:
       - effectName: Draw
         effectVars:
         - 
-        triggerName: On Use
+        triggerName: OnUse
         triggerVars:
         - 3
     - Name: 'Military Industrial Complex '
@@ -5553,24 +5557,20 @@ MonoBehaviour:
       - effectName: BoostWeakest
         effectVars:
         - 6
-        triggerName: On Use
+        triggerName: OnUse
         triggerVars: []
     - Name: Noble Pagentry
-      Description: Increases your relationship with all factions by 1 (except the
-        Crime faction) and gives 1 Noble progress.
+      Description: Increases the power and happiness of all factions by 1 (except
+        the Crime faction) and gives 1 Noble progress.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 0100000001000000010000000100000000000000
       HappinessValues: 0100000001000000010000000100000000000000
       ProgressValues: 0000000000000000000000000100000000000000
-      triggerEffectsStr:
-      - effectName: ExploitTheWeak
-        effectVars: []
-        triggerName: On Use
-        triggerVars: []
+      triggerEffectsStr: []
   - faction: Crime
     cards:
     - Name: Bribe The Military

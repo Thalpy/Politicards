@@ -144,6 +144,10 @@ public class FactionController : MonoBehaviour
 
     public Faction SelectFaction(int factionIndex)
     {
+        if(factionIndex > factions.Count - 1)
+        {
+            Debug.LogWarning("Faction not found:" + factionIndex);
+        }
         return factions[factionIndex];
     }
 

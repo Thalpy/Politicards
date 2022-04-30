@@ -139,7 +139,6 @@ public class Crisis
             if(entry.Value == victoryProgress && Random.Range(0,2) == 0){
                 victory = entry.Key;
                 victoryProgress = entry.Value;
-                break;
             }
         }
         if(victory == null){

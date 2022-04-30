@@ -30,6 +30,10 @@ public abstract class Effect
     public virtual void setVars(object source, List<string> args)
     {
         this.source = source;
+        if(args == null)
+        {
+            Debug.LogError("args is null");
+        }
         power = int.Parse(args[0]);
     }
 
@@ -206,6 +210,10 @@ public class Progress : Effect
     public override void setVars(object source, List<string> args)
     {
         this.source = source;
+        if(args == null)
+        {
+            Debug.LogError("args is null");
+        }
         power = int.Parse(args[0]);
         //if args[1] is can be an int
         if (int.TryParse(args[1], out int factionID))
@@ -549,6 +557,14 @@ public class SetAINeutral : Effect
         name = "SetAINeutral";
     }
 
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    /// <summary>
+    /// Sets the AI's relationship to the player to neutral
+    /// </summary>
     public override void DoEffect()
     {
         GameMaster.stateManager.SetRelationshipByString("Neutral");
