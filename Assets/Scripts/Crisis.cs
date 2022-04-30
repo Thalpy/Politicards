@@ -145,20 +145,18 @@ public class Crisis
         foreach (EndCrisis end in endCrisis)
         {
             try{
-
-            
-            Faction faction = null;
-            if (int.TryParse(end.faction, out int factionID))
-            {
-                faction = GameMaster.factionController.SelectFaction(factionID);
-            }
-            else{
-                faction = GameMaster.factionController.SelectFaction(end.faction);
-            }
-            if (end.faction == victory.FactionName)
-            {
-                end.run();
-            }
+                Faction faction = null;
+                if (int.TryParse(end.faction, out int factionID))
+                {
+                    faction = GameMaster.factionController.SelectFaction(factionID);
+                }
+                else{
+                    faction = GameMaster.factionController.SelectFaction(end.faction);
+                }
+                if (end.faction == victory.FactionName)
+                {
+                    end.run();
+                }
             }
             catch(System.Exception e){
                 Debug.Break();

@@ -23,6 +23,7 @@ public class CrisisBox : MonoBehaviour
     public ProgressChart progressChart;
     //active crisis
     public Crisis crisis;
+    public GameObject[] Psuedos = new GameObject[3]; 
 
     private void Start() {
         //Add this to the master list
@@ -75,10 +76,25 @@ public class CrisisBox : MonoBehaviour
         progressChart.SetUpChart(SussyCrisis);
     }
 
+    public void AddPsuedo(GameObject pse){
+        for(int i = 0; i < Psuedos.Length; i++){
+            if(Psuedos[i] == null){
+                Psuedos[i] = pse;
+                return;
+            }
+        }
+    }
+
     public void EndCrisis()
     {
         //crisis = null;
+
         gameObject.SetActive(false);
+        for (int i = 0; i < Psuedos.Length; i++)
+        {
+            //destroy the psuedo
+            DestroyImmediate(Psuedos[i]);
+        }
     }
 
     public Crisis GetCurrentCrisis(){
