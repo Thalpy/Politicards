@@ -193,7 +193,7 @@ public class CrisisMaster : MonoBehaviour
     }
 
     public Crisis GetStoryCrisis(){
-        if(storyIndex > storyCrisises.Count){
+        if(storyIndex >= storyCrisises.Count){
             GameMaster.dialoguePlayer.EndGame();
         }
         Crisis crisis = storyCrisises[storyIndex];

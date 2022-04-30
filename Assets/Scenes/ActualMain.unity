@@ -4320,7 +4320,13 @@ MonoBehaviour:
           the tyranny of hunger.
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: My Leige, I have to inform you that the people aren't exactly pleased
@@ -4594,11 +4600,7 @@ MonoBehaviour:
           Fuzzybeard.
         audio: {fileID: 8300000, guid: 991cac4e580b9704b820f6f1771614d1, type: 3}
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr:
-      - effectName: 
-        effectVars: []
-        triggerName: 
-        triggerVars: []
+      triggerEffectsStr: []
   - Name: A Wonderfully Warm Welcome
     Description: "It\u2019s really quite exciting, isn\u2019t it? "
     image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
@@ -5011,7 +5013,7 @@ MonoBehaviour:
       audio: {fileID: 8300000, guid: 73359c8489470a441801165f4f18891a, type: 3}
       image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
     endCrisis:
-    - faction: 0
+    - faction: People
       dialogues:
       - text: After so much help from the people, patience from the farmers, and
           efforts from the animalfolk working hard every day, it is with great pride
@@ -5036,7 +5038,7 @@ MonoBehaviour:
         - 1
         triggerName: 
         triggerVars: []
-    - faction: 1
+    - faction: Economic
       dialogues:
       - text: Such an artifact would fetch for a great price, but more than that,
           would have a great impact on tourism in the region. We agree to spread
@@ -5058,7 +5060,7 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
-    - faction: 2
+    - faction: Military
       dialogues:
       - text: "There is immediate panic from Colonel Howler that the discovery of
           such an artifact will cause panic. We manage to calm him down, and make
@@ -5081,7 +5083,7 @@ MonoBehaviour:
         - 3
         triggerName: 
         triggerVars: []
-    - faction: 3
+    - faction: Nobility
       dialogues:
       - text: "The answer appears obvious. It is a royal relic, and as such should
           be kept where all royal relics belong: The Palace. No other gift could
@@ -5118,15 +5120,7 @@ MonoBehaviour:
           to Sovereign Sash\u2019an on their arrival."
         audio: {fileID: 8300000, guid: f5b2b8e7294d9d846a279c13a6249e3f, type: 3}
         image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
-      - text: You've gained a random Noble Card.
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
-      triggerEffectsStr:
-      - effectName: RandomCard
-        effectVars:
-        - 4
-        triggerName: 
-        triggerVars: []
+      triggerEffectsStr: []
   crisisBox: {fileID: 2097631631}
   PlayerPlayedCardEvent:
     m_PersistentCalls:
