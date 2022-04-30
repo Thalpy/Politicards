@@ -9,6 +9,7 @@ public class TargetCrisis : Targetable
     public CrisisBox crisisBox;
     Vector3 startingScale;
     float bounceStrength = 0.1f;
+    GameObject psudeocard = null;
 
     //awake
     void Awake()
@@ -17,6 +18,10 @@ public class TargetCrisis : Targetable
         index = index -1;
         startingScale = transform.localScale;
     }
+
+    private void Start() {
+    }
+
     public override bool DropCard(Card card)
     {
         if(gameObject.active == false)
@@ -32,7 +37,8 @@ public class TargetCrisis : Targetable
             #endif
             //GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
-            GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
+            psudeocard = GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
+            crisisBox.AddPsuedo(psudeocard);
             return true;
         }
         #if DEBUG_TargetCrisis
