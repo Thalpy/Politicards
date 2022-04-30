@@ -61,6 +61,8 @@ public class ChooseCardNeutralState : State
             choosingCard = true;
             int aiFactionIndex = GameMaster.factionController.FactionDictionary[GameMaster.stateManager.AiFaction.FactionName];
             chosenCard = chooseCard(aiFactionIndex);
+            choosingCard = false;
+            cardChosen = true;
         }
         return null;
     }
@@ -73,15 +75,15 @@ public class ChooseCardNeutralState : State
     Card chooseCard(int v)
     {
        //grab the cards in the ai hand
-        List<GameObject> cardObjects = GameMaster.AISHand.CardsInHand;
+        Card[] cards = GameMaster.stateManager.GetCardsInHand().ToArray();
 
         //work out which card has the highest value for the faction the AI is affiliated with
         int highestValue = 0;
         int highestIndex = 0;
-        for(int i = 0; i < cardObjects.Count; i++)
+        for(int i = 0; i < cards.Length; i++)
         {
-            Card card = cardObjects[i].GetComponent<Card>();
-            if (card.Faction == GameMaster.stateManager.AiFaction.FactionName && card.ProgressValues[v] > highestValue && card.ManaCost <= GameMaster.stateManager.AiFaction.AIMana)
+            Card card = cards[i];
+            if (card.Faction == GameMaster.stateManager.AiFaction.FactionName && card.ProgressValues[v] >= highestValue && card.ManaCost <= GameMaster.stateManager.AiFaction.AIMana)
             {
                 highestValue = card.ProgressValues[v];
                 highestIndex = i;
@@ -90,11 +92,11 @@ public class ChooseCardNeutralState : State
         // if we found an appropriate card then return it
         if (highestValue > 0)
         {
-            return cardObjects[highestIndex].GetComponent<Card>();
+            return cards[highestIndex];
         }
         
         // otherwise return a random card for the ai hand
-        return cardObjects[Random.Range(0, cardObjects.Count)].GetComponent<Card>();
+        return cards[Random.Range(0, cards.Length)];
     }
 
     #endregion
