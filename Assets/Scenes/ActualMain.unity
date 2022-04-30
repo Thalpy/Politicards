@@ -3736,7 +3736,7 @@ MonoBehaviour:
         fueling the hostility between us and the pigeonfolk living in the upper lofts.
         I\u2019d ask you to deal with this issue quickly, so as fighting doesn\u2019t
         break out. "
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 7d80b600f62334d3f94ba1fbb9c31bfc, type: 3}
       image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
     endCrisis:
     - faction: People
@@ -3746,15 +3746,20 @@ MonoBehaviour:
           they are missing most to then came up with a way to best tackle the issue
           district. "
         audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
-      triggerEffectsStr: []
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: "We reached out to the merchant\u2019s guild to call in a few favours
           on your behalf. After a lot of humming and hawing they agreed to give a
           portion of their savings to import food from our neighbouring areas"
-        audio: {fileID: 0}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+        audio: {fileID: 8300000, guid: 2034638fb7c3e4128bb1d2e4e255ce77, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
         effectVars:
@@ -3776,11 +3781,12 @@ MonoBehaviour:
         triggerVars: []
     - faction: Military
       dialogues:
-      - text: Gracious news my Liege, our infiltration into the Military party has
-          yielded that they are not planning your demise, for now. Though, during
-          our pilfering we found this which may prove useful to you.
-        audio: {fileID: 8300000, guid: 13158910cc36db641bc9790c9fb14727, type: 3}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      - text: First, we dealt with the hostility brewing with a more visible presence
+          of soldiers to remind people to keep the peace. Then, we dealt with the
+          hunger. The same soldiers ensured the delivery of care packages to the
+          families.
+        audio: {fileID: 8300000, guid: 9792af84227ab4e35ac1cb29dda2721a, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Draw
         effectVars:
@@ -3801,11 +3807,12 @@ MonoBehaviour:
         triggerVars: []
     - faction: Nobility
       dialogues:
-      - text: Gracious news my Liege, our infiltration into the Nobel's party has
-          yielded that they are not planning your demise, for now. Though, during
-          our pilfering we found this which may prove useful to you.
-        audio: {fileID: 8300000, guid: e5d643a23f846c14da24246ae90e6f40, type: 3}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      - text: 'We appealed to the nobles and the pigeonfolk in the upper lofts. Your
+          charitable donation has gone a long way for the people who are the cogs
+          who keep our capital operating. With Duke Lupain help we were able to rain
+          scraps down to feed the hungry ratfolk. '
+        audio: {fileID: 8300000, guid: 08b2d760c646b49ecbe6cc41621a8d6c, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Draw
         effectVars:
@@ -3826,10 +3833,12 @@ MonoBehaviour:
         triggerVars: []
     - faction: 
       dialogues:
-      - text: I see you let our offer fall by the wayside. How disappointing. We
-          were expecting much more from you.
-        audio: {fileID: 8300000, guid: 2808f06277d6ad84299b3be0615b54b4, type: 3}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      - text: Your disregard of this crisis has led to a great instability forming
+          in the region, enraging both the respective parties. We tried to do what
+          we could, but our lack of resources greatly limited our ability to help
+          the people.
+        audio: {fileID: 8300000, guid: 907abb73035264c82bb5d30eb68e3297, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
@@ -4057,14 +4066,14 @@ MonoBehaviour:
         such as those I represent, play a key role in ensuring society runs smoothly.
         I\u2019m sure that all the riff raff on the street are only one hungry day
         away from climbing these walls and eating the both of us."
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: d5f1339776c3044a7823c52b70133fc1, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     - text: "As you know, the business environment has been very difficult these
         last seasons and the last thing that my colleagues need right now is to have
         to pay a special tax to allow the unwashed to have a good piss up. The merchant
         community would surley be grateful if you could find a way to \u2026\u2026
         ease this burden?"
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: a26d519b0de924a1881c187abe4cdbaa, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     endCrisis:
     - faction: People
@@ -4073,33 +4082,57 @@ MonoBehaviour:
           of such creatures? Within a week they will have forgotten what you\u2019ve
           done for them and will be baying for your blood! And if you don\u2019t
           pay us more respect, we might even join them. "
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 282142ee12d0940cca33f75f0ecdce5d, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: "My Leige I am please to report that our profit projections have tripled
           this quarter, all thanks to your appasite decision to shift the burden
           of taxation to where it really belongs \u2013 everyone else!"
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 9ae0fe224bec945df8176e211acd8390, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: "Don\u2019t think we don\u2019t know your game you tin pot tyrant!
           There aren\u2019t enough battallions in the world to protect you from our
           righteous fury!"
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: e5455a0961d714529b867d8e3544f511, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: You blue blooded baboon! Do you think that siding with those in-bred
           high society fops will strengthen your powerbase? Where do you think they
           get their power from?!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: cb5b97547fe674a7eb5fe93a9fb3bbcb, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 3
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: "You insidious monster. I see now that you don\u2019t share our love
@@ -4107,7 +4140,13 @@ MonoBehaviour:
           bugger everybody else!"
         audio: {fileID: 0}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 4
+        triggerName: 
+        triggerVars: []
   - Name: With Friends Like These
     Description: "As all leaders know, a good cabinet reshuffle helps to keep things
       exciting, however not everyone can be a winner at this type of thing and you\u2019re
@@ -4123,11 +4162,11 @@ MonoBehaviour:
         of your bed chamber was fired for sleeping on the job. While I share your
         dismay at this appaling slip in standards, the job of running the country
         must go on. "
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 621f97f6a40434f0d8c96c08d32a4b83, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     - text: "I have an excellent candidate who would be more than happy to occupy
         the position\u2026 I only ask that you pay a very modest finder\u2019s fee\u2026."
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 1dd89433880ba4d7a86136856547e77c, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     endCrisis:
     - faction: People
@@ -4135,42 +4174,72 @@ MonoBehaviour:
       - text: I am disgusted at how far you have allowed standards to slip. A commoner
           in your bed chamber?! What next, One of us cleaning your latrines? For
           shame!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: d429d1c7113c74253a3b2bf5c07c7537, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: "Oh sire, you\u2019ve made an excellent choice. With one of us in your
           bed chamber I can assure you that your household will run smoother than
           ever before!"
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: e870fc41017ed4bab99d9b51096813d7, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: "Why, I\u2019ve never heard of anything so absurd as a soldier in the
           ruler\u2019s bed chamber. The army is for crushing your enemies and threatening
           the masses. Why on earth would you want it in your house?!"
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 828e5007798184238982b05194544368, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: "While I understand that your might be comfortable with an old blue
           blood in your household, I think you\u2019ll find their services ultimately
           prove to be\u2026.. not worth the price?"
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 08f82c7bd34aa4bebb4b159c921c37b5, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 3
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: 'A criminal. A known, criminal invited into your bed chamber. Not only
           do you spit my generous offer back in my face but you flagrantly violate
           the law in allowing such persons so close to the seat of power. You will
           regret this. '
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 3e18f73b0ab7a44789e8c20d79d5869f, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 4
+        triggerName: 
+        triggerVars: []
   - Name: Fire Sale
     Description: "In order to generate more revenues for the government\u2019s coffers 
       portion of the nations wealth has been sold. It\u2019s up to you to decide
@@ -4186,7 +4255,7 @@ MonoBehaviour:
         Have I mentioned recently that a ruler of such strength, wisdom and physical
         attributes that no gentle creature on this world could compete with, is represented
         by the person who inhabits the chair in which you sit? "
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: fc1601f87c9c040d885b2163a11965dd, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     - text: 'Slimey? Me?! Why ever would you say such a thing. '
       audio: {fileID: 0}
@@ -4201,27 +4270,45 @@ MonoBehaviour:
           among the people? Popularity? Contentedness?! Standard of living???? SUCH
           MATTERS ARE TRIFLING WHEN COMPARED WITH OUR PROFITABILITY! You will regret
           this. '
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 1cf959dead786486aab811d107d93c16, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: Oh sire you have made such a wonderful choice. You realised of course
           that by trusting the merchants of our great land with this treasure you
           have garunteed prosperity for all who reside within her! Truly a wiser
           ruler has never occupied your throne!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: f7892d2f960d34e7896345a80aed1e32, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: "Do you really think it wise to give more money to a bunch of jumped
           up thugs with an inferiority complex? Give them a taste for the finer things
           in life and they might just decide they\u2019re entitled to it! What then?
           You really didn\u2019t use your head with this one."
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 9a956d653a13e49388a6cc61da44a32b, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: Did you just give more money to the nobility? You realise that they
@@ -4229,17 +4316,29 @@ MonoBehaviour:
           make an endowment to, you chose the people who need it least? Tell me,
           was this a deliberate act or did you just close your eyes and point at
           the first person you saw?
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: c3bb6e3df44ae490fa7d8c2a3f6e983d, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 3
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: "Ah yes, crime. While it dosen\u2019t surprise me to see a rapscallion
           like yourself engaging in such nefarious activity, it does disappoint me
           to see it being done so openly. Have a little shame sir. "
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 292415c59e9314ca1aabef1196121421, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 4
+        triggerName: 
+        triggerVars: []
   - Name: Crime in our Streets.
     Description: The people in the streets have noticed an increase in crime.
     image: {fileID: 21300000, guid: f44baa93086c4d64683e42b3d47b166f, type: 3}
@@ -4251,7 +4350,7 @@ MonoBehaviour:
     dialogues:
     - text: The people in the streets have noticed an increase in crime and it's
         causing nerves to heighten!
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 13614428ae34c4c86b81a362acf124d3, type: 3}
       image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
     endCrisis:
     - faction: People
@@ -4259,16 +4358,21 @@ MonoBehaviour:
       - text: My Leige, our people thankyou. Not only have you been tough on crime
           but also the causes of crime! This novel approach has ensured that the
           people can freely move at liberty, free from fear of attack or molestaion.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 523ccd99845464a80ae5d94e599d7d59, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: I'm disgusted. Given the opportunity to make the lives of decent, honest
           folk better, you decided instead to line the coffers of those already screwing
           the populace for all they own. I haope you atleast got a penny for your
           trouble.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 5709b5d66f6074475b8fff309ecdc979, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr: []
     - faction: Military
@@ -4277,7 +4381,7 @@ MonoBehaviour:
           asking you to declare martial law! You've replaced one lot of thugs with
           another! The people don't even have recourse to the law to help them out!
           Surely there was a better way.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: fd35c5b9a3eef4453956e80884a0c5c8, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr: []
     - faction: Nobility
@@ -4285,7 +4389,7 @@ MonoBehaviour:
       - text: I am speechless. I came to you with a simple request for help and you
           heard "Please prostrate yourself before the blue bloods". You will regret
           this you old sponge!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 3ed1e0132148049d78328fd493772417, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr: []
     - faction: 
@@ -4294,7 +4398,7 @@ MonoBehaviour:
           Good honest gentlefolk now afraid to leave their homes for fear of being
           attacked. If I were you I would hang my head in shame and reconsider my
           position.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 5e425356b72d84233942083374c9e1f1, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
       triggerEffectsStr: []
   - Name: Farmers Argument
@@ -4310,7 +4414,7 @@ MonoBehaviour:
         from a neigbouring kingdom. The farmers argue that the entire consignment
         should go to them, in order to produce a good harvest. The military demands
         that a portion of the shipment shoudl be distributed amongest the soldiers.
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: fc601d084fd63437ea9b3502107e7e02, type: 3}
       image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
     endCrisis:
     - faction: People
@@ -4318,7 +4422,7 @@ MonoBehaviour:
       - text: My Liege the people are rejoicing in the streets - your gift of seed
           has ensured that, at least for a time, the humble folk will be freed from
           the tyranny of hunger.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 9edeed2068dd6447cbf270d04e50b4d9, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -4333,16 +4437,28 @@ MonoBehaviour:
           with your decision. Without the grain, the people will go hungry. With
           the grain, the merchants will make more profit this season. Is the latter
           really more important than the former.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: c27d5cda34510486593cbd36ff04a984, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -1
+        - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: I understand that you might have felt that your psoition in the world
           would become more secure by siding with the military. But remember true
           that true authority is derived fromt he people and that true stability
           comes from their hapiness.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: e574674ff786f440080678fad4ca77b5, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr: []
     - faction: Nobility
@@ -4351,18 +4467,30 @@ MonoBehaviour:
           a fairer kingdom. I see now that you intend to carry ont he old ways and
           look after the interests of your friends, instead of those who really depend
           on you.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 431bbd9832a9841cea67c7fc1dedc1c4, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 3
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: While I can understand being in charge is a difficult job and you were
           trying ot bring balance to the needs of all the factions, form our perspective,
           this was the worst possible outcome. People will go hungry because you
           weren't decisive enough. I hope you learn form your failure.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: fb5c61542eaad4edb8e4d8bda9f7216f, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 4
+        triggerName: 
+        triggerVars: []
   storyCrisises:
   - Name: Tutorial
     Description: Playing a card will choose your faction
@@ -5599,7 +5727,7 @@ MonoBehaviour:
   dummyCard: {fileID: 1513921497982636168, guid: bbf390970b9e7cb48b8a20b2693e9e87,
     type: 3}
   cardAudio: {fileID: 561427136}
-  backupSound: {fileID: 8300000, guid: 2a88bf84557c0cc4f9da5ddadec84feb, type: 3}
+  backupSound: {fileID: 8300000, guid: ee19d797316b0404a9c05368ab5b442c, type: 3}
 --- !u!114 &561427133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13041,8 +13169,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005990169543319387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -929.09}
-  m_LocalScale: {x: 0.0266875, y: 0.0266875, z: 0.0266875}
+  m_LocalPosition: {x: 0, y: 0, z: -868.3}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1005990169979297506}
@@ -13053,7 +13181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -3.72}
+  m_AnchoredPosition: {x: 0, y: -28.6}
   m_SizeDelta: {x: 724.1212, y: 122.8692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1005990169543319387
@@ -13229,8 +13357,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is test text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
