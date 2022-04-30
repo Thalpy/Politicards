@@ -34,8 +34,28 @@ public class StateManager : MonoBehaviour
     /// the relationship between the player and the AI
     /// </summary>
     int relationshipWithPlayer;
-    public int RelationshipWithPlayer { get => relationshipWithPlayer; set => relationshipWithPlayer = value; }
-
+    public int RelationshipWithPlayer
+    {
+        get
+        {
+            return relationshipWithPlayer;
+        }
+        set
+        {
+            switch (value)
+            {
+                case > 10:
+                    relationshipWithPlayer = 10;
+                    break;
+                case < 0:
+                    relationshipWithPlayer = 0;
+                    break;
+                default:
+                    relationshipWithPlayer = value;
+                    break;
+            }
+        }
+    }
     /// <summary>
     /// An enum representing the top level relationship statuses between the AI and the player
     /// </summary>
@@ -56,39 +76,39 @@ public class StateManager : MonoBehaviour
     /// </summary>
     void Update()
     {
-        RunStateMachine();        
+        RunStateMachine();
     }
 
-   
+
     void Start()
     {
         //subscribe to the crisis master's player played card event so that we update our guess at the player faction for each round played.
         GameMaster.crisisMaster.PlayerPlayedCardEvent.AddListener(GetPlayerFaction);
-        #if AI_PLAYER_RELATIONSHIP_NEUTRAL
-            playerRelationship = PlayerRelationshipEnum.Neutral;
-            RelationshipWithPlayer = 5;
-        #elif AI_PLAYER_RELATIONSHIP_HAPPY
-            playerRelationship = PlayerRelationshipEnum.Ally;
-            RelationshipWithPlayer = 10;
-        #elif AI_PLAYER_RELATIONSHIP_UNHAPPY
-            playerRelationship = PlayerRelationshipEnum.Enemy;
-            RelationshipWithPlayer = 1;
-        #endif
-        #if AI_FACTION_RANDOM
-            List<Faction> factions = GameMaster.factionController.GetFactions();
-            int randomIndex = Random.Range(0, factions.Count);
-            AiFaction = factions[randomIndex];
-            //get a random number between 1 -5 
-            int randomRelationship = Random.Range(1, 6);
-            foreach(Card card in GameMaster.cardMaster.Decks[randomRelationship].cards)
-            {
-                GameMaster.AISHand.AddCard(card);
-            }
-        #endif
+    #if AI_PLAYER_RELATIONSHIP_NEUTRAL
+        playerRelationship = PlayerRelationshipEnum.Neutral;
+        RelationshipWithPlayer = 5;
+    #elif AI_PLAYER_RELATIONSHIP_HAPPY
+                playerRelationship = PlayerRelationshipEnum.Ally;
+                RelationshipWithPlayer = 10;
+    #elif AI_PLAYER_RELATIONSHIP_UNHAPPY
+                playerRelationship = PlayerRelationshipEnum.Enemy;
+                RelationshipWithPlayer = 1;
+    #endif
+    #if AI_FACTION_RANDOM
+        List<Faction> factions = GameMaster.factionController.GetFactions();
+        int randomIndex = Random.Range(0, factions.Count);
+        AiFaction = factions[randomIndex];
+        //get a random number between 1 -5 
+        int randomRelationship = Random.Range(1, 6);
+        foreach (Card card in GameMaster.cardMaster.Decks[randomRelationship].cards)
+        {
+            GameMaster.AISHand.AddCard(card);
+        }
+    #endif
 
         GetPlayerFaction();
-        
-    }    
+
+    }
 
     /// <summary>
     /// Sets the player faction to the faction that is happiest with the player
@@ -152,7 +172,7 @@ public class StateManager : MonoBehaviour
         {
             return PlayerRelationshipEnum.Ally;
         }
-        else if (RelationshipWithPlayer < 2)
+        else if (RelationshipWithPlayer < 3)
         {
             return PlayerRelationshipEnum.Enemy;
         }
@@ -172,4 +192,31 @@ public class StateManager : MonoBehaviour
         }
         return cards;
     }
+
+    /// <summary>
+    /// Given a string, sets the current relationship between the player and the AI to the appropriate value. 
+    /// </summary>
+    /// <param name="relationship">
+    ///The relationship between the player and the AI
+    ///Valid values are: "Ally", "Enemy", "Neutral" 
+    ///</param>
+    public void SetRelationshipByString(string relationship)
+    {
+        switch (relationship)
+        {
+            case "Ally":
+                playerRelationship = PlayerRelationshipEnum.Ally;
+                RelationshipWithPlayer = Random.Range(5, 11);
+                break;
+            case "Enemy":
+                playerRelationship = PlayerRelationshipEnum.Enemy;
+                RelationshipWithPlayer = Random.Range(0, 3);
+                break;
+            case "Neutral":
+                playerRelationship = PlayerRelationshipEnum.Neutral;
+                RelationshipWithPlayer = Random.Range(3, 5);
+                break;
+        }
+    }
+
 }

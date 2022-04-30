@@ -1919,7 +1919,7 @@ PrefabInstance:
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: startingCards
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -2232,7 +2232,7 @@ PrefabInstance:
     - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: startingCards
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -2622,7 +2622,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 432086062}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba043f7b5167c354687328d2367f9ac1, type: 3}
@@ -18423,7 +18423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2883156948893106382}
   m_LocalRotation: {x: 0.30070576, y: -0, z: -0, w: 0.953717}
-  m_LocalPosition: {x: -0.505, y: -2.975, z: -2.005}
+  m_LocalPosition: {x: 0.742, y: -1.939, z: -1.205}
   m_LocalScale: {x: 0.05, y: 0.050000004, z: 0.050000004}
   m_ConstrainProportionsScale: 0
   m_Children:

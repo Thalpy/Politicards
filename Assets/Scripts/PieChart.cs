@@ -235,7 +235,7 @@ public class PieChart : MonoBehaviour
     {
 
         //write the value to the console
-        Debug.Log($"Get Pie Chart Data recieeved a value of {value}");
+        //Debug.Log($"Get Pie Chart Data recieeved a value of {value}");
 
         for (int i = 0; i < pieChartData.Length; i++)
         {

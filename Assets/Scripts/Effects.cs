@@ -541,3 +541,16 @@ public class RandomCard : Effect{
         GameMaster.playerHand.AddCard(card);
     }
 }
+
+public class SetAINeutral : Effect
+{
+    public SetAINeutral()
+    {
+        name = "SetAINeutral";
+    }
+
+    public override void DoEffect()
+    {
+        GameMaster.stateManager.SetRelationshipByString("Neutral");
+    }
+}

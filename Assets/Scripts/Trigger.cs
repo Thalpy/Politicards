@@ -126,6 +126,39 @@ public class UnhappyTrigger : Trigger{
     }
 }
 
+
+public class Friendly : Trigger{
+    public Friendly()
+    {
+        name = "Friendly";
+    }
+
+    Faction faction;
+
+    public override void setVars(Effect _effect, List<string> args)
+    {
+        effect = _effect;
+        faction = GameMaster.factionController.SelectFaction(int.Parse(args[0]));
+        SetupTrigger();
+    }
+
+    public override void SetupTrigger()
+    {
+        
+    }
+
+    public void ActivateTrigger(){
+        if(faction == null){
+            Debug.LogError("Faction is null");
+            return;
+        }
+        if(faction.PlayerHappiness == Faction.PlayerHappinessEnum.happy){
+            effect.DoEffect();
+        }
+    }
+}
+
+
 public class Investment : Trigger{
     public Investment()
     {

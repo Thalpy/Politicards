@@ -50,6 +50,8 @@ public class FactionController : MonoBehaviour
             //subscribe to the faction's mana change event
             faction.playerManaChange.AddListener(onPlayerManaChange);
             FactionDictionary.Add(faction.FactionName, i);
+            faction.ChangeHappiness(5);
+            faction.ChangeAiHappiness(5);
             i++;
         }
 
