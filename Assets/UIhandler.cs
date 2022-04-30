@@ -38,19 +38,19 @@ public class UIhandler : MonoBehaviour
 
     public void ProcessePieChartClick(GameObject pieChartSprite)
     {
-        Debug.Log("I am being clicked");
+        //Debug.Log("I am being clicked");
         //get the current mouse position and print to the debug log
         Vector2 mousePosition = new Vector2();
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform.GetChild(5).GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out mousePosition);
-        Debug.Log("Mouse position is: " + mousePosition);
-        Debug.Log($"The pie chart is at {pieChartSprite.transform.position}");
+        //Debug.Log("Mouse position is: " + mousePosition);
+        //Debug.Log($"The pie chart is at {pieChartSprite.transform.position}");
         Vector2 relativeClickPosition = mousePosition - (Vector2)pieChartSprite.transform.position;
-        Debug.Log($"The relative click position is {relativeClickPosition}");
+        //Debug.Log($"The relative click position is {relativeClickPosition}");
         //get the distance between the pie chart and the mouse position
         float distance = Vector2.Distance(mousePosition, pieChartSprite.transform.position);
         float angle = NormalizeAngle(Mathf.Atan2(relativeClickPosition.y, relativeClickPosition.x) * Mathf.Rad2Deg);
-        Debug.Log($"The angle is {angle}");
-        Debug.Log($"The relative Progression is {angle / 360}");
+        //Debug.Log($"The angle is {angle}");
+        //Debug.Log($"The relative Progression is {angle / 360}");
 
 
 
