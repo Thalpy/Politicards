@@ -1,2 +1,4 @@
 -define:DEBUG 
 -define:DEBUG_TargetCrisis
+-define:AI_PLAYER_RELATIONSHIP_NEUTRAL
+-define:AI_FACTION_RANDOM

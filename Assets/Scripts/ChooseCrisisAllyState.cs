@@ -53,6 +53,8 @@ public class ChooseCrisisAllyState : State
         {
             choosingCrisis = true;
             chosenCrisis = CrisisMostLikleyToComplete(GameMaster.crisisMaster.ActiveCrisses);
+            choosingCrisis = false;
+            CrisisChosen = true;
             
         }
         return null;
@@ -87,7 +89,8 @@ public class ChooseCrisisAllyState : State
         int mostLikleyCrisisIndex = 0;
         for(int i = 0; i < crises.Length; i++)
         {
-            Crisis crisis = crises[i].crisis;
+            if (crises[i] == null){continue;}
+            Crisis crisis = crises[i].crisis; //TODO add a null check
             int[] currentProgress = crisis.GetProgress();
             // get the max value of current progress
             int maxValue = currentProgress.Max();

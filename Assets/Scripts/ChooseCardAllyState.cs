@@ -53,6 +53,8 @@ public class ChooseCardAllyState : State
         {
             choosingCard = true;
             chosenCard = chooseCard();
+            cardChosen = true;
+            choosingCard = false;
         }
         return null;
     }
@@ -64,15 +66,13 @@ public class ChooseCardAllyState : State
     /// <returns>The card which is most likley to lead to a positive outcome for the current crisis</returns>
     Card chooseCard()
     {
-        // get the number of cards in the active crisis
+        //get the cards in the AI's hand
         int numCards = activeCrisis.playerCards.Length + activeCrisis.AICards.Length;
+        Card[] cards = GameMaster.stateManager.GetCardsInHand().ToArray();
 
-        Card[] cards = new Card[numCards];
+        //get the faction on the crisis that has the highest progress
         Dictionary<Faction, int> progress = activeCrisis.crisis.factionProgress;
-
         Faction targetFaction = GetHighestProgressFaction(progress);
-
-        // get the name of the faction with the highest progress on this crisis
 
         // select cards from the ais hand if they have the same faction as the target faction and require less mana than the ai has to spend with that faction
         List<Card> targetCards = getTargetCards(cards, targetFaction.FactionName);
