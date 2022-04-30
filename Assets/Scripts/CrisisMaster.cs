@@ -90,15 +90,18 @@ public class CrisisMaster : MonoBehaviour
     /// </summary>
     public void NewTurn()
     {
-        foreach (ActiveCrisis crisis in activeCrisses)
-        {
+        for(int i = 0; i < activeCrisses.Length; i++){
+
             //plz :( if you're dealing a statically sized array of objects which isn't pre-populated you need to do null checks!)
-            if (crisis == null){continue;}
-            if(!crisis.crisis.NewTurn()){
-                crisis.EndCrisis();
+            if (activeCrisses[i] == null){continue;}
+            if(!activeCrisses[i].crisis.NewTurn()){
+                activeCrisses[i].EndCrisis();
+                activeCrisses[i] = null;
+                continue;
+
             };
             //for each card in the crisis
-            foreach (Card card in crisis.playerCards)
+            foreach (Card card in activeCrisses[i].playerCards)
             {
                 //check if the card has a new turn trigger 
                 //TODO: null check
@@ -410,6 +413,7 @@ public class ActiveCrisis
         crisisBox.EndCrisis();
         crisisBox = null;
         crisis = null;
+
     }
 
     /// <summary>
