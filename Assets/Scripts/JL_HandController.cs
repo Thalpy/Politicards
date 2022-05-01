@@ -77,7 +77,7 @@ public class JL_HandController : MonoBehaviour
 
 
 
-    public void AddCard(Card _Card)
+    public GameObject AddCard(Card _Card)
     {
         GameObject cardObj = Instantiate(Card, DeckOffScreenLocation, transform.rotation, Deck.transform);
         CardsInDeck.Add(cardObj);
@@ -87,6 +87,7 @@ public class JL_HandController : MonoBehaviour
         CC.Discard = Discard;
         CC.Hand = gameObject;
         CC.Position = DeckOffScreenLocation;
+        return cardObj;
     }
 
     void Update() // These Update functions are just for Debugging and can be removed from the final build, clicking on the deck draws cards and clicking ont he discard discards them.
@@ -199,7 +200,7 @@ public class JL_HandController : MonoBehaviour
             }
 
             CardsInDiscard.Clear();
-            //ShuffleDeck();
+            ShuffleDeck();
         }
 
         if (CardsInDeck.Count != 0)
@@ -207,6 +208,7 @@ public class JL_HandController : MonoBehaviour
             GameObject transitionCard = CardsInDeck[0];
             JL_CardController cardController = transitionCard.GetComponent<JL_CardController>();
             CardsInHand.Add(transitionCard);
+            cardController.Discarded = false;
             cardController._Card.DrawCard();
 
             transitionCard.transform.position = Deck.transform.position;
@@ -241,6 +243,30 @@ public class JL_HandController : MonoBehaviour
             CardsInDeck[randomIndex] = CardsInDeck[i];
             CardsInDeck[i] = temp;
         }
+    }
+
+    public void AddSpecificCardToHand(GameObject transitionCard) // This function is used to add a specific card to the hand.
+    {
+        JL_CardController cardController = transitionCard.GetComponent<JL_CardController>();
+        CardsInHand.Add(transitionCard);
+        cardController._Card.DrawCard();
+
+        transitionCard.transform.position = Deck.transform.position;
+        int DrawOrder;
+        transitionCard.GetComponent<JL_CardController>().Position = GetCardHandPosition(transitionCard, out DrawOrder);
+        transitionCard.GetComponent<SpriteRenderer>().sortingOrder = DrawOrder;
+
+        if (PlayersHand)
+        {
+            transitionCard.GetComponent<JL_CardController>().InHand = true; 
+        }
+        else
+        {
+            transitionCard.GetComponent<JL_CardController>().InAdversariesHand = true; 
+        }
+
+        transitionCard.transform.SetParent(gameObject.transform);
+        CardsInDeck.Remove(transitionCard);         
     }
     // public void ShuffleDeck() // randomly moves cards into a new list and then randomly back again.
     // {

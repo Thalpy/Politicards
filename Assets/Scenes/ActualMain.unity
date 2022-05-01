@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1511,7 +1511,7 @@ RectTransform:
   m_GameObject: {fileID: 234949930}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.34875003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1780515911}
@@ -1519,7 +1519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.3, y: 44.1}
+  m_AnchoredPosition: {x: 15.3, y: 44.2}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234949933
@@ -1544,8 +1544,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Faction Power
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1569,13 +1569,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2038,7 +2038,7 @@ PrefabInstance:
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: MaxCardSpacing
-      value: 2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 4752183376675557294, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -2351,7 +2351,7 @@ PrefabInstance:
     - target: {fileID: 8632930755255000373, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
       propertyPath: MaxCardSpacing
-      value: 2
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8632930755255000374, guid: 6237028a6fb01634e8572b5e3545ae02,
         type: 3}
@@ -3031,14 +3031,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crisises:
-  - Name: Narzon's letter
+  - Name: Nazron's letter
     Description: Nazron has reached out to you to offer you a particular proposal.
       Finding a way to help will draw you an extra card but may also have other consequences.
     image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
     audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr:
     - effectName: Power
       effectVars:
@@ -3092,6 +3092,17 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: Gracious news my Liege, our infiltration into the Economic party has
@@ -3115,6 +3126,17 @@ MonoBehaviour:
         effectVars:
         - 4
         - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3142,6 +3164,17 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: Gracious news my Liege, our infiltration into the Nobel's party has
@@ -3167,6 +3200,17 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: I see you let our offer fall by the wayside. How disappointing. We
@@ -3176,7 +3220,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
+        - -2
         - 4
         triggerName: 
         triggerVars: []
@@ -3186,8 +3230,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: A good day to you sire, I am right honourable pigeon and I am pleased
@@ -3223,8 +3267,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
         - 0
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
+        - -2
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3247,8 +3297,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
-        - 2
+        - 1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 3
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3271,7 +3327,7 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
+        - 2
         - 2
         triggerName: 
         triggerVars: []
@@ -3282,6 +3338,9 @@ MonoBehaviour:
           it mm?
         audio: {fileID: 8300000, guid: 0385765b29961e8458c55736d45e2004, type: 3}
         image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You got a Nobility card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Draw
         effectVars:
@@ -3296,8 +3355,13 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
         - 2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3309,8 +3373,8 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
-        - 4
+        - -2
+        - 3
         triggerName: 
         triggerVars: []
   - Name: Crime! In my Streets!
@@ -3319,8 +3383,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: I don't know if you've noticed but the amount of crime in this area is
@@ -3345,8 +3409,20 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
+        - 2
         - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3369,8 +3445,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
+        - 1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
         - 4
-        - 2
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3394,7 +3476,13 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
+        - -2
         - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
         - 2
         triggerName: 
         triggerVars: []
@@ -3420,8 +3508,8 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
-        - 2
+        - 3
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3439,13 +3527,19 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
+        triggerName: 
+        triggerVars: []
   - Name: Factory Stike!
     Description: The workers of their factory are out protesting en masse.
     image: {fileID: 21300000, guid: 6b39e291f629db64ca024d7382dded5c, type: 3}
     audio: {fileID: 0}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: Sire, Right honourable Birdwingington is dealing with a tremendous problem
@@ -3463,6 +3557,9 @@ MonoBehaviour:
           country to ruin."
         audio: {fileID: 8300000, guid: a5720f35d7c93d44a89772fa6468425e, type: 3}
         image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You got a People card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
         effectVars:
@@ -3472,8 +3569,19 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
+        - 3
         - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3497,8 +3605,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
-        - 2
+        - 1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3523,7 +3637,7 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
+        - 2
         - 2
         triggerName: 
         triggerVars: []
@@ -3534,6 +3648,9 @@ MonoBehaviour:
           work and keep it up!
         audio: {fileID: 8300000, guid: 196b7e095d4ee674aa4e9996fe3c1483, type: 3}
         image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
+      - text: You got a Nobility card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Draw
         effectVars:
@@ -3548,8 +3665,13 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
         - 2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3558,12 +3680,18 @@ MonoBehaviour:
           with those lazy rapscallions. If you give them too many victories they'll
           start to get big headed you know, and then you'll be sorry!
         audio: {fileID: 8300000, guid: 5665ae7b28df86e4d8b1e17e2209894e, type: 3}
-        image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+        image: {fileID: 21300000, guid: 69923d1c0a3d7d94595453fdd4a31bd3, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
-        - 4
+        - -2
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
         triggerName: 
         triggerVars: []
   - Name: The Usurper
@@ -3573,8 +3701,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
     audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: 'Greetings my Liege I come to you with a most urgent matter. a few of
@@ -3602,15 +3730,21 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: RandomCard
         effectVars:
         - 5
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -3
+        - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
+        - 4
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3627,15 +3761,21 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: RandomCard
         effectVars:
         - 5
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -3
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
+        - 4
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3644,7 +3784,7 @@ MonoBehaviour:
           to stomp around in our affairs is the biggest blunder I''ve seen you do
           yet. The dust that they have kicked up has completely discombobulated our
           operations that will take us weeks to sort out. '
-        audio: {fileID: 8300000, guid: 188b83d92c887ac4ca830dce61289dfd, type: 3}
+        audio: {fileID: 8300000, guid: 0c3c526097286274e8f7535d995fb526, type: 3}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
@@ -3655,13 +3795,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
+        - -2
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: RandomCard
+      - effectName: Power
         effectVars:
-        - 5
+        - 2
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -3671,9 +3812,14 @@ MonoBehaviour:
           Now I can't speak for their truthfulness but certainly his family believed
           it enough to disown him. Regardless, we won\u2019t be seeing much of him
           anymore. "
-        audio: {fileID: 8300000, guid: 196b7e095d4ee674aa4e9996fe3c1483, type: 3}
+        audio: {fileID: 8300000, guid: 88d70360d4a69774ca7aeefb3c8ca0e4, type: 3}
         image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
       triggerEffectsStr:
+      - effectName: RandomCard
+        effectVars:
+        - 5
+        triggerName: 
+        triggerVars: []
       - effectName: Happiness
         effectVars:
         - 1
@@ -3682,13 +3828,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
-        - 4
+        - -3
+        - 3
         triggerName: 
         triggerVars: []
-      - effectName: RandomCard
+      - effectName: Power
         effectVars:
-        - 5
+        - 3
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3702,7 +3849,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
+        - -2
         - 4
         triggerName: 
         triggerVars: []
@@ -3711,8 +3858,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
     audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: 'A moment if you can my Liege, the military has recently been snooping
@@ -3736,15 +3883,21 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: RandomCard
         effectVars:
         - 5
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 0
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3761,15 +3914,21 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: RandomCard
         effectVars:
         - 5
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3788,13 +3947,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 1
+        - -3
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: RandomCard
+      - effectName: Power
         effectVars:
-        - 5
+        - 2
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -3811,15 +3971,21 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
-      - effectName: Power
-        effectVars:
-        - 1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: RandomCard
         effectVars:
         - 5
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 3
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3831,18 +3997,18 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
+        - -2
         - 4
         triggerName: 
         triggerVars: []
   - Name: 'A Hostile Hunger '
     Description: The ratfolk who live in the lower city have brought to my attention
       a food shortage.
-    image: {fileID: 21300000, guid: 08cdbcbfba3895d4d902963c21362974, type: 3}
+    image: {fileID: 21300000, guid: 4c659b10fab80ca4f92b3479bbf3ede7, type: 3}
     audio: {fileID: 8300000, guid: a506c7d7d1063ed4da1b47acb3a10d68, type: 3}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "The ratfolk who live in the lower city have brought to my attention
@@ -3851,20 +4017,28 @@ MonoBehaviour:
         I\u2019d ask you to deal with this issue quickly, so as fighting doesn\u2019t
         break out. "
       audio: {fileID: 8300000, guid: 7d80b600f62334d3f94ba1fbb9c31bfc, type: 3}
-      image: {fileID: 21300000, guid: 08b1e92bc5324fe479c6330d99cf4ebb, type: 3}
+      image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
     endCrisis:
     - faction: People
       dialogues:
-      - text: "Best to hear it from the horse\u2019s mouth, so to speak, we moved
+      - text: "Best to hear it from the horse\u2019s mouth so to speak, we moved
           to the lower city to speak to the people most affected. We found out what
-          they are missing most to then came up with a way to best tackle the issue
-          district. "
-        audio: {fileID: 0}
+          they are missing most to then came up with a way to best tackle the issue. "
+        audio: {fileID: 8300000, guid: 08b2d760c646b49ecbe6cc41621a8d6c, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You got a People card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 0
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -3889,8 +4063,8 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
         - 2
+        - 0
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -3915,8 +4089,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
         - 2
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
+        - 0
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -3925,7 +4105,7 @@ MonoBehaviour:
           charitable donation has gone a long way for the people who are the cogs
           who keep our capital operating. With Duke Lupain help we were able to rain
           scraps down to feed the hungry ratfolk. '
-        audio: {fileID: 8300000, guid: 08b2d760c646b49ecbe6cc41621a8d6c, type: 3}
+        audio: {fileID: 8300000, guid: 381ba2d8cd5487342a548567f7d39b62, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Draw
@@ -3941,8 +4121,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
+        - 1
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
         - 2
+        - 0
         triggerName: 
         triggerVars: []
     - faction: 
@@ -3956,8 +4142,8 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
-        - 4
+        - -3
+        - 0
         triggerName: 
         triggerVars: []
   - Name: Mountain Bandits
@@ -3965,8 +4151,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 00bb8b82c6ccebe4f9fb34d075ad869c, type: 3}
     audio: {fileID: 0}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: Sir! We've had some reports of bandits snooping around our moutains.
@@ -3981,16 +4167,28 @@ MonoBehaviour:
         audio: {fileID: 8300000, guid: dd87fbf6f7e2ab64da66469581a90a66, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
-      - effectName: Power
-        effectVars:
-        - -1
-        - 4
-        triggerName: 
-        triggerVars: []
       - effectName: Happiness
         effectVars:
         - 1
         - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -4006,6 +4204,18 @@ MonoBehaviour:
         - 1
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: Sir your finest soldiers report great success in flushing out the bandits.
@@ -4014,8 +4224,14 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 4
+        - 3
         - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -4038,8 +4254,14 @@ MonoBehaviour:
         triggerVars: []
       - effectName: Power
         effectVars:
-        - 4
         - 2
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
         triggerName: 
         triggerVars: []
     - faction: 
@@ -4051,14 +4273,14 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - -1
+        - -2
         - 2
         triggerName: 
         triggerVars: []
       - effectName: Power
         effectVars:
-        - -1
-        - 0
+        - 3
+        - 4
         triggerName: 
         triggerVars: []
   - Name: Military Tournament
@@ -4066,12 +4288,12 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 00bb8b82c6ccebe4f9fb34d075ad869c, type: 3}
     audio: {fileID: 0}
     location: None
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
-    - text: Sir! The Generals and I would like to through a tournemnt in honour of
-        the late Rulers honour.
+    - text: Sir! The Generals and I would like to through a tournament in honour
+        of the late Rulers honour.
       audio: {fileID: 8300000, guid: bfb45bdf09da745b1bbbb6c710066ba9, type: 3}
       image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
     endCrisis:
@@ -4094,6 +4316,12 @@ MonoBehaviour:
         - 2
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: Sir, I wil admit I was sceptical about your plan to sell sponsership
@@ -4105,13 +4333,24 @@ MonoBehaviour:
         audio: {fileID: 8300000, guid: 890ce7500f9cd4ccdb376d5b2ea5d7c3, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
-      - effectName: Power
+      - effectName: Draw
         effectVars:
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
         - 2
         triggerName: 
         triggerVars: []
       - effectName: Happiness
+        effectVars:
+        - 1
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
         effectVars:
         - 1
         - 1
@@ -4122,11 +4361,25 @@ MonoBehaviour:
       - text: Sir, the men really appreciated being the center focus of the tournament!
         audio: {fileID: 8300000, guid: 000348f88177846e9a753ecb7639d464, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
+      - text: You got a Military card added to your hand!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
         effectVars:
         - 3
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 3
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -4149,28 +4402,32 @@ MonoBehaviour:
         - 3
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 3
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
-      - text: Sir, we were sad not to see you attend the tournement ....
+      - text: Sir, we were sad not to see you attend the tournament ....
         audio: {fileID: 8300000, guid: 5df405b0e489746fb863bf8fef8f2b78, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
         effectVars:
-        - -1
-        - 3
+        - -2
+        - 2
         triggerName: 
         triggerVars: []
   - Name: A Bird in The Hand
-    Description: The accession of a new ruler is often an occasion of great pomp
-      and circumstance. In Allrahni, a special tax is normally levied upon citizens
-      to pay for the revalries. Some feel that the interregnum is a good time to
-      try and shirk this ancient duty.
+    Description: The Economic party is trying to shirk their tax duties by arguing
+      they are job providers and deserve a tax break due to the ongoing situation.
     image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
     audio: {fileID: 0}
     location: 
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: Good Day my Liege!
@@ -4212,11 +4469,19 @@ MonoBehaviour:
           of taxation to where it really belongs \u2013 everyone else!"
         audio: {fileID: 8300000, guid: 9ae0fe224bec945df8176e211acd8390, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You got an Economy card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
+        - 4
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -4257,8 +4522,8 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
-        - 4
+        - -2
+        - 1
         triggerName: 
         triggerVars: []
   - Name: With Friends Like These
@@ -4268,8 +4533,8 @@ MonoBehaviour:
     image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
     audio: {fileID: 0}
     location: 
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "My Liege, I\u2019m sure you were terribly shocked to hear that the master
@@ -4304,11 +4569,19 @@ MonoBehaviour:
           ever before!"
         audio: {fileID: 8300000, guid: e870fc41017ed4bab99d9b51096813d7, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You got an Economy card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 0}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
+        - 4
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -4355,14 +4628,14 @@ MonoBehaviour:
         triggerName: 
         triggerVars: []
   - Name: Fire Sale
-    Description: "In order to generate more revenues for the government\u2019s coffers 
-      portion of the nations wealth has been sold. It\u2019s up to you to decide
-      where the majority of this new wealth should go\u2026."
+    Description: "In order to encourage growth a portion of the nations assets has
+      been sold. It\u2019s up to you to decide where the majority of this fund should
+      go\u2026."
     image: {fileID: 21300000, guid: 824ae6aaaca8d694c9e80ae624ca9120, type: 3}
     audio: {fileID: 0}
     location: 
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "Good day sire and may I say how fabulous you\u2019re looking this morning?
@@ -4372,10 +4645,10 @@ MonoBehaviour:
       audio: {fileID: 8300000, guid: fc1601f87c9c040d885b2163a11965dd, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     - text: 'Slimey? Me?! Why ever would you say such a thing. '
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 383258f10c7892c4b84ca713b73732b3, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     - text: "By the way, I wanted to talk to you about your generosity\u2026\u2026."
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: 16919e342891bc8488347809b5a01ffa, type: 3}
       image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
     endCrisis:
     - faction: People
@@ -4393,6 +4666,12 @@ MonoBehaviour:
         - 0
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Economic
       dialogues:
       - text: Oh sire you have made such a wonderful choice. You realised of course
@@ -4401,11 +4680,19 @@ MonoBehaviour:
           ruler has never occupied your throne!
         audio: {fileID: 8300000, guid: f7892d2f960d34e7896345a80aed1e32, type: 3}
         image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+      - text: You got an Economy card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
+        - 4
         - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 2
         triggerName: 
         triggerVars: []
     - faction: Military
@@ -4421,6 +4708,12 @@ MonoBehaviour:
         effectVars:
         - 2
         - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
         triggerName: 
         triggerVars: []
     - faction: Nobility
@@ -4439,6 +4732,12 @@ MonoBehaviour:
         - 3
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: "Ah yes, crime. While it dosen\u2019t surprise me to see a rapscallion
@@ -4453,13 +4752,19 @@ MonoBehaviour:
         - 4
         triggerName: 
         triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 1
+        triggerName: 
+        triggerVars: []
   - Name: Crime in our Streets.
     Description: The people in the streets have noticed an increase in crime.
-    image: {fileID: 21300000, guid: f44baa93086c4d64683e42b3d47b166f, type: 3}
+    image: {fileID: 21300000, guid: 4c659b10fab80ca4f92b3479bbf3ede7, type: 3}
     audio: {fileID: 0}
     location: 
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: The people in the streets have noticed an increase in crime and it's
@@ -4477,7 +4782,19 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
+        - 1
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 3
         - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -4488,7 +4805,13 @@ MonoBehaviour:
           trouble.
         audio: {fileID: 8300000, guid: 5709b5d66f6074475b8fff309ecdc979, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 1
+        triggerName: 
+        triggerVars: []
     - faction: Military
       dialogues:
       - text: Sir, I know that I asked you to to put the world to rights, but I wasn't
@@ -4497,7 +4820,19 @@ MonoBehaviour:
           Surely there was a better way.
         audio: {fileID: 8300000, guid: fd35c5b9a3eef4453956e80884a0c5c8, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - -2
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 2
+        - 2
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: I am speechless. I came to you with a simple request for help and you
@@ -4505,7 +4840,13 @@ MonoBehaviour:
           this you old sponge!
         audio: {fileID: 8300000, guid: 3ed1e0132148049d78328fd493772417, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 2
+        - 3
+        triggerName: 
+        triggerVars: []
     - faction: 
       dialogues:
       - text: Your vaciliation has put our lives and our livelihood in Jeoppardy.
@@ -4513,15 +4854,27 @@ MonoBehaviour:
           attacked. If I were you I would hang my head in shame and reconsider my
           position.
         audio: {fileID: 8300000, guid: 5e425356b72d84233942083374c9e1f1, type: 3}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
-      triggerEffectsStr: []
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 3
+        - 4
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - -2
+        - 0
+        triggerName: 
+        triggerVars: []
   - Name: Farmers Argument
     Description: The farmers are arguing.
-    image: {fileID: 21300000, guid: f44baa93086c4d64683e42b3d47b166f, type: 3}
+    image: {fileID: 21300000, guid: 4c659b10fab80ca4f92b3479bbf3ede7, type: 3}
     audio: {fileID: 0}
     location: 
-    DayLength: 3
-    minProgress: 2
+    DayLength: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: The farmers are arguing with the militarty over the passage of some seeds
@@ -4538,11 +4891,19 @@ MonoBehaviour:
           the tyranny of hunger.
         audio: {fileID: 8300000, guid: 9edeed2068dd6447cbf270d04e50b4d9, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
+      - text: You got a People card added to your deck!
+        audio: {fileID: 0}
+        image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
+        - 4
         - 0
+        triggerName: 
+        triggerVars: []
+      - effectName: RandomCard
+        effectVars:
+        - 1
         triggerName: 
         triggerVars: []
     - faction: Economic
@@ -4568,13 +4929,25 @@ MonoBehaviour:
         triggerVars: []
     - faction: Military
       dialogues:
-      - text: I understand that you might have felt that your psoition in the world
+      - text: I understand that you might have felt that your position in the world
           would become more secure by siding with the military. But remember true
-          that true authority is derived fromt he people and that true stability
+          that true authority is derived from the people and that true stability
           comes from their hapiness.
         audio: {fileID: 8300000, guid: e574674ff786f440080678fad4ca77b5, type: 3}
         image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
-      triggerEffectsStr: []
+      triggerEffectsStr:
+      - effectName: Power
+        effectVars:
+        - 1
+        - 2
+        triggerName: 
+        triggerVars: []
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: 
+        triggerVars: []
     - faction: Nobility
       dialogues:
       - text: We had hoped that when the Biumvirate came to power, ours would be
@@ -4586,7 +4959,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 3
+        - 2
         - 1
         triggerName: 
         triggerVars: []
@@ -4597,17 +4970,18 @@ MonoBehaviour:
           this was the worst possible outcome. People will go hungry because you
           weren't decisive enough. I hope you learn form your failure.
         audio: {fileID: 8300000, guid: fb5c61542eaad4edb8e4d8bda9f7216f, type: 3}
-        image: {fileID: 21300000, guid: 5656cd51bb4156a4e8cfdcc14e3922c2, type: 3}
+        image: {fileID: 21300000, guid: 66bb1b75d86331647bd51a5902016d7d, type: 3}
       triggerEffectsStr:
       - effectName: Power
         effectVars:
-        - 2
-        - 4
+        - -2
+        - 0
         triggerName: 
         triggerVars: []
   storyCrisises:
   - Name: Tutorial
-    Description: Playing a card will choose your faction
+    Description: Playing a card will add a deck of cards to your deck from your chosen
+      faction.
     image: {fileID: 21300000, guid: 096dc57de6744d340b5d961c91840db3, type: 3}
     audio: {fileID: 0}
     location: 
@@ -4709,7 +5083,7 @@ MonoBehaviour:
     audio: {fileID: 0}
     location: 
     DayLength: 6
-    minProgress: 4
+    minProgress: 2
     triggerEffectsStr: []
     dialogues:
     - text: You are approached by Duke Lupain of the Urhathu Forest, and Lord Fuzzybeard
@@ -4849,7 +5223,7 @@ MonoBehaviour:
     audio: {fileID: 0}
     location: 
     DayLength: 6
-    minProgress: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "It has been suggested that a welcoming party should be organised for
@@ -4976,7 +5350,7 @@ MonoBehaviour:
     audio: {fileID: 0}
     location: 
     DayLength: 6
-    minProgress: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "We would like to bring to your attention a project that the late Sovereign
@@ -5107,7 +5481,7 @@ MonoBehaviour:
     audio: {fileID: 0}
     location: 
     DayLength: 6
-    minProgress: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "We have received word from Tom Longclaw that there has been an issue
@@ -5161,8 +5535,7 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: RandomCard
         effectVars:
-        - 
-        - 
+        - 2
         triggerName: 
         triggerVars: []
     - faction: 2
@@ -5184,8 +5557,9 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
-        triggerName: 3
+        effectVars:
+        - 3
+        triggerName: 
         triggerVars: []
     - faction: 3
       dialogues:
@@ -5212,8 +5586,9 @@ MonoBehaviour:
         image: {fileID: 21300000, guid: f449f08870492ab40bc812e11423702f, type: 3}
       triggerEffectsStr:
       - effectName: RandomCard
-        effectVars: []
-        triggerName: 4
+        effectVars:
+        - 4
+        triggerName: 
         triggerVars: []
     - faction: 
       dialogues:
@@ -5239,7 +5614,7 @@ MonoBehaviour:
     audio: {fileID: 0}
     location: 
     DayLength: 6
-    minProgress: 4
+    minProgress: 3
     triggerEffectsStr: []
     dialogues:
     - text: "We have received word from Tom Longclaw that there has been an issue
@@ -5400,8 +5775,7 @@ MonoBehaviour:
   - faction: Basic
     cards:
     - Name: Support The People
-      Description: Increase Relationship with the People Faction by 1 and gain 1
-        Merchant progress on the played event.
+      Description: Increase power and progress of the People faction by 1.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5412,8 +5786,7 @@ MonoBehaviour:
       ProgressValues: 0100000000000000000000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Merchants
-      Description: Increase Relationship with the Merchant Faction by 1 and gain
-        1 Merchant progress on the played event.
+      Description: Increase power and progress of the Economic faction by 1.
       image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5424,8 +5797,7 @@ MonoBehaviour:
       ProgressValues: 0000000001000000000000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Military
-      Description: Increase Relationship with the Military Faction by 1 and gain
-        1 Military  progress on the played event.
+      Description: Increase power and progress of the Military faction by 1.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5436,56 +5808,7 @@ MonoBehaviour:
       ProgressValues: 0000000000000000010000000000000000000000
       triggerEffectsStr: []
     - Name: Support The Nobles
-      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
-        Nobles  progress on the played event.
-      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Nobility
-      StartingCard: 1
-      PowerValues: 0000000000000000000000000100000000000000
-      HappinessValues: 0000000000000000000000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
-      triggerEffectsStr: []
-    - Name: Support The People
-      Description: Increase Relationship with the People Faction by 1 and gain 1
-        Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: People
-      StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
-      HappinessValues: 0100000000000000000000000000000000000000
-      ProgressValues: 0100000000000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Merchants
-      Description: Increase Relationship with the Merchant Faction by 1 and gain
-        1 Merchant progress on the played event.
-      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Economic
-      StartingCard: 1
-      PowerValues: 0000000001000000000000000000000000000000
-      HappinessValues: 0000000001000000000000000000000000000000
-      ProgressValues: 0000000001000000000000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Military
-      Description: Increase Relationship with the Military Faction by 1 and gain
-        1 Military  progress on the played event.
-      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
-      audio: {fileID: 0}
-      ManaCost: 0
-      Faction: Military
-      StartingCard: 1
-      PowerValues: 0000000000000000010000000000000000000000
-      HappinessValues: 0000000000000000010000000000000000000000
-      ProgressValues: 0000000000000000010000000000000000000000
-      triggerEffectsStr: []
-    - Name: Support The Nobles
-      Description: Increase Relationship with the Nobles Faction by 1 and gain 1
-        Nobles  progress on the played event.
+      Description: Increase power and progress of the Noble faction by 1.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5517,21 +5840,70 @@ MonoBehaviour:
         triggerName: OnUse
         triggerVars: []
     - Name: Stamp Out Crime
-      Description: Reduce the crime faction power by 3.
+      Description: Reduce the crime faction power by 5 and draws a card.
       image: {fileID: 21300000, guid: 08cee3295c6976042b40d25bc0b2b1fd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Crime
       StartingCard: 1
-      PowerValues: 00000000000000000000000000000000fdffffff
-      HappinessValues: 0000000000000000000000000000000000000000
+      PowerValues: 00000000000000000000000000000000fbffffff
+      HappinessValues: 00000000000000000000000000000000fdffffff
       ProgressValues: 0000000000000000000000000000000000000000
+      triggerEffectsStr:
+      - effectName: Draw
+        effectVars:
+        - 1
+        triggerName: OnUse
+        triggerVars: []
+    - Name: Support The People
+      Description: Increase power and progress of the People faction by 1.
+      image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: People
+      StartingCard: 1
+      PowerValues: 0100000000000000000000000000000000000000
+      HappinessValues: 0100000000000000000000000000000000000000
+      ProgressValues: 0100000000000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Merchants
+      Description: Increase power and progress of the Economic faction by 1.
+      image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Economic
+      StartingCard: 1
+      PowerValues: 0000000001000000000000000000000000000000
+      HappinessValues: 0000000001000000000000000000000000000000
+      ProgressValues: 0000000001000000000000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Military
+      Description: Increase power and progress of the Military faction by 1.
+      image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Military
+      StartingCard: 1
+      PowerValues: 0000000000000000010000000000000000000000
+      HappinessValues: 0000000000000000010000000000000000000000
+      ProgressValues: 0000000000000000010000000000000000000000
+      triggerEffectsStr: []
+    - Name: Support The Nobles
+      Description: Increase power and progress of the Noble faction by 1.
+      image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
+      audio: {fileID: 0}
+      ManaCost: 0
+      Faction: Nobility
+      StartingCard: 1
+      PowerValues: 0000000000000000000000000100000000000000
+      HappinessValues: 0000000000000000000000000100000000000000
+      ProgressValues: 0000000000000000000000000100000000000000
       triggerEffectsStr: []
   - faction: People
     cards:
     - Name: 'Petition the Nobility '
-      Description: Gives +1 people progress and +1 noble progress, if you are frindly
-        with the nobles this effect is doubled.
+      Description: Gives +1 people progress and +1 noble progress, if you have a
+        nobel card in your hand this effect is doubled.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5543,12 +5915,12 @@ MonoBehaviour:
       triggerEffectsStr:
       - effectName: Double
         effectVars: []
-        triggerName: Friendly
+        triggerName: IfProgress
         triggerVars:
         - 3
     - Name: Stand with the Merchants
-      Description: Gives +1 people progress and +1 merchant progress, if you are
-        frindly with the merchants this effect is doubled.
+      Description: Gives +1 people progress and +1 merchant progress, if you have
+        a mechant card in your hand double the people effect.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5558,25 +5930,26 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0100000001000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: Double
-        effectVars: []
-        triggerName: Friendly
+      - effectName: Power
+        effectVars:
+        - 1
+        - 0
+        triggerName: IfProgress
         triggerVars:
         - 1
     - Name: Power of the People
-      Description: Gives +1 people progress and +1 people faction power and increases
-        your realtions with the people faction by 1.
+      Description: Gives +1 progress and power to all factions except crime.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: People
       StartingCard: 1
-      PowerValues: 0100000000000000000000000000000000000000
+      PowerValues: 0100000001000000010000000100000000000000
       HappinessValues: 0100000000000000000000000000000000000000
-      ProgressValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0100000001000000010000000100000000000000
       triggerEffectsStr: []
     - Name: Organised Chaos
-      Description: Randomly assigns 3 power and progress to factions across all crisises.
+      Description: Randomly assigns 5 power and progress to factions across all crisises.
       image: {fileID: 21300000, guid: 44c0f8ad9f7d65b43b4f26fd416d66b7, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5601,7 +5974,7 @@ MonoBehaviour:
       StartingCard: 0
       PowerValues: 03000000fdfffffffdfffffffdfffffffdffffff
       HappinessValues: 0000000000000000000000000000000000000000
-      ProgressValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0300000000000000000000000000000000000000
       triggerEffectsStr: []
   - faction: Economic
     cards:
@@ -5630,7 +6003,7 @@ MonoBehaviour:
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 00000000ffffffff000000000000000000000000
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000002000000000000000000000000000000
       triggerEffectsStr:
@@ -5640,35 +6013,34 @@ MonoBehaviour:
         triggerName: OnUse
         triggerVars: []
     - Name: 'Military Industrial Complex '
-      Description: Increases the military factions power by 3 and also gives 2 military
-        progress. Also increase your realtionship with the military faction..
+      Description: 'Increases the military factions power by 3 and also gives 1 military
+        and economic progress. '
       image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000000000000fdffffff0000000000000000
+      PowerValues: 0000000000000000030000000000000000000000
       HappinessValues: 0000000001000000000000000000000000000000
-      ProgressValues: 0000000002000000000000000000000000000000
+      ProgressValues: 0000000001000000010000000000000000000000
       triggerEffectsStr: []
     - Name: Spending Spree
-      Description: Increases Merchant progress by 3 but reduces your standing with
-        the merchant faction.
+      Description: Increases Merchant progress by 3 but reduces the power of the
+        faction by 3.
       image: {fileID: 21300000, guid: 289bbb5a59ac75649b7ba920b6d58efd, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Economic
       StartingCard: 1
-      PowerValues: 0000000000000000000000000000000000000000
+      PowerValues: 00000000fdffffff000000000000000000000000
       HappinessValues: 00000000ffffffff000000000000000000000000
       ProgressValues: 0000000003000000000000000000000000000000
       triggerEffectsStr: []
   - faction: Military
     cards:
     - Name: Draft
-      Description: Increase the military faction power by two and reduces the people
-        faction power by 2. While respectively increasing and decreasing your realtions
-        with those factions.
+      Description: 'Increase the military faction power and progress by two and reduces
+        the people faction power by 2. '
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5676,23 +6048,21 @@ MonoBehaviour:
       StartingCard: 1
       PowerValues: feffffff00000000020000000000000000000000
       HappinessValues: ffffffff00000000010000000000000000000000
-      ProgressValues: 0000000000000000000000000000000000000000
+      ProgressValues: 0000000000000000020000000000000000000000
       triggerEffectsStr: []
     - Name: Protect Trade
-      Description: Gives 2 Merchant Progress and increases your realtionship with
-        the Merchant faction and the Merchant Factions power by 1.
+      Description: Gives 1 power and progress to Military and Economic factions.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000001000000000000000000000000000000
+      PowerValues: 0000000001000000010000000000000000000000
       HappinessValues: 0000000000000000010000000000000000000000
-      ProgressValues: 0000000002000000000000000000000000000000
+      ProgressValues: 0000000001000000010000000000000000000000
       triggerEffectsStr: []
     - Name: Patrol
-      Description: Gives 1 Military faction progress per turn for the duration of
-        the crisis..
+      Description: Adds a new Draft card to your hand.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5702,29 +6072,32 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: Progress
+      - effectName: AddCardToHand
         effectVars:
-        - 1
-        - 3
-        triggerName: Investment
+        - Draft
+        triggerName: OnUse
         triggerVars: []
     - Name: Send in the Army
-      Description: Gives 3 military progress and power.
+      Description: Gives 2 military progress and power for every draft in play on
+        all crisises.
       image: {fileID: 21300000, guid: d12c171575bf8c54c90e9bae397b2e51, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Military
       StartingCard: 1
-      PowerValues: 0000000000000000000000000300000000000000
+      PowerValues: ffffffffffffffff03000000ffffffffffffffff
       HappinessValues: 0000000000000000000000000000000000000000
-      ProgressValues: 0000000000000000000000000300000000000000
-      triggerEffectsStr: []
+      ProgressValues: 0000000000000000030000000000000000000000
+      triggerEffectsStr:
+      - effectName: 
+        effectVars: []
+        triggerName: 
+        triggerVars: []
   - faction: Nobles
     cards:
     - Name: Trade Restrictions
-      Description: Increses Noble Faction power by 2 while reducing Merchant Faction
-        power and your relationship with the Merchant faction by 1. Also gives 1
-        Noble progress.
+      Description: Increses Noble Faction power and progress by 2 while reducing
+        Merchant Faction power and progress by 2.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5732,12 +6105,11 @@ MonoBehaviour:
       StartingCard: 1
       PowerValues: 00000000feffffff000000000200000000000000
       HappinessValues: 00000000ffffffff000000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
+      ProgressValues: 00000000feffffff000000000200000000000000
       triggerEffectsStr: []
     - Name: 'Purchase Regiments '
-      Description: Increses Noble Faction power by 2 while reducing Military Faction
-        power and your relationship with the Merchant faction by 1. Also gives 1
-        Noble progress.
+      Description: Increses Noble Faction power and progress by 2 while reducing
+        Military Faction power and progress by 2.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5745,23 +6117,23 @@ MonoBehaviour:
       StartingCard: 1
       PowerValues: 0000000000000000feffffff0200000000000000
       HappinessValues: 0000000000000000ffffffff0100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
+      ProgressValues: 0000000000000000feffffff0200000000000000
       triggerEffectsStr: []
     - Name: Raise Taxes
-      Description: Increses Noble Faction power by 2 while reducing People Faction
-        power and your relationship with the Merchant faction by 1. Also gives 1
-        Noble progress.
+      Description: Increses Noble Faction power and progress by 2 while reducing
+        Economic Faction power and progress by 2.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: feffffff00000000000000000200000000000000
+      PowerValues: 00000000feffffff000000000200000000000000
       HappinessValues: ffffffff00000000000000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
+      ProgressValues: 00000000feffffff000000000200000000000000
       triggerEffectsStr: []
     - Name: Exploit the Weak
-      Description: +6 progress of the Faction with the lowest faction power.
+      Description: +1 progress for each faction that the noble faction is stronger
+        than.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
@@ -5771,22 +6143,21 @@ MonoBehaviour:
       HappinessValues: 0000000000000000000000000000000000000000
       ProgressValues: 0000000000000000000000000000000000000000
       triggerEffectsStr:
-      - effectName: BoostWeakest
-        effectVars:
-        - 6
+      - effectName: ExploitStrength
+        effectVars: []
         triggerName: OnUse
         triggerVars: []
     - Name: Noble Pagentry
-      Description: Increases the power and happiness of all factions by 1 (except
-        the Crime faction) and gives 1 Noble progress.
+      Description: Increses Noble Faction power and progress by 2 while reducing
+        People Faction power and progress by 2.
       image: {fileID: 21300000, guid: 12fa054aeebcd2349aa3833653ab8bdf, type: 3}
       audio: {fileID: 0}
       ManaCost: 0
       Faction: Nobility
       StartingCard: 1
-      PowerValues: 0100000001000000010000000100000000000000
+      PowerValues: feffffff00000000000000000200000000000000
       HappinessValues: 0100000001000000010000000100000000000000
-      ProgressValues: 0000000000000000000000000100000000000000
+      ProgressValues: feffffff00000000000000000200000000000000
       triggerEffectsStr: []
   - faction: Crime
     cards:
@@ -5896,6 +6267,7 @@ MonoBehaviour:
         Mae McAllister'
       audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
       image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    playedEnding: 0
     factionName: People
     factionColor: {r: 0.4523407, g: 0.48966703, b: 0.8962264, a: 1}
     playerHappiness: 0
@@ -5928,6 +6300,7 @@ MonoBehaviour:
         Mae McAllister'
       audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
       image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    playedEnding: 0
     factionName: Economic
     factionColor: {r: 0.990566, g: 0.87235224, b: 0.23829652, a: 1}
     playerHappiness: 0
@@ -5960,6 +6333,7 @@ MonoBehaviour:
         Mae McAllister'
       audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
       image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    playedEnding: 0
     factionName: Military
     factionColor: {r: 0.754717, g: 0.28835887, b: 0.28835887, a: 1}
     playerHappiness: 0
@@ -5991,6 +6365,7 @@ MonoBehaviour:
         Mae McAllister'
       audio: {fileID: 8300000, guid: 842419e9b9003fc41855159ab947ebc4, type: 3}
       image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    playedEnding: 0
     factionName: Nobility
     factionColor: {r: 0.6175616, g: 0.38047346, b: 0.8490566, a: 1}
     playerHappiness: 0
@@ -6027,6 +6402,7 @@ MonoBehaviour:
         Mae McAllister'
       audio: {fileID: 8300000, guid: 4be8b93230486404f95af0958336055e, type: 3}
       image: {fileID: 21300000, guid: 9c409d50047028f4ca78273de81a0cd5, type: 3}
+    playedEnding: 0
     factionName: Crime
     factionColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
     playerHappiness: 0
@@ -8496,7 +8872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 2
   player: 1
   crisisBox: {fileID: 2097631631}
@@ -9075,7 +9451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 1
   player: 1
   crisisBox: {fileID: 2097631631}
@@ -11600,6 +11976,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -140.4
       objectReference: {fileID: 0}
+    - target: {fileID: 993883908641705080, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.88795
+      objectReference: {fileID: 0}
+    - target: {fileID: 993883908641705080, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.999966
+      objectReference: {fileID: 0}
     - target: {fileID: 998582798655187843, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -11892,6 +12278,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3001782207039690434, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f,
+        type: 2}
+    - target: {fileID: 3001782207039690434, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -11905,6 +12297,11 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3001782207039690434, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
     - target: {fileID: 3001782207039690434, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -11917,6 +12314,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109740092482140222, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f,
+        type: 2}
+    - target: {fileID: 3109740092482140222, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0.16470589
       objectReference: {fileID: 0}
@@ -11930,6 +12333,11 @@ PrefabInstance:
       propertyPath: m_fontColor.r
       value: 0.16470589
       objectReference: {fileID: 0}
+    - target: {fileID: 3109740092482140222, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
     - target: {fileID: 3109740092482140222, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
       propertyPath: m_fontColor32.rgba
@@ -11982,6 +12390,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3423486321041189733, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f,
+        type: 2}
+    - target: {fileID: 3423486321041189733, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0.16470589
       objectReference: {fileID: 0}
@@ -11997,8 +12411,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3423486321041189733, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+    - target: {fileID: 3423486321041189733, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4280953386
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699090695350375456, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.88795
+      objectReference: {fileID: 0}
+    - target: {fileID: 3699090695350375456, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15.999966
       objectReference: {fileID: 0}
     - target: {fileID: 3770225893478807109, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
@@ -12037,6 +12466,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5035705360828959888, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f,
+        type: 2}
+    - target: {fileID: 5035705360828959888, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0.16470589
       objectReference: {fileID: 0}
@@ -12052,6 +12487,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5035705360828959888, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+    - target: {fileID: 5035705360828959888, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4280953386
       objectReference: {fileID: 0}
@@ -12059,6 +12499,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561552594717535165, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.8879368
+      objectReference: {fileID: 0}
+    - target: {fileID: 5561552594717535165, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 22.99987
       objectReference: {fileID: 0}
     - target: {fileID: 5594002441521027689, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
@@ -12082,8 +12532,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6510750315304577382, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.88795
+      objectReference: {fileID: 0}
+    - target: {fileID: 6510750315304577382, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6632015817358695586, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
@@ -12137,6 +12592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063666608119911501, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f,
+        type: 2}
+    - target: {fileID: 8063666608119911501, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -12152,8 +12613,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8063666608119911501, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+    - target: {fileID: 8063666608119911501, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336207237749304870, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.88795
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336207237749304870, guid: 5d07ca38499e6a64a971fa62e0e9a715,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 24.999966
       objectReference: {fileID: 0}
     - target: {fileID: 8577945672682621730, guid: 5d07ca38499e6a64a971fa62e0e9a715,
         type: 3}
@@ -12264,7 +12740,7 @@ RectTransform:
   m_GameObject: {fileID: 1952508184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2651407, y: 0.2222503, z: 0.99817675}
+  m_LocalScale: {x: 0.2651407, y: 0.23891908, z: 0.99817675}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1195906806}
@@ -12272,7 +12748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.1, y: 214.8}
+  m_AnchoredPosition: {x: -354.6, y: 214.8}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1952508187
@@ -12297,8 +12773,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Balance Of Power
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 357548eeba1e39b44b10dd055a74888f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12322,13 +12798,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 4
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -12545,7 +13021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 3
   player: 1
   crisisBox: {fileID: 2097631631}
@@ -13600,7 +14076,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1005990169543319390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14279,7 +14755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 1
   player: 1
   crisisBox: {fileID: 2883156949180753990}
@@ -14586,7 +15062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 2
   player: 1
   crisisBox: {fileID: 2883156949180753990}
@@ -15424,7 +15900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 3
   player: 1
   crisisBox: {fileID: 2883156948196498154}
@@ -16714,7 +17190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 1
   player: 1
   crisisBox: {fileID: 2883156948893106383}
@@ -16948,7 +17424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 2
   player: 1
   crisisBox: {fileID: 2883156948893106383}
@@ -17901,7 +18377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 3
   player: 1
   crisisBox: {fileID: 2883156948893106383}
@@ -18996,7 +19472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 3
   player: 1
   crisisBox: {fileID: 2883156949180753990}
@@ -20162,7 +20638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 1
   player: 1
   crisisBox: {fileID: 2883156948196498154}
@@ -21125,7 +21601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 2
   player: 1
   crisisBox: {fileID: 2883156948196498154}
@@ -22165,7 +22641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 3
   player: 1
   crisisBox: {fileID: 2883156949298368561}
@@ -22389,7 +22865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 3
   player: 1
   crisisBox: {fileID: 2883156949291625838}
@@ -23587,7 +24063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 1
   player: 1
   crisisBox: {fileID: 2883156949802474142}
@@ -24329,7 +24805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 2
   player: 1
   crisisBox: {fileID: 2883156949802474142}
@@ -25419,7 +25895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 3
   player: 1
   crisisBox: {fileID: 2883156949802474142}
@@ -27552,7 +28028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 1
   player: 1
   crisisBox: {fileID: 2883156949298368561}
@@ -27689,7 +28165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 1
   player: 1
   crisisBox: {fileID: 2883156949291625838}
@@ -27772,7 +28248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 1.5
   index: 2
   player: 1
   crisisBox: {fileID: 2883156949298368561}
@@ -28042,7 +28518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9c4a869db8e044ea1bfec14160c839, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allowedDistance: 3
+  allowedDistance: 2
   index: 2
   player: 1
   crisisBox: {fileID: 2883156949291625838}

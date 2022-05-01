@@ -12,6 +12,7 @@ public class CrisisMaster : MonoBehaviour
 {
     [SerializeField]
     public List<Crisis> crisises = new List<Crisis>();
+    List<Crisis> crisesToLoad = new List<Crisis>();
     public List<Crisis> storyCrisises = new List<Crisis>();
     ActiveCrisis[] activeCrisses = new ActiveCrisis[3];
     
@@ -35,6 +36,7 @@ public class CrisisMaster : MonoBehaviour
     private void Start() {
         //run this function 2 seconds later
         Invoke("TryStartCrisis", 2);
+        crisesToLoad = new List<Crisis>(crisises);
 
     }
 
@@ -100,8 +102,13 @@ public class CrisisMaster : MonoBehaviour
     }
 
     public Crisis GetRandomCrisis(){
-        int randomIndex = Random.Range(0, crisises.Count);
-        return crisises[randomIndex];
+        if(crisesToLoad.Count == 0){
+            crisesToLoad = new List<Crisis>(crisises);
+        }
+        int randomIndex = Random.Range(0, crisesToLoad.Count);
+        Crisis crisis = crisesToLoad[randomIndex];
+        crisesToLoad.RemoveAt(randomIndex);
+        return crisis;
     }
 
     public ActiveCrisis FindActiveCrisisFromCard(Card card){
@@ -178,6 +185,9 @@ public class CrisisMaster : MonoBehaviour
     }
 
     public bool HasStoryCrisis(){
+        if(storyIndex == 100){
+            return true;
+        }
         foreach(ActiveCrisis Acrisis in activeCrisses){
             // if Acrisis is in the storyCrisises list
             if(Acrisis == null){
@@ -195,6 +205,8 @@ public class CrisisMaster : MonoBehaviour
     public Crisis GetStoryCrisis(){
         if(storyIndex >= storyCrisises.Count){
             GameMaster.dialoguePlayer.EndGame();
+            storyIndex = 100;
+            return null;
         }
         Crisis crisis = storyCrisises[storyIndex];
         storyIndex++;
@@ -399,6 +411,25 @@ public class ActiveCrisis
         crisis.StartCrisis();
         crisisBox = _crisisBox;
         crisisBox.ChangeEvent(crisis);
+        //for each factionProgress in crisis
+        foreach(KeyValuePair<Faction, int> entry in crisis.factionProgress){
+            if(entry.Value != 0){
+                Debug.LogWarning("Crisis had inpropiate faction progress!");
+            }
+        }
+        //loop 3 times
+        for (int i = 0; i < 3; i++)
+        {
+            TargetCrisis tg = GetTargetFromIndex(i);
+            if(tg.gameObject.transform.childCount > 0)
+            {
+                Debug.LogWarning("Crisis has children!");
+            }
+            foreach(Transform child in tg.transform){
+                child.gameObject.SetActive(false);
+                UnityEngine.Object.Destroy(child.gameObject);
+            }
+        }
     }
 
     public void NextTurn()
@@ -410,7 +441,14 @@ public class ActiveCrisis
     public void ApplyCard(Card card, int index, bool player)
     {
         #if DEBUG
-        Debug.Log("Applying card " + card.Name + " to crisis " + crisis.Name);
+        if(player){
+            Debug.Log("PLAYER: Applying card " + card.Name + " to crisis " + crisis.Name + "Crisis has " + crisis.activeTurns + " of " + crisis.DayLength + " turns left");
+        }
+        else
+        {
+            Debug.Log("AI: Applying card " + card.Name + " to crisis " + crisis.Name + "Crisis has " + crisis.activeTurns + " of " + crisis.DayLength + " turns left");
+        }
+        
         #endif
 
         if (player)

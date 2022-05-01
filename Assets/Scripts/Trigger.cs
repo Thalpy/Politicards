@@ -241,3 +241,33 @@ public class Investment : Trigger{
         return false;
     }
  }
+
+ public class IfProgress : Trigger{
+    public IfProgress()
+    {
+        name = "IfProgress";
+    }
+
+    Faction faction;
+
+    public override void setVars(Effect _effect, List<string> args){
+        //try parsing args[0] as an int
+        if(int.TryParse(args[0], out int factionID)){
+            faction = GameMaster.factionController.SelectFaction(int.Parse(args[0]));
+        }
+        else{
+            faction = GameMaster.factionController.SelectFaction(args[0]);
+        }
+    }
+
+    public override bool CheckTrigger(string _triggerName = null){
+        //If the player's hand has a card with the faction's name
+        foreach(GameObject cardobj in GameMaster.playerHand.CardsInHand){
+            Card card = cardobj.GetComponent<JL_CardController>()._Card;
+            if(card.Faction == faction.FactionName){
+                return true;
+            }
+        }
+        return false;
+    }
+ }

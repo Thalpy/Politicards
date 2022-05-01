@@ -83,10 +83,9 @@ public class JL_CardController : MonoBehaviour
         {
             
             if (_Hit.transform == transform && !Discarded)
-                {
+            {
                 Grabbed = true;
-                }
-
+            }
         }
     }
     

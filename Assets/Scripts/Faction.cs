@@ -50,6 +50,8 @@ public class Faction
 
     [SerializeField] public List<Dialogue> endEvent = new List<Dialogue>();
 
+    public bool playedEnding = false;
+
 
     #endregion
 
@@ -417,7 +419,11 @@ public class Faction
 
     public void EndGame()
     {
-        GameMaster.dialoguePlayer.StartDialogue(endEvent);
+        if(playedEnding == false){
+            GameMaster.dialoguePlayer.StartDialogue(endEvent);
+            playedEnding = true;
+        }
+        Debug.Log("Ending for faction " + factionName + " has been played");
     }
 
 

@@ -96,6 +96,42 @@ public abstract class Effect
             }
         }
     }
+
+    public virtual void AdjustProgress(Faction faction, int adjustment)
+    {
+        //if the source is a card
+        if (source is Card)
+        {
+            //get the card
+            Card card = source as Card;
+            //find the card in the active crisises
+            Crisis crisis = GameMaster.crisisMaster.FindCrisisFromCard(card);
+            Debug.Log(GameMaster.crisisMaster.ActiveCrisses);
+            //alter the crisis progress
+            if(crisis == null)
+            {
+                Debug.LogError("Crisis not found (game proceeding with random)");
+                crisis = GameMaster.crisisMaster.GetRandomActiveCrisis().crisis;
+            }
+            if(faction == null){
+                Debug.LogError("Faction is null (game proceeding with random)");
+                faction = GameMaster.factionController.GetRandomFaction();
+            }
+            crisis.AdjustProgress(power, faction);
+        }
+        else if (source is Crisis){
+            //go through all other crises
+            foreach(ActiveCrisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+            {
+                //if the source is the current crisis
+                if (crisis.crisis != source)
+                {
+                    //alter the crisis progress
+                    crisis.crisis.AdjustProgress(adjustment, faction);
+                }
+            }
+        }
+    }
 }
 
 /// <summary>
@@ -395,7 +431,7 @@ public class Chaos :Effect
         for (int i = 0; i < 5; i++)
         {
             //get a random faction
-            Faction faction = GameMaster.factionController.GetFactions()[UnityEngine.Random.Range(0, GameMaster.factionController.GetFactions().Count)];
+            Faction faction = GameMaster.factionController.GetFactions()[UnityEngine.Random.Range(0, GameMaster.factionController.GetFactions().Count - 1)];
             //loop over index of activecrisses
             ActiveCrisis crisis = GameMaster.crisisMaster.GetRandomActiveCrisis();
             crisis.crisis.AdjustProgress(power, faction);
@@ -598,5 +634,96 @@ public class SetAINeutral : Effect
     public override void DoEffect()
     {
         GameMaster.stateManager.SetRelationshipByString("Neutral");
+    }
+}
+
+public class AddCardToHand : Effect
+{
+    public AddCardToHand()
+    {
+        name = "AddCardToHand";
+    }
+
+    string cardName;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        cardName = args[0];
+    }
+
+    public override void DoEffect()
+    {
+        Card card = GameMaster.cardMaster.getCard(cardName);
+        GameObject cardObj = GameMaster.playerHand.AddCard(card);
+        GameMaster.playerHand.AddSpecificCardToHand(cardObj);
+    }
+}
+
+public class SendInArmy : Effect
+{
+    public SendInArmy()
+    {
+        name = "SendInArmy";
+    }
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    public override void DoEffect()
+    {
+        Faction faction = GameMaster.factionController.SelectFaction("Military");
+        foreach(ActiveCrisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+        {
+            foreach(Card card in crisis.playerCards)
+            {
+                if(card.Name == "Draft")
+                {
+                    GameMaster.factionController.ChangeFactionPower("Military", power);
+                    crisis.crisis.AdjustProgress(power, faction);
+                }
+            }
+            foreach(Card card in crisis.AICards)
+            {
+                if(card.Name == "Draft")
+                {
+                    GameMaster.factionController.ChangeFactionPower("Military", power);
+                    crisis.crisis.AdjustProgress(power, faction);
+                }
+            }
+        }
+    }
+}
+
+public class ExploitStrength : Effect
+{
+    public ExploitStrength()
+    {
+        name = "ExploitStrength";
+    }
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    public override void DoEffect()
+    {
+        Faction faction = GameMaster.factionController.SelectFaction("Nobility");
+        int str = 0;
+        foreach(Faction otherFaction in GameMaster.factionController.GetFactions())
+        {
+            if(faction.FactionName == "Nobility")
+            {
+                continue;
+            }
+            if(faction.FactionPower > otherFaction.FactionPower)
+            {
+                str += 1;
+            }
+        }
+        AdjustProgress(faction, str);
     }
 }

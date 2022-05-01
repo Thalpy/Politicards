@@ -246,4 +246,21 @@ public class GameMaster : MonoBehaviour
     {
         NextTurn();
     }
+
+    public static void ClearTargetsOfCards(CrisisBox cb){
+        foreach(GameObject item in Targets){
+            //get TargetCrisis component
+            TargetCrisis targetCrisis = item.GetComponent<TargetCrisis>();
+            if(targetCrisis == null || targetCrisis.crisisBox.location != cb.location){
+                //remove card from target
+                continue;
+            }
+            foreach (Transform child in targetCrisis.transform.GetComponentsInChildren<Transform>()) {
+                if(child.gameObject.name == "DummyCard(Clone)"){
+                    child.gameObject.SetActive(false);
+                    Destroy(child.gameObject);
+                }
+            }
+        }
+    }
 }
