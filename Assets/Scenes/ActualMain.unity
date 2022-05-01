@@ -3864,7 +3864,7 @@ MonoBehaviour:
       dialogues:
       - text: Sir, it was genius of you to enlis the help of the local peasenty in
           flushing out the bandits, it's safe to say we won't be seeing them again!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: dd87fbf6f7e2ab64da66469581a90a66, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3883,7 +3883,7 @@ MonoBehaviour:
       dialogues:
       - text: Sir it was genius of you to place a bounty on the bandits, their severed
           heads are practically rolling in the door!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 7ded5b11dc09a4311b04c0288e1387ef, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3895,7 +3895,7 @@ MonoBehaviour:
     - faction: Military
       dialogues:
       - text: Sir your finest soldiers report great success in flushing out the bandits.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 587eba8c527c14833a80f682e0737568, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3908,7 +3908,7 @@ MonoBehaviour:
       dialogues:
       - text: Sir, it wa sa genius ides to make hunting bandits a noble sport, the
           bandits have been thouroughly eradicated.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: a0b600418581a4526a01998787d944e9, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Draw
@@ -3932,7 +3932,7 @@ MonoBehaviour:
       dialogues:
       - text: Sir, your in action has lead to many of the villages in the east being
           pillaged!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 8c2ffea4f0b1d4ffda024abf56d07c95, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3958,14 +3958,14 @@ MonoBehaviour:
     dialogues:
     - text: Sir! The Generals and I would like to through a tournemnt in honour of
         the late Rulers honour.
-      audio: {fileID: 0}
+      audio: {fileID: 8300000, guid: bfb45bdf09da745b1bbbb6c710066ba9, type: 3}
       image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
     endCrisis:
     - faction: People
       dialogues:
       - text: Sir inviting the common folk was a great succes! Support for the military
           amongst the common folk is at an all time high!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: a0113ae3d43574ad6a5396fa6ba36bc8, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -3984,11 +3984,11 @@ MonoBehaviour:
       dialogues:
       - text: Sir, I wil admit I was sceptical about your plan to sell sponsership
           spots to the local mechants...
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 57b659e63fc4c48f781d0fe50d73ad96, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       - text: However, several new supliers for military equimpent have been identified
           as a result!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 890ce7500f9cd4ccdb376d5b2ea5d7c3, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -4006,7 +4006,7 @@ MonoBehaviour:
     - faction: Military
       dialogues:
       - text: Sir, the men really appreciated being the center focus of the tournament!
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 000348f88177846e9a753ecb7639d464, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
@@ -4020,7 +4020,7 @@ MonoBehaviour:
       - text: Sir including a competition for the younger nobles was  an excellent
           idea, several promising candidates for the officer trainign school have
           been identified.
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: a3be9f4fab8824371a44c269eadf011e, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Power
@@ -4038,7 +4038,7 @@ MonoBehaviour:
     - faction: 
       dialogues:
       - text: Sir, we were sad not to see you attend the tournement ....
-        audio: {fileID: 0}
+        audio: {fileID: 8300000, guid: 5df405b0e489746fb863bf8fef8f2b78, type: 3}
         image: {fileID: 21300000, guid: 342415af07007184b870220349f2ae55, type: 3}
       triggerEffectsStr:
       - effectName: Happiness
@@ -13181,7 +13181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -28.6}
+  m_AnchoredPosition: {x: 0, y: -26.5}
   m_SizeDelta: {x: 724.1212, y: 122.8692}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1005990169543319387
@@ -13382,8 +13382,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
