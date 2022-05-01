@@ -90,15 +90,21 @@ public class CrisisBox : MonoBehaviour
         //crisis = null;
 
         gameObject.SetActive(false);
-        foreach(GameObject psuedo in Psuedos){
-            Destroy(psuedo);
-            DestroyImmediate(psuedo);
-            if(psuedo != null){
-                psuedo.SetActive(false);
+        //for loop for psudeo cards
+
+        List<GameObject> cachedList = new List<GameObject>(Psuedos);
+        //loop over
+        foreach (GameObject psudeocard in cachedList)
+        {
+            if(psudeocard != null){
+                psudeocard.SetActive(false);
             }
+            //remove from list
+            Psuedos.Remove(psudeocard);
+            //destroy
+            Destroy(psudeocard);
         }
         GameMaster.ClearTargetsOfCards(this);
-
     }
 
     public Crisis GetCurrentCrisis(){

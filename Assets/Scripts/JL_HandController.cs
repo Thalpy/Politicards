@@ -208,6 +208,7 @@ public class JL_HandController : MonoBehaviour
             GameObject transitionCard = CardsInDeck[0];
             JL_CardController cardController = transitionCard.GetComponent<JL_CardController>();
             CardsInHand.Add(transitionCard);
+            cardController.Discarded = false;
             cardController._Card.DrawCard();
 
             transitionCard.transform.position = Deck.transform.position;

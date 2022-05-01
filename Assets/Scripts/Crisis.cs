@@ -135,7 +135,7 @@ public class Crisis
         Faction victory = null;
         int victoryProgress = minProgress;
         foreach(KeyValuePair<Faction, int> entry in factionProgress){
-            if(entry.Value > victoryProgress){
+            if(entry.Value >= victoryProgress){
                 victory = entry.Key;
                 victoryProgress = entry.Value;
             }

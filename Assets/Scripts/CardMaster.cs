@@ -59,6 +59,19 @@ public class CardMaster : MonoBehaviour
         //gets the psudoCard script
         newCard.GetComponent<PsuedoCard>().SetUp(card, transform.position);
         newCard.transform.localScale = new Vector3(1, 1, 1);
+        //itterate through other objects that the newCard's box collider hits
+        foreach (Collider2D collider in Physics2D.OverlapBoxAll(newCard.transform.position, newCard.transform.localScale, 0))
+        {
+            //the gameobject is called "BackGround"
+            //if the gameobject is not the background
+            if (collider.gameObject.name == "DummyCard(Clone)" && collider.gameObject != newCard)
+            {
+                //set inactive the gameobject
+                collider.gameObject.SetActive(false);
+                //destroy the gameobject
+                Destroy(collider.gameObject);
+            }      
+        }
         return newCard;
     }
 }

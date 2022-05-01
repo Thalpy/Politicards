@@ -251,14 +251,15 @@ public class GameMaster : MonoBehaviour
         foreach(GameObject item in Targets){
             //get TargetCrisis component
             TargetCrisis targetCrisis = item.GetComponent<TargetCrisis>();
-            if(targetCrisis != null || targetCrisis.crisisBox != cb){
+            if(targetCrisis == null || targetCrisis.crisisBox.location != cb.location){
                 //remove card from target
                 continue;
             }
-            //delete all children objects
-            foreach(Transform child in item.transform){
-                child.gameObject.SetActive(false);
-                Destroy(child.gameObject);
+            foreach (Transform child in targetCrisis.transform.GetComponentsInChildren<Transform>()) {
+                if(child.gameObject.name == "DummyCard(Clone)"){
+                    child.gameObject.SetActive(false);
+                    Destroy(child.gameObject);
+                }
             }
         }
     }
