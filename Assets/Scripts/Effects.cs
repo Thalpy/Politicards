@@ -600,3 +600,93 @@ public class SetAINeutral : Effect
         GameMaster.stateManager.SetRelationshipByString("Neutral");
     }
 }
+
+public class AddCardToHand : Effect
+{
+    public AddCardToHand()
+    {
+        name = "AddCardToHand";
+    }
+
+    string cardName;
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+        cardName = args[0];
+    }
+
+    public override void DoEffect()
+    {
+        Card card = GameMaster.cardMaster.getCard(cardName);
+        GameObject cardObj = GameMaster.playerHand.AddCard(card);
+        GameMaster.playerHand.AddSpecificCardToHand(cardObj);
+    }
+}
+
+public class SendInArmy : Effect
+{
+    public SendInArmy()
+    {
+        name = "SendInArmy";
+    }
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    public override void DoEffect()
+    {
+        Faction faction = GameMaster.factionController.SelectFaction("Military");
+        foreach(ActiveCrisis crisis in GameMaster.crisisMaster.ActiveCrisses)
+        {
+            foreach(Card card in crisis.playerCards)
+            {
+                if(card.Name == "Draft")
+                {
+                    GameMaster.factionController.ChangeFactionPower("Military", power);
+                    crisis.crisis.AdjustProgress(power, faction);
+                }
+            }
+            foreach(Card card in crisis.AICards)
+            {
+                if(card.Name == "Draft")
+                {
+                    GameMaster.factionController.ChangeFactionPower("Military", power);
+                    crisis.crisis.AdjustProgress(power, faction);
+                }
+            }
+        }
+    }
+}
+
+public class ExploitStrength : Effect
+{
+    public ExploitStrength()
+    {
+        name = "ExploitStrength";
+    }
+
+    public override void setVars(object source, List<string> args)
+    {
+        this.source = source;
+    }
+
+    public override void DoEffect()
+    {
+        Faction faction = GameMaster.factionController.SelectFaction("Economic");
+        foreach(Faction otherFaction in GameMaster.factionController.GetFactions())
+        {
+            if(faction.FactionName == "Economic")
+            {
+                continue;
+            }
+            if(faction.FactionPower > otherFaction.FactionPower)
+            {
+                power += 1;
+            }
+        }
+        AdjustProgress(faction);
+    }
+}

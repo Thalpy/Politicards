@@ -178,6 +178,9 @@ public class CrisisMaster : MonoBehaviour
     }
 
     public bool HasStoryCrisis(){
+        if(storyIndex == 100){
+            return true;
+        }
         foreach(ActiveCrisis Acrisis in activeCrisses){
             // if Acrisis is in the storyCrisises list
             if(Acrisis == null){
@@ -195,6 +198,8 @@ public class CrisisMaster : MonoBehaviour
     public Crisis GetStoryCrisis(){
         if(storyIndex >= storyCrisises.Count){
             GameMaster.dialoguePlayer.EndGame();
+            storyIndex = 100;
+            return null;
         }
         Crisis crisis = storyCrisises[storyIndex];
         storyIndex++;
@@ -399,6 +404,13 @@ public class ActiveCrisis
         crisis.StartCrisis();
         crisisBox = _crisisBox;
         crisisBox.ChangeEvent(crisis);
+        //for each factionProgress in crisis
+        foreach(KeyValuePair<Faction, int> entry in crisis.factionProgress){
+            if(entry.Value != 0){
+                Debug.LogWarning("Crisis had inpropiate faction progress!");
+            }
+        }
+        
     }
 
     public void NextTurn()

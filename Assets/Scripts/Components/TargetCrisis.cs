@@ -38,7 +38,7 @@ public class TargetCrisis : Targetable
             //GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
             psudeocard = GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
-            crisisBox.AddPsuedo(psudeocard);
+            crisisBox.Psuedos.Add(psudeocard);
             return true;
         }
         #if DEBUG_TargetCrisis
@@ -59,7 +59,7 @@ public class TargetCrisis : Targetable
             //GameMaster.crisisMaster.ApplyCard(card, crisis, index, player);
             card.UseCard(crisis, index, player);
             GameMaster.cardMaster.makePsuedoCard(card, gameObject.transform);
-            crisisBox.AddPsuedo(psudeocard);
+            crisisBox.Psuedos.Add(psudeocard);
             return true;
         }
         #if DEBUG_TargetCrisis

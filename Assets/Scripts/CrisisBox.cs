@@ -23,7 +23,7 @@ public class CrisisBox : MonoBehaviour
     public ProgressChart progressChart;
     //active crisis
     public Crisis crisis;
-    public GameObject[] Psuedos = new GameObject[3]; 
+    public List<GameObject> Psuedos = new List<GameObject>(); 
 
     private void Start() {
         //Add this to the master list
@@ -77,13 +77,12 @@ public class CrisisBox : MonoBehaviour
         progressChart.SetUpChart(SussyCrisis);
     }
 
-    public void AddPsuedo(GameObject pse){
-        for(int i = 0; i < Psuedos.Length; i++){
-            if(Psuedos[i] == null){
-                Psuedos[i] = pse;
-                return;
-            }
+    public void AddPseudo(GameObject psudeocard){
+        if(psudeocard == null){
+            Debug.LogWarning("Cannot add null psudeocard to crisis box");
+            return;
         }
+        Psuedos.Add(psudeocard);
     }
 
     public void EndCrisis()
@@ -91,11 +90,15 @@ public class CrisisBox : MonoBehaviour
         //crisis = null;
 
         gameObject.SetActive(false);
-        for (int i = 0; i < Psuedos.Length; i++)
-        {
-            //destroy the psuedo
-            DestroyImmediate(Psuedos[i]);
+        foreach(GameObject psuedo in Psuedos){
+            Destroy(psuedo);
+            DestroyImmediate(psuedo);
+            if(psuedo != null){
+                psuedo.SetActive(false);
+            }
         }
+        GameMaster.ClearTargetsOfCards(this);
+
     }
 
     public Crisis GetCurrentCrisis(){

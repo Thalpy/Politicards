@@ -246,4 +246,20 @@ public class GameMaster : MonoBehaviour
     {
         NextTurn();
     }
+
+    public static void ClearTargetsOfCards(CrisisBox cb){
+        foreach(GameObject item in Targets){
+            //get TargetCrisis component
+            TargetCrisis targetCrisis = item.GetComponent<TargetCrisis>();
+            if(targetCrisis != null || targetCrisis.crisisBox != cb){
+                //remove card from target
+                continue;
+            }
+            //delete all children objects
+            foreach(Transform child in item.transform){
+                child.gameObject.SetActive(false);
+                Destroy(child.gameObject);
+            }
+        }
+    }
 }
