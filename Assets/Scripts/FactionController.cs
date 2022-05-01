@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// A class to hold references to all the factions 
@@ -24,6 +25,8 @@ public class FactionController : MonoBehaviour
 
     [SerializeField] public ManaEvent ManaEvent = new ManaEvent();
 
+    public UnityEvent factionPowerChanged = new UnityEvent();
+
     /// <summary>
     /// a dictionary of all the factions vs the legacy index of the faction
     /// </summary>
@@ -35,6 +38,12 @@ public class FactionController : MonoBehaviour
        this.ManaEvent.Invoke(mana, factionName);
        // say firing off the event with the faction name and mana amount
        Debug.Log("FactionController.onPlayerManaChange: " + factionName + " " + mana);
+    }
+
+    public void onFactionPowerChange()
+    {
+        //Debug.Log("Faction power change event received");
+        this.factionPowerChanged.Invoke();
     }
 
 
@@ -49,6 +58,7 @@ public class FactionController : MonoBehaviour
         {
             //subscribe to the faction's mana change event
             faction.playerManaChange.AddListener(onPlayerManaChange);
+            faction.factionPowerChange.AddListener(onFactionPowerChange);
             FactionDictionary.Add(faction.FactionName, i);
             faction.ChangeHappiness(5);
             faction.ChangeAiHappiness(5);
