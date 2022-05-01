@@ -204,7 +204,8 @@ public class PieChart : MonoBehaviour
             //we subscribe to the faction power change event on all factions to automatically update the pie chart at run time.
             faction.factionPowerChange.AddListener(OnFactionPowerChange);
         }
-        
+        setPieChartColors();
+
 
 
 
@@ -267,10 +268,21 @@ public class PieChart : MonoBehaviour
         SetValues(values);
     }
 
+    /// <summary>
+    /// Sets the colors of the pie chart elements. to the colours of the factions
+    /// </summary>
+    void setPieChartColors()
+    {
+        for (int i = 0; i < pieChartData.Length; i++)
+        {
 
-
-
-
+            Faction faction = GameMaster.factionController.SelectFaction(pieChartData[i].name);
+            if (faction != null)
+            {
+                pieChartData[i].image.color = faction.FactionColor;
+            }
+        }
+    }
 
 }
 
