@@ -62,6 +62,7 @@ public class CrisisBox : MonoBehaviour
     /// </summary>
     public void ChangeEvent(Crisis SussyCrisis)
     {
+        EndCrisis();
         gameObject.SetActive(true);
         crisis = SussyCrisis;
         //set the name
